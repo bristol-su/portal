@@ -1,0 +1,247 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Variables
+@import 'variables';
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap-vue/src/index.scss';
+@import '~vue-form-generator/dist/vfg.css';
+@import '~vue-sidebar-menu/dist/vue-sidebar-menu.css';
+
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+
+
+
+/* Defines the styling for form errors */
+.has-error-span {
+  color: red;
+}
+
+/* Footer */
+@media only screen and (max-height: 500px) {
+    footer{
+        display: none;
+    }
+}
+
+
+
+/* Notification styling */
+
+@import './notification';
+
+
+/* Loading wheel styling */
+.spinner-target {
+  z-index: 20000000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Div which shows when a users javascript is turned off */
+
+.noscript-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 6px;
+  color: #fff;
+  background: #2452A1;
+  text-align: center;
+  z-index: 300000;
+  margin-bottom: 3em;
+  display: block;
+}
+
+
+
+
+
+
+/* Module button styling */
+.module-button-admin {
+  height: 60px;
+  width: 80%;
+  background-color: #fff;
+  color: #2452A1;
+  border-color: #2452A1;
+  border-radius: 15px;
+  border-width: 1px;
+  margin-top: 5px;
+}
+
+.module-button-admin:hover {
+  background-color: #2452a1;
+  color: #fff;
+  -webkit-transition: ease-in-out 0.5s;
+}
+
+
+
+/* Centralise everything by default */
+.container {
+  text-align: center;
+}
+
+
+
+/* Back to portal button on every user page */
+.back-to-portal-btn {
+  width: 30%;
+}
+
+
+/* Inline Help css (https://tutorialzine.com/2014/07/css-inline-help-tips) modified */
+/* Controls popups on hover (essentially a custom bsu-tooltip) */
+.help-tip{
+  margin-left: 5px;
+  text-align: center;
+  background-color: #2452a1;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  font-size: 8px;
+  cursor: default;
+}
+
+.help-tip:before{
+  content:'?';
+  font-weight: bold;
+  color:#fff;
+}
+
+.help-tip:hover p{
+  display:block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip p{    /* The bsu-tooltip */
+  display: none;
+  text-align: left;
+  background-color: #1E2021;
+  padding: 20px;
+  width: 300px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #FFF;
+  font-size: 13px;
+  line-height: 1.4;
+  z-index: 200;
+}
+
+.help-tip p:before{ /* The pointer of the bsu-tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#1E2021;
+  right:10px;
+  top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the bsu-tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity:100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:100%; }
+}
+
+
+
+
+
+
+
+
+
+
+/* Breadcrumbs */
+.breadcrumb {
+  min-width: max-content;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+
+
+
+
+
+
+/* Tooltip css */
+.bsu-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.bsu-tooltip .bsu-tooltiptext {
+  visibility: hidden;
+  width: 300%;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  top: 135%;
+  height: fit-content;
+}
+
+.bsu-tooltip .bsu-tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.bsu-tooltip:hover .bsu-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
