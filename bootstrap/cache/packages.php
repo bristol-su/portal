@@ -6,7 +6,7 @@
       0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
-  'bristol-su/control-db-implementation' => 
+  'bristol-su/control' => 
   array (
     'dont-discover' => 
     array (
@@ -96,13 +96,6 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    ),
-  ),
-  'twigger/unioncloud' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Twigger\\UnionCloud\\API\\UnionCloudServiceProvider',
     ),
   ),
 );
