@@ -34,7 +34,7 @@
                 if(this.role === null) {
                     return 'Loading role information...';
                 }
-                return  'Activities for your position of ' + this.role.position.name + ' to ' + this.role.group.name;
+                return  'Activities for your position of ' + this.role.position.data.name + ' to ' + this.role.group.data.name;
             },
 
         }

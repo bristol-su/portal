@@ -6,7 +6,7 @@
     ],
     "license": "MIT",
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "require": {
         "php": "^7.2",
         "aws/aws-sdk-php": "^3.88",
@@ -18,10 +18,11 @@
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
-        "bristol-su/support": "dev-develop",
+        "bristol-su/support": "^1.0",
         "bristol-su/upload-file": "dev-master",
         "bristol-su/typeform": "dev-master",
-        "bristol-su/typeform-service": "dev-master"
+        "bristol-su/typeform-service": "dev-master",
+        "fruitcake/laravel-cors": "^1.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",

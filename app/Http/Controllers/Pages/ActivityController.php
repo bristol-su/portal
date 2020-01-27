@@ -8,8 +8,6 @@ use BristolSU\Support\ActivityInstance\ActivityInstance;
 use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceRepository;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\ModuleInstance\Contracts\Evaluator\ActivityInstanceEvaluator;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use BristolSU\Support\Authentication\Contracts\ResourceIdGenerator;
 
 class ActivityController extends Controller

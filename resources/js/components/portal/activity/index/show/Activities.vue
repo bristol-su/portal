@@ -13,7 +13,7 @@
         <activity-group
             class="activity-group"
             v-for="(groupActivitySet, groupId) in groupActivities"
-            :key="groupId"
+            :key="'group:' + groupId"
             :activities="groupActivitySet"
             type="group"
             :resource-id="groupId"
@@ -24,7 +24,7 @@
         <activity-group
             class="activity-group"
             v-for="(roleActivitySet, roleId) in roleActivities"
-            :key="roleId"
+            :key="'role:' + roleId"
             :activities="roleActivitySet"
             type="role"
             :resource-id="roleId"

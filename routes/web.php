@@ -17,7 +17,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
     Route::post('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@login');
 
-    Route::middleware(['nonmodule', 'can:view-settings'])->namespace('Settings')->group(function() {
+    Route::middleware(['nonmodule', 'can:view-settings', 'password.confirm'])->namespace('Settings')->group(function() {
         // Settings routes
         Route::get('/settings', 'SettingsController@index')->name('settings');
         Route::resource('activity', 'ActivityController')->only(['index', 'create', 'show']);

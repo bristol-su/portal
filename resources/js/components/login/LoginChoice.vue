@@ -41,9 +41,9 @@
                 if(this.type === 'user') {
                     return 'Your user account';
                 } else if(this.type === 'group') {
-                    return 'Membership to ' + this.resource.name;
+                    return 'Membership to ' + this.resource.data.name;
                 } else if(this.type ===  'role') {
-                    return 'Position of ' + this.resource.position.name + ' of ' + this.resource.group.name;
+                    return 'Position of ' + this.resource.position.data.name + ' of ' + this.resource.group.data.name;
                 }
             },
             selected() {

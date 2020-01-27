@@ -49,7 +49,7 @@
                     + this.activity.slug;
             },
             loginUrl() {
-                return '/login/participant/' + this.activity.slug;
+                return '/login/'+ (this.admin?'admin':'participant') + '/' + this.activity.slug;
             }
         }
     }

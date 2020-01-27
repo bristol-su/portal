@@ -16,17 +16,16 @@
 
 
                         <div class="form-group row">
-                            <label for="identity"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}
-                                or {{ __('Student ID') }}</label>
+                            <label for="email"
+                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="identity" type="text"
-                                       class="form-control{{ $errors->has('identity') ? ' is-invalid' : '' }}"
-                                       name="identity" value="{{ old('identity') }}" required>
-                                @if ($errors->has('identity'))
+                                <input id="email" type="email"
+                                       class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                       name="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('identity') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>

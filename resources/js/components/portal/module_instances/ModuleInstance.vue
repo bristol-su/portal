@@ -4,8 +4,8 @@
             <b-button :class="{mandatory: mandatory, inactive: inactive, complete: complete}"
                       :disabled="inactive"
                       class="module-button"
-                      variant="primary">
-                {{moduleInstance.name}}
+                      variant="primary"
+                      v-html="moduleInstance.name">
             </b-button>
         </a>
     </div>
@@ -65,8 +65,13 @@
 
 <style scoped>
 
+    .module-button.inactive {
+        color: #000;
+        background: #d1d1d1;
+        border-color: #d1d1d1;
+    }
+
     .module-button {
-        height: 60px;
         width: 80%;
         background-color: #fff;
         color: #2452A1;
@@ -82,6 +87,12 @@
         -webkit-transition: ease-in-out 0.5s;
     }
 
+    .module-button.inactive:hover {
+        color: #000;
+        background: #d1d1d1;
+        border-color: #d1d1d1;
+    }
+
     .module-button.mandatory {
         color: #ff2353;
         background-color: #fff;
@@ -94,17 +105,6 @@
         -webkit-transition: ease-in-out 0.5s;
     }
 
-    .module-button.inactive {
-        color: #000;
-        background: #d1d1d1;
-        border-color: #d1d1d1;
-    }
-
-    .module-button.inactive:hover {
-        color: #000;
-        background: #d1d1d1;
-        border-color: #d1d1d1;
-    }
 
 
     .module-button.complete {

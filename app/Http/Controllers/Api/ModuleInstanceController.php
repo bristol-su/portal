@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Http\Controllers\Controller;
-use BristolSU\Support\Activity\Activity;
-use BristolSU\Support\Activity\Contracts\Repository;
 use BristolSU\Support\ModuleInstance\Contracts\ModuleInstanceRepository;
 use Illuminate\Http\Request;
 

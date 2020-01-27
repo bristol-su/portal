@@ -34,7 +34,7 @@
                 if(this.group === null) {
                     return 'Loading group membership information...';
                 }
-               return  'Activities for your membership to ' + this.group.name;
+               return  'Activities for your membership to ' + this.group.data.name;
             },
 
         }

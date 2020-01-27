@@ -4,80 +4,87 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\UserVerificationRequestGenerated;
 use App\Http\Controllers\Controller;
-use BristolSU\ControlDB\Contracts\Repositories\User as ControlUserContract;
-use BristolSU\Support\DataPlatform\Contracts\Repositories\User as DataPlatformUserContract;
-use BristolSU\Support\User\Contracts\UserRepository;
+use BristolSU\ControlDB\Contracts\Repositories\DataUser as DataUserRepository;
+use BristolSU\ControlDB\Contracts\Repositories\User as ControlUserRepository;
+use BristolSU\Support\User\Contracts\UserAuthentication;
+use BristolSU\Support\User\Contracts\UserRepository as DatabaseUserRepository;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-
+/**
+ * Handle registration of a user
+ */
 class RegisterController extends Controller
 {
-
-
     use RegistersUsers;
-    /**
-     * @var UserRepository
-     */
-    private $userRepository;
 
     /**
      * Create a new controller instance.
      *
-     * @param UserRepository $userRepository
+     * - Apply the guest middleware
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct()
     {
         $this->middleware('guest');
-        $this->userRepository = $userRepository;
     }
 
     /**
      * Register the user
+     *
+     * - Find them with the DataUser Repository.
+     * - Find them on control, or create them if not found.
+     * - Create a database user
+     * - Login to the database user
+     *
      * @param Request $request
-     * @param DataPlatformUserContract $dataPlatformUserRepository
-     * @param ControlUserContract $controlUserRepository
+     * @param ControlUserRepository $controlUserRepository
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function register(Request $request, DataPlatformUserContract $dataPlatformUserRepository, ControlUserContract $controlUserRepository)
+    public function register(Request $request,
+                             DataUserRepository $dataUserRepository,
+                             ControlUserRepository $controlUserRepository,
+                             DatabaseUserRepository $databaseUserRepository,
+                             UserAuthentication $databaseUserAuthentication)
     {
         $request->validate([
-            'identity' => ['required', 'string'],
+            'email' => ['required', 'string', 'email'],
             'password' => 'required|confirmed|min:6'
         ]);
 
-        // Get a user from the data platform
+        // Find a DataUser
         try {
-            $dataUser = $dataPlatformUserRepository->getByIdentity($request->input('identity'));
+            $dataUser = $dataUserRepository->getWhere(['email' => $request->input('email')]);
         } catch (\Exception $e) {
             return back()
-                ->withErrors(['identity' => 'Could not find your account on our website'])
+                ->withErrors(['email' => 'We didn\'t recognise your email address. Please create an account on our website.'])
                 ->withInput();
         }
 
-        // Create them on control
+        // Find them in control, or create them
         try {
-            $controlUser = $controlUserRepository->getByDataPlatformId($dataUser->id());
-        } catch (\Exception $e) {
+            $controlUser = $controlUserRepository->getByDataProviderId($dataUser->id());
+        } catch (ModelNotFoundException $e) {
             $controlUser = $controlUserRepository->create($dataUser->id());
         }
 
-        // Create user
-        $user = $this->userRepository->create([
-            'forename' => $dataUser->forename(),
-            'surname' => $dataUser->surname(),
+        // Create database user
+        $user = $databaseUserRepository->create([
+            'forename' => $dataUser->firstName(),
+            'surname' => $dataUser->lastName(),
             'email' => $dataUser->email(),
-            'student_id' => $dataUser->studentId(),
             'control_id' => $controlUser->id()
         ]);
 
         $user->password = Hash::make($request->input('password'));
+        $user->email_verified_at = Carbon::now();
         $user->save();
 
         event(new UserVerificationRequestGenerated($user));
 
-        $this->guard()->login($user);
+        $databaseUserAuthentication->setUser($user);
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());

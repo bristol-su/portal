@@ -47,9 +47,9 @@
                                 <!-- Home -->
                                 <a class="dropdown-item" href="#">
                                     @if($currentRole !== null)
-                                        Acting as {{$currentRole->positionName()}} of {{$currentRole->group()->name()}}
+                                        Acting as {{$currentRole->data()->positionName()}} of {{$currentRole->group()->data()->name()}}
                                     @elseif($currentGroup !== null)
-                                        Acting in your membership to {{$currentGroup->name()}}
+                                        Acting in your membership to {{$currentGroup->data()->name()}}
                                     @elseif($currentUser !== null)
                                         Acting as yourself
                                     @else

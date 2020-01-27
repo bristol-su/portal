@@ -26,7 +26,11 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        ActivityRequiresParticipant::class,
+        ActivityRequiresAdmin::class,
+        ModuleInactive::class,
+        NotInActivityInstanceException::class,
+
     ];
 
     /**
@@ -44,6 +48,7 @@ class Handler extends ExceptionHandler
      *
      * @param Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
@@ -53,9 +58,17 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
+     * - Redirect to participant login page if $e instance of ActivityRequiresParticipant
+     * - Redirect to admin login page if $e instance of ActivityRequiresAdmin
+     * - Return a 403 HttpException if $e instanceof ModuleInactive
+     * - Log into the default activity instance if possible if $e instanceof NotInActivityInstanceException
+     *
      * @param Request $request
      * @param Exception $exception
      * @return Response|RedirectResponse
+     * @throws ActivityRequiresGroup
+     * @throws ActivityRequiresRole
+     * @throws ActivityRequiresUser
      */
     public function render($request, Exception $exception)
     {
@@ -74,7 +87,7 @@ class Handler extends ExceptionHandler
                 ]);
             }
             if($exception instanceof ModuleInactive) {
-                dd($exception);
+                abort(403);
             }
             if($exception instanceof NotInActivityInstanceException) {
                 $activity = $request->route('activity_slug');

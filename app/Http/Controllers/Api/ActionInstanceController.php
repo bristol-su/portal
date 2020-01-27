@@ -6,9 +6,27 @@ use App\Http\Controllers\Controller;
 use BristolSU\Support\Action\ActionInstance;
 use Illuminate\Http\Request;
 
+/**
+ * Manage actions that will fire when events fire
+ */
 class ActionInstanceController extends Controller
 {
 
+    /**
+     * Create a new action instance
+     *
+     * Accepts:
+     * [
+     *      'name' => 'Name',
+     *      'description' => 'Description',
+     *      'event' => '\Fully\Namespaced\EventClass',
+     *      'action' => '\Fully\Namespaced\ActionClass',
+     *      'module_instance_id => 1 // ID of the module instace that should fire the event
+     * ]
+     *
+     * @param Request $request Request object with the given parameters
+     * @return ActionInstance
+     */
     public function store(Request $request)
     {
         return ActionInstance::create($request->only([
@@ -16,6 +34,22 @@ class ActionInstanceController extends Controller
         ]));
     }
 
+    /**
+     * Update an action instance
+     *
+     * Accepts:
+     * [
+     *      'name' => 'Name',
+     *      'description' => 'Description',
+     *      'event' => '\Fully\Namespaced\EventClass',
+     *      'action' => '\Fully\Namespaced\ActionClass',
+     *      'module_instance_id => 1 // ID of the module instace that should fire the event
+     * ]
+     *
+     * @param ActionInstance $actionInstance Action instance to update
+     * @param Request $request Request object with the given parameters
+     * @return ActionInstance Updated action instance
+     */
     public function update(ActionInstance $actionInstance, Request $request)
     {
         $actionInstance->fill($request->only([
@@ -25,8 +59,14 @@ class ActionInstanceController extends Controller
         return $actionInstance;
     }
 
+    /**
+     * Show information about a specific action instance
+     *
+     * @param ActionInstance $actionInstance Action instance to show
+     * @return ActionInstance Given action instance
+     */
     public function show(ActionInstance $actionInstance)
     {
-        dd($actionInstance);
+        return $actionInstance;
     }
 }

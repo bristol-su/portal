@@ -42,42 +42,4 @@ class LoginController extends Controller
     {
         return 'portal';
     }
-
-    public function username() {
-        $login = request()->input('identity');
-        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'student_id';
-        request()->merge([$field => $login]);
-        return $field;
-    }
-
-    /**
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    protected function validateLogin(Request $request)
-    {
-        $request->validate([
-            'identity' => 'required|string',
-            'password' => 'required|string',
-        ]);
-    }
-
-    /**
-     * Get the failed login response instance.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        throw ValidationException::withMessages([
-            'identity' => [trans('auth.failed')],
-        ]);
-    }
 }

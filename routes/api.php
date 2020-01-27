@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware(['auth', 'verified'])->group(function() {
-    Route::apiResource('activity', 'ActivityController')->only(['store']);
+    Route::apiResource('activity', 'ActivityController')->only(['store', 'update']);
     Route::apiResource('filter', 'FilterController')->only(['index']);
     Route::apiResource('filter-instances', 'FilterInstanceController')->only(['store']);
     Route::apiResource('logic', 'LogicController')->only(['index', 'show', 'store']);
@@ -27,7 +27,6 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::apiResource('action-instance-field', 'ActionInstanceFieldController')->only(['store', 'update']);
     Route::apiResource('site-permission', 'SitePermissionController')->only('index', 'show');
     Route::apiResource('connector', 'ConnectorController')->only('index', 'show');
-    Route::apiResource('connection', 'ConnectionController')->only('index');
     Route::apiResource('connection', 'ConnectionController')->only('index', 'destroy', 'update', 'store');
     Route::get('connection/{connection_id}/test', 'ConnectionController@test');
     Route::apiResource('group', 'GroupController')->only(['show']);

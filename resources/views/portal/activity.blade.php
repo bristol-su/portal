@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $activity->name)
+
 @section('app-content')
     <div id="portal">
         <div class="py-5" id="vue-root">
