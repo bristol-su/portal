@@ -18,6 +18,7 @@ import ActivityInstance from './resources/activityinstance';
 import Connector from './resources/connector';
 import Connection from './resources/connection';
 import ModuleInstanceServices from './resources/moduleinstanceservices';
+import Setting from './resources/setting';
 
 // TODO Implement Cache
 export default class {
@@ -82,6 +83,10 @@ export default class {
 
     activityInstance() {
         return new ActivityInstance(this._http);
+    }
+
+    settings() {
+        return new Setting(this._http);
     }
 
     moduleInstancePermissions() {

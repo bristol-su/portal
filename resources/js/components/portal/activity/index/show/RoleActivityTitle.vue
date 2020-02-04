@@ -23,7 +23,7 @@
 
         methods: {
             loadRole() {
-                this.$api.role().getById(this.roleId)
+                this.$control.role().get(this.roleId)
                     .then(response => this.role = response.data)
                     .catch(error => this.$notify.alert('Could not load role ' + this.roleId + ': ' + error.message));
             }

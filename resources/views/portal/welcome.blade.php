@@ -1,28 +1,10 @@
-@extends('bristolsu::base')
+@extends('layouts.app')
 
-@section('title', 'Welcome')
-@section('content')
-    <div class="text-center py-5">
-        <div class="container">
-            <div class="row my-5 justify-content-center">
-                <div class="col-md-9">
-                    <h1>Bristol SU Portal</h1>
-                    <p class="lead text-muted">
-			Hello! This is the Bristol SU Portal, a site under development which aims to bring the power and 
-			accessibility of a customer portal to an open sourced platform, enabling any charity, non-profit or person without a development budget
-			to host and customise a portal through which all services can be accessed.
-
-			Registration to this demo site is enabled. Create your own services through the 'settings' page (by the dropdown in the top right), 
-			or have a look at the service we've already made. For any questions, please contact me at toby.twigger@bristol.ac.uk, and thanks for your interest!
-                    </p>
-                    {{--                    <a href="{{url('/login')}}" class="btn btn-primary m-2">Login</a>--}}
-                    <a href="{{url('/register')}}" class="btn btn-lg btn-secondary m-1">Register</a>
-                </div>
-            </div>
-        </div>
-    </div>
+@section('app-content')
+    <welcome
+        title="{{siteSetting('welcome.messages.title', 'Welcome to the portal!')}}"
+        :registration="{{(siteSetting('welcome.fillInRegInformation', true)?'true':'false')}}"
+        :data-user="{{app(\BristolSU\Support\User\Contracts\UserAuthentication::class)->getUser()->controlUser()->data()}}"
+        subtitle="{{siteSetting('welcome.messages.subtitle', 'Before we start, check our records are up to date!')}}"
+        :attributes="{{json_encode(siteSetting('welcome.attributes', []), JSON_FORCE_OBJECT)}}"></welcome>
 @endsection
-
-@push('scripts')
-    <script src="{{ mix('js/app.js') }}"></script>
-@endpush

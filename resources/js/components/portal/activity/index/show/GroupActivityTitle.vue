@@ -23,7 +23,7 @@
 
         methods: {
             loadGroup() {
-                this.$api.group().getById(this.groupId)
+                this.$control.group().get(this.groupId)
                     .then(response => this.group = response.data)
                     .catch(error => this.$notify.alert('Could not load group ' + this.groupId + ': ' + error.message));
             }

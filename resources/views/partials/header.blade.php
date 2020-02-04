@@ -40,7 +40,8 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->forename }} <span class="caret"></span>
+                                @inject('userAuthentication', 'BristolSU\Support\User\Contracts\UserAuthentication')
+                                {{ $userAuthentication->getUser()->controlUser()->data()->preferred_name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -58,8 +59,8 @@
                                 </a>
                                 <a class="dropdown-item" href="{{url('/')}}">Home</a>
                                 <!-- Settings -->
-                                @can('view-settings')
-                                    <a class="dropdown-item" href="{{ route('settings') }}">Settings</a>
+                                @can('view-management')
+                                    <a class="dropdown-item" href="{{ route('management') }}">Management</a>
                             @endcan
                             <!-- Logout -->
                                 <a class="dropdown-item" href="#"

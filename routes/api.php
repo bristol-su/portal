@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::apiResource('activity', 'ActivityController')->only(['store', 'update']);
+    Route::apiResource('setting', 'SettingController')->only(['index', 'show', 'update']);
     Route::apiResource('filter', 'FilterController')->only(['index']);
     Route::apiResource('filter-instances', 'FilterInstanceController')->only(['store']);
     Route::apiResource('logic', 'LogicController')->only(['index', 'show', 'store']);
@@ -29,8 +30,6 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::apiResource('connector', 'ConnectorController')->only('index', 'show');
     Route::apiResource('connection', 'ConnectionController')->only('index', 'destroy', 'update', 'store');
     Route::get('connection/{connection_id}/test', 'ConnectionController@test');
-    Route::apiResource('group', 'GroupController')->only(['show']);
-    Route::apiResource('role', 'RoleController')->only(['show']);
     Route::apiResource('completion-condition-instance', 'CompletionConditionInstanceController')->only(['store']);
     Route::apiResource('activity-instance', 'ActivityInstanceController')->only(['store']);
     Route::get('/activity/{activity}/progress', 'ActivityProgressController@show');
@@ -58,12 +57,6 @@ Route::middleware(['auth', 'verified'])->group(function() {
             Route::apiResource('module-instance-service', 'ModuleInstanceModuleInstanceServiceController')->only(['index']);
         });
 
-    });
-
-    Route::namespace('Control')->prefix('control')->group(function() {
-        Route::apiResource('user', 'UserController')->only(['index']);
-        Route::apiResource('group', 'GroupController')->only(['show']);
-        Route::apiResource('position', 'PositionController')->only(['show']);
     });
 
 });

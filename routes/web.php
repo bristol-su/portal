@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 // Landing Page Route
-Route::middleware('guest')->get('/', 'Pages\GuestController@index');
+Route::middleware('guest')->get('/', 'Pages\LandingController@index');
 
 Route::middleware(['auth', 'verified'])->group(function() {
 
@@ -17,9 +17,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
     Route::post('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@login');
 
-    Route::middleware(['nonmodule', 'can:view-settings', 'password.confirm'])->namespace('Settings')->group(function() {
+    Route::middleware(['nonmodule', 'can:view-management', 'password.confirm'])->namespace('Management')->group(function() {
         // Settings routes
-        Route::get('/settings', 'SettingsController@index')->name('settings');
+        Route::get('/management', 'ManagementController@index')->name('management');
         Route::resource('activity', 'ActivityController')->only(['index', 'create', 'show']);
         Route::resource('logic', 'LogicController')->only(['index', 'show', 'create']);
         Route::resource('site-permission', 'SitePermissionController')->only(['index', 'show']);
@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
                 Route::resource('action', 'ActionController')->only(['show', 'create']);
             });
         });
+        Route::get('settings', 'SettingsController@index');
     });
 
 
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::namespace('Pages')->group(function () {
         Route::middleware('nonmodule')->group(function() {
             Route::get('/portal', 'PortalController@portal')->name('portal');
+            Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
             Route::get('/a', 'PortalController@administrator')->name('administrator');
             Route::get('/p', 'PortalController@participant')->name('participant');
             Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
