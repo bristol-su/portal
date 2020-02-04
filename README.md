@@ -2,6 +2,9 @@
 
 ![Scrutinizer](https://scrutinizer-ci.com/g/bristol-su/committee-portal/badges/quality-score.png?b=master)
 
+## Demo Site
+[https://portal-demo.bristolsustaging.co.uk](https://portal-demo.bristolsustaging.co.uk)
+
 ## The problem
 
 As an organization, Bristol Student Union provides a huge number of different services to students of Bristol University. These range from help with appeals in regards to the examination process, to booking transport for a trip and managing society finances. Furthermore, since each team operates differently depending on what works best for them, each process can be different from both an end-user point of view and a staff member point of view when compared to any other process.
