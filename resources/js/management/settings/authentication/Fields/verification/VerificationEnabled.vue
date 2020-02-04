@@ -17,8 +17,6 @@
     export default {
         name: "VerificationEnabled",
 
-        props: {},
-
         data() {
             return {
                 value: null,
@@ -35,9 +33,8 @@
             updateAttribute(verification) {
                 this.$emit('input', verification);
                 if(verification !== this.value) {
-                    console.log(verification);
                     this.value = verification;
-                    this.$api.settings().set(window.settingKeys.authentication.verification.required, true)
+                    this.$api.settings().set(window.settingKeys.authentication.verification.required, verification)
                         .then(response => this.$notify.success('Updated the registration verification.'))
                         .catch(error => this.$notify.alert('Could not update the registration verification.'));
                 }

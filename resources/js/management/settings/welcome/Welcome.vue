@@ -17,6 +17,7 @@
                         <b-form-group
                             label-cols-sm="3"
                             label="Ask for Registration Information"
+                            description="Should we give users the chance to update their data on registration?"
                             label-align-sm="right"
                             label-for="registration-information"
                         >
@@ -47,18 +48,21 @@
                         <b-form-group
                             label-cols-sm="3"
                             label="Title of the page"
+                            description="Title to show at the top of the welcome page"
                             label-align-sm="right"
                             label-for="title-message"
                         >
-                            <title id="title-message" @input="settings.titleMessage = $event"></title>
+                            <welcome-title id="title-message" @input="settings.title = $event"></welcome-title>
                         </b-form-group>
 
                         <b-form-group
+                            label-cols-sm="3"
                             label="Subtitle for the page"
+                            description="Subtitle to show at the top of the welcome page"
                             label-align-sm="right"
                             label-for="subtitle-message"
                         >
-                            <subtitle id="subtitle-message" @input="settings.subtitleMessage = $event"></subtitle>
+                            <subtitle id="subtitle-message" @input="settings.subtitle = $event"></subtitle>
                         </b-form-group>
                     </b-form-group>
                 </b-card>
@@ -74,13 +78,16 @@
     import RegistrationAttributes from './RegistrationAttributes';
     export default {
         name: "Welcome",
-        components: {RegistrationAttributes, RegistrationInformation, Subtitle, Title},
+        components: {RegistrationAttributes, RegistrationInformation, Subtitle, 'welcome-title': Title},
         props: {},
 
         data() {
             return {
                 settings: {
-                    registrationAttributeSelection: null,
+                    title: null,
+                    subtitle: null,
+                    registrationInformation: null,
+                    registrationAttributes: null
                 }
             }
         },

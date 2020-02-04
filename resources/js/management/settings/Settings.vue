@@ -17,6 +17,11 @@
                         <welcome></welcome>
                     </b-card-text>
                 </b-tab>
+                <b-tab title="Third Party Authentication">
+                    <b-card-text>
+                        <third-party-auth></third-party-auth>
+                    </b-card-text>
+                </b-tab>
             </b-tabs>
         </b-card>
     </div>
@@ -26,10 +31,11 @@
     import AdditionalAttributes from '../settings/additionalattributes/AdditionalAttributes';
     import Authentication from './authentication/Authentication';
     import Welcome from './welcome/Welcome';
+    import ThirdPartyAuth from './third-party-auth/ThirdPartyAuth';
 
     export default {
         name: "Settings",
-        components: {Authentication, AdditionalAttributes, Welcome},
+        components: {ThirdPartyAuth, Authentication, AdditionalAttributes, Welcome},
         props: {},
 
         data() {

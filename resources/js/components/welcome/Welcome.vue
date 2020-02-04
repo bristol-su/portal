@@ -59,6 +59,10 @@
                 required: true,
                 type: Object
             },
+            controlUser: {
+                required: true,
+                type: Object
+            },
             subtitle: {
                 required: false,
                 type: String,
@@ -81,7 +85,7 @@
 
         methods: {
             saveAttributes() {
-                this.$control.user().update(this.dataUser.id, this.form)
+                this.$control.user().update(this.controlUser.id, this.form)
                     .then(response => {
                         window.location.href = '/p';
                     })

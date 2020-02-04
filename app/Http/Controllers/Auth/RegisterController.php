@@ -27,7 +27,7 @@ class RegisterController extends Controller
     /**
      * Show the application registration form.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showRegistrationForm()
     {
@@ -98,7 +98,7 @@ class RegisterController extends Controller
         // Get the data user
         try {
             $dataUser = $dataUserRepository->getWhere([$identifier => $identifierValue]);
-        } catch (Exception $e) {
+        } catch (ModelNotFoundException $e) {
             if ($shouldAlreadyBeInData) {
                 return back()
                     ->withErrors(['identifier' => $notInDataExceptionMessage])
@@ -108,7 +108,7 @@ class RegisterController extends Controller
                 if ($identifier === 'email') {
                     $dataUser->setEmail($identifierValue);
                 } else {
-                    $dataUser->setAdditionalAttribute($identifier, $identifierValue);
+                    $dataUser->saveAdditionalAttribute($identifier, $identifierValue);
                 }
             }
 
@@ -144,7 +144,9 @@ class RegisterController extends Controller
         }
         $user->save();
 
-        event(new UserVerificationRequestGenerated($user));
+        if($emailShouldBeVerified) {
+            event(new UserVerificationRequestGenerated($user));
+        }
 
         $databaseUserAuthentication->setUser($user);
 

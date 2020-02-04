@@ -163,6 +163,7 @@
                         return this.attributes[key].visible;
                     }
                 }
+                return false;
             },
             isAttributeEditable(key) {
                 for (const attributeKey of Object.keys(this.attributes)) {
@@ -170,6 +171,7 @@
                         return this.attributes[key].editable;
                     }
                 }
+                return false;
             },
             isAttributeRequired(key) {
                 for (const attributeKey of Object.keys(this.attributes)) {
@@ -177,6 +179,7 @@
                         return this.attributes[key].required;
                     }
                 }
+                return false;
             }
         },
 

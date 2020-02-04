@@ -1,8 +1,8 @@
-@extends('bristolsu::base')
+@extends('layouts.app')
 
 @section('title', 'Password Reset')
 
-@section('content')
+@section('app-content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

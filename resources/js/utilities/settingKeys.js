@@ -33,5 +33,8 @@ export default {
             subtitle: 'welcome.messages.subtitle'
         },
         attributes: 'welcome.attributes'
+    },
+    thirdPartyAuthentication: {
+        providers: 'thirdPartyAuthentication.providers'
     }
 };

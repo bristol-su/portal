@@ -2,7 +2,7 @@
     <div>
         <b-form-input
             type="text"
-            placeholder="required|min:6"
+            placeholder="e.g. required|min:6"
             :value="currentValidation"
             @input="updateAttribute"
         ></b-form-input>
@@ -28,7 +28,7 @@
         },
 
         methods: {
-            updateAttribute(validation) {
+            updateAttribute: _.debounce(function(validation) {
                 this.$emit('input', validation);
                 if(validation !== this.currentValidation) {
                     this.currentValidation = validation;
@@ -36,7 +36,7 @@
                         .then(response => this.$notify.success('Updated the registration validation.'))
                         .catch(error => this.$notify.alert('Could not update the registration validation.'));
                 }
-            }
+            }, 900)
         }
     }
 </script>

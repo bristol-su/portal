@@ -57,7 +57,7 @@ class SettingModel extends Model
         } elseif($type === 'array') {
             return json_decode($value, true);
         } elseif($type === 'boolean') {
-            return ($value === 1?true:false);
+            return ((int) $value === 1?true:false);
         } elseif($type === 'float') {
             return (float) $value;
         } elseif($type === 'null') {

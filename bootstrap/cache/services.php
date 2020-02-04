@@ -33,13 +33,14 @@
     29 => 'Laravel\\Tinker\\TinkerServiceProvider',
     30 => 'Carbon\\Laravel\\ServiceProvider',
     31 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    32 => 'App\\Providers\\AppServiceProvider',
-    33 => 'App\\Providers\\AuthServiceProvider',
-    34 => 'App\\Providers\\EventServiceProvider',
-    35 => 'App\\Providers\\RouteServiceProvider',
-    36 => 'App\\Providers\\ViewServiceProvider',
-    37 => 'App\\Providers\\ControlServiceProvider',
-    38 => 'App\\Providers\\AdditionalAttributeProvider',
+    32 => 'SocialiteProviders\\Manager\\ServiceProvider',
+    33 => 'App\\Providers\\AppServiceProvider',
+    34 => 'App\\Providers\\AuthServiceProvider',
+    35 => 'App\\Providers\\EventServiceProvider',
+    36 => 'App\\Providers\\RouteServiceProvider',
+    37 => 'App\\Providers\\ViewServiceProvider',
+    38 => 'App\\Providers\\ControlServiceProvider',
+    39 => 'App\\Providers\\AdditionalAttributeProvider',
   ),
   'eager' => 
   array (
@@ -177,6 +178,7 @@
     'translation.loader' => 'Illuminate\\Translation\\TranslationServiceProvider',
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'Laravel\\Socialite\\Contracts\\Factory' => 'SocialiteProviders\\Manager\\ServiceProvider',
   ),
   'when' => 
   array (
@@ -214,6 +216,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'SocialiteProviders\\Manager\\ServiceProvider' => 
     array (
     ),
   ),

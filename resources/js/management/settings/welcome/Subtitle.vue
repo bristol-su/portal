@@ -1,6 +1,11 @@
 <template>
     <div>
-        Subtitle for the page
+        <b-form-input
+            type="text"
+            placeholder="e.g. Update your information to get started"
+            :value="currentMessage"
+            @input="updateAttribute"
+        ></b-form-input>
     </div>
 </template>
 
@@ -8,15 +13,29 @@
     export default {
         name: "Subtitle",
 
-        props: {},
-
         data() {
-            return {}
+            return {
+                currentMessage: null,
+            }
         },
 
-        methods: {},
+        mounted() {
+            this.$api.settings().get(window.settingKeys.welcome.messages.subtitle, null)
+                .then(response => this.currentMessage = response.data.value)
+                .catch(error => this.$notify.alert('Could not load current message'));
+        },
 
-        computed: {}
+        methods: {
+            updateAttribute: _.debounce(function(message) {
+                this.$emit('input', message);
+                if(message !== this.currentMessage) {
+                    this.currentMessage = message;
+                    this.$api.settings().set(window.settingKeys.welcome.messages.subtitle, message)
+                        .then(response => this.$notify.success('Updated the message.'))
+                        .catch(error => this.$notify.alert('Could not update the message.'));
+                }
+            }, 900)
+        }
     }
 </script>
 

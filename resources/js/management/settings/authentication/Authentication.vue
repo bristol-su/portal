@@ -22,7 +22,7 @@
                             label-align-sm="right"
                             label-for="registration-attribute-selection"
                         >
-                            <registration-identifier-selection id="registration-attribute-selection" @input="settings.registrationAttributeSelection = $event"></registration-identifier-selection>
+                            <registration-identifier-selection id="registration-attribute-selection" @input="settings.registrationIdentifierSelection = $event"></registration-identifier-selection>
                         </b-form-group>
 
 
@@ -74,7 +74,7 @@
                             label-align-sm="right"
                             label-for="email-verification-required"
                         >
-                            <verification-enabled id="email-verification-required" @input="settings.emailVerification = $event"></verification-enabled>
+                            <verification-enabled id="email-verification-required" @input="settings.verificationEnabled = $event"></verification-enabled>
                         </b-form-group>
 
                     </b-form-group>
@@ -120,6 +120,7 @@
                         <b-form-group
                             label-cols-sm="3"
                             label="Message if user not found in data"
+                            description="Message to show if the user is not in data, but should be"
                             label-align-sm="right"
                             label-for="not-in-data-message"
                         >
@@ -127,7 +128,9 @@
                         </b-form-group>
 
                         <b-form-group
+                            label-cols-sm="3"
                             label="Message if user not found in control"
+                            description="Message to show if the user is not in control, but should be"
                             label-align-sm="right"
                             label-for="not-in-control-message"
                         >
@@ -137,6 +140,7 @@
                         <b-form-group
                             label-cols-sm="3"
                             label="Message if user is already registered"
+                            description="Message to show if the user is already registered"
                             label-align-sm="right"
                             label-for="already-registered-message"
                         >
@@ -160,7 +164,7 @@
     import AlreadyRegistered from './Fields/messages/AlreadyRegistered';
     import NotInControl from './Fields/messages/NotInControl';
     import NotInData from './Fields/messages/NotInData';
-    // TODO Change label IDs
+
     export default {
         name: "Authentication",
         components: {
@@ -170,14 +174,23 @@
             AlreadyInControl,
             AlreadyInData,
             VerificationEnabled,
-            PasswordValidation, RegistrationIdentifierValidation, RegistrationIdentifierSelection},
+            PasswordValidation,
+            RegistrationIdentifierValidation,
+            RegistrationIdentifierSelection},
         props: {},
 
         data() {
             return {
                 settings: {
-                    registrationAttributeSelection: null,
-                    registrationIdentifierValidation: null
+                    registrationIdentifierSelection: null,
+                    registrationIdentifierValidation: null,
+                    passwordValidation: null,
+                    verificationEnabled: null,
+                    alreadyInData: null,
+                    alreadyInControl: null,
+                    alreadyRegisteredMessage: null,
+                    notInControlMessage: null,
+                    notInDataMessage: null
                 }
             }
         },

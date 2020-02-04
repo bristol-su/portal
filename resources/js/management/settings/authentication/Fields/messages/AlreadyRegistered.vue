@@ -1,6 +1,11 @@
 <template>
     <div>
-        Message to show if the user is already registered
+        <b-form-input
+            type="text"
+            placeholder="e.g. You have already registered!"
+            :value="currentMessage"
+            @input="updateAttribute"
+        ></b-form-input>
     </div>
 </template>
 
@@ -8,15 +13,29 @@
     export default {
         name: "AlreadyRegistered",
 
-        props: {},
-
         data() {
-            return {}
+            return {
+                currentMessage: null,
+            }
         },
 
-        methods: {},
+        mounted() {
+            this.$api.settings().get(window.settingKeys.authentication.messages.alreadyRegistered, null)
+                .then(response => this.currentMessage = response.data.value)
+                .catch(error => this.$notify.alert('Could not load current message'));
+        },
 
-        computed: {}
+        methods: {
+            updateAttribute: _.debounce(function(message) {
+                this.$emit('input', message);
+                if(message !== this.currentMessage) {
+                    this.currentMessage = message;
+                    this.$api.settings().set(window.settingKeys.authentication.messages.alreadyRegistered, message)
+                        .then(response => this.$notify.success('Updated the message.'))
+                        .catch(error => this.$notify.alert('Could not update the message.'));
+                }
+            }, 900)
+        }
     }
 </script>
 

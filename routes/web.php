@@ -7,6 +7,8 @@ Auth::routes(['verify' => true]);
 
 // Landing Page Route
 Route::middleware('guest')->get('/', 'Pages\LandingController@index');
+Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
+Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 
 Route::middleware(['auth', 'verified'])->group(function() {
 
@@ -17,7 +19,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
     Route::post('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@login');
 
-    Route::middleware(['nonmodule', 'can:view-management', 'password.confirm'])->namespace('Management')->group(function() {
+    Route::middleware(['nonmodule', 'can:view-management'])->namespace('Management')->group(function() {
         // Settings routes
         Route::get('/management', 'ManagementController@index')->name('management');
         Route::resource('activity', 'ActivityController')->only(['index', 'create', 'show']);

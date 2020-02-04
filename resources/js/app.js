@@ -5,6 +5,7 @@ import AWN from "awesome-notifications";
 import api from "./utilities/api/api";
 import control from '@bristol-su/control-js-api-client';
 import VueFormGenerator from 'vue-form-generator'
+import _ from 'lodash';
 
 import ModuleInstances from './components/portal/module_instances/ModuleInstances';
 import ActivitySidebar from "./components/portal/activity/ActivitySidebar";
@@ -26,13 +27,12 @@ import SitePermissions from './management/sitepermissions/index/Index';
 import SitePermission from './management/sitepermissions/show/Show';
 import ActivityProgress from './components/progress/activity/ActivityProgress';
 import GroupActivityProgress from './components/progress/activity/Group/GroupActivityProgress';
-import AuthenticationSettings from './management/settings/authentication/Authentication';
 import ConnectorIndex from './management/connector/index/Index';
-import AdditionalAttributes from './management/additionalattributes/AdditionalAttributes';
 import settingKeys from './utilities/settingKeys';
 import ActivityInstanceSwitcher from './components/portal/activity/ActivityInstanceSwitcher';
 import Welcome from './components/welcome/Welcome';
 import Settings from './management/settings/Settings';
+import SocialLogin from './components/login/social/SocialLogin';
 
 window.settingKeys = settingKeys;
 Vue.use(BootstrapVue);
@@ -88,9 +88,9 @@ new Vue({
         Welcome,
         Settings,
 
-        AuthenticationSettings,
-        AdditionalAttributes
+        SocialLogin
     }
 });
 
 window.Vue = Vue;
+window._ = _;
