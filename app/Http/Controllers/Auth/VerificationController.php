@@ -8,7 +8,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class VerificationController extends Controller
 {
@@ -22,6 +21,8 @@ class VerificationController extends Controller
     | be re-sent if the user didn't receive the original email message.
     |
     */
+
+    use VerifiesEmails;
 
     /**
      * Where to redirect users after verification.
@@ -42,19 +43,6 @@ class VerificationController extends Controller
     }
 
     /**
-     * Show the email verification notice.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Request $request)
-    {
-        return $request->user()->hasVerifiedEmail()
-            ? redirect($this->redirectTo)
-            : view('auth.verify');
-    }
-
-    /**
      * Mark the authenticated user's email address as verified.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -64,15 +52,22 @@ class VerificationController extends Controller
      */
     public function verify(Request $request)
     {
+        // TODO Move this check into middleware
+
+        $id = $request->get('id');
+        if($id !== $request->user()->id) {
+            throw new AuthorizationException;
+        }
+
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect($this->redirectTo);
+            return redirect($this->redirectPath());
         }
 
         if ($request->user()->markEmailAsVerified()) {
             event(new Verified($request->user()));
         }
 
-        return redirect($this->redirectTo)->with('verified', true);
+        return redirect($this->redirectPath())->with('verified', true);
     }
 
     /**
@@ -84,7 +79,7 @@ class VerificationController extends Controller
     public function resend(Request $request)
     {
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect($this->redirectTo);
+            return redirect($this->redirectPath());
         }
 
         $request->user()->notify(new VerifyEmail());

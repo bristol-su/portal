@@ -57,7 +57,7 @@ class VerifyEmail extends Notification
     protected function verificationUrl(User $user)
     {
         return \Linkeys\UrlSigner\Facade\UrlSigner::sign(
-            app(UrlGenerator::class)->route('verification.verify', ['id' => $user->id]),
+            app(UrlGenerator::class)->route('verification.verify'),
             ['id' => $user->id],
             '+' . Config::get('auth.verification.expire', 60) . ' minutes',
             1

@@ -34,4 +34,16 @@ class ConfirmPasswordController extends Controller
     {
         $this->middleware('auth');
     }
+
+    /**
+     * Get the password confirmation validation error messages.
+     *
+     * @return array
+     */
+    protected function validationErrorMessages()
+    {
+        return [
+            'password' => 'Your credentials do not match our records.'
+        ];
+    }
 }

@@ -13,7 +13,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 // Email Verification Routes...
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::middleware('link')->get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::middleware('link')->get('email/verify/authorize', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 // Password Reset Routes...

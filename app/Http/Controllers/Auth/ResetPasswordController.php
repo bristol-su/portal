@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use BristolSU\Support\User\Contracts\UserRepository;
+use BristolSU\Support\User\User;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
@@ -20,6 +25,7 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $redirectTo = '/portal';
 
     /**
      * Create a new controller instance.
@@ -32,13 +38,45 @@ class ResetPasswordController extends Controller
     }
 
     /**
-     * Redirect the user
-     *
-     * @return string
+     * @param Request $request
+     * @param null $token
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws AuthorizationException
      */
-    public function redirectTo()
+    public function showResetForm(Request $request, $token = null)
     {
-        return 'portal';
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $identifier = $this->getIdentifierFromEmail($request->input('email'));
+
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'identifier' => $identifier]
+        );
+    }
+
+    /**
+     * Get a user identifier from their email address
+     *
+     * @param string $email
+     * @return string Value of their identifier
+     * @throws AuthorizationException
+     */
+    protected function getIdentifierFromEmail(string $email)
+    {
+        if(siteSetting('authentication.registration_identifier.identifier', 'email') === 'email') {
+            return $email;
+        } else {
+            try {
+                $user = app(UserRepository::class)->getWhereEmail($email);
+                return $user->controlUser()->data()->getAdditionalAttribute(
+                    siteSetting('authentication.registration_identifier.identifier', 'email')
+                );
+            } catch (ModelNotFoundException $e) {
+                throw new AuthorizationException;
+            }
+        }
     }
 
     /**
@@ -50,9 +88,36 @@ class ResetPasswordController extends Controller
     {
         return [
             'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
+            'identifier' => siteSetting('authentication.registration_identifier.validation', ''),
+            'password' => siteSetting('authentication.password.validation', 'required|confirmed|min:6')
         ];
+    }
+
+    /**
+     * Get the password reset credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        return $request->only(
+            'identifier', 'password', 'password_confirmation', 'token'
+        );
+    }
+
+    /**
+     * Get the response for a failed password reset.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    protected function sendResetFailedResponse(Request $request, $response)
+    {
+        return redirect()->back()
+            ->withInput($request->only('identifier'))
+            ->withErrors(['identifier' => trans($response)]);
     }
 
 }

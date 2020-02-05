@@ -43,27 +43,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'database-users',
         ],
 
         'api' => [
             'driver' => 'passport',
-            'provider' => 'users',
-        ],
-
-        'role' => [
-            'driver' => 'session',
-            'provider' => 'roles'
-        ],
-
-        'group' => [
-            'driver' => 'session',
-            'provider' => 'groups'
-        ],
-
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'controlusers'
+            'provider' => 'database-users',
         ],
 
         'activity-instance' => [
@@ -90,24 +75,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
+        'database-users' => [
+            'driver' => 'database-user-provider',
             'model' => BristolSU\Support\User\User::class,
-        ],
-
-        'controlusers' => [
-            'driver' => 'user-provider',
-            'model' => User::class,
-        ],
-
-        'roles' => [
-            'driver' => 'role-provider',
-            'model' => Role::class
-        ],
-
-        'groups' => [
-            'driver' => 'group-provider',
-            'model' => Group::class
         ],
 
         'activity-instances' => [
@@ -134,7 +104,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'database-users',
             'table' => 'password_resets',
             'expire' => 60,
         ],

@@ -27,27 +27,6 @@
       0 => 'laravel/passport',
     ),
   ),
-  'bristol-su/typeform' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BristolSU\\Module\\Typeform\\ModuleServiceProvider',
-    ),
-  ),
-  'bristol-su/typeform-service' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BristolSU\\Service\\Typeform\\TypeformServiceProvider',
-    ),
-  ),
-  'bristol-su/upload-file' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BristolSU\\Module\\UploadFile\\ModuleServiceProvider',
-    ),
-  ),
   'fideloper/proxy' => 
   array (
     'providers' => 

@@ -4,35 +4,26 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\UserVerificationRequestGenerated;
 use App\Http\Controllers\Controller;
-use App\Support\Settings\SettingRepository;
-use BristolSU\ControlDB\Contracts\Repositories\DataUser as DataUserRepository;
-use BristolSU\ControlDB\Contracts\Repositories\User as ControlUserRepository;
+use BristolSU\ControlDB\Contracts\Repositories\DataUser;
 use BristolSU\Support\User\Contracts\UserAuthentication;
-use BristolSU\Support\User\Contracts\UserRepository as DatabaseUserRepository;
-use Carbon\Carbon;
-use Exception;
+use BristolSU\Support\User\Contracts\UserRepository;
+use BristolSU\Support\User\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Handle registration of a user
  */
 class RegisterController extends Controller
 {
-
-    /**
-     * Show the application registration form.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
-    }
+    use RegistersUsers;
 
     /**
      * Create a new controller instance.
@@ -49,108 +40,142 @@ class RegisterController extends Controller
      *
      * This registration method is only for standard registration, not single sign on.
      *
-     * - Find them with the DataUser Repository.
-     * - Find them on control, or create them if not found.
-     * - Create a database user.
-     * - Login to the database user.
-     *
      * @param Request $request
-     * @param SettingRepository $settingRepository
-     * @param DataUserRepository $dataUserRepository
-     * @param ControlUserRepository $controlUserRepository
-     * @param DatabaseUserRepository $databaseUserRepository
      * @param UserAuthentication $databaseUserAuthentication
      * @return RedirectResponse|Redirector
+     * @throws ValidationException
      */
-    public function register(Request $request,
-                             SettingRepository $settingRepository,
-                             DataUserRepository $dataUserRepository,
-                             ControlUserRepository $controlUserRepository,
-                             DatabaseUserRepository $databaseUserRepository,
-                             UserAuthentication $databaseUserAuthentication)
+    public function register(Request $request, UserAuthentication $databaseUserAuthentication)
     {
+        $this->validator($request->all())->validate();
 
+        $user = $this->registerUser($request);
 
-        $shouldAlreadyBeInData = $settingRepository->get('authentication.authorization.requiredAlreadyInData', false);
-        $shouldAlreadyBeInControl = $settingRepository->get('authentication.authorization.requiredAlreadyInControl', false);
-        $emailShouldBeVerified = $settingRepository->get('authentication.verification.required', false);
+        event(new Registered($user));
 
-        $identifierValidation = $settingRepository->get('authentication.registration_identifier.validation', '');
-        $identifier = $settingRepository->get('authentication.registration_identifier.identifier', 'email');
-        $identifierValue = $request->input('identifier');
-
-        $passwordValidation = $settingRepository->get('authentication.password.validation', 'required|confirmed|min:6');
-
-        $notInDataExceptionMessage = $settingRepository->get('authentication.messages.notInData',
-            'We didn\'t recognise your details. Please create an account on our website.');
-        $notInControlExceptionMessage = $settingRepository->get('authentication.messages.notInControl',
-            'You aren\'t currently registered in our systems. Please contact us.');
-        $alreadyRegisteredExceptionMessage = $settingRepository->get('authentication.messages.alreadyRegistered',
-            'You have already registered!');
-
-
-        $request->validate([
-            'identifier' => $identifierValidation,
-            'password' => $passwordValidation
-        ]);
-
-
-        // Get the data user
-        try {
-            $dataUser = $dataUserRepository->getWhere([$identifier => $identifierValue]);
-        } catch (ModelNotFoundException $e) {
-            if ($shouldAlreadyBeInData) {
-                return back()
-                    ->withErrors(['identifier' => $notInDataExceptionMessage])
-                    ->withInput();
-            } else {
-                $dataUser = $dataUserRepository->create();
-                if ($identifier === 'email') {
-                    $dataUser->setEmail($identifierValue);
-                } else {
-                    $dataUser->saveAdditionalAttribute($identifier, $identifierValue);
-                }
-            }
-
-        }
-
-
-        // Find them in control, or create them
-        try {
-            $controlUser = $controlUserRepository->getByDataProviderId($dataUser->id());
-        } catch (ModelNotFoundException $e) {
-            if ($shouldAlreadyBeInControl) {
-                return back()
-                    ->withErrors(['identifier' => $notInControlExceptionMessage])
-                    ->withInput();
-            } else {
-                $controlUser = $controlUserRepository->create($dataUser->id());
-            }
-        }
-
-        // Create database user if they don't exist
-        try {
-            $databaseUserRepository->getFromControlId($controlUser->id());
-            return back()
-                ->withErrors(['identifier' => $alreadyRegisteredExceptionMessage])
-                ->withInput();
-        } catch (ModelNotFoundException $e) {
-        }
-
-        $user = $databaseUserRepository->create(['control_id' => $controlUser->id()]);
-        $user->password = Hash::make($request->input('password'));
-        if (!$emailShouldBeVerified) {
-            $user->email_verified_at = Carbon::now();
-        }
-        $user->save();
-
-        if($emailShouldBeVerified) {
+        if (siteSetting('authentication.verification.required', false)) {
             event(new UserVerificationRequestGenerated($user));
         }
 
         $databaseUserAuthentication->setUser($user);
 
         return redirect('welcome');
+    }
+
+    /**
+     * Create a validator for the register request
+     *
+     * @param array $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            'identifier' => siteSetting('authentication.registration_identifier.validation', ''),
+            'password' => siteSetting('authentication.password.validation', 'required|confirmed|min:6')
+        ]);
+    }
+
+    /**
+     * Create a user
+     *
+     * @param Request $request
+     * @return User
+     * @throws ValidationException
+     */
+    protected function registerUser(Request $request): User
+    {
+        // Get or create the data user
+        $dataUser = $this->getOrCreateDataUser(
+            $request->input('identifier'),
+            siteSetting('authentication.registration_identifier.identifier', 'email'),
+            ! siteSetting('authentication.authorization.requiredAlreadyInData', 'email')
+        );
+
+        $controlUser = $this->getOrCreateControlUser(
+            $dataUser, ! siteSetting('authentication.authorization.requiredAlreadyInControl', false)
+        );
+
+        return $this->createUser($controlUser, $request->input('password'));
+
+    }
+
+    /**
+     * Get or create a data user
+     *
+     * @param string $identifierValue The value of the identifier to use
+     * @param string $identifier Identifier to create the user with
+     * @param bool $shouldCreate
+     *
+     * @return \BristolSU\ControlDB\Contracts\Models\DataUser
+     * @throws ValidationException
+     */
+    protected function getOrCreateDataUser(string $identifierValue, string $identifier = 'email', bool $shouldCreate = true): \BristolSU\ControlDB\Contracts\Models\DataUser
+    {
+        try {
+            return app(DataUser::class)->getWhere([$identifier => $identifierValue]);
+        } catch (ModelNotFoundException $e) {
+            if ($shouldCreate) {
+                if ($identifier === 'email') {
+                    return app(DataUser::class)->create(null, null, $identifierValue);
+                }
+                $dataUser = app(DataUser::class)->create();
+                $dataUser->saveAdditionalAttribute($identifier, $identifierValue);
+                return $dataUser;
+            }
+        }
+
+        throw ValidationException::withMessages([
+            'identifier' => siteSetting('authentication.messages.notInData',
+                'We didn\'t recognise your details. Please create an account on our website.')
+        ]);
+    }
+
+    /**
+     * @param \BristolSU\ControlDB\Contracts\Models\DataUser $dataUser
+     * @param bool $shouldCreate
+     * @return \BristolSU\ControlDB\Contracts\Models\User
+     * @throws ValidationException
+     */
+    protected function getOrCreateControlUser(\BristolSU\ControlDB\Contracts\Models\DataUser $dataUser, bool $shouldCreate = true): \BristolSU\ControlDB\Contracts\Models\User
+    {
+        try {
+            return app(\BristolSU\ControlDB\Contracts\Repositories\User::class)->getByDataProviderId($dataUser->id());
+        } catch (ModelNotFoundException $e) {
+            if ($shouldCreate) {
+                return app(\BristolSU\ControlDB\Contracts\Repositories\User::class)->create($dataUser->id());
+            }
+        }
+
+        throw ValidationException::withMessages([
+            'identifier' => siteSetting('authentication.messages.notInControl',
+                'You aren\'t currently registered in our systems. Please contact us.')
+        ]);
+    }
+
+    /**
+     * Create a database user
+     *
+     * @param \BristolSU\ControlDB\Contracts\Models\User $controlUser
+     * @param string $password
+     * @return User
+     * @throws ValidationException
+     */
+    protected function createUser(\BristolSU\ControlDB\Contracts\Models\User $controlUser, string $password): User
+    {
+        try {
+            app(UserRepository::class)->getFromControlId($controlUser->id());
+            throw ValidationException::withMessages([
+                'identifier' => siteSetting('authentication.messages.alreadyRegistered',
+                    'You have already registered!')
+            ]);
+        } catch (ModelNotFoundException $e) {
+        }
+
+        $user = app(UserRepository::class)->create(['control_id' => $controlUser->id()]);
+        $user->password = Hash::make($password);
+        $user->save();
+        return $user;
     }
 
 }

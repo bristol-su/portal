@@ -22,16 +22,39 @@ class ForgotPasswordController extends Controller
     use SendsPasswordResetEmails;
 
     /**
-     * Validate the email for the given request.
+     * Validate the identity for the given request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
      */
     protected function validateEmail(Request $request)
     {
-        // TODO Validate if the email is attached to a user
-        $request->validate(['email' => 'required|email']);
+        $request->validate(['identifier' => siteSetting('authentication.registration_identifier.validation', '')]);
+    }
 
+    /**
+     * Get the needed authentication credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        return $request->only('identifier');
+    }
+
+    /**
+     * Get the response for a failed password reset link.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    protected function sendResetLinkFailedResponse(Request $request, $response)
+    {
+        return back()
+            ->withInput($request->only('identifier'))
+            ->withErrors(['identifier' => trans($response)]);
     }
 
 }

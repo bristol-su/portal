@@ -10,22 +10,27 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="identifier"
+                                   class="col-md-4 col-form-label text-md-right">{{ ucfirst(siteSetting('authentication.registration_identifier.identifier')) }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email"
-                                       class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                       name="email" value="{{ old('email') }}" required>
+                                <input id="identifier" type="text"
+                                       class="form-control{{ $errors->has('identifier') ? ' is-invalid' : '' }}"
+                                       name="identifier" value="{{ old('identifier') }}" required>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('identifier'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('identifier') }}</strong>
                                     </span>
                                 @endif
                             </div>
