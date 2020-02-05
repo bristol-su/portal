@@ -51,10 +51,10 @@ class RegisterController extends Controller
 
         $user = $this->registerUser($request);
 
-        event(new Registered($user));
-
         if (siteSetting('authentication.verification.required', false)) {
             event(new UserVerificationRequestGenerated($user));
+        } else {
+            event(new Registered($user));
         }
 
         $databaseUserAuthentication->setUser($user);
@@ -89,7 +89,7 @@ class RegisterController extends Controller
         $dataUser = $this->getOrCreateDataUser(
             $request->input('identifier'),
             siteSetting('authentication.registration_identifier.identifier', 'email'),
-            ! siteSetting('authentication.authorization.requiredAlreadyInData', 'email')
+            ! siteSetting('authentication.authorization.requiredAlreadyInData', false)
         );
 
         $controlUser = $this->getOrCreateControlUser(

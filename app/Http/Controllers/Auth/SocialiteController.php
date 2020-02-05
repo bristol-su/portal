@@ -8,8 +8,10 @@ use BristolSU\ControlDB\Contracts\Repositories\User;
 use BristolSU\Support\User\Contracts\UserAuthentication;
 use BristolSU\Support\User\Contracts\UserRepository;
 use Carbon\Carbon;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
@@ -49,59 +51,94 @@ class SocialiteController extends Controller
             ->withErrors(['identifier' => 'You cannot log in through ' . $provider]);
     }
 
+    /**
+     * @param $provider
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws ValidationException
+     */
     public function handleCallback($provider)
     {
 
-        $shouldAlreadyBeInData = siteSetting('authentication.authorization.requiredAlreadyInData', false);
-        $shouldAlreadyBeInControl = siteSetting('authentication.authorization.requiredAlreadyInControl', false);
-
-        $notInDataExceptionMessage = siteSetting('authentication.messages.notInData',
-            'We didn\'t recognise your details. Please create an account on our website.');
-        $notInControlExceptionMessage = siteSetting('authentication.messages.notInControl',
-            'You aren\'t currently registered in our systems. Please contact us.');
-
         $user = Socialite::driver($provider)->user();
 
-        try {
-            $dataUser = app(DataUser::class)->getWhere(['email' => $user->getEmail()]);
-        } catch (ModelNotFoundException $e) {
-            if ($shouldAlreadyBeInData) {
-                return redirect()->route('login')
-                    ->withErrors(['identifier' => $notInDataExceptionMessage]);
-            } else {
-                $dataUser = app(DataUser::class)->create($user->getName(), null, $user->getEmail(), null, $user->getNickname());
-            }
+        [ $databaseUser, $newlyRegistered ] = $this->getUserFromSocialUser($user);
 
-        }
+        app(UserAuthentication::class)->setUser($databaseUser);
 
+        return ($newlyRegistered?redirect('welcome'):redirect('portal'));
 
-        // Find them in control, or create them
-        try {
-            $controlUser = app(User::class)->getByDataProviderId($dataUser->id());
-        } catch (ModelNotFoundException $e) {
-            if ($shouldAlreadyBeInControl) {
-                return redirect()->route('login')
-                    ->withErrors(['identifier' => $notInControlExceptionMessage]);
-            } else {
-                $controlUser = app(User::class)->create($dataUser->id());
-            }
-        }
+    }
 
-        // Create database user if they don't exist
-        $hasRegistered = false;
+    /**
+     * Gets a database user from a socialite user
+     *
+     * @param \Laravel\Socialite\Contracts\User $user
+     * @return array [ $databaseUser, bool $newlyRegistered ]
+     * @throws ValidationException
+     */
+    protected function getUserFromSocialUser(\Laravel\Socialite\Contracts\User $user)
+    {
+
+        $dataUser = $this->getDataUser($user);
+        $controlUser = $this->getControlUser($dataUser);
+
+        $newlyRegistered = false;
         try {
             $databaseUser = app(UserRepository::class)->getFromControlId($controlUser->id());
         } catch (ModelNotFoundException $e) {
             $databaseUser = app(UserRepository::class)->create(['control_id' => $controlUser->id()]);
             $databaseUser->email_verified_at = Carbon::now();
             $databaseUser->save();
-            $hasRegistered = true;
+            $newlyRegistered = true;
         }
 
-        app(UserAuthentication::class)->setUser($databaseUser);
-
-        return ($hasRegistered?redirect('welcome'):redirect('portal'));
-
+        return [ $databaseUser, $newlyRegistered ];
     }
+
+    /**
+     * Get a data user from a socialite user
+     *
+     * @param \Laravel\Socialite\Contracts\User $user
+     * @return mixed
+     * @throws ValidationException
+     */
+    protected function getDataUser(\Laravel\Socialite\Contracts\User $user)
+    {
+        try {
+            return app(DataUser::class)->getWhere(['email' => $user->getEmail()]);
+        } catch (ModelNotFoundException $e) {
+            if (! siteSetting('authentication.authorization.requiredAlreadyInData', false)) {
+                return app(DataUser::class)->create($user->getName(), null, $user->getEmail(), null, $user->getNickname());
+            }
+        }
+        throw ValidationException::withMessages([
+            'identifier' => siteSetting('authentication.messages.notInData',
+                'We didn\'t recognise your details. Please create an account on our website.')
+        ])->redirectTo(app(UrlGenerator::class)->route('login'));
+    }
+
+    /**
+     * Get a control user from a socialite user
+     *
+     * @param \BristolSU\ControlDB\Contracts\Models\DataUser $dataUser
+     * @return mixed
+     * @throws ValidationException
+     */
+    protected function getControlUser(\BristolSU\ControlDB\Contracts\Models\DataUser $dataUser)
+    {
+        try {
+            return app(\BristolSU\ControlDB\Contracts\Repositories\User::class)->getByDataProviderId($dataUser->id());
+        } catch (ModelNotFoundException $e) {
+            if (! siteSetting('authentication.authorization.requiredAlreadyInControl', false)) {
+                return app(\BristolSU\ControlDB\Contracts\Repositories\User::class)->create($dataUser->id());
+            }
+        }
+
+        throw ValidationException::withMessages([
+            'identifier' => siteSetting('authentication.messages.notInControl',
+                'You aren\'t currently registered in our systems. Please contact us.')
+        ]);
+    }
+
 
 }

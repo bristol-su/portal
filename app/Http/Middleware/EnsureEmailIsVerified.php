@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use BristolSU\Support\User\User;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
