@@ -3,14 +3,35 @@
 use Illuminate\Support\Facades\Route;
 
 // Laravel Authentication Routes
-Auth::routes(['verify' => true]);
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Email Verification Routes...
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::middleware('link')->get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+Route::get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')->name('password.confirm');
+Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
+
 
 // Landing Page Route
 Route::middleware('guest')->get('/', 'Pages\LandingController@index');
 Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
 Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 
-Route::middleware(['auth', 'verified'])->group(function() {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     // Custom Authentication Routes
     Route::get('/password/set', 'Auth\VerificationController@showResetPasswordForm');
@@ -19,8 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
     Route::post('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@login');
 
-    Route::middleware(['nonmodule', 'can:view-management'])->namespace('Management')->group(function() {
-        // Settings routes
+    Route::middleware(['nonmodule', 'can:view-management'])->namespace('Management')->group(function () {
+        // Settings Routes
         Route::get('/management', 'ManagementController@index')->name('management');
         Route::resource('activity', 'ActivityController')->only(['index', 'create', 'show']);
         Route::resource('logic', 'LogicController')->only(['index', 'show', 'create']);
@@ -28,7 +49,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::resource('connector', 'ConnectorController')->only(['index']);
         Route::prefix('/activity/{activity}')->group(function () {
             Route::resource('module-instance', 'ModuleInstanceController')->only(['show', 'create']);
-            Route::prefix('/module-instance/{module_instance}')->group(function() {
+            Route::prefix('/module-instance/{module_instance}')->group(function () {
                 Route::resource('action', 'ActionController')->only(['show', 'create']);
             });
         });
@@ -38,7 +59,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     // Portal Routes
     Route::namespace('Pages')->group(function () {
-        Route::middleware('nonmodule')->group(function() {
+        Route::middleware('nonmodule')->group(function () {
             Route::get('/portal', 'PortalController@portal')->name('portal');
             Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
             Route::get('/a', 'PortalController@administrator')->name('administrator');
@@ -47,7 +68,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
         });
 
-        Route::middleware('activity')->group(function() {
+        Route::middleware('activity')->group(function () {
             Route::middleware('administrator')->get('/a/{activity_slug}', 'ActivityController@administrator')->name('administrator.activity');
             Route::middleware('participant')->get('/p/{activity_slug}', 'ActivityController@participant')->name('participant.activity');
         });

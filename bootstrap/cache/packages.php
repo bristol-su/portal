@@ -91,6 +91,17 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'linkeys/signed-url' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Linkeys\\UrlSigner\\Providers\\UrlSignerServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'UrlSigner' => 'Linkeys\\UrlSigner\\Link',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 

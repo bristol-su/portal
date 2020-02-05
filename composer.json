@@ -23,6 +23,7 @@
         "ext-json": "*",
         "laravel/socialite": "^4.3",
         "socialiteproviders/providers": "dev-master",
+        "linkeys/signed-url": "^1.0",
         "bristol-su/typeform": "dev-master",
         "bristol-su/upload-file": "dev-master"
     },

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bdbff01a07291f1472ac6dd1b733c61",
+    "content-hash": "b2565ea97ee571c778e8d4f8404eeaf6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -197,16 +197,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v2.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "44f6e0941be68674706af397b2486f496d70e681"
+                "reference": "bb4c3c35c963ba1a2ed9d9503881a168dd64b984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/44f6e0941be68674706af397b2486f496d70e681",
-                "reference": "44f6e0941be68674706af397b2486f496d70e681",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/bb4c3c35c963ba1a2ed9d9503881a168dd64b984",
+                "reference": "bb4c3c35c963ba1a2ed9d9503881a168dd64b984",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-02-04T23:07:03+00:00"
+            "time": "2020-02-05T02:45:57+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -2643,6 +2643,74 @@
                 "server"
             ],
             "time": "2019-07-13T18:58:26+00:00"
+        },
+        {
+            "name": "linkeys/signed-url",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/linkeys-app/signed-url.git",
+                "reference": "a7205dc7f301a53682ca049173fe14e9281de5d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/linkeys-app/signed-url/zipball/a7205dc7f301a53682ca049173fe14e9281de5d9",
+                "reference": "a7205dc7f301a53682ca049173fe14e9281de5d9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.7.0|^6.0",
+                "illuminate/database": "^5.7.0|^6.0",
+                "illuminate/support": "^5.7.0|^6.0",
+                "nesbot/carbon": "^2.17",
+                "php": "^7.2",
+                "ramsey/uuid": "^3.8",
+                "spatie/url": "^1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.7",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Linkeys\\UrlSigner\\Providers\\UrlSignerServiceProvider"
+                    ],
+                    "aliases": {
+                        "UrlSigner": "Linkeys\\UrlSigner\\Link"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "database/factories"
+                ],
+                "psr-4": {
+                    "Linkeys\\UrlSigner\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger@hotmail.co.uk"
+                }
+            ],
+            "description": "Enhanced signed URLs for Laravel, including attaching data, click limits and expiry.",
+            "keywords": [
+                "expire",
+                "laravel",
+                "link",
+                "linkeys",
+                "signed",
+                "single use",
+                "url"
+            ],
+            "time": "2020-02-05T01:22:35+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -5241,6 +5309,100 @@
             ],
             "description": "Collection of all OAuth2 Providers for Laravel Socialite",
             "time": "2019-12-12T08:20:55+00:00"
+        },
+        {
+            "name": "spatie/macroable",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/macroable.git",
+                "reference": "74b0d189ce75142f1706aad834d5a428dfc7c3c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/macroable/zipball/74b0d189ce75142f1706aad834d5a428dfc7c3c3",
+                "reference": "74b0d189ce75142f1706aad834d5a428dfc7c3c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Macroable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A trait to dynamically add methods to a class",
+            "homepage": "https://github.com/spatie/macroable",
+            "keywords": [
+                "macroable",
+                "spatie"
+            ],
+            "time": "2017-09-18T09:51:20+00:00"
+        },
+        {
+            "name": "spatie/url",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/url.git",
+                "reference": "fe89b6c5fc820cef7ae0548c9990bbbabaefd4a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/url/zipball/fe89b6c5fc820cef7ae0548c9990bbbabaefd4a0",
+                "reference": "fe89b6c5fc820cef7ae0548c9990bbbabaefd4a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "psr/http-message": "^1.0",
+                "spatie/macroable": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Url\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Parse, build and manipulate URL's",
+            "homepage": "https://github.com/spatie/url",
+            "keywords": [
+                "spatie",
+                "url"
+            ],
+            "time": "2019-11-13T19:34:27+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
