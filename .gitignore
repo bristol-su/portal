@@ -16,7 +16,6 @@ public/css/*
 .idea
 .idea/*
 .output
-public/mix-manifest.json
 report.*
 /coverage
 /storage/clockwork

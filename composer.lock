@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.7",
+            "version": "3.133.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "cd6fb07aed2cc68088251e3c572d111d67d558a3"
+                "reference": "c564fcccd5fc7b5e8514d1cbe35558be1e3a11cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cd6fb07aed2cc68088251e3c572d111d67d558a3",
-                "reference": "cd6fb07aed2cc68088251e3c572d111d67d558a3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c564fcccd5fc7b5e8514d1cbe35558be1e3a11cd",
+                "reference": "c564fcccd5fc7b5e8514d1cbe35558be1e3a11cd",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-02-04T19:11:15+00:00"
+            "time": "2020-02-05T19:12:47+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -2232,16 +2232,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.63",
+            "version": "1.0.64",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "8132daec326565036bc8e8d1876f77ec183a7bd6"
+                "reference": "d13c43dbd4b791f815215959105a008515d1a2e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8132daec326565036bc8e8d1876f77ec183a7bd6",
-                "reference": "8132daec326565036bc8e8d1876f77ec183a7bd6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d13c43dbd4b791f815215959105a008515d1a2e0",
+                "reference": "d13c43dbd4b791f815215959105a008515d1a2e0",
                 "shasum": ""
             },
             "require": {
@@ -2253,7 +2253,7 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^3.4",
-                "phpunit/phpunit": "^5.7.10"
+                "phpunit/phpunit": "^5.7.26"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -2312,7 +2312,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2020-01-04T16:30:31+00:00"
+            "time": "2020-02-05T18:14:17+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -2503,16 +2503,16 @@
         },
         {
             "name": "linkeys/signed-url",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/linkeys-app/signed-url.git",
-                "reference": "a7205dc7f301a53682ca049173fe14e9281de5d9"
+                "reference": "9281afe925f098e07c788232cdd17f2343bcc1aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/linkeys-app/signed-url/zipball/a7205dc7f301a53682ca049173fe14e9281de5d9",
-                "reference": "a7205dc7f301a53682ca049173fe14e9281de5d9",
+                "url": "https://api.github.com/repos/linkeys-app/signed-url/zipball/9281afe925f098e07c788232cdd17f2343bcc1aa",
+                "reference": "9281afe925f098e07c788232cdd17f2343bcc1aa",
                 "shasum": ""
             },
             "require": {
@@ -2567,7 +2567,7 @@
                 "single use",
                 "url"
             ],
-            "time": "2020-02-05T01:22:35+00:00"
+            "time": "2020-02-05T21:57:20+00:00"
         },
         {
             "name": "mockery/mockery",
