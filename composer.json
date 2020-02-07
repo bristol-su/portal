@@ -19,6 +19,8 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
         "bristol-su/support": "^2.0",
+        "bristol-su/upload-file": "dev-master",
+        "bristol-su/typeform": "dev-master",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
         "laravel/socialite": "^4.3",
