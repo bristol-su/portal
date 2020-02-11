@@ -8,7 +8,7 @@
   <p align="center">
     A customisable self-service portal for automating and delivering services online.
     <br />
-        <a href="https://docs.bristolsustaging.co.uk"><strong>Demo Site »</strong></a>
+        <a href="https://portal-demo.bristolsustaging.co.uk"><strong>Demo Site »</strong></a>
     <br />
     <a href="https://docs.bristolsustaging.co.uk"><strong>Explore the docs »</strong></a>
 <br />
