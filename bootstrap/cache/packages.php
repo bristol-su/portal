@@ -16,6 +16,13 @@
       0 => 'BristolSU\\ControlDB\\ControlDBServiceProvider',
     ),
   ),
+  'bristol-su/static-page' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\Module\\StaticPage\\ModuleServiceProvider',
+    ),
+  ),
   'bristol-su/support' => 
   array (
     'providers' => 
@@ -25,6 +32,35 @@
     'dont-discover' => 
     array (
       0 => 'laravel/passport',
+      1 => 'venturecraft/revisionable',
+    ),
+  ),
+  'bristol-su/template' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\Module\\Template\\ModuleServiceProvider',
+    ),
+  ),
+  'bristol-su/typeform' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\Module\\Typeform\\ModuleServiceProvider',
+    ),
+  ),
+  'bristol-su/typeform-service' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\Service\\Typeform\\TypeformServiceProvider',
+    ),
+  ),
+  'bristol-su/upload-file' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\Module\\UploadFile\\ModuleServiceProvider',
     ),
   ),
   'fideloper/proxy' => 

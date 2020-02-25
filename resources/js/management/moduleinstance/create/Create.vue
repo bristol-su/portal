@@ -4,7 +4,7 @@
             title="Create a new module"
             subtitle="">
             <tab-content title="Module Type">
-                <module-type v-model="form.alias" @module="selectedModule = $event">
+                <module-type v-model="form.alias" :activity-for="activity.activity_for" @module="selectedModule = $event">
 
                 </module-type>
             </tab-content>

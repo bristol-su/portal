@@ -13,6 +13,14 @@
     export default {
         name: "ModuleType",
 
+        props: {
+            activityFor: {
+                required: false,
+                type: String,
+                default: 'user'
+            }
+        },
+
         data() {
             return {
                 options: []
@@ -38,7 +46,12 @@
 
         computed: {
             dropdownOptions() {
-                return Object.keys(this.options).map(alias => {
+                return Object.keys(this.options).filter(alias => {
+                    let moduleFor = this.options[alias].for;
+                    return moduleFor === 'user'
+                        || (moduleFor === 'group' && (this.activityFor === 'group' || this.activityFor === 'role'))
+                        || (moduleFor === 'role' && this.activityFor === 'role');
+                }).map(alias => {
                     return {
                         value: alias,
                         text: this.options[alias].name

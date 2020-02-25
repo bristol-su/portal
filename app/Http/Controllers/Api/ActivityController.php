@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\Activity\Contracts\Repository;
+use BristolSU\Support\User\Contracts\UserAuthentication;
 use Illuminate\Http\Request;
 
 /**
@@ -42,7 +43,8 @@ class ActivityController extends Controller
             'for_logic' => $request->input('for_logic'),
             'admin_logic' => $request->input('admin_logic'),
             'start_date' => $request->input('start_date'),
-            'end_date' => $request->input('end_date')
+            'end_date' => $request->input('end_date'),
+            'user_id' => app(UserAuthentication::class)->getUser()->controlId()
         ]);
     }
 
@@ -62,7 +64,7 @@ class ActivityController extends Controller
     public function update(Activity $activity, Request $request, Repository $repository)
     {
         return $repository->update($activity->id, $request->only([
-            'name', 'description', 'slug'
+            'name', 'description', 'slug', 'enabled'
         ]));
     }
 }

@@ -22,6 +22,9 @@
                 <b-button size="xs">Click here to see progress</b-button>
             </a>
         </data-item>
+        <data-item title="Enabled">
+            <b-form-checkbox switch size="lg" v-model="enabled">{{enabledText}}</b-form-checkbox>
+        </data-item>
     </div>
 </template>
 
@@ -38,9 +41,41 @@
             }
         },
 
+        data() {
+            return {
+                enabled: true
+            }
+        },
+
+        created() {
+            this.enabled = this.activity.enabled;
+        },
+
+        watch: {
+            enabled() {
+                this.changeStatus();
+            }
+        },
+
+        methods: {
+            changeStatus() {
+                if(this.enabled !== this.activity.enabled) {
+                    this.$api.activity().update(this.activity.id, {enabled: this.enabled})
+                        .then(response => {
+                            this.$notify.success('Updated enabled status');
+                            window.location.reload();
+                        })
+                        .catch(error => this.$notify.alert('Could not update activity status'));
+                }
+            }
+        },
+
         computed: {
             url() {
                 return process.env.MIX_APP_URL + '/' + this.activity.slug;
+            },
+            enabledText() {
+                return (this.enabled ? 'Enabled': 'Disabled');
             }
         }
     }

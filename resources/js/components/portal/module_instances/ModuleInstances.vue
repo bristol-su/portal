@@ -2,6 +2,7 @@
     <div class="row">
         <module-instance
             v-for="moduleInstance in activity.module_instances"
+            v-if="moduleInstance.enabled"
             :key="moduleInstance.id"
             :module-instance="moduleInstance"
             :evaluation="evaluationObject(moduleInstance.id)"

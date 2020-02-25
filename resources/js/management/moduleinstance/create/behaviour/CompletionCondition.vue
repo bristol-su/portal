@@ -9,42 +9,15 @@
 
         <div v-if="conditionSelected">
             <b-input type="text" v-model="name" placeholder="Name of the condition"></b-input>
-            <b-input type="text" v-model="description" placeholder="Desription of the condition"></b-input>
-            <b-form-group
-                :key="key"
-                :label="key"
-                :label-for="key"
-                v-for="key in selectedConditionOptionKeys">
-                    <span
-                        v-if="selectedCondition.options[key] && typeof selectedCondition.options[key] === 'object' && selectedCondition.options[key].constructor === Object">
-                        <b-form-select
-                            :id="key"
-                            :options="selectedCondition.options[key]"
-                            v-model="settings[key]">
+            <b-input type="text" v-model="description" placeholder="Description of the condition"></b-input>
 
-                        </b-form-select>
-                    </span>
-                <span v-else-if="typeof selectedCondition.options[key] === 'string'">
-                        <b-form-input
-                            type="text"
-                            v-model="settings[key]">
+            <vue-form-generator :schema="selectedCondition.options.schema" :model="settings" :options="selectedCondition.options.options">
 
-                        </b-form-input>
-                    </span>
-
-                <span v-else-if="typeof selectedCondition.options[key] === 'number'">
-                        <b-form-input
-                            type="number"
-                            v-model="settings[key]">
-
-                        </b-form-input>
-                    </span>
-
-            </b-form-group>
+            </vue-form-generator>
 
             <div style="text-align: right;">
 
-                <b-button @click="saveConditions" v-if="allOptionsFilled">Save Conditions</b-button>
+                <b-button @click="saveConditions">Save Conditions</b-button>
             </div>
         </div>
     </div>
@@ -69,6 +42,14 @@
                 settings: {},
                 name: '',
                 description: ''
+            }
+        },
+
+        watch: {
+            alias(val) {
+                if(val !== null) {
+                    this.settings = VueFormGenerator.schema.createDefaultObject(this.selectedCondition.options.schema);
+                }
             }
         },
 
@@ -97,6 +78,7 @@
                     }
                 });
             },
+
             conditionSelected() {
                 return this.alias !== null;
             },
@@ -108,18 +90,6 @@
                     })[0];
                 }
                 return null;
-            },
-
-            selectedConditionOptionKeys() {
-                return Object.keys(this.selectedCondition.options);
-            },
-
-            allOptionsFilled() {
-                return this.selectedConditionOptionKeys.filter(key => {
-                    return this.settings[key] === undefined
-                        || this.settings[key] === ''
-                        || this.settings[key] === null;
-                }).length === 0;
             }
         }
     }

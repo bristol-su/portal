@@ -17,28 +17,10 @@
                     ></b-form-input>
                 </b-form-group>
 
-                <b-form-group
-                    v-for="key in optionKeys"
-                    :key="key"
-                    :label="key"
-                    :label-for="key">
-                    <span v-if="filter.options[key] && typeof filter.options[key] === 'object' && filter.options[key].constructor === Object">
-                        <b-form-select
-                            :id="key"
-                            v-model="settings[key]"
-                            :options="filter.options[key]">
 
-                        </b-form-select>
-                    </span>
-                    <span v-else-if="filter.options[key] === ''">
-                        <b-form-input
-                            type="text"
-                            v-model="settings[key]">
+                <vue-form-generator :schema="filter.options.schema" :model="settings" :options="filter.options.options">
 
-                        </b-form-input>
-                    </span>
-
-                </b-form-group>
+                </vue-form-generator>
 
 
 
@@ -49,6 +31,9 @@
 </template>
 
 <script>
+
+    import VueFormGenerator from 'vue-form-generator';
+
     export default {
         name: "FilterSetup",
 
@@ -66,6 +51,10 @@
             }
         },
 
+        created() {
+            this.settings = VueFormGenerator.schema.createDefaultObject(this.filter.options.schema);
+        },
+
         methods: {
             addFilter() {
                 this.$api.filterInstance().create({
@@ -75,12 +64,6 @@
                 })
                     .then(response => this.$emit('input', response.data))
                     .catch(error => this.$notify.alert('Could not create filter: ' + error.message));
-            }
-        },
-
-        computed: {
-            optionKeys() {
-                return Object.keys(this.filter.options);
             }
         }
     }

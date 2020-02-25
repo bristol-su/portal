@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Action\ActionInstance;
+use BristolSU\Support\User\Contracts\UserAuthentication;
 use Illuminate\Http\Request;
 
 /**
@@ -29,9 +30,9 @@ class ActionInstanceController extends Controller
      */
     public function store(Request $request)
     {
-        return ActionInstance::create($request->only([
+        return ActionInstance::create(array_merge($request->only([
             'name', 'description', 'event', 'action', 'module_instance_id'
-        ]));
+        ]), ['user_id' => app(UserAuthentication::class)->getUser()->controlId()]));
     }
 
     /**
