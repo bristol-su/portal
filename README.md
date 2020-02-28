@@ -41,6 +41,7 @@
 
 * [About the Project](#about-the-project)
 * [Getting Started](#getting-started)
+* [Available Modules](#available-modules)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -83,6 +84,17 @@ You will now be able to register and use the portal. To access the management pa
 
 Selecting your user and refreshing the page will let you enter the 'Management' account. You can now give yourself the additional permissions in 'Site Permissions'.
  
+## Available Modules
+
+Although you're always welcome to develop your own modules to fit your needs, we provide a selection of basic modules to get you started.
+
+### Released
+- [Static Page (Show HTML)](https://github.com/bristol-su/static-page)
+ 
+### In Development
+- [File Upload](https://github.com/bristol-su/upload-file)
+- [Typeform](https://github.com/bristol-su/typeform)
+
 <!-- ROADMAP -->
 ## Roadmap
 
