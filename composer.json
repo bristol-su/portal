@@ -22,7 +22,7 @@
         "bristol-su/upload-file": "dev-master",
         "bristol-su/typeform": "dev-master",
         "bristol-su/template": "dev-master",
-        "bristol-su/static-page": "dev-develop",
+        "bristol-su/static-page": "^1.0",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
         "laravel/socialite": "^4.3",
