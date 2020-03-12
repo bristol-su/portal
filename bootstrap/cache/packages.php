@@ -35,13 +35,6 @@
       1 => 'venturecraft/revisionable',
     ),
   ),
-  'bristol-su/template' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BristolSU\\Module\\Template\\ModuleServiceProvider',
-    ),
-  ),
   'bristol-su/typeform' => 
   array (
     'providers' => 
