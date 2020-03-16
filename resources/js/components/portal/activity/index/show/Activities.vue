@@ -6,7 +6,8 @@
             :activities="userActivity"
             :admin="admin"
             type="user"
-            :resource-id="userId">
+            :resource-id="userId"
+            :url="{'u': userId}">
 
         </activity-group>
 
@@ -17,7 +18,8 @@
             :activities="groupActivitySet"
             type="group"
             :resource-id="groupId"
-            :admin="admin">
+            :admin="admin"
+            :url="{'u': userId, 'g': groupId}">
 
         </activity-group>
 
@@ -28,7 +30,8 @@
             :activities="roleActivitySet"
             type="role"
             :resource-id="roleId"
-            :admin="admin">
+            :admin="admin"
+            :url="{'u': userId, 'g': getGroupId(roleId), 'r': roleId}">
 
         </activity-group>
 
@@ -51,6 +54,13 @@
             },
             userId: {
                 required: true,
+            },
+            roleGroup: {
+                required: false,
+                type: Object,
+                default: function() {
+                    return {};
+                }
             }
         },
 
@@ -58,7 +68,13 @@
             return {}
         },
 
-        methods: {},
+        methods: {
+            getGroupId(roleId) {
+                if(this.roleGroup.hasOwnProperty(roleId)) {
+                    return this.roleGroup[roleId];
+                }
+            }
+        },
 
         computed: {
             userActivity() {

@@ -11,6 +11,7 @@
     <activities
         :activities="{{json_encode($activities)}}"
         :admin="{{($administrator?'true':'false')}}"
+        :role-group="{{json_encode($roleGroupRelations)}}"
         :user-id="{{app(\BristolSU\Support\User\Contracts\UserAuthentication::class)->getUser()->control_id}}">
     </activities>
 

@@ -104,11 +104,13 @@ class SocialiteController extends Controller
      */
     protected function getDataUser(\Laravel\Socialite\Contracts\User $user)
     {
-        try {
-            return app(DataUser::class)->getWhere(['email' => $user->getEmail()]);
-        } catch (ModelNotFoundException $e) {
-            if (! siteSetting('authentication.authorization.requiredAlreadyInData', false)) {
-                return app(DataUser::class)->create($user->getName(), null, $user->getEmail(), null, $user->getNickname());
+        if($user->getEmail() !== null) {
+            try {
+                return app(DataUser::class)->getWhere(['email' => $user->getEmail()]);
+            } catch (ModelNotFoundException $e) {
+                if (! siteSetting('authentication.authorization.requiredAlreadyInData', false)) {
+                    return app(DataUser::class)->create($user->getName(), null, $user->getEmail(), null, $user->getNickname());
+                }
             }
         }
         throw ValidationException::withMessages([

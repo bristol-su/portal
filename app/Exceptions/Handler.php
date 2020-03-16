@@ -11,6 +11,7 @@ use BristolSU\Support\Authorization\Exception\ActivityRequiresGroup;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresParticipant;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresRole;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresUser;
+use BristolSU\Support\Authorization\Exception\IncorrectLogin;
 use BristolSU\Support\Authorization\Exception\ModuleInactive;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -86,6 +87,7 @@ class Handler extends ExceptionHandler
                     'redirect' => $request->fullUrl()
                 ]);
             }
+
             if($exception instanceof ModuleInactive) {
                 abort(403);
             }
@@ -110,7 +112,11 @@ class Handler extends ExceptionHandler
                     }
                 }
                 app(ActivityInstanceResolver::class)->setActivityInstance($activityInstance);
-                return redirect()->to($request->url());
+                return redirect()->to($request->fullUrl());
+            }
+        } else {
+            if($exception instanceof IncorrectLogin) {
+                return response()->json(['message' => $exception->getMessage()], $exception->getStatusCode());
             }
         }
 

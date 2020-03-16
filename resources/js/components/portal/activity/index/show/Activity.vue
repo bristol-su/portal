@@ -1,13 +1,8 @@
 <template>
     <div>
-        <b-button variant="secondary" @click="gotoActivity">{{activity.name}}</b-button>
-
-        <form id="redirect-to-activity" ref="redirectToActivity" :action="loginUrl" method="POST" style="display: none;">
-            <input type="hidden" name="_token" :value="$csrf">
-            <input type="hidden" name="redirect" :value="redirectUrl">
-            <input type="hidden" name="login_type" :value="type">
-            <input type="hidden" ref="resourceId" name="login_id" :value="resourceId">
-        </form>
+        <a :href="activityUrl">
+            <b-button variant="secondary">{{activity.name}}</b-button>
+        </a>
     </div>
 </template>
 
@@ -20,36 +15,23 @@
                 required: true,
                 type: Object
             },
-            resourceId: {
-                required: true
-            },
-            type: {
-                required: true,
-                type: String
-            },
             admin: {
                 default: false,
                 type: Boolean
-            }
-        },
-
-        data() {
-            return {}
-        },
-
-        methods: {
-            gotoActivity() {
-                this.$refs.redirectToActivity.submit();
+            },
+            url: {
+                type: Object,
+                required: true,
+                default: function() {
+                    return {}
+                }
             }
         },
 
         computed: {
-            redirectUrl() {
+            activityUrl() {
                 return (this.admin?'/a/':'/p/')
-                    + this.activity.slug;
-            },
-            loginUrl() {
-                return '/login/'+ (this.admin?'admin':'participant') + '/' + this.activity.slug;
+                    + this.activity.slug + '?' + Object.keys(this.url).map(key => key + '=' + this.url[key]).join('&');
             }
         }
     }

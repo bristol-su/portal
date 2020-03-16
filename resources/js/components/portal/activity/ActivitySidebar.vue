@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-list-group>
-            <a :href="'/p/' + activity.slug"
+            <a :href="'/' + urlPrefix + '/' + activity.slug + '?' + queryString"
                :key="activity.id"
                v-for="activity in activities">
                 <b-list-group-item
@@ -27,11 +27,25 @@
                 required: true,
                 type: Object,
             },
+            admin: {
+                required: true,
+                type: Boolean,
+                default: false
+            }
         },
 
         methods: {
             isSelected(activity) {
                 return activity.id === this.currentActivity.id;
+            }
+        },
+
+        computed: {
+            urlPrefix() {
+                return (this.admin ? 'a' : 'p' );
+            },
+            queryString() {
+                return portal.queryString;
             }
         }
     }

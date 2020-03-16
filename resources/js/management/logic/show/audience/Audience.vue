@@ -3,6 +3,9 @@
         <div v-if="loading">Loading...</div>
         <div v-else>
             <b-table striped hover :fields="fields" :items="items">
+                <template v-slot:cell(user)="data">
+                    {{formatUser(data.item.user)}}
+                </template>
                 <template v-slot:cell(can_access)="data">
                     <ul>
                         <li v-for="text in audienceCanAccessThrough(data.item)" >
@@ -58,13 +61,25 @@
                     methods.push('Access through their user account')
                 }
                 methods = methods.concat(audienceItem.groups.map(group => {
-                    return 'Access through their membership to ' + group.name;
+                    return 'Access through their membership to ' + group.data.name;
                 }));
                 methods = methods.concat(audienceItem.roles.map(role => {
-                    return 'Access through their role as ' + role.position.name + ' to ' + role.group.name;
+                    return 'Access through their role as ' + role.data.role_name + ' (' + role.position.data.name + ') to ' + role.group.data.name;
                 }));
-                console.log(methods);
                 return methods;
+            },
+            formatUser(user) {
+                console.log(user);
+                if(user.data.preferred_name !== null) {
+                    return user.data.preferred_name;
+                }
+                if(user.data.first_name !== null && user.data.last_name !== null) {
+                    return user.data.first_name + ' ' + user.data.last_name;
+                }
+                if(user.data.email !== null) {
+                    return user.data.email;
+                }
+                return user.id;
             }
         },
 
@@ -72,7 +87,7 @@
             items() {
                 return this.audience.map(audience => {
                     return {
-                        user: audience.user.uc_uid,
+                        user: audience.user,
                         groups: audience.groups,
                         roles: audience.roles,
                         canBeUser: audience.can_be_user

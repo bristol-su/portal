@@ -42,7 +42,8 @@
                     + '/'
                     + this.moduleInstance.slug
                     + '/'
-                    + this.moduleInstance.alias;
+                    + this.moduleInstance.alias
+                    + '?' + this.queryString;
             },
             inactive() {
                 return !this.evaluation.active;
@@ -58,6 +59,9 @@
                     return this.evaluation.complete;
                 }
                 return false;
+            },
+            queryString() {
+                return portal.queryString;
             }
         }
     }

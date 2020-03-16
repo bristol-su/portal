@@ -14,9 +14,8 @@
                     :key="activity.id" xs="12" sm="6" md="3">
                     <activity
                         :activity="activity"
-                        :resource-id="resourceId"
                         :admin="admin"
-                        :type="type">
+                        :url="url">
 
                     </activity>
                 </b-col>
@@ -52,6 +51,13 @@
             type: {
                 required: true,
                 type: String
+            },
+            url: {
+                required: true,
+                type: Object,
+                default() {
+                    return {};
+                }
             }
         },
 

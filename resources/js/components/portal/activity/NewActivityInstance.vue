@@ -72,7 +72,7 @@
                 })
                     .then(response => {
                         let u = new Url;
-                        u.query.aiid = response.data.id;
+                        u.query.a = response.data.id;
                         window.location = u.toString();
                     })
                     .catch(error => this.$notify.alert('Sorry, something went wrong: ' + error.message));

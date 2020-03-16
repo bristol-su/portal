@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cf1367168a8b38593a034c4aefe11d1",
+    "content-hash": "f8302a3bc23c5a96c348dac6d928f490",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.34",
+            "version": "3.133.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "02131fd17c9b62f36993bb2da88dd624ce058179"
+                "reference": "59e824e235220730a8e1d276d036a9f085486512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/02131fd17c9b62f36993bb2da88dd624ce058179",
-                "reference": "02131fd17c9b62f36993bb2da88dd624ce058179",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/59e824e235220730a8e1d276d036a9f085486512",
+                "reference": "59e824e235220730a8e1d276d036a9f085486512",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-11T18:17:17+00:00"
+            "time": "2020-03-13T18:09:32+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -244,17 +244,11 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v3.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/support.git",
-                "reference": "3999307d92480932810662845daa2688c3cdffa4"
-            },
+            "version": "dev-develop",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/3999307d92480932810662845daa2688c3cdffa4",
-                "reference": "3999307d92480932810662845daa2688c3cdffa4",
-                "shasum": ""
+                "type": "path",
+                "url": "./../support/support",
+                "reference": "0a2f2b2717361ac7a352ce8eab91170d864e8163"
             },
             "require": {
                 "bristol-su/control": "^1.0",
@@ -296,7 +290,11 @@
                     "database/factories/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Support\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -311,8 +309,7 @@
                 "bristol su",
                 "portal",
                 "sdk"
-            ],
-            "time": "2020-03-11T15:30:12+00:00"
+            ]
         },
         {
             "name": "bristol-su/typeform",
@@ -7254,16 +7251,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.6.0",
+            "version": "v3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
+                "reference": "8f7961f7b9deb3b432452c18093cf16f88205902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
-                "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8f7961f7b9deb3b432452c18093cf16f88205902",
+                "reference": "8f7961f7b9deb3b432452c18093cf16f88205902",
                 "shasum": ""
             },
             "require": {
@@ -7272,7 +7269,11 @@
                 "symfony/polyfill-ctype": "^1.9"
             },
             "require-dev": {
+                "ext-filter": "*",
                 "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "suggest": {
+                "ext-filter": "Required to use the boolean validator."
             },
             "type": "library",
             "extra": {
@@ -7307,7 +7308,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-09-10T21:37:39+00:00"
+            "time": "2020-03-12T13:44:00+00:00"
         },
         {
             "name": "watr/typeform",
@@ -7585,16 +7586,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "472c917b2a083ec7d2fa25c55fd099d1300e2515"
+                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/472c917b2a083ec7d2fa25c55fd099d1300e2515",
-                "reference": "472c917b2a083ec7d2fa25c55fd099d1300e2515",
+                "url": "https://api.github.com/repos/composer/composer/zipball/b912a45da3e2b22f5cb5a23e441b697a295ba011",
+                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011",
                 "shasum": ""
             },
             "require": {
@@ -7661,7 +7662,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-03-10T13:08:05+00:00"
+            "time": "2020-03-13T19:34:27+00:00"
         },
         {
             "name": "composer/semver",
@@ -8505,9 +8506,17 @@
             "time": "2019-09-17T18:57:01+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "3.0.2",
+            "alias_normalized": "3.0.2.0",
+            "version": "dev-develop",
+            "package": "bristol-su/support"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bristol-su/support": 20,
         "socialiteproviders/providers": 20
     },
     "prefer-stable": true,

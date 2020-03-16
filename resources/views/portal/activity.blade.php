@@ -17,6 +17,7 @@
                         <activity-sidebar
                             :activities="{{$activities}}"
                             :current-activity="{{$activity}}"
+                            :admin="{{($admin?'true':'false')}}"
                         >
 
                         </activity-sidebar>
@@ -30,7 +31,7 @@
 
                         </module-instances>
 
-                        @if($activity->type === 'multi-completable')
+                        @if($activity->type === 'multi-completable' && ! $admin)
                             <activity-instance-switcher
                                 :current-activity-instance="{{$activityInstance}}"
                                 :activity-instances="{{$activityInstances}}"></activity-instance-switcher>

@@ -30,7 +30,7 @@
             evaluation: {
                 required: false,
                 default() {
-                    []
+                    return [];
                 }
             }
         },

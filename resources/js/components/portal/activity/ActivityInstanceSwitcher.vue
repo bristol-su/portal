@@ -55,7 +55,7 @@
             },
             makeUrl(id) {
                 let u = new Url;
-                u.query.aiid = id;
+                u.query.a = id;
                 return u.toString();
             }
         },

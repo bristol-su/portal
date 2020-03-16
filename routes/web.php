@@ -25,7 +25,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')->name('password.confirm');
 Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 
-
 // Landing Page Route
 Route::middleware('guest')->get('/', 'Pages\LandingController@index');
 Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
@@ -34,7 +33,6 @@ Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\Soc
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // Custom Authentication Routes
-    Route::get('/password/set', 'Auth\VerificationController@showResetPasswordForm');
     Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
     Route::post('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@login');
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');

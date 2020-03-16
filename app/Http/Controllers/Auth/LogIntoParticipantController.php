@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LogIntoParticipant\LoginRequest;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\User\Contracts\UserAuthentication;
@@ -15,11 +16,18 @@ use Illuminate\Http\Request;
 class LogIntoParticipantController extends Controller
 {
 
-    public function show(Request $request, Activity $activity, AudienceMemberFactory $factory, UserRepository $userRepository, UserAuthentication $userAuthentication)
+    public function show(Request $request, Activity $activity, AudienceMemberFactory $factory, UserAuthentication $userAuthentication)
     {
-        $user = $userRepository->getById($userAuthentication->getUser()->control_id);
+        $user = $userAuthentication->getUser()->controlUser();
         $audienceMember = $factory->fromUser($user);
         $audienceMember->filterForLogic($activity->forLogic);
+
+        if(!$audienceMember->hasAudience()) {
+            return view('errors.no_activity_access')->with([
+                'admin' => false,
+                'activity' => $activity
+            ]);
+        }
 
         return view('auth.login.resource')->with([
             'admin' => false,
@@ -32,12 +40,13 @@ class LogIntoParticipantController extends Controller
         ]);
     }
 
-    public function login(Request $request, Authentication $authentication)
+    public function login(LoginRequest $request, Authentication $authentication)
     {
-        // TODO Check the thing they want to log in as against the audience member in validation
         $loginId = $request->input('login_id');
         $loginType = $request->input('login_type');
-        $user = app(UserRepository::class)->getById(app(UserAuthentication::class)->getUser()->control_id);
+        $user = app(UserAuthentication::class)->getUser()->controlUser();
+
+        $authentication->reset();
 
         switch($loginType) {
             case 'user':

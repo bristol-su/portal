@@ -50,11 +50,6 @@ return [
             'driver' => 'passport',
             'provider' => 'database-users',
         ],
-
-        'activity-instance' => [
-            'driver' => 'session',
-            'provider' => 'activity-instances'
-        ],
     ],
 
     /*
@@ -78,11 +73,6 @@ return [
         'database-users' => [
             'driver' => 'database-user-provider',
             'model' => BristolSU\Support\User\User::class,
-        ],
-
-        'activity-instances' => [
-            'driver' => 'activity-instance-provider',
-            'model' => ActivityInstance::class
         ],
 
     ],

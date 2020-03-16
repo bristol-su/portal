@@ -3,10 +3,12 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\CheckCredentialCookies;
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\EnsureEmailIsVerified;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\SetCredentialCookies;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -75,7 +77,6 @@ class Kernel extends HttpKernel
             CreateFreshApiToken::class,
             AddQueuedCookiesToResponse::class,
             StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
@@ -100,41 +101,84 @@ class Kernel extends HttpKernel
          * Request Middleware
          */
 
-        // Start the current session
+        // Start the current session. Use Laravel session not PHP Sessions.
         StartSession::class,
 
-        // Share errors from the session
+        // Share errors from the session with the view
         ShareErrorsFromSession::class,
 
-        // Load authentication information from the session (?)
+        // Load authentication information from the session to set up the Laravel authentication framework
         AuthenticateSession::class,
 
-        // Allow for route model binding
+        // Encrypt cookies on response
+        EncryptCookies::class,
+
+        // Create a fresh API token for consuming API through Passport
+        \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
+
+        // Allow for route model binding.
         SubstituteBindings::class,
 
-        // Validate the request signature (?)
+        // Validate the request signature. Used for Laravel signed URLs
         ValidateSignature::class,
 
         // Verify the CSRF token
         VerifyCsrfToken::class,
 
-        // Throttle requests
+        // Throttle requests if needed
         ThrottleRequests::class,
 
-        // Check the user is logged in
+        // Check the user is logged in if needed
         Authenticate::class,
 
-        // Check the user is logged in (not used)
-        AuthenticateWithBasicAuth::class,
-
-        // Redirect a logged out user to the login page when authenticated
+        // Redirect a logged out user to the portal page when authenticated but accessing a guest page
         RedirectIfAuthenticated::class,
 
-        // Check a users email is verified
+        // Check a users email is verified.
         EnsureEmailIsVerified::class,
+
+        // Check an admin is logged into a user
+        \BristolSU\Support\Authorization\Middleware\CheckAdminIsAtLeastUser::class,
+
+        // Inject the module instance into the container
+        \BristolSU\Support\ModuleInstance\Middleware\InjectModuleInstance::class,
+
+        // Inject the activity into the container
+        \BristolSU\Support\Activity\Middleware\InjectActivity::class,
+
+        // Inject the activity instance into the container
+        \BristolSU\Support\ActivityInstance\Middleware\InjectActivityInstance::class,
+
+        // Check the module instance is active
+        \BristolSU\Support\Authorization\Middleware\CheckModuleInstanceActive::class,
+
+        // Make variables available to the frontend of any module
+        \BristolSU\Support\Http\Middleware\InjectJavascriptVariables::class,
+
+        // Check the control user logged in is owned by the database user
+        \BristolSU\Support\Authorization\Middleware\CheckDatabaseUserOwnsControlUser::class,
+
+        // Check the logged in control user can be logged into the group/role they're logged into
+        \BristolSU\Support\Authorization\Middleware\CheckAdditionalCredentialsOwnedByUser::class,
+
+        // Ensure an activity instance has been set
+        \BristolSU\Support\ActivityInstance\Middleware\CheckLoggedIntoActivityInstance::class,
+
+        // Check the logged in Activity Instance belongs to the activity
+        \BristolSU\Support\ActivityInstance\Middleware\CheckActivityInstanceForActivity::class,
+
+        // Check the logged in activity instance belongs to the thing the user is logged in as
+        \BristolSU\Support\ActivityInstance\Middleware\CheckActivityInstanceAccessible::class,
+
+        // Check the user is logged into the correct model to use the activity
+        \BristolSU\Support\Authorization\Middleware\CheckLoggedIntoActivityForType::class,
+
+        // Check the user is in the activity for logic group
+        \BristolSU\Support\Authorization\Middleware\CheckActivityFor::class,
 
         // Authorization middleware for use with can:
         Authorize::class,
+
 
         /*
          * Response Middleware
@@ -143,10 +187,9 @@ class Kernel extends HttpKernel
         // Set cache headers on the response
         SetCacheHeaders::class,
 
-        // Add cookies to response
+        // Add queued cookies to response
         AddQueuedCookiesToResponse::class,
 
-        // Encrypt cookies on response
-        EncryptCookies::class,
+
     ];
 }
