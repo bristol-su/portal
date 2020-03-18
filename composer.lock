@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3aa47d3740cba79f0b88ca48ae74ea1a",
+    "content-hash": "e77e14f2dd4b1e573512e3396b72a9a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -244,16 +244,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "b6c634563a6c504190b3141c4aecbed519c06fa8"
+                "reference": "9b5854de34d7e1ce45b77c9814eff9eaaf0458a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/b6c634563a6c504190b3141c4aecbed519c06fa8",
-                "reference": "b6c634563a6c504190b3141c4aecbed519c06fa8",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/9b5854de34d7e1ce45b77c9814eff9eaaf0458a5",
+                "reference": "9b5854de34d7e1ce45b77c9814eff9eaaf0458a5",
                 "shasum": ""
             },
             "require": {
@@ -312,7 +312,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-03-18T12:54:25+00:00"
+            "time": "2020-03-18T15:28:19+00:00"
         },
         {
             "name": "bristol-su/typeform",
