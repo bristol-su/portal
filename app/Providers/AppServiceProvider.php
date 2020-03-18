@@ -4,8 +4,10 @@ namespace App\Providers;
 
 
 
+use App\Actions\SendToIntegromat;
 use App\Support\Settings\Setting;
 use App\Support\Settings\SettingRepository;
+use BristolSU\Support\Action\Facade\ActionManager;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 
@@ -33,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('auth.password.broker', function ($app) {
             return $app->make('auth.password')->broker();
         });
+
+        ActionManager::registerAction(SendToIntegromat::class, 'Send to Integromat', 'Send the event to Integromat for processing');
 
     }
 }

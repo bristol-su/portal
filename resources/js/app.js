@@ -33,10 +33,13 @@ import ActivityInstanceSwitcher from './components/portal/activity/ActivityInsta
 import Welcome from './components/welcome/Welcome';
 import Settings from './management/settings/Settings';
 import SocialLogin from './components/login/social/SocialLogin';
+import Clipboard from 'v-clipboard'
 
 window.settingKeys = settingKeys;
 Vue.use(BootstrapVue);
 Vue.use(VueFormGenerator);
+Vue.use(Clipboard);
+
 Vue.prototype.$http = axios;
 Vue.prototype.$notify = new AWN({position: 'top-right'});
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

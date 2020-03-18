@@ -17,7 +17,7 @@ class ActionInstanceFieldController extends Controller
      *
      * Accepts
      * [
-     *      'event_field' => 'event_field',
+     *      'action_value' => 'action_value',
      *      'action_field' => 'action_field',
      *      'action_instance_id' => 1 // Action instance the mapping should apply to
      * ]
@@ -28,7 +28,7 @@ class ActionInstanceFieldController extends Controller
     public function store(Request $request)
     {
         return ActionInstanceField::create($request->only([
-            'event_field', 'action_field', 'action_instance_id'
+            'action_value', 'action_field', 'action_instance_id'
         ]));
     }
 
@@ -37,7 +37,7 @@ class ActionInstanceFieldController extends Controller
      *
      * Accepts
      * [
-     *      'event_field' => 'event_field',
+     *      'action_value' => 'action_value',
      *      'action_field' => 'action_field',
      *      'action_instance_id' => 1 // Action instance the mapping should apply to
      * ]
@@ -49,7 +49,7 @@ class ActionInstanceFieldController extends Controller
     public function update(ActionInstanceField $actionInstanceField, Request $request)
     {
         $actionInstanceField->fill($request->only([
-            'event_field', 'action_field', 'action_instance_id'
+            'action_value', 'action_field', 'action_instance_id'
         ]));
         $actionInstanceField->save();
         return $actionInstanceField;

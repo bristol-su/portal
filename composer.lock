@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e77e14f2dd4b1e573512e3396b72a9a0",
+    "content-hash": "3a4784155afb13069fec0c9928a6e1f1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.38",
+            "version": "3.133.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5ec9442162d83f94918bc17136a2b674a04784e5"
+                "reference": "0e3b9e497bd39063cb504115c726d369d8f4d455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5ec9442162d83f94918bc17136a2b674a04784e5",
-                "reference": "5ec9442162d83f94918bc17136a2b674a04784e5",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0e3b9e497bd39063cb504115c726d369d8f4d455",
+                "reference": "0e3b9e497bd39063cb504115c726d369d8f4d455",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-17T18:16:01+00:00"
+            "time": "2020-03-18T18:13:04+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -197,21 +197,24 @@
         },
         {
             "name": "bristol-su/static-page",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "520715d92d8f9a9d8e217b041146be98574e0248"
+                "reference": "4203152ffac06a4e3af7124e11ac9f622086fedb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/520715d92d8f9a9d8e217b041146be98574e0248",
-                "reference": "520715d92d8f9a9d8e217b041146be98574e0248",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/4203152ffac06a4e3af7124e11ac9f622086fedb",
+                "reference": "4203152ffac06a4e3af7124e11ac9f622086fedb",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "^3.0",
+                "bristol-su/support": "^4.0",
                 "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0"
             },
             "type": "library",
             "extra": {
@@ -240,20 +243,20 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "time": "2020-02-28T11:21:09+00:00"
+            "time": "2020-03-18T20:46:53+00:00"
         },
         {
             "name": "bristol-su/support",
-            "version": "v3.1.2",
+            "version": "v4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "9b5854de34d7e1ce45b77c9814eff9eaaf0458a5"
+                "reference": "47f0f89d3898b9e68413c0f0be7c901b32ab732b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/9b5854de34d7e1ce45b77c9814eff9eaaf0458a5",
-                "reference": "9b5854de34d7e1ce45b77c9814eff9eaaf0458a5",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/47f0f89d3898b9e68413c0f0be7c901b32ab732b",
+                "reference": "47f0f89d3898b9e68413c0f0be7c901b32ab732b",
                 "shasum": ""
             },
             "require": {
@@ -312,25 +315,25 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-03-18T15:28:19+00:00"
+            "time": "2020-03-18T19:51:25+00:00"
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "bc7aad40dcd49f328b96001efa1cf6881b36d6ad"
+                "reference": "f70d312821a6063b96a51b7ab21891f01ee58c73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/bc7aad40dcd49f328b96001efa1cf6881b36d6ad",
-                "reference": "bc7aad40dcd49f328b96001efa1cf6881b36d6ad",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/f70d312821a6063b96a51b7ab21891f01ee58c73",
+                "reference": "f70d312821a6063b96a51b7ab21891f01ee58c73",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "^3.0",
-                "bristol-su/typeform-service": "^1.0",
+                "bristol-su/support": "^4.0",
+                "bristol-su/typeform-service": "^1.0.1",
                 "ext-json": "*",
                 "php": "^7.2",
                 "watr/typeform": "^1.5"
@@ -361,24 +364,24 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-03-12T12:43:43+00:00"
+            "time": "2020-03-18T20:58:31+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform-service.git",
-                "reference": "1b7b3ba67d27aa4d9a71fe40410df0cf0163efe1"
+                "reference": "4d41649c647f432eecbc9f33ef4838e9f497bd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform-service/zipball/1b7b3ba67d27aa4d9a71fe40410df0cf0163efe1",
-                "reference": "1b7b3ba67d27aa4d9a71fe40410df0cf0163efe1",
+                "url": "https://api.github.com/repos/bristol-su/typeform-service/zipball/4d41649c647f432eecbc9f33ef4838e9f497bd0c",
+                "reference": "4d41649c647f432eecbc9f33ef4838e9f497bd0c",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "^3.0",
+                "bristol-su/support": "^4.0",
                 "ext-json": "*",
                 "php": "^7.2"
             },
@@ -409,24 +412,24 @@
                 }
             ],
             "description": "A third party service for typeform",
-            "time": "2020-03-09T17:21:47+00:00"
+            "time": "2020-03-18T20:31:53+00:00"
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "dd719cdc67db44440f55bb27b9ab4b3bafe31ecc"
+                "reference": "9045fdb9d12461176da24e72513a3e55e88ec4cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/dd719cdc67db44440f55bb27b9ab4b3bafe31ecc",
-                "reference": "dd719cdc67db44440f55bb27b9ab4b3bafe31ecc",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/9045fdb9d12461176da24e72513a3e55e88ec4cd",
+                "reference": "9045fdb9d12461176da24e72513a3e55e88ec4cd",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "^3.1",
+                "bristol-su/support": "^4.0",
                 "php": "^7.2"
             },
             "require-dev": {
@@ -455,7 +458,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-03-16T14:14:40+00:00"
+            "time": "2020-03-18T20:49:59+00:00"
         },
         {
             "name": "defuse/php-encryption",

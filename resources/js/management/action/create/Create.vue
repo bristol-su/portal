@@ -15,12 +15,21 @@
                 </setup>
             </tab-content>
             <tab-content title="Map Fields">
-                <map-fields
-                    v-if="this.actionInstance !== null"
-                    :action-instance="actionInstance"
-                >
+                <div v-if="this.actionInstance !== null">
 
-                </map-fields>
+                    <map-fields
+                        v-if="this.actionInstance !== null"
+                        :action-instance="actionInstance"
+                    >
+                    </map-fields>
+
+                    <br/>
+                    <hr/>
+                    <br/>
+
+                    <available-event-fields :action-instance="actionInstance"></available-event-fields>
+
+                </div>
 
                 <div v-else>
                     Please complete the first section
@@ -36,11 +45,13 @@
     import MapFields from './mapfields/MapFields';
     import {FormWizard, TabContent} from 'vue-form-wizard';
     import 'vue-form-wizard/dist/vue-form-wizard.min.css';
+    import AvailableEventFields from './mapfields/AvailableEventFields';
 
     export default {
         name: "Create",
 
         components: {
+            AvailableEventFields,
             Setup, MapFields,
             FormWizard, TabContent
         },
@@ -74,7 +85,7 @@
         methods: {
             saveActionDebounced: _.debounce(function() {
                 this.saveAction();
-            }, 1000),
+            }, 200),
 
             saveAction() {
                 if(this.isComplete) {
@@ -91,9 +102,7 @@
             },
 
             saveAndExit() {
-                this.saveAction();
-                this.$notify.success('Action successfully saved');
-                window.location.href = '/activity/' + this.moduleInstance.activity_id + '/module_instance/' + this.moduleInstance.id;
+                window.location.href = '/activity/' + this.moduleInstance.activity_id + '/module-instance/' + this.moduleInstance.id;
             },
         },
 

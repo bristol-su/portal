@@ -1,28 +1,19 @@
 <template>
     <div>
-        <b-row v-for="field in fields" :key="field.value">
-            <b-col>
-                <field-mapping
-                :field="field"
-                :event-fields="actionInstance.event_fields"
-                :action-instance-id="actionInstance.id">
+        <vue-form-generator :schema="actionInstance.action_schema.schema" :model="model" :options="actionInstance.action_schema.options">
+        </vue-form-generator>
 
-                </field-mapping>
-            </b-col>
-        </b-row>
+        <b-button variant="success" @click="saveActionInstanceFields">Save Action</b-button>
     </div>
 
 </template>
 
 <script>
-    import FieldMapping from './FieldMapping';
+    import VueFormGenerator from 'vue-form-generator'
+    import axios from 'axios';
 
     export default {
         name: "MapFields",
-
-        components: {
-            FieldMapping
-        },
 
         props: {
             actionInstance: {
@@ -31,20 +22,50 @@
             }
         },
 
-        methods: {},
+        data() {
+            return {
+                model: {},
+                actionInstanceFields: []
+            }
+        },
 
-        computed: {
-            fields() {
-                return Object.keys(this.actionInstance.action_fields).map(key => {
-                    let field = this.actionInstance.action_fields[key];
-                    return {
-                        label: field.label,
-                        value: key,
-                        helptext: field.helptext
+        created() {
+            this.model = VueFormGenerator.schema.createDefaultObject(this.actionInstance.action_schema.schema, {});
+        },
+
+        methods: {
+            saveActionInstanceFields() {
+                let promises = [];
+                Object.keys(this.model).forEach(key => {
+                    let fieldId = this.fieldId(key);
+                    if(fieldId === false) {
+                        promises.push(this.$api.actionInstanceField().create(this.formatData(key, this.model[key])));
+                    } else {
+                        promises.push(this.$api.actionInstanceField().update(fieldId, this.formatData(key, this.model[key])));
                     }
-                })
+                });
+
+                axios.all(promises)
+                    .then(responses => {
+                        responses.forEach(response => this.actionInstanceFields.push(response.data));
+                        this.$notify.success('Settings saved. This action will now be triggered!')
+                    })
+                    .catch(error => this.$notify.alert('There was an error saving the settings: ' + error.message));
             },
-        }
+
+            fieldId(key) {
+                return false;
+            },
+
+            formatData(key, value) {
+                return {
+                    action_instance_id: this.actionInstance.id,
+                    action_value: value,
+                    action_field: key
+                };
+            }
+        },
+
     }
 </script>
 
