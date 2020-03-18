@@ -88,7 +88,7 @@ new Vue({
         Welcome,
         Settings,
 
-        SocialLogin
+        SocialLogin,
     }
 });
 

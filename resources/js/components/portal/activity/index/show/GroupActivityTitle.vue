@@ -6,26 +6,8 @@
     export default {
         name: "GroupActivityTitle",
         props: {
-            groupId: {
+            group: {
                 required: true,
-            }
-        },
-
-        data() {
-            return {
-                group: null
-            }
-        },
-
-        created() {
-            this.loadGroup();
-        },
-
-        methods: {
-            loadGroup() {
-                this.$control.group().get(this.groupId)
-                    .then(response => this.group = response.data)
-                    .catch(error => this.$notify.alert('Could not load group ' + this.groupId + ': ' + error.message));
             }
         },
 

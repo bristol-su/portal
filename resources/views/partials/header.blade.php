@@ -61,7 +61,10 @@
                                 <!-- Settings -->
                                 @can('view-management')
                                     <a class="dropdown-item" href="{{ route('management') }}">Management</a>
-                            @endcan
+                                @endcan
+                                @can('access-control')
+                                    <a class="dropdown-item" href="{{ route('control') }}">Control</a>
+                                @endcan
                             <!-- Logout -->
                                 <a class="dropdown-item" href="#"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

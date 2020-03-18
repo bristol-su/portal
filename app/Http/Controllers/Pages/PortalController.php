@@ -25,18 +25,24 @@ class PortalController extends Controller
         $user = $userRepository->getById($userAuthentication->getUser()->control_id);
         $activities = ['role' => [], 'group' => [], 'user' => []];
         $roleGroupRelations = [];
+        $roles = collect();
+        $groups = collect();
+
         $activities['user'] = collect($activityRepository->getForParticipant($user))->filter(function($activity) {
             return $activity->activity_for !== 'group' && $activity->activity_for !== 'role';
         });
 
         foreach ($user->groups() as $group) {
-            $activities['group'][$group->id] = collect($activityRepository->getForParticipant($user, $group, null))->filter(function($activity) {
+            $groups->put($group->id(), $group);
+            $activities['group'][$group->id()] = collect($activityRepository->getForParticipant($user, $group, null))->filter(function($activity) {
                 return $activity->activity_for !== 'role';
             });
         }
 
         foreach ($user->roles() as $role) {
             $group = $role->group();
+            $roles->put($role->id(), $role);
+            $groups->put($group->id(), $group);
             $roleGroupRelations[$role->id()] = $group->id();
             $activities['role'][$role->id()] = $activityRepository->getForParticipant($user, $group, $role);
         }
@@ -44,24 +50,32 @@ class PortalController extends Controller
         return view('portal.portal')->with([
             'activities' => $activities,
             'administrator' => false,
-            'roleGroupRelations' => $roleGroupRelations
+            'roleGroupRelations' => $roleGroupRelations,
+            'roles' => $roles,
+            'groups' => $groups
         ]);
     }
 
-    public function administrator(ActivityRepositoryContract $activityRepository, UserRepository $userRepository, UserAuthentication $userAuthentication)
+    public function administrator(ActivityRepositoryContract $activityRepository, UserAuthentication $userAuthentication)
     {
         $activities = ['role' => [], 'group' => [], 'user' => []];
         $roleGroupRelations = [];
-        $user = $userRepository->getById($userAuthentication->getUser()->control_id);
+        $roles = collect();
+        $groups = collect();
+
+        $user = $userAuthentication->getUser()->controlUser();
         $activities['user'] = $activityRepository->getForAdministrator($user);
 
 
         foreach ($user->groups() as $group) {
+            $groups->put($group->id(), $group);
             $activities['group'][$group->id] = $activityRepository->getForAdministrator($user, $group, null);
         }
 
         foreach ($user->roles() as $role) {
             $group = $role->group();
+            $roles->put($role->id(), $role);
+            $groups->put($group->id(), $group);
             $roleGroupRelations[$role->id()] = $group->id();
             $activities['role'][$role->id] = $activityRepository->getForAdministrator($user, $group, $role);
         }
@@ -69,7 +83,9 @@ class PortalController extends Controller
         return view('portal.portal')->with([
             'activities' => $activities,
             'administrator' => true,
-            'roleGroupRelations' => $roleGroupRelations
+            'roleGroupRelations' => $roleGroupRelations,
+            'roles' => $roles,
+            'groups' => $groups
         ]);
     }
 

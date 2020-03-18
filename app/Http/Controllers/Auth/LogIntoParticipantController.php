@@ -40,31 +40,4 @@ class LogIntoParticipantController extends Controller
         ]);
     }
 
-    public function login(LoginRequest $request, Authentication $authentication)
-    {
-        $loginId = $request->input('login_id');
-        $loginType = $request->input('login_type');
-        $user = app(UserAuthentication::class)->getUser()->controlUser();
-
-        $authentication->reset();
-
-        switch($loginType) {
-            case 'user':
-                $authentication->setUser($user);
-                break;
-            case 'group':
-                $authentication->setGroup(app(GroupRepository::class)->getById($loginId));
-                $authentication->setUser($user);
-                break;
-            case 'role':
-                $role = app(RoleRepository::class)->getById($loginId);
-                $authentication->setRole($role);
-                $authentication->setGroup($role->group());
-                $authentication->setUser($user);
-                break;
-        }
-
-        return redirect()->to($request->input('redirect', back()->getTargetUrl()));
-    }
-
 }

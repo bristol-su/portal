@@ -34,9 +34,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Custom Authentication Routes
     Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
-    Route::post('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@login');
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
-    Route::post('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@login');
 
     Route::middleware(['nonmodule', 'can:view-management'])->namespace('Management')->group(function () {
         // Settings Routes
@@ -55,8 +53,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
 
+
     // Portal Routes
     Route::namespace('Pages')->group(function () {
+        Route::get('/control', 'ControlController@index')->name('control');
+
         Route::middleware('nonmodule')->group(function () {
             Route::get('/portal', 'PortalController@portal')->name('portal');
             Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');

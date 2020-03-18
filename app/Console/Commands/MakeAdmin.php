@@ -61,12 +61,17 @@ class MakeAdmin extends Command
         }
 
         $this->line('Giving admin permissions to user ' . $userModel->data()->email());
-        ModelPermission::create([
+        ModelPermission::updateOrCreate([
             'model' => 'user',
             'model_id' => $user,
-            'result' => true,
             'ability' => 'view-management'
-        ]);
+        ], ['result' => true]);
+
+        ModelPermission::updateOrCreate([
+            'model' => 'user',
+            'model_id' => $user,
+            'ability' => 'access-control'
+        ], ['result' => true]);
 
         $this->info('Permissions updated!');
 

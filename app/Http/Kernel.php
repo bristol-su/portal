@@ -152,6 +152,12 @@ class Kernel extends HttpKernel
         // Check the module instance is active
         \BristolSU\Support\Authorization\Middleware\CheckModuleInstanceActive::class,
 
+        // Check a module instance is enabled
+        \BristolSU\Support\Authorization\Middleware\CheckModuleInstanceEnabled::class,
+
+        // Check an activity is enabled
+        \BristolSU\Support\Authorization\Middleware\CheckActivityEnabled::class,
+
         // Make variables available to the frontend of any module
         \BristolSU\Support\Http\Middleware\InjectJavascriptVariables::class,
 

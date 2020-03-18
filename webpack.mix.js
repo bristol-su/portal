@@ -15,6 +15,7 @@ mix.setPublicPath('./public');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/header.js', 'public/js')
+    .js('resources/js/control.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
 

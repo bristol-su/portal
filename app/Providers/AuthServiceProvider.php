@@ -33,6 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         Permission::registerSitePermission('index-activities','See all activities','Can see a list of all activities on the settings page');
         Permission::registerSitePermission('show-activities','View an activities','View an activity on the settings page');
         Permission::registerSitePermission('create-activities','Create an activity','Can create an activity');
+        Permission::registerSitePermission('access-control','Access Control','Can access the user management system, Control');
     }
 
     public function register()

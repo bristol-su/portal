@@ -19,7 +19,9 @@
             type="group"
             :resource-id="groupId"
             :admin="admin"
-            :url="{'u': userId, 'g': groupId}">
+            :url="{'u': userId, 'g': groupId}"
+            :roles="roles"
+            :groups="groups">
 
         </activity-group>
 
@@ -31,7 +33,9 @@
             type="role"
             :resource-id="roleId"
             :admin="admin"
-            :url="{'u': userId, 'g': getGroupId(roleId), 'r': roleId}">
+            :url="{'u': userId, 'g': getGroupId(roleId), 'r': roleId}"
+            :roles="roles"
+            :groups="groups">
 
         </activity-group>
 
@@ -56,6 +60,20 @@
                 required: true,
             },
             roleGroup: {
+                required: false,
+                type: Object,
+                default: function() {
+                    return {};
+                }
+            },
+            roles: {
+                required: false,
+                type: Object,
+                default: function() {
+                    return {};
+                }
+            },
+            groups: {
                 required: false,
                 type: Object,
                 default: function() {

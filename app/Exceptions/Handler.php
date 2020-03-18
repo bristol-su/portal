@@ -6,6 +6,7 @@ use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver;
 use BristolSU\Support\ActivityInstance\Contracts\DefaultActivityInstanceGenerator;
 use BristolSU\Support\ActivityInstance\Exceptions\NotInActivityInstanceException;
 use BristolSU\Support\Authentication\Contracts\ResourceIdGenerator;
+use BristolSU\Support\Authorization\Exception\ActivityDisabled;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresAdmin;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresGroup;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresParticipant;
@@ -13,8 +14,10 @@ use BristolSU\Support\Authorization\Exception\ActivityRequiresRole;
 use BristolSU\Support\Authorization\Exception\ActivityRequiresUser;
 use BristolSU\Support\Authorization\Exception\IncorrectLogin;
 use BristolSU\Support\Authorization\Exception\ModuleInactive;
+use BristolSU\Support\Authorization\Exception\ModuleInstanceDisabled;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -66,7 +69,7 @@ class Handler extends ExceptionHandler
      *
      * @param Request $request
      * @param Exception $exception
-     * @return Response|RedirectResponse
+     * @return Response|RedirectResponse|JsonResponse
      * @throws ActivityRequiresGroup
      * @throws ActivityRequiresRole
      * @throws ActivityRequiresUser
@@ -113,6 +116,11 @@ class Handler extends ExceptionHandler
                 }
                 app(ActivityInstanceResolver::class)->setActivityInstance($activityInstance);
                 return redirect()->to($request->fullUrl());
+            }
+            if($exception instanceof ActivityDisabled) {
+                return response()->view('errors.activity_disabled', ['activity' => $exception->activity()]);
+            } if($exception instanceof ModuleInstanceDisabled) {
+                return response()->view('errors.module_instance_disabled', ['moduleInstance' => $exception->moduleInstance()]);
             }
         } else {
             if($exception instanceof IncorrectLogin) {
