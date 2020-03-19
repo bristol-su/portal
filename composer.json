@@ -8,7 +8,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "aws/aws-sdk-php": "^3.88",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
@@ -26,7 +26,8 @@
         "ext-json": "*",
         "laravel/socialite": "^4.3",
         "socialiteproviders/providers": "dev-master",
-        "linkeys/signed-url": "^1.0"
+        "linkeys/signed-url": "^1.0",
+        "laravel/vapor-core": "^2.5"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
