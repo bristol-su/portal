@@ -24,6 +24,7 @@
 </template>
 
 <script>
+    import VueFormGenerator from 'vue-form-generator';
     export default {
         name: "CompletionCondition",
 
@@ -55,7 +56,7 @@
 
         methods: {
             saveConditions() {
-                this.$api.completionConditions().create({
+                this.$api.completionConditionInstances().create({
                     name: this.name,
                     alias: this.alias,
                     settings: this.settings,

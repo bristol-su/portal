@@ -9,6 +9,9 @@
         <data-item title="Module">
             {{moduleInstance.alias}}
         </data-item>
+        <data-item title="Enabled">
+            <enable :module-instance="moduleInstance"></enable>
+        </data-item>
     </div>
 </template>
 
@@ -16,9 +19,10 @@
     import DataItem from "../../../../utilities/DataItem";
     import ModuleInstanceName from './Labels/ModuleInstanceName';
     import ModuleInstanceDescription from './Labels/ModuleInstanceDescription';
+    import Enable from './Labels/Enable';
     export default {
         name: "ModuleInstance",
-        components: {ModuleInstanceDescription, ModuleInstanceName, DataItem},
+        components: {Enable, ModuleInstanceDescription, ModuleInstanceName, DataItem},
         props: {
             moduleInstance: {
                 required: true,

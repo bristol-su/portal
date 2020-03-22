@@ -35,7 +35,7 @@ class StoreModuleInstanceRequest extends FormRequest
             'slug' => 'required|string',
             'active' => 'required|exists:logics,id',
             'visible' => 'required|exists:logics,id',
-            'mandatory' => 'exists:logics,id'
+            'mandatory' => 'nullable|exists:logics,id'
         ];
     }
 

@@ -13,7 +13,8 @@ import ActionInstanceField from './resources/actionInstanceField';
 import Group from './resources/group';
 import Role from './resources/role';
 import SitePermissions from './resources/sitepermissions';
-import CompletionConditions from './resources/completionconditions';
+import CompletionConditionInstances from './resources/completionconditioninstances';
+import CompletionCondition from './resources/completioncondition';
 import ActivityInstance from './resources/activityinstance';
 import Connector from './resources/connector';
 import Connection from './resources/connection';
@@ -54,9 +55,14 @@ export default class {
         return new Connection(this._http);
     }
 
-    completionConditions() {
-        return new CompletionConditions(this._http);
+    completionConditionInstances() {
+        return new CompletionConditionInstances(this._http);
     }
+
+    completionConditions() {
+        return new CompletionCondition(this._http);
+    }
+
     actionInstance() {
         return new ActionInstance(this._http);
     }

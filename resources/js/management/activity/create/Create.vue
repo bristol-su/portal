@@ -79,6 +79,8 @@
     import ActiveRange from "./ActiveRange";
     import LogicSelect from "./LogicSelect";
     import Slug from "./Slug";
+    import moment from 'moment';
+
     export default {
         name: "Create",
         components: {Slug, LogicSelect, ActiveRange},
@@ -123,6 +125,12 @@
 
             onSubmit() {
                 this.loading = true;
+                if(this.start_date !== null && moment(this.start_date, 'YYYY-MM-DD HH:mm', true).isValid()) {
+                    this.start_date = this.start_date + ':00';
+                }
+                if(this.end_date !== null && moment(this.end_date, 'YYYY-MM-DD HH:mm', true).isValid()) {
+                    this.end_date = this.end_date + ':00';
+                }
                 this.$api.activity().create({
                     name: this.name,
                     description: this.description,

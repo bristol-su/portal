@@ -30,9 +30,14 @@ Route::middleware(['auth', 'verified', 'can:view-management'])->group(function()
     Route::apiResource('connector', 'ConnectorController')->only('index', 'show');
     Route::apiResource('connection', 'ConnectionController')->only('index', 'destroy', 'update', 'store');
     Route::get('connection/{connection_id}/test', 'ConnectionController@test');
-    Route::apiResource('completion-condition-instance', 'CompletionConditionInstanceController')->only(['store']);
+    Route::apiResource('completion-condition-instance', 'CompletionConditionInstanceController')->only(['store', 'update']);
     Route::apiResource('activity-instance', 'ActivityInstanceController')->only(['store']);
     Route::get('/activity/{activity}/progress', 'ActivityProgressController@show');
+
+    Route::prefix('/module/{module_alias}')->group(function() {
+        Route::get('completion-condition/{completion_condition_alias}', 'CompletionConditionController@show');
+        Route::get('completion-condition', 'CompletionConditionController@index');
+    });
 
     Route::namespace('Relationships')->group(function() {
         Route::get('/activity/{activity}/module-instance', 'ActivityModuleInstancesController@index');

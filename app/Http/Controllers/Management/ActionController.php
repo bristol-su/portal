@@ -10,9 +10,9 @@ use BristolSU\Support\ModuleInstance\ModuleInstance;
 class ActionController extends Controller
 {
 
-    public function show(Activity $activity, ModuleInstance $moduleInstance, ActionInstance $actionInstance)
+    public function show(ActionInstance $actionInstance)
     {
-        return view('management.actions.show')->with('actionInstances', $actionInstance);
+        return view('management.actions.show')->with('action', $actionInstance);
     }
 
     public function create(Activity $activity, ModuleInstance $moduleInstance)

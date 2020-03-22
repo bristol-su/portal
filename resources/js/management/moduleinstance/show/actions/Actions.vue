@@ -4,10 +4,8 @@
             <b-col>
                 <b-card v-for="action in actions" :key="action.id" :title="action.name" :sub-title="action.description">
                     <b-card-text>
-                        History coming soon
+                       <a :href="'/action/' + action.id"><b-button variant="secondary">Click to view more</b-button></a>
                     </b-card-text>
-
-                    <a href="#" class="card-link"></a>
                 </b-card>
             </b-col>
         </b-row>

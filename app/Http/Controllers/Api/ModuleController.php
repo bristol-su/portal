@@ -1,10 +1,7 @@
 <?php
 
-
 namespace App\Http\Controllers\Api;
 
-
-use BristolSU\Support\Filters\Contracts\Filters\Filter;
 use BristolSU\Support\Module\Contracts\ModuleRepository;
 use BristolSU\Support\Module\Module;
 

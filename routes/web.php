@@ -46,9 +46,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::prefix('/activity/{activity}')->group(function () {
             Route::resource('module-instance', 'ModuleInstanceController')->only(['show', 'create']);
             Route::prefix('/module-instance/{module_instance}')->group(function () {
-                Route::resource('action', 'ActionController')->only(['show', 'create']);
+                Route::resource('action', 'ActionController')->only(['create']);
             });
         });
+        Route::resource('action', 'ActionController')->only(['show'])->parameter('action', 'action_instance');
         Route::get('settings', 'SettingsController@index');
     });
 

@@ -25,7 +25,7 @@ class ModuleInstanceController extends Controller
     public function update(ModuleInstance $moduleInstance, Request $request, ModuleInstanceRepository $repository)
     {
         return $repository->update($moduleInstance->id(), $request->only([
-            'name', 'description', 'enabled'
+            'name', 'description', 'enabled', 'active', 'visible', 'mandatory', 'completion_condition_instance_id'
         ]));
     }
 

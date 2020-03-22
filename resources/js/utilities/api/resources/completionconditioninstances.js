@@ -7,4 +7,8 @@ export default class extends BaseResource{
         return this.request('post', 'completion-condition-instance', attributes);
     }
 
+    update(id, attributes) {
+        return this.request('patch', 'completion-condition-instance/' + id, attributes);
+    }
+
 }

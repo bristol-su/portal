@@ -6,4 +6,5 @@ export default class extends BaseResource{
         return this.request('get', '/action');
     }
 
+
 }
