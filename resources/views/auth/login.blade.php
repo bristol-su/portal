@@ -89,18 +89,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3" style="border-left: 2px solid black">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5>Or login with...</h5>
+                            @if(is_array(siteSetting('thirdPartyAuthentication.providers', [])) && count(siteSetting('thirdPartyAuthentication.providers', [])) > 0)
+                                <div class="col-md-3" style="border-left: 2px solid black">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5>Or login with...</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <social-login :providers="{{json_encode(siteSetting('thirdPartyAuthentication.providers'))}}"></social-login>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <social-login :providers="{{json_encode(siteSetting('thirdPartyAuthentication.providers'))}}"></social-login>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
                         </div>
 
                     </div>

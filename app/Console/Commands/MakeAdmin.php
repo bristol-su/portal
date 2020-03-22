@@ -68,9 +68,6 @@ class MakeAdmin extends Command
             }
         }
 
-
-
-
         $this->line('Giving admin permissions to user ' . $user->data()->email());
         ModelPermission::updateOrCreate([
             'model' => 'user',

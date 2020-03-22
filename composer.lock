@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be4ca82ee16d868d8ec4c9c45a1d1c95",
+    "content-hash": "32bf70cbb3a206c897f1101e7b38398c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.39",
+            "version": "3.133.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0e3b9e497bd39063cb504115c726d369d8f4d455"
+                "reference": "f89562eaab7f9e5695b10960abb727b64df3da10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0e3b9e497bd39063cb504115c726d369d8f4d455",
-                "reference": "0e3b9e497bd39063cb504115c726d369d8f4d455",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f89562eaab7f9e5695b10960abb727b64df3da10",
+                "reference": "f89562eaab7f9e5695b10960abb727b64df3da10",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-18T18:13:04+00:00"
+            "time": "2020-03-19T18:10:38+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -247,17 +247,11 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/support.git",
-                "reference": "47f0f89d3898b9e68413c0f0be7c901b32ab732b"
-            },
+            "version": "dev-develop",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/47f0f89d3898b9e68413c0f0be7c901b32ab732b",
-                "reference": "47f0f89d3898b9e68413c0f0be7c901b32ab732b",
-                "shasum": ""
+                "type": "path",
+                "url": "./../support/support",
+                "reference": "c5c8a716ee3d17d9f1a3f445943611e8ef590c36"
             },
             "require": {
                 "bristol-su/control": "^1.0",
@@ -299,7 +293,11 @@
                     "database/factories/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Support\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -314,8 +312,7 @@
                 "bristol su",
                 "portal",
                 "sdk"
-            ],
-            "time": "2020-03-18T19:51:25+00:00"
+            ]
         },
         {
             "name": "bristol-su/typeform",
@@ -7105,9 +7102,17 @@
             "time": "2020-02-14T12:15:55+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "4.0",
+            "alias_normalized": "4.0.0.0",
+            "version": "dev-develop",
+            "package": "bristol-su/support"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bristol-su/support": 20,
         "socialiteproviders/providers": 20
     },
     "prefer-stable": true,

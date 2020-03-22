@@ -79,6 +79,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(is_array(siteSetting('thirdPartyAuthentication.providers', [])) && count(siteSetting('thirdPartyAuthentication.providers', [])) > 0)
+
                             <div class="col-md-3" style="border-left: 2px solid black">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -92,6 +94,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

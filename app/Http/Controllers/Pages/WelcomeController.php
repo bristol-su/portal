@@ -9,7 +9,10 @@ class WelcomeController extends Controller
 
     public function welcome()
     {
-        return view('portal.welcome');
+        if(siteSetting('welcome.fillInRegInformation', true)) {
+            return view('portal.welcome');
+        }
+        return redirect()->route('portal');
     }
 
 }

@@ -18,7 +18,7 @@
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
-        "bristol-su/support": "^4.0",
+        "bristol-su/support": "dev-develop as 4.0",
         "bristol-su/upload-file": "^1.0",
         "bristol-su/typeform": "^1.0",
         "bristol-su/static-page": "^1.0",
@@ -69,5 +69,6 @@
                 "laravel/socialite"
             ]
         }
-    }
+    },
+"repositories": [{"type": "path", "url": "./../support/support"}]
 }

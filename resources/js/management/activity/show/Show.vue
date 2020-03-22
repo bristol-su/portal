@@ -10,12 +10,12 @@
                         </activity>
                     </b-tab>
                     <b-tab title="Participants">
-                        <logic :logic-id="activity.for_logic">
+                        <logic :logic-id="activity.for_logic" :activity-id="activity.id" attribute="for_logic"></logic>
 
-                        </logic>
+
                     </b-tab>
                     <b-tab title="Admins">
-                        <logic :logic-id="activity.admin_logic">
+                        <logic :logic-id="activity.admin_logic" :activity-id="activity.id" attribute="admin_logic"></logic>
 
                         </logic>
                     </b-tab>

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware(['auth', 'verified'])->group(function() {
+Route::middleware(['auth', 'verified', 'can:view-management'])->group(function() {
     Route::apiResource('activity', 'ActivityController')->only(['store', 'update']);
     Route::apiResource('setting', 'SettingController')->only(['index', 'show', 'update']);
     Route::apiResource('filter', 'FilterController')->only(['index']);
@@ -22,7 +22,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::apiResource('module-instance-permission', 'ModuleInstancePermissionController')->only(['show', 'store', 'update']);
     Route::apiResource('module-instance-service', 'ModuleInstanceServiceController')->only(['show', 'store', 'update', 'index']);
     Route::apiResource('module-instance-setting', 'ModuleInstanceSettingController')->only(['show', 'store', 'update']);
-    Route::apiResource('module-instance', 'ModuleInstanceController')->only(['store']);
+    Route::apiResource('module-instance', 'ModuleInstanceController')->only(['store', 'update']);
     Route::apiResource('action', 'ActionController')->only(['index']);
     Route::apiResource('action-instance', 'ActionInstanceController')->only(['store', 'update']);
     Route::apiResource('action-instance-field', 'ActionInstanceFieldController')->only(['store', 'update']);

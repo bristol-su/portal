@@ -1,10 +1,10 @@
 <template>
     <div>
         <data-item title="Name">
-            {{activity.name}}
+            <activity-name :activity="activity"></activity-name>
         </data-item>
         <data-item title="Description">
-            {{activity.description}}
+            <activity-description :activity="activity"></activity-description>
         </data-item>
         <data-item title="Type">
             {{activity.type}}
@@ -13,9 +13,7 @@
             <a :href="url">{{url}}</a>
         </data-item>
         <data-item title="Active">
-            <active :start="activity.start_date" :end="activity.end_date">
-
-            </active>
+            <activity-active-from-to :activity="activity"></activity-active-from-to>
         </data-item>
         <data-item title="Progress">
             <a :href="'/activity/' + activity.id + '/progress'">
@@ -30,10 +28,12 @@
 
 <script>
     import DataItem from "../../../../utilities/DataItem";
-    import Active from "./Active";
+    import ActivityName from './Labels/ActivityName';
+    import ActivityDescription from './Labels/ActivityDescription';
+    import ActivityActiveFromTo from './Labels/ActivityActiveFromTo';
     export default {
         name: "Activity",
-        components: {Active, DataItem},
+        components: {ActivityActiveFromTo, ActivityDescription, ActivityName, DataItem},
         props: {
             activity: {
                 required: true,
@@ -72,7 +72,7 @@
 
         computed: {
             url() {
-                return process.env.MIX_APP_URL + '/' + this.activity.slug;
+                return process.env.MIX_APP_URL + '/p/' + this.activity.slug;
             },
             enabledText() {
                 return (this.enabled ? 'Enabled': 'Disabled');
