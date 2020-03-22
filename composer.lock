@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32bf70cbb3a206c897f1101e7b38398c",
+    "content-hash": "712681bc3671c270f11a5f9986c87e56",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.40",
+            "version": "3.133.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f89562eaab7f9e5695b10960abb727b64df3da10"
+                "reference": "9b4a110de75631339329a4ca45ebbaf7ddd1f7f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f89562eaab7f9e5695b10960abb727b64df3da10",
-                "reference": "f89562eaab7f9e5695b10960abb727b64df3da10",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9b4a110de75631339329a4ca45ebbaf7ddd1f7f9",
+                "reference": "9b4a110de75631339329a4ca45ebbaf7ddd1f7f9",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-19T18:10:38+00:00"
+            "time": "2020-03-20T18:10:54+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -247,11 +247,17 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "dev-develop",
+            "version": "v4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/support.git",
+                "reference": "b08e42fc5fdd2b534ab45bdbb67c0a016b64846b"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../support/support",
-                "reference": "c5c8a716ee3d17d9f1a3f445943611e8ef590c36"
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/b08e42fc5fdd2b534ab45bdbb67c0a016b64846b",
+                "reference": "b08e42fc5fdd2b534ab45bdbb67c0a016b64846b",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/control": "^1.0",
@@ -293,11 +299,7 @@
                     "database/factories/"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Support\\Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -312,7 +314,8 @@
                 "bristol su",
                 "portal",
                 "sdk"
-            ]
+            ],
+            "time": "2020-03-19T18:37:29+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -3208,20 +3211,20 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959"
+                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959",
-                "reference": "77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
+                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0"
+                "php": "^5.5.9 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.3",
@@ -3259,7 +3262,7 @@
                 "php",
                 "type"
             ],
-            "time": "2019-12-15T19:35:24+00:00"
+            "time": "2020-03-21T18:07:53+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -7102,17 +7105,9 @@
             "time": "2020-02-14T12:15:55+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "4.0",
-            "alias_normalized": "4.0.0.0",
-            "version": "dev-develop",
-            "package": "bristol-su/support"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bristol-su/support": 20,
         "socialiteproviders/providers": 20
     },
     "prefer-stable": true,
