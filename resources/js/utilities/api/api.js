@@ -20,6 +20,7 @@ import Connector from './resources/connector';
 import Connection from './resources/connection';
 import ModuleInstanceServices from './resources/moduleinstanceservices';
 import Setting from './resources/setting';
+import ActionInstanceHistory from './resources/actioninstancehistory';
 
 // TODO Implement Cache
 export default class {
@@ -77,6 +78,10 @@ export default class {
 
     logic() {
         return new Logic(this._http);
+    }
+
+    actionInstanceHistory() {
+        return new ActionInstanceHistory(this._http);
     }
 
     modules() {

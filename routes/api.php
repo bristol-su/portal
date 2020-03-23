@@ -42,6 +42,7 @@ Route::middleware(['auth', 'verified', 'can:view-management'])->group(function()
     Route::namespace('Relationships')->group(function() {
         Route::prefix('/action-instance/{action_instance}')->group(function() {
             Route::get('action-instance-field', 'ActionInstanceActionInstanceFieldController@index');
+            Route::get('history', 'ActionInstanceActionInstanceHistoryController@index');
         });
 
         Route::prefix('logic/{logic}')->group(function() {

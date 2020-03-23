@@ -14,6 +14,9 @@
                     <b-tab title="Settings">
                         <action-settings :action="action"></action-settings>
                     </b-tab>
+                    <b-tab title="History">
+                        <action-histories :action-instance="action"></action-histories>
+                    </b-tab>
                 </b-tabs>
             </b-card>
         </div>
@@ -27,11 +30,13 @@
     import ActionName from './Labels/ActionName';
     import ActionDescription from './Labels/ActionDescription';
     import ActionSettings from './Labels/ActionSettings';
+    import ActionHistories from './ActionHistories';
 
     export default {
         name: "Show",
 
         components: {
+            ActionHistories,
             ActionSettings,
             ActionDescription,
             ActionName,

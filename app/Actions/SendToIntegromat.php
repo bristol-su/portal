@@ -2,57 +2,47 @@
 
 namespace App\Actions;
 
+use BristolSU\Support\Action\ActionResponse;
 use BristolSU\Support\Action\Contracts\Action;
 use FormSchema\Generator\Field;
 use FormSchema\Generator\Group;
 use FormSchema\Schema\Form;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
-class SendToIntegromat implements Action
+class SendToIntegromat extends Action
 {
-
-    /**
-     * @var array
-     */
-    private $data;
-
-    public function __construct(array $data)
-    {
-        $this->data = $data;
-    }
 
     /**
      * @inheritDoc
      */
-    public function handle()
+    public function run(): ActionResponse
     {
-        $client = new Client();
-        $client->post($this->data['webhook_url'], [
-            'form_params' => [
-                'data_one' => $this->getData('data_one'),
-                'data_two' => $this->getData('data_two'),
-                'data_three' => $this->getData('data_three'),
-                'data_four' => $this->getData('data_four'),
-                'data_five' => $this->getData('data_five'),
-                'data_six' => $this->getData('data_six'),
-                'data_seven' => $this->getData('data_seven'),
-                'data_eight' => $this->getData('data_eight'),
-                'data_nine' => $this->getData('data_nine'),
-                'data_ten' => $this->getData('data_ten'),
-                'data_eleven' => $this->getData('data_eleven'),
-                'data_twelve' => $this->getData('data_twelve'),
-                'data_thirteen' => $this->getData('data_thirteen'),
-                'data_fourteen' => $this->getData('data_fourteen'),
-                'data_fifteen' => $this->getData('data_fifteen')
-            ]
-        ]);
-    }
-
-    private function getData($key) {
-        if(array_key_exists($key, $this->data)) {
-            return $this->data[$key];
+        try {
+            $client = new Client();
+            $client->post($this->option('webhook_url'), [
+                'form_params' => [
+                    'data_one' => $this->option('data_one'),
+                    'data_two' => $this->option('data_two'),
+                    'data_three' => $this->option('data_three'),
+                    'data_four' => $this->option('data_four'),
+                    'data_five' => $this->option('data_five'),
+                    'data_six' => $this->option('data_six'),
+                    'data_seven' => $this->option('data_seven'),
+                    'data_eight' => $this->option('data_eight'),
+                    'data_nine' => $this->option('data_nine'),
+                    'data_ten' => $this->option('data_ten'),
+                    'data_eleven' => $this->option('data_eleven'),
+                    'data_twelve' => $this->option('data_twelve'),
+                    'data_thirteen' => $this->option('data_thirteen'),
+                    'data_fourteen' => $this->option('data_fourteen'),
+                    'data_fifteen' => $this->option('data_fifteen')
+                ]
+            ]);
+            return ActionResponse::success('Data sent to Integromat');
+        } catch (GuzzleException $e) {
+            return ActionResponse::failure($e->getMessage());
         }
-        return null;
     }
 
     /**
