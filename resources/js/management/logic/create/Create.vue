@@ -30,25 +30,29 @@
             ></b-form-input>
         </b-form-group>
 
-        <b-form-group label="Filters">
-            <filter-group title="All True" v-model="form.all_true" >
+        <b-button @click="create" v-if="logic === null" variant="secondary">Create Logic</b-button>
+
+        <b-form-group label="Filters" v-if="logic !== null">
+            <filter-group @input="addFilter($event, 'all_true')" title="All True">
 
             </filter-group>
 
-            <filter-group title="All False" v-model="form.all_false">
+            <filter-group @input="addFilter($event, 'all_false')" title="All False">
 
             </filter-group>
 
-            <filter-group title="Any Must Be True" v-model="form.any_true">
+            <filter-group @input="addFilter($event, 'any_true')" title="Any Must Be True">
 
             </filter-group>
 
-            <filter-group title="Any Must Be False" v-model="form.any_false">
+            <filter-group @input="addFilter($event, 'any_false')" title="Any Must Be False">
 
             </filter-group>
         </b-form-group>
 
-        <b-button variant="secondary" @click="create">Create Logic</b-button>
+        <a :href="'/logic/' + logic.id" v-if="logic !== null">
+            <b-button variant="secondary">Finish</b-button>
+        </a>
     </div>
 </template>
 
@@ -62,12 +66,9 @@
             return {
                 form: {
                     name: '',
-                    description: '',
-                    all_true: [],
-                    all_false: [],
-                    any_true: [],
-                    any_false: []
-                }
+                    description: ''
+                },
+                logic: null
             }
         },
 
@@ -76,9 +77,15 @@
                 this.$api.logic().create(this.form)
                     .then(response => {
                         this.$notify.success('Logic ' + this.form.name + ' created!');
-                        window.setTimeout(() => {window.location.href = '/logic/' + response.data.id}, 3000);
+                        this.logic = response.data;
+                        // window.setTimeout(() => {window.location.href = '/logic/' + response.data.id}, 3000);
                     })
                     .catch(error => this.$notify.alert('Logic could not be created: ' + error.message))
+            },
+            addFilter(filterId, type) {
+                this.$api.logic().attachFilter(this.logic.id, filterId, type)
+                    .then(response => this.$notify.success('Filter attached to logic'))
+                    .catch(error => this.$notify.alert('Could not attach filter to logic: ' + error.message));
             }
         }
     }

@@ -3,7 +3,7 @@ import BaseResource from './../baseresource';
 export default class extends BaseResource{
 
     getBelongingToLogic(id) {
-        return this.request('get', '/logic/' + id + '/filters');
+        return this.request('get', '/logic/' + id + '/filter-instance');
     }
 
     getAll() {

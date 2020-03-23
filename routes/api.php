@@ -17,7 +17,7 @@ Route::middleware(['auth', 'verified', 'can:view-management'])->group(function()
     Route::apiResource('setting', 'SettingController')->only(['index', 'show', 'update']);
     Route::apiResource('filter', 'FilterController')->only(['index']);
     Route::apiResource('filter-instances', 'FilterInstanceController')->only(['store']);
-    Route::apiResource('logic', 'LogicController')->only(['index', 'show', 'store']);
+    Route::apiResource('logic', 'LogicController')->only(['index', 'show', 'store', 'update']);
     Route::apiResource('module', 'ModuleController')->only(['index', 'show']);
     Route::apiResource('module-instance-permission', 'ModuleInstancePermissionController')->only(['show', 'store', 'update']);
     Route::apiResource('module-instance-service', 'ModuleInstanceServiceController')->only(['show', 'store', 'update', 'index']);
@@ -40,11 +40,18 @@ Route::middleware(['auth', 'verified', 'can:view-management'])->group(function()
     });
 
     Route::namespace('Relationships')->group(function() {
+        Route::prefix('/action-instance/{action_instance}')->group(function() {
+            Route::get('action-instance-field', 'ActionInstanceActionInstanceFieldController@index');
+        });
+
+        Route::prefix('logic/{logic}')->group(function() {
+            Route::resource('filter-instance', 'LogicFilterInstanceController')->only(['index', 'update', 'destroy']);
+        });
+
         Route::get('/activity/{activity}/module-instance', 'ActivityModuleInstancesController@index');
 
         Route::get('service/{service}/connection', 'ServiceConnectionController@index');
 
-        Route::get('/logic/{logic}/filters', 'LogicFiltersController@index');
         Route::get('/logic/{logic}/audience', 'LogicAudienceController@index');
         Route::get('/logic/{logic}/audience/user', 'LogicAudienceController@user');
         Route::get('/logic/{logic}/audience/group', 'LogicAudienceController@group');

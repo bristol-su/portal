@@ -53,7 +53,7 @@
         methods: {
             addFilter(filter) {
                 this.filters.push(filter);
-                this.$emit('input', this.filters.map(filter => filter.id));
+                this.$emit('input', filter.id);
             }
         }
     }

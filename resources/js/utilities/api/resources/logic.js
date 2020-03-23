@@ -18,7 +18,17 @@ export default class extends BaseResource{
         return this.request('get', '/logic/' + logicId + '/audience');
     }
 
+    update(id, attributes) {
+        return this.request('patch', '/logic/' + id, attributes);
+    }
 
+    attachFilter(logicId, filterId, type) {
+        return this.request('patch', '/logic/' + logicId + '/filter-instance/' + filterId, {logic_type: type});
+    }
+
+    removeFilter(logicId, filterId) {
+        return this.request('delete', '/logic/' + logicId + '/filter-instance/' + filterId);
+    }
 
     userAudience(logicId) {
         return this.request('get', '/logic/' + logicId + '/audience/user');

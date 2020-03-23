@@ -10,4 +10,8 @@ export default class extends BaseResource{
         return this.request('patch', '/action-instance-field/' + id, parameters);
     }
 
+    allThroughActionInstance(actionInstanceId) {
+        return this.request('get', '/action-instance/' + actionInstanceId + '/action-instance-field');
+    }
+
 }

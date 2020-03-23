@@ -54,6 +54,4 @@ class ActionInstanceFieldController extends Controller
         $actionInstanceField->save();
         return $actionInstanceField;
     }
-
-
 }

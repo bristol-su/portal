@@ -12,7 +12,7 @@
                         </data-item>
                     </b-tab>
                     <b-tab title="Settings">
-
+                        <action-settings :action="action"></action-settings>
                     </b-tab>
                 </b-tabs>
             </b-card>
@@ -26,11 +26,13 @@
     import DataItem from '../../../utilities/DataItem';
     import ActionName from './Labels/ActionName';
     import ActionDescription from './Labels/ActionDescription';
+    import ActionSettings from './Labels/ActionSettings';
 
     export default {
         name: "Show",
 
         components: {
+            ActionSettings,
             ActionDescription,
             ActionName,
             DataItem

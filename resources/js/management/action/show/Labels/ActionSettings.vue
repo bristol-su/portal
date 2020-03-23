@@ -1,20 +1,37 @@
 <template>
     <div>
         <div v-if="editing">
-<!--            <b-input type="text" size="sm" width="80%" v-model="newSettings">{{action.settings}}</b-input>-->
-            <span><b-button variant="secondary" @click="updateSettings">Save Settings</b-button></span>
+
+            <map-fields
+                :action-instance="action"
+                @saved="reloadPage"
+            >
+            </map-fields>
+
+            <br/>
+            <hr/>
+            <br/>
+
+            <available-event-fields :action-instance="action"></available-event-fields>
+
         </div>
         <div v-else>
-            <span>{{action.settings}}</span>
+            <data-item v-for="field in mappedFields" :key="field.id" :title="field.action_field">
+                {{field.action_value}}
+            </data-item>
             <span><b-button variant="secondary" @click="edit">Edit</b-button></span>
         </div>
     </div>
 </template>
 
 <script>
+    import AvailableEventFields from '../../create/mapfields/AvailableEventFields';
+    import MapFields from '../../create/mapfields/MapFields';
+    import DataItem from '../../../../utilities/DataItem';
+
     export default {
         name: "ActionSettings",
-
+        components: {MapFields, AvailableEventFields, DataItem},
         props: {
             action: {
                 required: true,
@@ -25,29 +42,28 @@
         data() {
             return {
                 editing: false,
-                settings: null
+                newSettings: null,
+                mappedFields: []
             }
         },
 
-        created() {
-            this.settings = action.settings;
+        mounted() {
+            this.loadMappedFields();
         },
 
         methods: {
-            updateSettings() {
-                this.$api.actionInstance().update(this.action.id, {
-                    settings: this.newSettings
-                })
-                    .then(response => {
-                        this.$notify.success('Updated settings');
-                        window.location.reload();
-                    })
-                    .catch(error => this.$notify.alert('Could not update the settings: ' + error.message));
-                this.editing = false;
+            loadMappedFields() {
+                this.$api.actionInstanceField().allThroughActionInstance(this.action.id)
+                    .then(response => this.mappedFields = response.data)
+                    .catch(error => this.$notify.alert('Could not load settings: ' + error.message));
             },
+
             edit() {
                 this.newSettings = this.action.settings;
                 this.editing = true;
+            },
+            reloadPage() {
+                window.location.reload();
             }
         },
 

@@ -66,4 +66,9 @@ class LogicController extends Controller
         return $logic;
     }
 
+    public function update(Logic $logic, Request $request, LogicRepository $repository)
+    {
+        return $repository->update($logic->id, $request->only(['name', 'description']));
+    }
+
 }
