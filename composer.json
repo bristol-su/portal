@@ -27,7 +27,8 @@
         "laravel/socialite": "^4.3",
         "socialiteproviders/providers": "dev-master",
         "linkeys/signed-url": "^1.0",
-        "laravel/vapor-core": "^2.5"
+        "laravel/vapor-core": "^2.5",
+        "bristol-su/assign-roles": "dev-develop"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",

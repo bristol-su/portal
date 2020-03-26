@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "907af61e0f1c9fb243bcd9abfdd6b71c",
+    "content-hash": "dd03becc601cc38d3dd9dd6d6398e2dc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -141,6 +141,53 @@
                 "sdk"
             ],
             "time": "2020-03-20T18:10:54+00:00"
+        },
+        {
+            "name": "bristol-su/assign-roles",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/assign-roles.git",
+                "reference": "668fa3d974438f2bb34f01bbd87bf32130d81079"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/668fa3d974438f2bb34f01bbd87bf32130d81079",
+                "reference": "668fa3d974438f2bb34f01bbd87bf32130d81079",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "^4.2",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\Module\\AssignRoles\\ModuleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\Module\\AssignRoles\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger1@gmail.com"
+                }
+            ],
+            "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
+            "time": "2020-03-26T13:15:35+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -7108,7 +7155,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "socialiteproviders/providers": 20
+        "socialiteproviders/providers": 20,
+        "bristol-su/assign-roles": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

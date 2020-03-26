@@ -6,6 +6,13 @@
       0 => 'BeyondCode\\DumpServer\\DumpServerServiceProvider',
     ),
   ),
+  'bristol-su/assign-roles' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\Module\\AssignRoles\\ModuleServiceProvider',
+    ),
+  ),
   'bristol-su/control' => 
   array (
     'dont-discover' => 
