@@ -5,7 +5,7 @@
             <!-- Left side of the navbar -->
             @auth
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img style="max-height: 40px" src="{{serveStatic('su-logo.jpg')}}"/>
+                    <img style="max-height: 40px" src="{{asset('logo.jpg')}}"/>
                     &nbsp;&nbsp;
                     {{ config('app.name', 'Committee Portal') }}
                 </a>

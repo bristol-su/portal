@@ -34,7 +34,8 @@ class Handler extends ExceptionHandler
         ActivityRequiresAdmin::class,
         ModuleInactive::class,
         NotInActivityInstanceException::class,
-
+        ActivityDisabled::class,
+        ModuleInstanceDisabled::class
     ];
 
     /**
