@@ -129,6 +129,8 @@ class Handler extends ExceptionHandler
             }
         }
 
+
+
         // TODO Handle exceptions above if expects json
 
         return parent::render($request, $exception);
