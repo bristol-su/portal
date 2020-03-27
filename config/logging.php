@@ -34,6 +34,13 @@ return [
     */
 
     'channels' => [
+
+        'vapor-slack' => [
+            'driver' => 'stack',
+            'channels' => ['stderr', 'verbose-slack'],
+            'ignore_exceptions' => false,
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['daily'],
@@ -50,6 +57,14 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
             'days' => 14,
+        ],
+
+        'verbose-slack' => [
+            'driver' => 'slack',
+            'url' => env('LOG_SLACK_WEBHOOK_URL'),
+            'username' => 'Laravel Log',
+            'emoji' => ':boom:',
+            'level' => 'debug',
         ],
 
         'slack' => [
