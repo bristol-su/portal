@@ -145,4 +145,11 @@
       0 => 'SocialiteProviders\\Manager\\ServiceProvider',
     ),
   ),
+  'twigger/unioncloud' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Twigger\\UnionCloud\\API\\UnionCloudServiceProvider',
+    ),
+  ),
 );

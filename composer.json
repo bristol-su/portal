@@ -28,7 +28,8 @@
         "socialiteproviders/providers": "dev-master",
         "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
-        "bristol-su/assign-roles": "dev-develop"
+        "bristol-su/assign-roles": "dev-develop",
+        "twigger/unioncloud": "^1.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
