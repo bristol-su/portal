@@ -3,6 +3,9 @@
 namespace App\Support\UnionCloud;
 
 use BristolSU\ControlDB\Contracts\Repositories\DataUser;
+use Illuminate\Support\Facades\Cache;
+use Twigger\UnionCloud\API\Exception\Request\IncorrectRequestParameterException;
+use Twigger\UnionCloud\API\Resource\User;
 use Twigger\UnionCloud\API\UnionCloud;
 
 class DataUserRepository implements DataUser
@@ -23,8 +26,16 @@ class DataUserRepository implements DataUser
      */
     public function getById(int $id): \BristolSU\ControlDB\Contracts\Models\DataUser
     {
-        $user = $this->unionCloud->users()->setMode('standard')->getByUID($id)->get()->first();
-        return DataUserModel::fromUnionCloudUser($user);
+        return Cache::remember('unioncloud-data-user-get-by-id:' . $id, 100000, function() use ($id) {
+            try {
+                $user = $this->unionCloud->users()->setMode('standard')->getByUID($id)->get()->first();
+            } catch (IncorrectRequestParameterException $exception) {
+                $user = new DataUserModel();
+                $user->user = new User(['uid' => $id]);
+                return $user;
+            }
+            return DataUserModel::fromUnionCloudUser($user);
+        });
     }
 
     /**

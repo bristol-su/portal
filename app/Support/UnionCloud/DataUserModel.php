@@ -128,7 +128,7 @@ class DataUserModel implements DataUser
      */
     public function toJson($options = 0)
     {
-        return json_encode($this->toArray());
+        return json_encode($this->toArray(), $options);
     }
 
     /**
@@ -189,5 +189,10 @@ class DataUserModel implements DataUser
         $user = new static;
         $user->user = $unionCloudUser;
         return $user;
+    }
+
+    public function __toString()
+    {
+        return $this->toJson();
     }
 }

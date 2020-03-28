@@ -41,7 +41,7 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @inject('userAuthentication', 'BristolSU\Support\User\Contracts\UserAuthentication')
-                                {{ $userAuthentication->getUser()->controlUser()->data()->preferred_name }} <span class="caret"></span>
+                                {{ $userAuthentication->getUser()->controlUser()->data()->preferredName() }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
