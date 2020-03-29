@@ -27,16 +27,21 @@ class DataUserRepository implements DataUser
      */
     public function getById(int $id): \BristolSU\ControlDB\Contracts\Models\DataUser
     {
-        return Cache::remember('unioncloud-data-user-get-by-id:' . $id, 100000, function() use ($id) {
-            try {
-                $user = $this->unionCloud->users()->setMode('standard')->getByUID($id)->get()->first();
-            } catch (BaseUnionCloudException $exception) {
-                $user = new DataUserModel();
-                $user->user = new User(['uid' => $id]);
-                return $user;
-            }
-            return DataUserModel::fromUnionCloudUser($user);
-        });
+        if(Cache::has('unioncloud-data-user-get-by-id:' . $id)) {
+            return Cache::get('unioncloud-data-user-get-by-id:' . $id);
+        }
+
+        try {
+            $user = $this->unionCloud->users()->setMode('standard')->getByUID($id)->get()->first();
+        } catch (BaseUnionCloudException $exception) {
+            $user = new DataUserModel();
+            $user->user = new User(['uid' => $id]);
+        }
+
+        $dataUser = DataUserModel::fromUnionCloudUser($user);
+        Cache::forever('unioncloud-data-user-get-by-id:' . $id, $dataUser);
+
+        return $dataUser;
     }
 
     /**
