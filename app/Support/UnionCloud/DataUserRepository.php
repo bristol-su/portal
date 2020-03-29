@@ -34,8 +34,7 @@ class DataUserRepository implements DataUser
         try {
             $user = $this->unionCloud->users()->setMode('standard')->getByUID($id)->get()->first();
         } catch (BaseUnionCloudException $exception) {
-            $user = new DataUserModel();
-            $user->user = new User(['uid' => $id]);
+            $user = new User(['uid' => $id]);
         }
 
         $dataUser = DataUserModel::fromUnionCloudUser($user);
