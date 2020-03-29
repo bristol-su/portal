@@ -3,6 +3,7 @@
 namespace App\Support\UnionCloud;
 
 use BristolSU\ControlDB\Contracts\Repositories\DataUser;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Cache;
 use Twigger\UnionCloud\API\Exception\Request\IncorrectRequestParameterException;
 use Twigger\UnionCloud\API\Resource\User;
@@ -33,6 +34,8 @@ class DataUserRepository implements DataUser
                 $user = new DataUserModel();
                 $user->user = new User(['uid' => $id]);
                 return $user;
+            } catch (\Exception $e) {
+                throw new ModelNotFoundException();
             }
             return DataUserModel::fromUnionCloudUser($user);
         });
@@ -51,7 +54,11 @@ class DataUserRepository implements DataUser
             $attributes['surname'] = $attributes['last_name'];
             unset($attributes['last_name']);
         }
-        $user = $this->unionCloud->users()->setMode('standard')->search($attributes)->get()->first();
+        try {
+            $user = $this->unionCloud->users()->setMode('standard')->search($attributes)->get()->first();
+        } catch (\Exception $e) {
+            throw new ModelNotFoundException();
+        }
         return DataUserModel::fromUnionCloudUser($user);
     }
 
