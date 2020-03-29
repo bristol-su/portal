@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Twigger\UnionCloud\API\Exception\Resource\ResourceNotFoundException;
 use Twigger\UnionCloud\API\Resource\UserGroupMembership;
 use Twigger\UnionCloud\API\UnionCloud;
 
@@ -23,11 +24,16 @@ class UserGroup implements \BristolSU\ControlDB\Contracts\Repositories\Pivots\Us
      * @var \BristolSU\ControlDB\Contracts\Repositories\User
      */
     private $userRepository;
+    /**
+     * @var \BristolSU\ControlDB\Contracts\Repositories\Group
+     */
+    private $groupRepository;
 
-    public function __construct(UnionCloud $unionCloud, \BristolSU\ControlDB\Contracts\Repositories\User $userRepository)
+    public function __construct(UnionCloud $unionCloud, \BristolSU\ControlDB\Contracts\Repositories\User $userRepository, \BristolSU\ControlDB\Contracts\Repositories\Group $groupRepository)
     {
         $this->unionCloud = $unionCloud;
         $this->userRepository = $userRepository;
+        $this->groupRepository = $groupRepository;
     }
 
     /**
@@ -56,7 +62,21 @@ class UserGroup implements \BristolSU\ControlDB\Contracts\Repositories\Pivots\Us
      */
     public function getGroupsThroughUser(User $user): Collection
     {
-        return collect();
+        try {
+            $ugmIds = collect($this->unionCloud->userGroupMemberships()->getByUser($user->dataProviderId())->get()->toArray())
+                ->map(function(UserGroupMembership $ugm) {
+                    return $ugm->usergroup->ug_id;
+                });
+        } catch (ResourceNotFoundException $e) {
+            throw new ModelNotFoundException;
+        }
+
+
+        return $ugmIds->map(function(int $ugmId) {
+            return GroupGroupMembership::groupsFromUserGroup($ugmId)->map(function(int $groupId) {
+                return $this->groupRepository->getById($groupId);
+            })->flatten(1);
+        })->flatten(1);
     }
 
     /**

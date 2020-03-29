@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CacheUnionCloudDataUsers;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
 use Illuminate\Console\Scheduling\Schedule;
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(CacheFilters::class)->hourly();
+        $schedule->command(CacheUnionCloudDataUsers::class)->everyMinute();
 
         foreach(app(CommandStore::class)->all() as $alias => $commands) {
             foreach($commands as $command => $cron) {
