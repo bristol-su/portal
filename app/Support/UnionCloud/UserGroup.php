@@ -63,10 +63,12 @@ class UserGroup implements \BristolSU\ControlDB\Contracts\Repositories\Pivots\Us
     public function getGroupsThroughUser(User $user): Collection
     {
         try {
-            $ugmIds = collect($this->unionCloud->userGroupMemberships()->getByUser($user->dataProviderId())->get()->toArray())
-                ->map(function(UserGroupMembership $ugm) {
-                    return $ugm->usergroup->ug_id;
-                });
+            $ugmIds = Cache::remember('unioncloud-user-group-ugm-through-user:' . $user->dataProviderId(), 100000, function() use ($user) {
+                return collect($this->unionCloud->userGroupMemberships()->getByUser($user->dataProviderId())->get()->toArray())
+                    ->map(function(UserGroupMembership $ugm) {
+                        return $ugm->usergroup->ug_id;
+                    });
+            });
         } catch (ResourceNotFoundException $e) {
             throw new ModelNotFoundException;
         }
