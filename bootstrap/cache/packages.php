@@ -56,6 +56,13 @@
       0 => 'BristolSU\\Service\\Typeform\\TypeformServiceProvider',
     ),
   ),
+  'bristol-su/unioncloud-portal' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BristolSU\\UnionCloud\\UnionCloudIntegrationServiceProvider',
+    ),
+  ),
   'bristol-su/upload-file' => 
   array (
     'providers' => 

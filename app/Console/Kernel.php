@@ -2,9 +2,9 @@
 
 namespace App\Console;
 
-use App\Console\Commands\CacheUnionCloudDataUsers;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
+use BristolSU\UnionCloud\Commands\CacheUnionCloudDataUsers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
