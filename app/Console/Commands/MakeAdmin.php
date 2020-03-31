@@ -78,6 +78,24 @@ class MakeAdmin extends Command
         ModelPermission::updateOrCreate([
             'model' => 'user',
             'model_id' => $user->id(),
+            'ability' => 'index-activities'
+        ], ['result' => true]);
+
+        ModelPermission::updateOrCreate([
+            'model' => 'user',
+            'model_id' => $user->id(),
+            'ability' => 'create-activities'
+        ], ['result' => true]);
+
+        ModelPermission::updateOrCreate([
+            'model' => 'user',
+            'model_id' => $user->id(),
+            'ability' => 'show-activities'
+        ], ['result' => true]);
+
+        ModelPermission::updateOrCreate([
+            'model' => 'user',
+            'model_id' => $user->id(),
             'ability' => 'access-control'
         ], ['result' => true]);
 
