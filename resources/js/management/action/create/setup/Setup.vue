@@ -6,6 +6,15 @@
         <b-form-group description="Description for the trigger/action combo" label="Description">
             <b-input type="text" :value="description" @input="$emit('description', $event)" class="mb-3"></b-input>
         </b-form-group>
+        <b-form-group description="Should the action run in the background? This helps with speed, and should be ticked if possible" label="Should Queue?">
+            <b-form-checkbox
+                id="queueable"
+                :value="shouldQueue"
+                @input="$emit('shouldqueue', $event)"
+            >
+                The action can run in the background
+            </b-form-checkbox>
+        </b-form-group>
         <b-form-group description="Choose something to trigger on" label="What should happen in the module...">
             <b-form-select :options="triggerOptions" :value="trigger" @input="$emit('trigger', $event)" class="mb-3">
                 <template v-slot:cell(first)="data">
@@ -44,6 +53,10 @@
             description: {
                 required: false,
                 default: ''
+            },
+            shouldQueue: {
+                required: false,
+                default: true
             },
             moduleInstance: {
                 required: true,

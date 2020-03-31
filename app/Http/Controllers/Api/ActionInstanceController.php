@@ -31,7 +31,7 @@ class ActionInstanceController extends Controller
     public function store(Request $request)
     {
         return ActionInstance::create(array_merge($request->only([
-            'name', 'description', 'event', 'action', 'module_instance_id'
+            'name', 'description', 'event', 'action', 'module_instance_id', 'should_queue'
         ]), ['user_id' => app(UserAuthentication::class)->getUser()->controlId()]));
     }
 
@@ -54,7 +54,7 @@ class ActionInstanceController extends Controller
     public function update(ActionInstance $actionInstance, Request $request)
     {
         $actionInstance->fill($request->only([
-            'name', 'description', 'event', 'action', 'module_instance_id'
+            'name', 'description', 'event', 'action', 'module_instance_id', 'should_queue'
         ]));
         $actionInstance->save();
         return $actionInstance;

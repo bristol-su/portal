@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e1521e90b1283de97a388abf223bc35",
+    "content-hash": "0c08b5c9f895559395273c2b94f149c9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -294,7 +294,7 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.2",
+            "version": "v4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
@@ -366,16 +366,16 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "dev-master",
+            "version": "v1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "0f4a110ccc7699ceeb4b7248f6e303e534188c66"
+                "reference": "8c0fcf0d7a83a4028d3ea70c3a07aa01ffc72276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/0f4a110ccc7699ceeb4b7248f6e303e534188c66",
-                "reference": "0f4a110ccc7699ceeb4b7248f6e303e534188c66",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/8c0fcf0d7a83a4028d3ea70c3a07aa01ffc72276",
+                "reference": "8c0fcf0d7a83a4028d3ea70c3a07aa01ffc72276",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-03-31T11:01:23+00:00"
+            "time": "2020-03-31T12:27:26+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "a223128283fc2536593273fe111a6d4c62766249"
+                "reference": "fd5df2ddc523192933bcdf4778201936642d966d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/a223128283fc2536593273fe111a6d4c62766249",
-                "reference": "a223128283fc2536593273fe111a6d4c62766249",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/fd5df2ddc523192933bcdf4778201936642d966d",
+                "reference": "fd5df2ddc523192933bcdf4778201936642d966d",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-03-31T10:09:08+00:00"
+            "time": "2020-03-31T13:19:44+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -7256,7 +7256,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bristol-su/typeform": 20,
         "socialiteproviders/providers": 20,
         "bristol-su/assign-roles": 20,
         "bristol-su/unioncloud-portal": 20

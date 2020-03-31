@@ -10,6 +10,9 @@
                         <data-item title="Description">
                             <action-description :action="action"></action-description>
                         </data-item>
+                        <data-item title="Queueable">
+                            <action-should-queue :action="action"></action-should-queue>
+                        </data-item>
                     </b-tab>
                     <b-tab title="Settings">
                         <action-settings :action="action"></action-settings>
@@ -31,11 +34,13 @@
     import ActionDescription from './Labels/ActionDescription';
     import ActionSettings from './Labels/ActionSettings';
     import ActionHistories from './ActionHistories';
+    import ActionShouldQueue from './Labels/ActionShouldQueue';
 
     export default {
         name: "Show",
 
         components: {
+            ActionShouldQueue,
             ActionHistories,
             ActionSettings,
             ActionDescription,
