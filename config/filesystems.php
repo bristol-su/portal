@@ -61,6 +61,7 @@ return [
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
+	    'endpoint' => env('AWS_URL')
         ],
 
         'google' => [
@@ -71,6 +72,10 @@ return [
             'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
         ],
 
+    ],
+
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
     ],
 
     'static_content' => [
