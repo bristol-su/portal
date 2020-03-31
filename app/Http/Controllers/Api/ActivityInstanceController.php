@@ -36,6 +36,19 @@ class ActivityInstanceController extends Controller
         );
     }
 
+    /**
+     * Get an activity instance by ID
+     *
+     * @param int $activityInstanceId
+     * @param Request $request
+     * @param ActivityInstanceRepository $repository
+     * @return \BristolSU\Support\ActivityInstance\ActivityInstance
+     */
+    public function show(int $activityInstanceId, Request $request, ActivityInstanceRepository $repository)
+    {
+        return $repository->getById($activityInstanceId);
+    }
+
 
 
 }
