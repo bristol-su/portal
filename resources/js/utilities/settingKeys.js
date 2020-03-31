@@ -36,5 +36,9 @@ export default {
     },
     thirdPartyAuthentication: {
         providers: 'thirdPartyAuthentication.providers'
+    },
+    pageText: {
+        footer: 'pageText.footer',
+        landing: 'pageText.landing'
     }
 };

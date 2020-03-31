@@ -22,6 +22,11 @@
                         <third-party-auth></third-party-auth>
                     </b-card-text>
                 </b-tab>
+                <b-tab title="Page Text">
+                    <b-card-text>
+                        <page-text></page-text>
+                    </b-card-text>
+                </b-tab>
             </b-tabs>
         </b-card>
     </div>
@@ -32,10 +37,11 @@
     import Authentication from './authentication/Authentication';
     import Welcome from './welcome/Welcome';
     import ThirdPartyAuth from './third-party-auth/ThirdPartyAuth';
+    import PageText from './page-text/PageText';
 
     export default {
         name: "Settings",
-        components: {ThirdPartyAuth, Authentication, AdditionalAttributes, Welcome},
+        components: {PageText, ThirdPartyAuth, Authentication, AdditionalAttributes, Welcome},
         props: {},
 
         data() {
