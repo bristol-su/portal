@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af42f59cccba3c9467a6ec241e841925",
+    "content-hash": "2ffae135b51d70e735857c1bd5307b0e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.133.46",
+            "version": "3.133.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "98d359e61b365f3040ca61c66ae8883334cf5d74"
+                "reference": "706082d6a0e53c7656eca61866b456178112daf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/98d359e61b365f3040ca61c66ae8883334cf5d74",
-                "reference": "98d359e61b365f3040ca61c66ae8883334cf5d74",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/706082d6a0e53c7656eca61866b456178112daf6",
+                "reference": "706082d6a0e53c7656eca61866b456178112daf6",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-27T18:15:32+00:00"
+            "time": "2020-03-30T18:15:57+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -366,17 +366,11 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "f70d312821a6063b96a51b7ab21891f01ee58c73"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/f70d312821a6063b96a51b7ab21891f01ee58c73",
-                "reference": "f70d312821a6063b96a51b7ab21891f01ee58c73",
-                "shasum": ""
+                "type": "path",
+                "url": "./../modules/typeform",
+                "reference": "e0f88c3542d9cd6b30eb3cc3f5e00753307fa83f"
             },
             "require": {
                 "bristol-su/support": "^4.0",
@@ -401,7 +395,11 @@
                     "BristolSU\\Module\\Typeform\\": "app/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Module\\Tests\\Typeform\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -410,8 +408,7 @@
                     "name": "Toby Twigger",
                     "email": "toby.twigger@bristol.ac.uk"
                 }
-            ],
-            "time": "2020-03-18T20:58:31+00:00"
+            ]
         },
         {
             "name": "bristol-su/typeform-service",
@@ -7256,6 +7253,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bristol-su/typeform": 20,
         "socialiteproviders/providers": 20,
         "bristol-su/assign-roles": 20,
         "bristol-su/unioncloud-portal": 20

@@ -3,13 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LogIntoParticipant\LoginRequest;
 use BristolSU\Support\Activity\Activity;
-use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\User\Contracts\UserAuthentication;
-use BristolSU\ControlDB\Contracts\Repositories\Group as GroupRepository;
-use BristolSU\ControlDB\Contracts\Repositories\Role as RoleRepository;
-use BristolSU\ControlDB\Contracts\Repositories\User as UserRepository;
 use BristolSU\Support\Logic\Contracts\Audience\AudienceMemberFactory;
 use Illuminate\Http\Request;
 
