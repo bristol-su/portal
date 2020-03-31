@@ -26,7 +26,10 @@ class LogIntoAdminController extends Controller
         $audienceMember = $factory->fromUser($user);
         $audienceMember->filterForLogic($activity->adminLogic);
 
-        if(!$audienceMember->hasAudience()) {
+        $canBeUser = ($activity->activity_for === 'user' && $audienceMember->canBeUser());
+        $groups = ($activity->activity_for !== 'role' ? $audienceMember->groups() : collect());
+
+        if(!$canBeUser && $groups->isEmpty() && $audienceMember->roles()->isEmpty()) {
             return view('errors.no_activity_access')->with([
                 'admin' => true,
                 'activity' => $activity
@@ -36,8 +39,8 @@ class LogIntoAdminController extends Controller
         return view('auth.login.resource')->with([
             'admin' => true,
             'user' => $user,
-            'canBeUser' => $audienceMember->canBeUser(),
-            'groups' => $audienceMember->groups(),
+            'canBeUser' => $canBeUser,
+            'groups' => $groups,
             'roles' => $audienceMember->roles(),
             'activity' => $activity,
             'redirectTo' => $request->input('redirect')
