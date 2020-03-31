@@ -72,17 +72,6 @@ return [
             'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
         ],
 
-    ],
-
-    'links' => [
-        public_path('storage') => storage_path('app/public'),
-    ],
-
-    'static_content' => [
-        'bucket' => env('AWS_STATIC_BUCKET'),
-        'folder' => env('AWS_STATIC_FOLDER'),
-        'url' => env('AWS_STATIC_URL')
-
-    ],
+    ]
 
 ];
