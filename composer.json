@@ -20,7 +20,7 @@
         "php-console/php-console": "^3.1",
         "bristol-su/support": "4.2",
         "bristol-su/upload-file": "^1.0",
-        "bristol-su/typeform": "^1.0",
+        "bristol-su/typeform": "dev-master",
         "bristol-su/static-page": "^1.0",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
