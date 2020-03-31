@@ -5,6 +5,7 @@ namespace App\Providers;
 
 
 use App\Actions\SendToIntegromat;
+use App\Actions\TagARole;
 use App\Support\Settings\Setting;
 use App\Support\Settings\SettingRepository;
 use BristolSU\Support\Action\Facade\ActionManager;
@@ -37,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         ActionManager::registerAction(SendToIntegromat::class, 'Send to Integromat', 'Send the event to Integromat for processing');
+        ActionManager::registerAction(TagARole::class, 'Tag a Role', 'Tag a Role with a Tag');
 
     }
 }
