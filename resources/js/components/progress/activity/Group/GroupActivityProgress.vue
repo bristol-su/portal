@@ -24,10 +24,10 @@
                 {{data.item.participant.id}}
             </template>
             <template v-slot:cell(group_name)="data">
-                {{data.item.participant.name}}
+                {{data.item.participant.data.name}}
             </template>
             <template v-slot:cell(group_email)="data">
-                {{data.item.participant.email}}
+                {{data.item.participant.data.email}}
             </template>
             <template v-slot:cell(complete_module_instances)="data">
                 <span v-html="calculateCompleteText(data.item)"/>

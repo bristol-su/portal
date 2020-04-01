@@ -49,7 +49,7 @@ class Progress
         $progress = new ProgressModel();
         $progress->setActivityInstance($activityInstance);
         $activityInstance->moduleInstances->map(function(ModuleInstance $moduleInstance) use ($activityInstance, $progress) {
-            $progress->setEvaluation($moduleInstance->id(), ModuleInstanceEvaluator::evaluateResource($activityInstance, $moduleInstance));
+            $progress->setEvaluation($moduleInstance, ModuleInstanceEvaluator::evaluateResource($activityInstance, $moduleInstance));
         });
         return $progress;
     }

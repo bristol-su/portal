@@ -52,10 +52,10 @@
                 {{data.item.participant.id}}
             </template>
             <template v-slot:cell(group_name)="data">
-                {{data.item.participant.name}}
+                {{data.item.participant.data.name}}
             </template>
             <template v-slot:cell(group_email)="data">
-                {{data.item.participant.email}}
+                {{data.item.participant.data.email}}
             </template>
             <template v-slot:cell(complete_module_instances)="data">
                 <span v-html="calculateCompleteText(data.item)"/>
@@ -108,10 +108,10 @@
                 tableLoading: false,
                 basicFunctions: [
                     function (progress, filter) {
-                        return progress.participant.name.toUpperCase().indexOf(filter.name.toUpperCase()) !== -1;
+                        return progress.participant.data.name.toUpperCase().indexOf(filter.name.toUpperCase()) !== -1;
                     },
                     function (progress, filter) {
-                        return progress.participant.email.toUpperCase().indexOf(filter.email.toUpperCase()) !== -1;
+                        return progress.participant.data.email.toUpperCase().indexOf(filter.email.toUpperCase()) !== -1;
                     },
                 ],
                 basicFilter: {

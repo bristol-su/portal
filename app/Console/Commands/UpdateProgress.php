@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\UpdateActivityProgress;
 use App\Jobs\UpdateProgressInCache;
 use App\Support\Progress\Progress;
 use BristolSU\Support\Activity\Activity;
@@ -29,37 +30,13 @@ class UpdateProgress extends Command
      */
     protected $description = 'Cache all progress';
 
-    /**
-     * @var LogicAudience
-     */
-    private $logicAudience;
-    /**
-     * @var Progress
-     */
-    private $progress;
-
-    /**
-     * Create a new command instance.
-     *
-     * @param LogicAudience $logicAudience
-     * @param Progress $progress
-     */
-    public function __construct(LogicAudience $logicAudience, Progress $progress)
-    {
-        $this->logicAudience = $logicAudience;
-        $this->progress = $progress;
-        parent::__construct();
-    }
-
     public function handle()
     {
         foreach ($this->activities() as $activity) {
-            $this->line(sprintf('Progress for activity #%d', $activity->id), 'bold');
-            foreach ($this->audienceIdsFor($activity) as $resourceId) {
-                $this->line(sprintf('Progress for resource #%d', $resourceId));
-                dispatch($this->newProgressJob($activity, $resourceId));
-            }
+            $this->line(sprintf('Caching progress for activity #%d', $activity->id));
+            dispatch($this->newCommand($activity));
         }
+        $this->info('Cached all progress');
     }
 
     /**
@@ -72,24 +49,13 @@ class UpdateProgress extends Command
         return app(Repository::class)->active();
     }
 
-    private function audienceIdsFor(Activity $activity)
+    /**
+     * @param $activity
+     * @return UpdateActivityProgress
+     */
+    private function newCommand($activity)
     {
-        $audience = collect();
-        if ($activity->activity_for === 'user') {
-            $audience = $this->logicAudience->userAudience($activity->forLogic);
-        } elseif ($activity->activity_for === 'group') {
-            $audience = $this->logicAudience->groupAudience($activity->forLogic);
-        } elseif ($activity->activity_for === 'role') {
-            $audience = $this->logicAudience->roleAudience($activity->forLogic);
-        }
-        return $audience->map(function ($participant) {
-            return $participant->id();
-        });
-    }
-
-    private function newProgressJob(Activity $activity, int $resourceId)
-    {
-        return new UpdateProgressInCache($activity, $resourceId, $this->progress);
+        return new UpdateActivityProgress($activity, app(LogicAudience::class), app(Progress::class));
     }
 
 }

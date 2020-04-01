@@ -4,7 +4,7 @@ namespace App\Support\Progress;
 
 use BristolSU\Support\ActivityInstance\ActivityInstance;
 use BristolSU\Support\ModuleInstance\Contracts\Evaluator\Evaluation;
-use BristolSU\Support\ModuleInstance\ModuleInstance;
+use BristolSU\Support\ModuleInstance\Contracts\ModuleInstance;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Collection;
@@ -22,23 +22,23 @@ class ProgressModel implements Arrayable, Jsonable
      */
     private $evaluations;
 
+    private $moduleInstances;
+
 
     public function setActivityInstance(ActivityInstance $activityInstance)
     {
         $this->activityInstance = $activityInstance;
     }
 
-    public function setEvaluation(int $moduleInstanceId, Evaluation $evaluation)
+    public function setEvaluation(ModuleInstance $moduleInstance, Evaluation $evaluation)
     {
-        $this->evaluations[$moduleInstanceId] = $evaluation;
+        $this->moduleInstances[$moduleInstance->id()] = $moduleInstance;
+        $this->evaluations[$moduleInstance->id()] = $evaluation;
     }
 
-    /**
-     * @return Collection
-     */
-    private function evaluations()
+    private function evaluation($moduleInstanceId)
     {
-        return collect($this->evaluations);
+        return $this->evaluations[$moduleInstanceId];
     }
 
     /**
@@ -47,11 +47,11 @@ class ProgressModel implements Arrayable, Jsonable
     public function toArray()
     {
         $activityInstance =  $this->activityInstance->toArray();
-        $activityInstance['module_instances'] = $this->activityInstance->moduleInstances->map(function(ModuleInstance $moduleInstance) {
+        $activityInstance['module_instances'] = collect($this->moduleInstances)->map(function(ModuleInstance $moduleInstance) {
             $module = $moduleInstance->toArray();
-            $module['evaluation'] = $this->evaluations()->get($moduleInstance->id());
+            $module['evaluation'] = $this->evaluation($moduleInstance->id())->toArray();
             return $module;
-        });
+        })->values()->toArray();
         return $activityInstance;
     }
 

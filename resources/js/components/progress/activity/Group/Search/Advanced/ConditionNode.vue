@@ -88,7 +88,7 @@
                             if(value === '') {
                                 return true;
                             }
-                            return progress.participant.name.toUpperCase() === value.toUpperCase();
+                            return progress.participant.data.name.toUpperCase() === value.toUpperCase();
                         }
                     }, {
                         key: 'groupNameContains',
@@ -98,7 +98,7 @@
                             if(value === '') {
                                 return true;
                             }
-                            return progress.participant.name.toUpperCase().indexOf(value.toUpperCase()) !== -1;
+                            return progress.participant.data.name.toUpperCase().indexOf(value.toUpperCase()) !== -1;
                         }
                     }, {
                         key: 'groupNameDoesNotContain',
@@ -108,7 +108,7 @@
                             if(value === '') {
                                 return true;
                             }
-                            return progress.participant.name.toUpperCase().indexOf(value.toUpperCase()) === -1;
+                            return progress.participant.data.name.toUpperCase().indexOf(value.toUpperCase()) === -1;
                         }
                     }, {
                         key: 'statusIs',

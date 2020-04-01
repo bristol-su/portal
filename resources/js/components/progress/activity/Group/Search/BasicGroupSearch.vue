@@ -213,11 +213,11 @@
 
         methods: {
             filterGroupName(progress) {
-                return progress.participant.name.toUpperCase().indexOf(this.filter.groupName.toUpperCase()) !== -1;
+                return progress.participant.data.name.toUpperCase().indexOf(this.filter.groupName.toUpperCase()) !== -1;
             },
 
             filterGroupEmail(progress) {
-                return progress.participant.email.toUpperCase().indexOf(this.filter.groupEmail.toUpperCase()) !== -1;
+                return progress.participant.data.email.toUpperCase().indexOf(this.filter.groupEmail.toUpperCase()) !== -1;
             },
 
             filterStatus(progress) {
