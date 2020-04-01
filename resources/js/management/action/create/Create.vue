@@ -8,9 +8,9 @@
                 <setup
                     :module-instance="moduleInstance"
                     @action="form.action = $event"
-                    :should-queue="form.should_queue"
                     @trigger="form.event = $event"
                     @name="form.name = $event"
+                    :should-queue="form.should_queue"
                     @shouldqueue="form.should_queue = $event"
                     @description="form.description = $event">
 
@@ -72,7 +72,7 @@
                     event: null,
                     name: '',
                     description: '',
-                    shouldQueue: true
+                    should_queue: true
                 },
                 actionInstance: null
             }

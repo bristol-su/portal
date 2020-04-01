@@ -9,7 +9,7 @@
         <b-form-group description="Should the action run in the background? This helps with speed, and should be ticked if possible" label="Should Queue?">
             <b-form-checkbox
                 id="queueable"
-                :value="shouldQueue"
+                :checked="shouldQueue"
                 @input="$emit('shouldqueue', $event)"
             >
                 The action can run in the background
