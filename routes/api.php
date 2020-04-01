@@ -38,7 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('connection/{connection_id}/test', 'ConnectionController@test');
         Route::apiResource('completion-condition-instance', 'CompletionConditionInstanceController')->only(['store', 'update']);
         Route::apiResource('activity-instance', 'ActivityInstanceController')->only(['store', 'show']);
-        Route::get('/activity/{activity}/progress', 'ActivityProgressController@show');
+        Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
 
         Route::prefix('/module/{module_alias}')->group(function () {
             Route::get('completion-condition/{completion_condition_alias}', 'CompletionConditionController@show');

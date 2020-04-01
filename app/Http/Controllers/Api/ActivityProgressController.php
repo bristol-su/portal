@@ -14,7 +14,9 @@ use BristolSU\Support\ModuleInstance\Facade\ModuleInstanceEvaluator;
 class ActivityProgressController
 {
 
-    public function show(Activity $activity, ActivityInstanceRepository $activityInstanceRepository, DefaultActivityInstanceGenerator $defaultActivityInstanceGenerator)
+
+
+    public function index(Activity $activity, ActivityInstanceRepository $activityInstanceRepository, DefaultActivityInstanceGenerator $defaultActivityInstanceGenerator)
     {
         // Get all activity instances
         $activityInstances = $activityInstanceRepository->allForActivity($activity->id)->map(function(ActivityInstance $activityInstance) {
