@@ -12,6 +12,7 @@
         "aws/aws-sdk-php": "^3.88",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
+	"bristol-su/control": "dev-develop as 1.2.2",
         "laracasts/utilities": "^3.0",
         "laravel/framework": "^6.5",
         "laravel/passport": "^8.0",
