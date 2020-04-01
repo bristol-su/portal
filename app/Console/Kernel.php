@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\UpdateProgress;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
 use BristolSU\UnionCloud\Commands\CacheUnionCloudDataUsers;
@@ -22,18 +23,19 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(CacheFilters::class)->hourly();
-        if(app()->environment('production')) {
-		$schedule->command(CacheUnionCloudDataUsers::class)->everyMinute();
-	}
+        $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
+        if (app()->environment('production')) {
+            $schedule->command(CacheUnionCloudDataUsers::class)->everyMinute();
+        }
 
-        foreach(app(CommandStore::class)->all() as $alias => $commands) {
-            foreach($commands as $command => $cron) {
+        foreach (app(CommandStore::class)->all() as $alias => $commands) {
+            foreach ($commands as $command => $cron) {
                 $schedule->command($command)->cron($cron);
             }
         }
@@ -46,7 +48,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
