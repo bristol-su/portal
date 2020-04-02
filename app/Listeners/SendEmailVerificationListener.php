@@ -18,7 +18,7 @@ class SendEmailVerificationListener implements ShouldQueue
      */
     public function handle(Registered $event)
     {
-        if (!$event->user->hasVerifiedEmail()) {
+        if ($event->user instanceof MustVerifyEmail && ! $event->user->hasVerifiedEmail()) {
             $event->user->notify(new VerifyEmail());
         }
     }

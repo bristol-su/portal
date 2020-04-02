@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Events\UserVerificationRequestGenerated;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use App\Listeners\SendEmailVerificationListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use SocialiteProviders\Facebook\FacebookExtendSocialite;
 use SocialiteProviders\GitHub\GitHubExtendSocialite;
@@ -29,7 +29,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         UserVerificationRequestGenerated::class => [
-            SendEmailVerificationNotification::class,
+            SendEmailVerificationListener::class,
         ],
         SocialiteWasCalled::class => [
             RedditExtendSocialite::class,
