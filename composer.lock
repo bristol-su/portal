@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "d523a968478b14adcbb83ab7e148bd41c34f28bc"
+                "reference": "37e0a83a4cf6fd11a3e7f227240380ccb2642b20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/d523a968478b14adcbb83ab7e148bd41c34f28bc",
-                "reference": "d523a968478b14adcbb83ab7e148bd41c34f28bc",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/37e0a83a4cf6fd11a3e7f227240380ccb2642b20",
+                "reference": "37e0a83a4cf6fd11a3e7f227240380ccb2642b20",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-02T12:01:51+00:00"
+            "time": "2020-04-02T13:42:40+00:00"
         },
         {
             "name": "bristol-su/upload-file",
