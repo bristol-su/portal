@@ -32,8 +32,10 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command(CacheFilters::class)->hourly();
         $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
-        if (app()->environment('production')) {
+        if (app()->environment('production') && config('unioncloud-portal.enabled.data-users')) {
             $schedule->command(CacheUnionCloudDataUsers::class)->everyMinute();
+        }
+        if (app()->environment('production') && config('unioncloud-portal.enabled.memberships')) {
             $schedule->command(CacheUnionCloudUserGroupMemberships::class)->everyMinute();
             $schedule->command(CacheUnionCloudUsersUserGroupMemberships::class)->everyMinute();
         }
