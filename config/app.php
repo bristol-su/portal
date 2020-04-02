@@ -240,4 +240,6 @@ return [
     ],
 
     'cookie_domain' => env('COOKIE_DOMAIN', '.bristolsu.org.uk'),
+
+    'cache-unioncloud' => env('CACHE_UNIONCLOUD', false)
 ];

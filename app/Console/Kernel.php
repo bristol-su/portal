@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\RunUnionCloudCommands;
 use App\Console\Commands\UpdateProgress;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
@@ -32,13 +33,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command(CacheFilters::class)->hourly();
         $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
-        if (app()->environment('production') && config('unioncloud-portal.enabled.data-users')) {
-            $schedule->command(CacheUnionCloudDataUsers::class)->everyMinute();
-        }
-        if (app()->environment('production') && config('unioncloud-portal.enabled.memberships')) {
-            $schedule->command(CacheUnionCloudUserGroupMemberships::class)->everyMinute();
-            $schedule->command(CacheUnionCloudUsersUserGroupMemberships::class)->everyMinute();
-        }
+        $schedule->command(RunUnionCloudCommands::class)->everyMinute();
 
         foreach (app(CommandStore::class)->all() as $alias => $commands) {
             foreach ($commands as $command => $cron) {
