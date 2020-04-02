@@ -294,16 +294,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.3",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "63e34e036e81e31bb5506ea01e9b320af4aaa813"
+                "reference": "028926fbe8b0c5c60feef41c49362df44a89c806"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/63e34e036e81e31bb5506ea01e9b320af4aaa813",
-                "reference": "63e34e036e81e31bb5506ea01e9b320af4aaa813",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/028926fbe8b0c5c60feef41c49362df44a89c806",
+                "reference": "028926fbe8b0c5c60feef41c49362df44a89c806",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +362,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-03-31T15:06:29+00:00"
+            "time": "2020-04-02T17:49:11+00:00"
         },
         {
             "name": "bristol-su/typeform",

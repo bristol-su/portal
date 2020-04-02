@@ -5,10 +5,6 @@ namespace App\Http\Controllers\Api\Relationships;
 
 
 use App\Http\Controllers\Controller;
-use BristolSU\ControlDB\Contracts\Models\Group;
-use BristolSU\ControlDB\Contracts\Models\Role;
-use BristolSU\ControlDB\Contracts\Models\User;
-use BristolSU\Support\Logic\Audience\AudienceMember;
 use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
 use BristolSU\Support\Logic\Logic;
 
