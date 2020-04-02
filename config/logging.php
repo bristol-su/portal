@@ -35,6 +35,19 @@ return [
 
     'channels' => [
 
+        'testing' => [
+            'driver' => 'stack',
+            'channels' => ['daily'],
+        ],
+
+        'daily-testing' => [
+            'driver' => 'monolog',
+            'handler' => '',
+            'formatter' => '',
+            'level' => 'debug',
+            'days' => 14,
+        ],
+
         'vapor-slack' => [
             'driver' => 'stack',
             'channels' => ['stderr', 'verbose-slack'],
