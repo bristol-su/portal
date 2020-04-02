@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.134.0",
+            "version": "3.134.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "480d4df4b7974666fa7c5e3df564d01f4f29663f"
+                "reference": "aefab57896b558634d24342bdc3c6814e8e533f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/480d4df4b7974666fa7c5e3df564d01f4f29663f",
-                "reference": "480d4df4b7974666fa7c5e3df564d01f4f29663f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/aefab57896b558634d24342bdc3c6814e8e533f6",
+                "reference": "aefab57896b558634d24342bdc3c6814e8e533f6",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-03-31T18:12:13+00:00"
+            "time": "2020-04-01T18:14:23+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "352120af3a5ddc1a7eb79b008b4e8135c33122c4"
+                "reference": "d523a968478b14adcbb83ab7e148bd41c34f28bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/352120af3a5ddc1a7eb79b008b4e8135c33122c4",
-                "reference": "352120af3a5ddc1a7eb79b008b4e8135c33122c4",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/d523a968478b14adcbb83ab7e148bd41c34f28bc",
+                "reference": "d523a968478b14adcbb83ab7e148bd41c34f28bc",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-01T11:27:26+00:00"
+            "time": "2020-04-02T12:01:51+00:00"
         },
         {
             "name": "bristol-su/upload-file",

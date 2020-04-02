@@ -6,6 +6,8 @@ use App\Console\Commands\UpdateProgress;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
 use BristolSU\UnionCloud\Commands\CacheUnionCloudDataUsers;
+use BristolSU\UnionCloud\Commands\CacheUnionCloudUserGroupMemberships;
+use BristolSU\UnionCloud\Commands\CacheUnionCloudUsersUserGroupMemberships;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -32,6 +34,8 @@ class Kernel extends ConsoleKernel
         $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
         if (app()->environment('production')) {
             $schedule->command(CacheUnionCloudDataUsers::class)->everyMinute();
+            $schedule->command(CacheUnionCloudUserGroupMemberships::class)->everyMinute();
+            $schedule->command(CacheUnionCloudUsersUserGroupMemberships::class)->everyMinute();
         }
 
         foreach (app(CommandStore::class)->all() as $alias => $commands) {
