@@ -148,12 +148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "35624ac01579a7895c1f70f73e5625290eef5b2e"
+                "reference": "012a1d7220187a6d2eda5ceb9147202bbb232aa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/35624ac01579a7895c1f70f73e5625290eef5b2e",
-                "reference": "35624ac01579a7895c1f70f73e5625290eef5b2e",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/012a1d7220187a6d2eda5ceb9147202bbb232aa0",
+                "reference": "012a1d7220187a6d2eda5ceb9147202bbb232aa0",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +187,7 @@
                 }
             ],
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
-            "time": "2020-04-03T09:53:18+00:00"
+            "time": "2020-04-03T12:37:49+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -294,16 +294,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "028926fbe8b0c5c60feef41c49362df44a89c806"
+                "reference": "a12cd76798d7d510830dcd175d35b860bf251df5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/028926fbe8b0c5c60feef41c49362df44a89c806",
-                "reference": "028926fbe8b0c5c60feef41c49362df44a89c806",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/a12cd76798d7d510830dcd175d35b860bf251df5",
+                "reference": "a12cd76798d7d510830dcd175d35b860bf251df5",
                 "shasum": ""
             },
             "require": {
@@ -362,20 +362,20 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-04-02T17:49:11+00:00"
+            "time": "2020-04-03T11:51:37+00:00"
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "7ce4fbd3f2ab105f617d41c177ac8053e4b271a8"
+                "reference": "0380574293c949eaf07593948128906e965d4b6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/7ce4fbd3f2ab105f617d41c177ac8053e4b271a8",
-                "reference": "7ce4fbd3f2ab105f617d41c177ac8053e4b271a8",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/0380574293c949eaf07593948128906e965d4b6b",
+                "reference": "0380574293c949eaf07593948128906e965d4b6b",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-03-31T15:17:38+00:00"
+            "time": "2020-04-03T12:39:48+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
