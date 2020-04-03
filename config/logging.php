@@ -35,23 +35,17 @@ return [
 
     'channels' => [
 
-        'testing' => [
-            'driver' => 'stack',
-            'channels' => ['daily'],
-        ],
-
-        'daily-testing' => [
-            'driver' => 'monolog',
-            'handler' => '',
-            'formatter' => '',
-            'level' => 'debug',
-            'days' => 14,
-        ],
-
         'vapor-slack' => [
             'driver' => 'stack',
             'channels' => ['stderr', 'verbose-slack'],
             'ignore_exceptions' => false,
+        ],
+
+        'vapor-rollbar' => [
+            'driver' => 'monolog',
+            'handler' => \Rollbar\Laravel\MonologHandler::class,
+            'access_token' => env('ROLLBAR_TOKEN'),
+            'level' => 'debug',
         ],
 
         'stack' => [

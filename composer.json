@@ -29,7 +29,8 @@
         "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
         "bristol-su/assign-roles": "dev-develop",
-        "bristol-su/unioncloud-portal": "dev-master"
+        "bristol-su/unioncloud-portal": "dev-master",
+        "rollbar/rollbar-laravel": "^6.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
