@@ -63,7 +63,7 @@
                     let setting = this.moduleInstanceSettings.filter(setting => setting.key === key);
                     if(setting.length === 0) {
                         this.saveSetting(key, this.model[key]);
-                    } else if(setting[0].value !== this.model[key]){
+                    } else {
                         this.updateSetting(setting[0].id, this.model[key]);
                     }
                 });
