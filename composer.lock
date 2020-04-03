@@ -191,16 +191,16 @@
         },
         {
             "name": "bristol-su/control",
-            "version": "v1.2.3",
+            "version": "v1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "7491d866352d17ad1d87133468055b9a228b38f5"
+                "reference": "18e39daf13041b23b545c715317b15a476504a35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/7491d866352d17ad1d87133468055b9a228b38f5",
-                "reference": "7491d866352d17ad1d87133468055b9a228b38f5",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/18e39daf13041b23b545c715317b15a476504a35",
+                "reference": "18e39daf13041b23b545c715317b15a476504a35",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +240,7 @@
                 }
             ],
             "description": "An implementation of the control contracts",
-            "time": "2020-04-02T17:23:33+00:00"
+            "time": "2020-04-03T14:33:00+00:00"
         },
         {
             "name": "bristol-su/static-page",
