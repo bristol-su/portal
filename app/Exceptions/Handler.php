@@ -16,11 +16,13 @@ use BristolSU\Support\Authorization\Exception\IncorrectLogin;
 use BristolSU\Support\Authorization\Exception\ModuleInactive;
 use BristolSU\Support\Authorization\Exception\ModuleInstanceDisabled;
 use Exception;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class Handler extends ExceptionHandler
 {
@@ -57,7 +59,13 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        parent::report($exception);
+        if($exception instanceof ClientException && $exception->getCode() === 401 && Str::contains($exception->getMessage(), 'unioncloud')) {
+
+        } else if($exception instanceof ClientException && $exception->getCode() === 403 && Str::contains($exception->getMessage(), 'unioncloud')) {
+
+        } else {
+            parent::report($exception);
+        }
     }
 
     /**

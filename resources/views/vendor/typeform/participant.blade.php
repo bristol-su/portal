@@ -10,7 +10,7 @@
                     <h2 class="">{{settings('title')}}</h2>
                     <p class="">{!! settings('description') !!}</p>
 
-                    @if(strlen(settings('form_url', '')) > 0)
+                    @if(strlen(settings('form_url', '')) > 0 && \BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('typeform.view-form'))
                         @if(settings('embed_type', 'widget') === 'widget')
                             <typeform-embed-widget
                                     form-url="{{settings('form_url')}}"
@@ -26,6 +26,8 @@
                                     mode="{{settings('embed_type')}}">
                             </typeform-embed-popup>
                         @endif
+                    @elseif(!\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('typeform.view-form'))
+                        You don't have permission to submit the form
                     @else
                         No form found
                     @endif
@@ -33,7 +35,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    @if(settings('collect_responses') && count($responses) > 0)
+                    @if(settings('collect_responses') && count($responses) > 0 && \BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('typeform.view-responses'))
                         <h4>Previous Responses</h4>
                         <responses
                                 :responses="{{$responses}}"

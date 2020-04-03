@@ -156,6 +156,17 @@
       'Rollbar' => 'Rollbar\\Laravel\\Facades\\Rollbar',
     ),
   ),
+  'sentry/sentry-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Sentry\\Laravel\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Sentry' => 'Sentry\\Laravel\\Facade',
+    ),
+  ),
   'socialiteproviders/manager' => 
   array (
     'providers' => 
