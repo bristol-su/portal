@@ -59,13 +59,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if($exception instanceof ClientException && $exception->getCode() === 401 && Str::contains($exception->getMessage(), 'unioncloud')) {
-
-        } else if($exception instanceof ClientException && $exception->getCode() === 403 && Str::contains($exception->getMessage(), 'unioncloud')) {
-
-        } else {
-            parent::report($exception);
-        }
+        parent::report($exception);
     }
 
     /**
