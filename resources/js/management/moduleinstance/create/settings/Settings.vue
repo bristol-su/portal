@@ -11,6 +11,8 @@
 </template>
 
 <script>
+    import moduleInstanceSettings from '../../../../utilities/api/resources/moduleInstanceSettings';
+
     export default {
         name: "Settings",
 
@@ -52,7 +54,13 @@
                 this.$api.moduleInstanceSettings().forModuleInstance(this.moduleInstance.id)
                     .then(response => {
                         this.moduleInstanceSettings = response.data;
-                        this.moduleInstanceSettings.forEach(setting => this.$set(this.model, setting.key, setting.value));
+                        this.moduleInstanceSettings.forEach(setting => {
+                            if(_.isObject(setting.value) || _.isArray(setting.value)) {
+                                this.$set(this.model, setting.key, JSON.parse(JSON.stringify(setting.value)))
+                            } else {
+                                this.$set(this.model, setting.key, setting.value)
+                            }
+                        });
                     })
                     .catch(error => this.$notify.alert('Could not load settings: ' + error.message))
                     .then(() => this.settingsLoading = false);
@@ -63,7 +71,7 @@
                     let setting = this.moduleInstanceSettings.filter(setting => setting.key === key);
                     if(setting.length === 0) {
                         this.saveSetting(key, this.model[key]);
-                    } else {
+                    } else if(!_.isEqual(setting[0].value, this.model[key])) {
                         this.updateSetting(setting[0].id, this.model[key]);
                     }
                 });
