@@ -41,9 +41,9 @@ class LogicAudienceCacher extends LogicAudience
         }
         $audience = $this->logicAudience->groupAudience($logic);
 
-        $this->cache->put($this->getKey('group', $logic), static::$cacheFor, $audience->map(function(\BristolSU\ControlDB\Contracts\Models\Group $group) {
+        $this->cache->put($this->getKey('group', $logic), $audience->map(function(\BristolSU\ControlDB\Contracts\Models\Group $group) {
             return $group->id();
-        })->toArray());
+        })->toArray(), static::$cacheFor);
 
         return $audience;
     }
@@ -58,9 +58,9 @@ class LogicAudienceCacher extends LogicAudience
         }
         $audience = $this->logicAudience->roleAudience($logic);
 
-        $this->cache->put($this->getKey('role', $logic), static::$cacheFor, $audience->map(function(\BristolSU\ControlDB\Contracts\Models\Role $role) {
+        $this->cache->put($this->getKey('role', $logic), $audience->map(function(\BristolSU\ControlDB\Contracts\Models\Role $role) {
             return $role->id();
-        })->toArray());
+        })->toArray(), static::$cacheFor);
 
         return $audience;
     }
@@ -75,9 +75,9 @@ class LogicAudienceCacher extends LogicAudience
         }
         $audience = $this->logicAudience->userAudience($logic);
 
-        $this->cache->put($this->getKey('user', $logic), static::$cacheFor, $audience->map(function(\BristolSU\ControlDB\Contracts\Models\User $user) {
+        $this->cache->put($this->getKey('user', $logic), $audience->map(function(\BristolSU\ControlDB\Contracts\Models\User $user) {
             return $user->id();
-        })->toArray());
+        })->toArray(), static::$cacheFor);
 
         return $audience;
     }
@@ -96,9 +96,9 @@ class LogicAudienceCacher extends LogicAudience
         }
         $audience = $this->logicAudience->userAudience($logic);
 
-        $this->cache->put($this->getKey('audience', $logic), static::$cacheFor, $audience->map(function(AudienceMember $audienceMember) {
+        $this->cache->put($this->getKey('audience', $logic), $audience->map(function(AudienceMember $audienceMember) {
             return $audienceMember->user()->id();
-        })->toArray());
+        })->toArray(), static::$cacheFor);
 
         return $audience;
     }

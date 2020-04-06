@@ -61,17 +61,11 @@ class UpdateProgressInCache implements ShouldQueue
      */
     private function activityInstances()
     {
-        $activityInstances = $this->activityInstanceRepository()->allFor(
+        return $this->activityInstanceRepository()->allFor(
             $this->activity->id,
             $this->activity->activity_for,
             $this->resourceId
         );
-        if($activityInstances->count() === 0) {
-            $activityInstances->push(
-                $this->createDefaultActivityInstance()
-            );
-        }
-        return $activityInstances;
     }
 
     /**
