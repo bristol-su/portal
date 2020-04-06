@@ -467,18 +467,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "df8f58b07257180a0f7268b3620a99d57d2629d7"
+                "reference": "350c0e4db53cc50d9c6781593a01d1ebe2483da2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/df8f58b07257180a0f7268b3620a99d57d2629d7",
-                "reference": "df8f58b07257180a0f7268b3620a99d57d2629d7",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/350c0e4db53cc50d9c6781593a01d1ebe2483da2",
+                "reference": "350c0e4db53cc50d9c6781593a01d1ebe2483da2",
                 "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^4.2",
                 "php": "^7.3",
-                "twigger/unioncloud": "dev-master"
+                "twigger/unioncloud": "^1.0"
             },
             "type": "library",
             "extra": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-06T14:06:16+00:00"
+            "time": "2020-04-06T14:52:03+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -6779,7 +6779,7 @@
         },
         {
             "name": "twigger/unioncloud",
-            "version": "dev-master",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/nus-unioncloud-api-wrapper.git",
