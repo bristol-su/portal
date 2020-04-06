@@ -25,7 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::apiResource('filter-instances', 'FilterInstanceController')->only(['store']);
         Route::apiResource('logic', 'LogicController')->only(['index', 'show', 'store', 'update']);
         Route::apiResource('module', 'ModuleController')->only(['index', 'show']);
-        Route::apiResource('module-instance-permission', 'ModuleInstancePermissionController')->only(['show', 'store', 'update']);
+        Route::apiResource('module-instance-permission', 'ModuleInstancePermissionController')->only(['show', 'store', 'update', 'destroy']);
         Route::apiResource('module-instance-service', 'ModuleInstanceServiceController')->only(['show', 'store', 'update', 'index']);
         Route::apiResource('module-instance-setting', 'ModuleInstanceSettingController')->only(['show', 'store', 'update']);
         Route::apiResource('module-instance', 'ModuleInstanceController')->only(['store', 'update']);

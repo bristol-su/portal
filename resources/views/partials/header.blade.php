@@ -79,9 +79,17 @@
             </div>
         </div>
     </nav>
-
+    <div>
+        <validation-errors></validation-errors>
+    </div>
+    <div>
+        <breadcrumbs
+            query-string="{{\Illuminate\Routing\UrlGenerator::getAuthQueryString()}}"
+            :admin="{{(request()->is('a/*') ? 'true' : 'false')}}"
+            previous="{{url()->previous()}}"
+            :hide-back="{{(request()->is('p', 'a') ? 'true' : 'false')}}"></breadcrumbs>
+    </div>
 </div>
-
 
 @push('scripts')
     <script src="{{ mix('js/header.js') }}"></script>

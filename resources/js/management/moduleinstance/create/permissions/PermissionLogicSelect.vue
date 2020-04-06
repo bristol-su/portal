@@ -5,8 +5,8 @@
             :label="permission.name"
             :label-for="permission.ability">
             <b-form-select @input="savePermission" :value="currentValue" :options="options" class="mb-3">
-                <template v-slot:cell(first)="data">
-                    <option :value="null" disabled>-- Please select an option --</option>
+                <template v-slot:first>
+                    <option :value="null">-- Give permission to noone --</option>
                 </template>
             </b-form-select>
         </b-form-group>
@@ -58,20 +58,31 @@
             },
 
             updatePermission(logicId) {
-                this.$api.moduleInstancePermissions().update(this.currentModuleInstancePermission.id, logicId)
-                    .then(response => {
-                        this.$notify.success('Permission updated');
-                    })
-                    .catch(error => this.$notify.alert('Could not update permission: ' + error.message));
+                if(logicId !== null) {
+                    this.$api.moduleInstancePermissions().update(this.currentModuleInstancePermission.id, logicId)
+                        .then(response => {
+                            this.$notify.success('Permission updated');
+                        })
+                        .catch(error => this.$notify.alert('Could not update permission: ' + error.message));
+                } else {
+                    this.$api.moduleInstancePermissions().delete(this.currentModuleInstancePermission.id, logicId)
+                        .then(response => {
+                            this.$notify.success('Permission updated');
+                        })
+                        .catch(error => this.$notify.alert('Could not update permission: ' + error.message));
+                }
+
             },
 
             createPermission(logicId) {
-                this.$api.moduleInstancePermissions().create(
-                    this.permission.ability, logicId, this.moduleInstanceId)
-                    .then(response => {
-                        this.$notify.success('Permission created');
-                    })
-                    .catch(error => this.$notify.alert('Could not create permission: ' + error.message));
+                if(logicId !== null) {
+                    this.$api.moduleInstancePermissions().create(
+                        this.permission.ability, logicId, this.moduleInstanceId)
+                        .then(response => {
+                            this.$notify.success('Permission created');
+                        })
+                        .catch(error => this.$notify.alert('Could not create permission: ' + error.message));
+                }
             }
         },
 

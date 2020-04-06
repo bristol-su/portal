@@ -34,6 +34,18 @@ class ActivityController extends Controller
      */
     public function store(Request $request, Repository $repository)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'slug' => 'required',
+            'type' => 'required',
+            'activity_for' => 'required',
+            'for_logic' => 'required',
+            'admin_logic' => 'required',
+            'start_date' => 'sometimes|nullable|date_format:Y-m-d H:i:s',
+            'end_date' => 'sometimes|nullable|date_format:Y-m-d H:i:s'
+        ]);
+
         return $repository->create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),

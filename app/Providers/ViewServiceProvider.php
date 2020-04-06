@@ -69,6 +69,14 @@ class ViewServiceProvider extends ServiceProvider
             $view->with('filters', $filters);
         });
 
+        View::composer(['*'], function($view) {
+            if(app(Activity::class) && app(Activity::class)->exists) {
+                JavaScriptFacade::put([
+                    'activity' => app(Activity::class)
+                ]);
+            }
+        });
+
         JavaScriptFacade::put([
             'queryString' => \Illuminate\Routing\UrlGenerator::getAuthQueryString()
         ]);

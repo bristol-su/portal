@@ -148,12 +148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "012a1d7220187a6d2eda5ceb9147202bbb232aa0"
+                "reference": "c216fd058a4659bda0081ff119dc477390f0ab28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/012a1d7220187a6d2eda5ceb9147202bbb232aa0",
-                "reference": "012a1d7220187a6d2eda5ceb9147202bbb232aa0",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/c216fd058a4659bda0081ff119dc477390f0ab28",
+                "reference": "c216fd058a4659bda0081ff119dc477390f0ab28",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +187,7 @@
                 }
             ],
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
-            "time": "2020-04-03T12:37:49+00:00"
+            "time": "2020-04-05T15:45:53+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -244,16 +244,16 @@
         },
         {
             "name": "bristol-su/static-page",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "4203152ffac06a4e3af7124e11ac9f622086fedb"
+                "reference": "ef48135e18e38f0920cc84f8c2cbfe144cca20c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/4203152ffac06a4e3af7124e11ac9f622086fedb",
-                "reference": "4203152ffac06a4e3af7124e11ac9f622086fedb",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/ef48135e18e38f0920cc84f8c2cbfe144cca20c9",
+                "reference": "ef48135e18e38f0920cc84f8c2cbfe144cca20c9",
                 "shasum": ""
             },
             "require": {
@@ -290,7 +290,7 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "time": "2020-03-18T20:46:53+00:00"
+            "time": "2020-04-04T19:09:22+00:00"
         },
         {
             "name": "bristol-su/support",
@@ -366,16 +366,16 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.1.7",
+            "version": "v1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "3cba659c8f184aed275cce31f3fb289403f28a20"
+                "reference": "99aa0a28a9b3de6356c1778313673533eaf4e661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/3cba659c8f184aed275cce31f3fb289403f28a20",
-                "reference": "3cba659c8f184aed275cce31f3fb289403f28a20",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/99aa0a28a9b3de6356c1778313673533eaf4e661",
+                "reference": "99aa0a28a9b3de6356c1778313673533eaf4e661",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-04-03T18:06:16+00:00"
+            "time": "2020-04-04T19:18:44+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "caa3a0499357fa5f0fa2e1c55fea597a07a38669"
+                "reference": "70ced9737375de46bc3c4982de659ef04daaaae6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/caa3a0499357fa5f0fa2e1c55fea597a07a38669",
-                "reference": "caa3a0499357fa5f0fa2e1c55fea597a07a38669",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/70ced9737375de46bc3c4982de659ef04daaaae6",
+                "reference": "70ced9737375de46bc3c4982de659ef04daaaae6",
                 "shasum": ""
             },
             "require": {
@@ -504,20 +504,20 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-04T13:29:47+00:00"
+            "time": "2020-04-05T16:31:29+00:00"
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "v1.0.4",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "aceee8eebef9971a0d96b5f840c9641b462cb52b"
+                "reference": "ec7d81e8df77f58ff4f60f28b99fe440ca51a7af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/aceee8eebef9971a0d96b5f840c9641b462cb52b",
-                "reference": "aceee8eebef9971a0d96b5f840c9641b462cb52b",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/ec7d81e8df77f58ff4f60f28b99fe440ca51a7af",
+                "reference": "ec7d81e8df77f58ff4f60f28b99fe440ca51a7af",
                 "shasum": ""
             },
             "require": {
@@ -550,7 +550,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-03-31T14:47:46+00:00"
+            "time": "2020-04-06T06:54:53+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -2470,16 +2470,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "75542a366ccbe1896ed79fcf3e8e68206d6c4257"
+                "reference": "5a67afc2572ec6d430526cdc9c637ef124812389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/75542a366ccbe1896ed79fcf3e8e68206d6c4257",
-                "reference": "75542a366ccbe1896ed79fcf3e8e68206d6c4257",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/5a67afc2572ec6d430526cdc9c637ef124812389",
+                "reference": "5a67afc2572ec6d430526cdc9c637ef124812389",
                 "shasum": ""
             },
             "require": {
@@ -2540,7 +2540,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-03-25T19:55:28+00:00"
+            "time": "2020-04-05T16:01:48+00:00"
         },
         {
             "name": "league/event",
@@ -3942,16 +3942,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.26",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "09655fcc1f8bab65727be036b28f6f20311c126c"
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/09655fcc1f8bab65727be036b28f6f20311c126c",
-                "reference": "09655fcc1f8bab65727be036b28f6f20311c126c",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
                 "shasum": ""
             },
             "require": {
@@ -4030,7 +4030,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2020-03-13T04:15:39+00:00"
+            "time": "2020-04-04T23:17:33+00:00"
         },
         {
             "name": "psr/container",

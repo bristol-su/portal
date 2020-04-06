@@ -35,6 +35,8 @@ import Settings from './management/settings/Settings';
 import SocialLogin from './components/login/social/SocialLogin';
 import Clipboard from 'v-clipboard'
 
+import ValidationErrors from './components/alerts/ValidationErrors';
+
 window.settingKeys = settingKeys;
 Vue.use(BootstrapVue);
 Vue.use(VueFormGenerator);
@@ -48,9 +50,12 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 if (token) {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 }
+
 Vue.prototype.$api = new api(portal.API_URL, axios);
 Vue.prototype.$control = new control(portal.API_URL + '/control', axios);
 Vue.prototype.$csrf = token.content;
+
+window.vueEvents = new Vue({});
 
 new Vue({
     el: '#vue-root',
@@ -97,3 +102,11 @@ new Vue({
 
 window.Vue = Vue;
 window._ = _;
+
+window.processErrorsFromAxios = function(error) {
+    if(error.response.status === 422) {
+        if(error.response.data.hasOwnProperty('errors')) {
+            window.vueEvents.$emit('validationErrorsSet', error.response.data);
+        }
+    }
+};

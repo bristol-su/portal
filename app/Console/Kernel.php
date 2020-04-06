@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CreateMissingActivityInstancesForAllActivities;
 use App\Console\Commands\RunUnionCloudCommands;
 use App\Console\Commands\UpdateProgress;
 use BristolSU\Support\Filters\Commands\CacheFilters;
@@ -34,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(CacheFilters::class)->hourly();
         $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
         $schedule->command(RunUnionCloudCommands::class)->everyMinute();
-
+        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->everyFiveMinutes();
         foreach (app(CommandStore::class)->all() as $alias => $commands) {
             foreach ($commands as $command => $cron) {
                 $schedule->command($command)->cron($cron);

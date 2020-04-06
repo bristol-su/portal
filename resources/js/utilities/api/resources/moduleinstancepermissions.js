@@ -21,4 +21,8 @@ export default class extends BaseResource{
         return this.request('get', '/module-instance/' + moduleInstanceId + '/module-instance-permission')
     }
 
+    delete(id) {
+        return this.request('delete', '/module-instance-permission/' + id);
+    }
+
 }

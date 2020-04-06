@@ -21,6 +21,7 @@ import Connection from './resources/connection';
 import ModuleInstanceServices from './resources/moduleinstanceservices';
 import Setting from './resources/setting';
 import ActionInstanceHistory from './resources/actioninstancehistory';
+import axios from 'axios';
 
 // TODO Implement Cache
 export default class {
@@ -30,7 +31,13 @@ export default class {
             withCredentials: true,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-            }
+            },
+        });
+        this._http.interceptors.response.use(function (response) {
+            return response;
+        }, function (error) {
+            window.processErrorsFromAxios(error);
+            return Promise.reject(error);
         });
     }
 

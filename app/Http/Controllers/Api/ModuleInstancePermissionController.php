@@ -32,4 +32,9 @@ class ModuleInstancePermissionController extends Controller
         $permission->save();
         return $permission;
     }
+
+    public function destroy(ModuleInstancePermission $permission)
+    {
+        $permission->delete();
+    }
 }
