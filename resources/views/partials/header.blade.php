@@ -41,14 +41,16 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @inject('userAuthentication', 'BristolSU\Support\User\Contracts\UserAuthentication')
-                                {{ $userAuthentication->getUser()->controlUser()->data()->preferredName() }} <span class="caret"></span>
+                                {{ $userAuthentication->getUser()->controlUser()->data()->preferredName() }} <span
+                                    class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <!-- Home -->
                                 <a class="dropdown-item" href="#">
                                     @if($currentRole !== null)
-                                        Acting as {{$currentRole->data()->roleName()}} of {{$currentRole->group()->data()->name()}}
+                                        Acting as {{$currentRole->data()->roleName()}}
+                                        of {{$currentRole->group()->data()->name()}}
                                     @elseif($currentGroup !== null)
                                         Acting in your membership to {{$currentGroup->data()->name()}}
                                     @elseif($currentUser !== null)
@@ -64,7 +66,7 @@
                                 @endcan
                                 @can('access-control')
                                     <a class="dropdown-item" href="{{ route('control') }}">Control</a>
-                                @endcan
+                            @endcan
                             <!-- Logout -->
                                 <a class="dropdown-item" href="#"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -79,16 +81,18 @@
             </div>
         </div>
     </nav>
-    <div>
-        <validation-errors></validation-errors>
-    </div>
-    <div>
-        <breadcrumbs
-            query-string="{{\Illuminate\Routing\UrlGenerator::getAuthQueryString()}}"
-            :admin="{{(request()->is('a/*') ? 'true' : 'false')}}"
-            previous="{{url()->previous()}}"
-            :hide-back="{{(request()->is('p', 'a') ? 'true' : 'false')}}"></breadcrumbs>
-    </div>
+    @auth
+        <div>
+            <validation-errors></validation-errors>
+        </div>
+        <div>
+            <breadcrumbs
+                query-string="{{\Illuminate\Routing\UrlGenerator::getAuthQueryString()}}"
+                :admin="{{(request()->is('a/*') ? 'true' : 'false')}}"
+                previous="{{url()->previous()}}"
+                :hide-back="{{(request()->is('p', 'a') ? 'true' : 'false')}}"></breadcrumbs>
+        </div>
+    @endauth
 </div>
 
 @push('scripts')
