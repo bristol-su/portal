@@ -26,10 +26,6 @@ class UpdateProgressInCache implements ShouldQueue
      * @var int
      */
     private $resourceId;
-    /**
-     * @var Progress
-     */
-    private $progress;
 
     /**
      * Create a new job instance.
@@ -37,11 +33,10 @@ class UpdateProgressInCache implements ShouldQueue
      * @param Activity $activity
      * @param int $resourceId
      */
-    public function __construct(Activity $activity, int $resourceId, Progress $progress)
+    public function __construct(Activity $activity, int $resourceId)
     {
         $this->activity = $activity;
         $this->resourceId = $resourceId;
-        $this->progress = $progress;
     }
 
     /**
@@ -49,10 +44,10 @@ class UpdateProgressInCache implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(Progress $progress)
     {
         foreach($this->activityInstances() as $activityInstance) {
-            $this->progress->updateProgressInCache($activityInstance);
+            $progress->updateProgressInCache($activityInstance);
         }
     }
 

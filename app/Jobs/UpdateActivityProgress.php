@@ -8,6 +8,7 @@ use BristolSU\Support\ActivityInstance\ActivityInstance;
 use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceRepository;
 use BristolSU\Support\ActivityInstance\Contracts\DefaultActivityInstanceGenerator;
 use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
+use Clockwork\Request\Log;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -25,47 +26,37 @@ class UpdateActivityProgress implements ShouldQueue
     private $activity;
 
     /**
-     * @var LogicAudience
-     */
-    private $logicAudience;
-    /**
-     * @var Progress
-     */
-    private $progress;
-
-    /**
      * Create a new job instance.
      *
      * @param Activity $activity
      */
-    public function __construct(Activity $activity, LogicAudience $logicAudience, Progress $progress)
+    public function __construct(Activity $activity)
     {
         $this->activity = $activity;
-        $this->logicAudience = $logicAudience;
-        $this->progress = $progress;
     }
 
     /**
      * Execute the job.
      *
+     * @param LogicAudience $logicAudience
      * @return void
      */
-    public function handle()
+    public function handle(LogicAudience $logicAudience)
     {
-        foreach ($this->audienceIdsFor($this->activity) as $resourceId) {
+        foreach ($this->audienceIdsFor($this->activity, $logicAudience) as $resourceId) {
             dispatch($this->newProgressJob($this->activity, $resourceId));
         }
     }
 
-    private function audienceIdsFor(Activity $activity)
+    private function audienceIdsFor(Activity $activity, LogicAudience $logicAudience)
     {
         $audience = collect();
         if ($activity->activity_for === 'user') {
-            $audience = $this->logicAudience->userAudience($activity->forLogic);
+            $audience = $logicAudience->userAudience($activity->forLogic);
         } elseif ($activity->activity_for === 'group') {
-            $audience = $this->logicAudience->groupAudience($activity->forLogic);
+            $audience = $logicAudience->groupAudience($activity->forLogic);
         } elseif ($activity->activity_for === 'role') {
-            $audience = $this->logicAudience->roleAudience($activity->forLogic);
+            $audience = $logicAudience->roleAudience($activity->forLogic);
         }
         return $audience->map(function ($participant) {
             return $participant->id();
@@ -74,6 +65,6 @@ class UpdateActivityProgress implements ShouldQueue
 
     private function newProgressJob(Activity $activity, int $resourceId)
     {
-        return new UpdateProgressInCache($activity, $resourceId, $this->progress);
+        return new UpdateProgressInCache($activity, $resourceId);
     }
 }

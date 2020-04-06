@@ -5,7 +5,6 @@ namespace App\Support\Progress;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\ActivityInstance\ActivityInstance;
 use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceRepository;
-use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
 use BristolSU\Support\ModuleInstance\Contracts\ModuleInstance;
 use BristolSU\Support\ModuleInstance\Facade\ModuleInstanceEvaluator;
 use Illuminate\Support\Facades\Cache;

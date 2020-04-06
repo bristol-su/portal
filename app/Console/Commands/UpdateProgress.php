@@ -55,7 +55,7 @@ class UpdateProgress extends Command
      */
     private function newCommand($activity)
     {
-        return new UpdateActivityProgress($activity, app(LogicAudience::class), app(Progress::class));
+        return new UpdateActivityProgress($activity);
     }
 
 }
