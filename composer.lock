@@ -366,16 +366,16 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.1.9",
+            "version": "v1.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "ab109111433bcf209a3f185bfb93e3a3d9c8e0a7"
+                "reference": "8c68ea6ebbdbb3e3319e5209cf225bd399973931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/ab109111433bcf209a3f185bfb93e3a3d9c8e0a7",
-                "reference": "ab109111433bcf209a3f185bfb93e3a3d9c8e0a7",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/8c68ea6ebbdbb3e3319e5209cf225bd399973931",
+                "reference": "8c68ea6ebbdbb3e3319e5209cf225bd399973931",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-04-06T08:44:18+00:00"
+            "time": "2020-04-06T14:36:53+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -467,18 +467,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "70ced9737375de46bc3c4982de659ef04daaaae6"
+                "reference": "df8f58b07257180a0f7268b3620a99d57d2629d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/70ced9737375de46bc3c4982de659ef04daaaae6",
-                "reference": "70ced9737375de46bc3c4982de659ef04daaaae6",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/df8f58b07257180a0f7268b3620a99d57d2629d7",
+                "reference": "df8f58b07257180a0f7268b3620a99d57d2629d7",
                 "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^4.2",
                 "php": "^7.3",
-                "twigger/unioncloud": "^1.0"
+                "twigger/unioncloud": "dev-master"
             },
             "type": "library",
             "extra": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-05T16:31:29+00:00"
+            "time": "2020-04-06T14:06:16+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -6779,19 +6779,20 @@
         },
         {
             "name": "twigger/unioncloud",
-            "version": "v1.0.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/nus-unioncloud-api-wrapper.git",
-                "reference": "618ab0cda09877b2bf65801b6d4bb7328f3ddcd1"
+                "reference": "4a72204bf437f4500b2caed82bea431563b80c9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/618ab0cda09877b2bf65801b6d4bb7328f3ddcd1",
-                "reference": "618ab0cda09877b2bf65801b6d4bb7328f3ddcd1",
+                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/4a72204bf437f4500b2caed82bea431563b80c9d",
+                "reference": "4a72204bf437f4500b2caed82bea431563b80c9d",
                 "shasum": ""
             },
             "require": {
+                "aws/aws-sdk-php": "^3.0@dev",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^6.3",
                 "nesbot/carbon": "^2.24"
@@ -6824,7 +6825,7 @@
                 }
             ],
             "description": "An API Wrapper for the NUS UnionCloud platform",
-            "time": "2020-04-06T09:35:55+00:00"
+            "time": "2020-04-06T14:31:13+00:00"
         },
         {
             "name": "venturecraft/revisionable",
