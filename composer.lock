@@ -366,16 +366,16 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.1.11",
+            "version": "v1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "04efc5f070a8c96d5f8474df91fc08605864cb01"
+                "reference": "a2e6f27b67c2c68bb9f50eaf99b1adf3137a8974"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/04efc5f070a8c96d5f8474df91fc08605864cb01",
-                "reference": "04efc5f070a8c96d5f8474df91fc08605864cb01",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/a2e6f27b67c2c68bb9f50eaf99b1adf3137a8974",
+                "reference": "a2e6f27b67c2c68bb9f50eaf99b1adf3137a8974",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-04-06T16:49:37+00:00"
+            "time": "2020-04-07T11:03:44+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
