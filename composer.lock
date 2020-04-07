@@ -508,16 +508,16 @@
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "2344ef470533876804057647a94830637a0046fc"
+                "reference": "5abb41608af8033573fdc14b5b63128d1f9afbb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/2344ef470533876804057647a94830637a0046fc",
-                "reference": "2344ef470533876804057647a94830637a0046fc",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/5abb41608af8033573fdc14b5b63128d1f9afbb4",
+                "reference": "5abb41608af8033573fdc14b5b63128d1f9afbb4",
                 "shasum": ""
             },
             "require": {
@@ -550,7 +550,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-04-07T08:49:51+00:00"
+            "time": "2020-04-07T11:17:25+00:00"
         },
         {
             "name": "clue/stream-filter",
