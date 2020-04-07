@@ -68,6 +68,7 @@
                     this.$api.moduleInstancePermissions().delete(this.currentModuleInstancePermission.id, logicId)
                         .then(response => {
                             this.$notify.success('Permission updated');
+                            window.location.reload();
                         })
                         .catch(error => this.$notify.alert('Could not update permission: ' + error.message));
                 }
