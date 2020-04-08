@@ -20,7 +20,7 @@ class FilterRoleByLogicGroupFormatter extends Formatter
         if($this->config('logicId')) {
             $logicGroup = app(LogicRepository::class)->getById((int) $this->config('logicId'));
             return array_filter($items, function($item) use ($logicGroup) {
-                return LogicTester::evaluate($logicGroup, null, null, $item);
+                return LogicTester::evaluate($logicGroup, null, null, $item->original());
             });
         }
         return $items;
