@@ -5,6 +5,7 @@ namespace App\Console;
 use App\Console\Commands\CreateMissingActivityInstancesForAllActivities;
 use App\Console\Commands\RunUnionCloudCommands;
 use App\Console\Commands\UpdateProgress;
+use BristolSU\ControlDB\Export\ExportControlCommand;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
 use BristolSU\UnionCloud\Commands\CacheUnionCloudDataUsers;
@@ -41,6 +42,7 @@ class Kernel extends ConsoleKernel
                 $schedule->command($command)->cron($cron);
             }
         }
+        $schedule->command(ExportControlCommand::class, ['type' => 'role', '--exporter' => 'committee-contact-sheet'])->everyFifteenMinutes();
     }
 
     /**

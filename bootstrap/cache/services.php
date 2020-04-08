@@ -52,6 +52,7 @@
     48 => 'App\\Providers\\ViewServiceProvider',
     49 => 'App\\Providers\\ControlServiceProvider',
     50 => 'App\\Providers\\AdditionalAttributeProvider',
+    51 => 'App\\Providers\\GoogleDriveServiceProvider',
   ),
   'eager' => 
   array (
@@ -93,6 +94,7 @@
     35 => 'App\\Providers\\ViewServiceProvider',
     36 => 'App\\Providers\\ControlServiceProvider',
     37 => 'App\\Providers\\AdditionalAttributeProvider',
+    38 => 'App\\Providers\\GoogleDriveServiceProvider',
   ),
   'deferred' => 
   array (

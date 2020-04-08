@@ -24,6 +24,7 @@
         "bristol-su/static-page": "^1.0",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
+        "nao-pon/flysystem-google-drive": "~1.1",
         "laravel/socialite": "^4.3",
         "socialiteproviders/providers": "dev-master",
         "linkeys/signed-url": "^1.0",
