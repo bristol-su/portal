@@ -49,16 +49,26 @@ class RunUnionCloudCommands extends Command
     public function handle()
     {
         if($this->config->get('app.cache-unioncloud', false)) {
-            $this->line('Caching UC');
             if ($this->config->get('unioncloud-portal.enabled.data-users')) {
-                $this->line('Caching UC Users');
-                $this->call(CacheUnionCloudDataUsers::class);
+                try {
+                    $this->call(CacheUnionCloudDataUsers::class);
+                } catch (\Exception $e) {
+                    Log::error($e);
+                }
             }
             if ($this->config->get('unioncloud-portal.enabled.memberships')) {
                 Log::info('Caching membershpips');
                 $this->line('Caching memberships');
-                $this->call(CacheUnionCloudUserGroupMemberships::class);
-                $this->call(CacheUnionCloudUsersUserGroupMemberships::class);
+                try {
+                    $this->call(CacheUnionCloudUserGroupMemberships::class);
+                } catch (\Exception $e) {
+                    Log::error($e);
+                }
+                try {
+                    $this->call(CacheUnionCloudUsersUserGroupMemberships::class);
+                } catch (\Exception $e) {
+                    Log::error($e);
+                }
             }
         }
     }
