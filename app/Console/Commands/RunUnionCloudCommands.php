@@ -57,7 +57,6 @@ class RunUnionCloudCommands extends Command
                 }
             }
             if ($this->config->get('unioncloud-portal.enabled.memberships')) {
-                Log::info('Caching membershpips');
                 $this->line('Caching memberships');
                 try {
                     $this->call(CacheUnionCloudUserGroupMemberships::class);
