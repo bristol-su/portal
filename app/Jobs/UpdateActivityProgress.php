@@ -2,19 +2,13 @@
 
 namespace App\Jobs;
 
-use App\Support\Progress\Progress;
 use BristolSU\Support\Activity\Activity;
-use BristolSU\Support\ActivityInstance\ActivityInstance;
 use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceRepository;
-use BristolSU\Support\ActivityInstance\Contracts\DefaultActivityInstanceGenerator;
-use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
-use Clockwork\Request\Log;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Collection;
 
 class UpdateActivityProgress implements ShouldQueue
 {
@@ -38,29 +32,19 @@ class UpdateActivityProgress implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param LogicAudience $logicAudience
+     * @param ActivityInstanceRepository $activityInstanceRepository
      * @return void
      */
-    public function handle(LogicAudience $logicAudience)
+    public function handle(ActivityInstanceRepository $activityInstanceRepository)
     {
-        foreach ($this->audienceIdsFor($this->activity, $logicAudience) as $resourceId) {
+        foreach ($this->audienceIdsFor($this->activity, $activityInstanceRepository) as $resourceId) {
             dispatch($this->newProgressJob($this->activity, $resourceId));
         }
     }
 
-    private function audienceIdsFor(Activity $activity, LogicAudience $logicAudience)
+    private function audienceIdsFor(Activity $activity, ActivityInstanceRepository $activityInstanceRepository)
     {
-        $audience = collect();
-        if ($activity->activity_for === 'user') {
-            $audience = $logicAudience->userAudience($activity->forLogic);
-        } elseif ($activity->activity_for === 'group') {
-            $audience = $logicAudience->groupAudience($activity->forLogic);
-        } elseif ($activity->activity_for === 'role') {
-            $audience = $logicAudience->roleAudience($activity->forLogic);
-        }
-        return $audience->map(function ($participant) {
-            return $participant->id();
-        });
+        return $activityInstanceRepository->allForActivity($activity->id)->unique('resource_id')->pluck('resource_id');
     }
 
     private function newProgressJob(Activity $activity, int $resourceId)

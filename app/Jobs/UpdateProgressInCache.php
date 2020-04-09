@@ -70,12 +70,4 @@ class UpdateProgressInCache implements ShouldQueue
     {
         return app(ActivityInstanceRepository::class);
     }
-
-    /**
-     * @return ActivityInstance
-     */
-    private function createDefaultActivityInstance()
-    {
-        return app(DefaultActivityInstanceGenerator::class)->generate($this->activity, $this->activity->activity_for, $this->resourceId);
-    }
 }
