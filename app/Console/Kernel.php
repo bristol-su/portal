@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
                 $schedule->command($command)->cron($cron);
             }
         }
-        $schedule->command(ExportControlCommand::class, ['type' => 'role', '--exporter' => 'committee-contact-sheet'])->everyFifteenMinutes();
+        $schedule->command('control:export role --exporter=committee-contact-sheet')->everyFifteenMinutes();
     }
 
     /**
