@@ -8,6 +8,7 @@ use BristolSU\UnionCloud\Commands\CacheUnionCloudUsersUserGroupMemberships;
 use Illuminate\Console\Application;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Support\Facades\Log;
 
 class RunUnionCloudCommands extends Command
 {
@@ -54,6 +55,7 @@ class RunUnionCloudCommands extends Command
                 $this->call(CacheUnionCloudDataUsers::class);
             }
             if ($this->config->get('unioncloud-portal.enabled.memberships')) {
+                Log::info('Caching membershpips');
                 $this->line('Caching memberships');
                 $this->call(CacheUnionCloudUserGroupMemberships::class);
                 $this->call(CacheUnionCloudUsersUserGroupMemberships::class);
