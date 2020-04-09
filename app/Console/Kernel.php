@@ -5,12 +5,8 @@ namespace App\Console;
 use App\Console\Commands\CreateMissingActivityInstancesForAllActivities;
 use App\Console\Commands\RunUnionCloudCommands;
 use App\Console\Commands\UpdateProgress;
-use BristolSU\ControlDB\Export\ExportControlCommand;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
-use BristolSU\UnionCloud\Commands\CacheUnionCloudDataUsers;
-use BristolSU\UnionCloud\Commands\CacheUnionCloudUserGroupMemberships;
-use BristolSU\UnionCloud\Commands\CacheUnionCloudUsersUserGroupMemberships;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
