@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(CacheFilters::class)->hourly();
         $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
         $schedule->command(RunUnionCloudCommands::class)->everyMinute();
-        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->everyFiveMinutes();
+//        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->everyThirtyMinutes();
         foreach (app(CommandStore::class)->all() as $alias => $commands) {
             foreach ($commands as $command => $cron) {
                 $schedule->command($command)->cron($cron);
