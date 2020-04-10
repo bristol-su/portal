@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(CacheFilters::class)->hourly();
-        $schedule->command(UpdateProgress::class)->everyThirtyMinutes();
+        $schedule->command(UpdateProgress::class)->hourly();
         $schedule->command(RunUnionCloudCommands::class)->everyMinute();
 //        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->everyThirtyMinutes();
         foreach (app(CommandStore::class)->all() as $alias => $commands) {
