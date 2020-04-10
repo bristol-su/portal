@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "262864a56428ccf774594084272cda5dc94e6316"
+                "reference": "d98d5f54a065fb7f64a1183cd7cd59aae3c219bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/262864a56428ccf774594084272cda5dc94e6316",
-                "reference": "262864a56428ccf774594084272cda5dc94e6316",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/d98d5f54a065fb7f64a1183cd7cd59aae3c219bd",
+                "reference": "d98d5f54a065fb7f64a1183cd7cd59aae3c219bd",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-09T14:05:36+00:00"
+            "time": "2020-04-10T12:49:26+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -7561,16 +7561,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.1",
+            "version": "1.10.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011"
+                "reference": "7a4d5b6aa30d2118af27c04f5e897b57156ccfa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/b912a45da3e2b22f5cb5a23e441b697a295ba011",
-                "reference": "b912a45da3e2b22f5cb5a23e441b697a295ba011",
+                "url": "https://api.github.com/repos/composer/composer/zipball/7a4d5b6aa30d2118af27c04f5e897b57156ccfa9",
+                "reference": "7a4d5b6aa30d2118af27c04f5e897b57156ccfa9",
                 "shasum": ""
             },
             "require": {
@@ -7637,7 +7637,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-03-13T19:34:27+00:00"
+            "time": "2020-04-10T09:44:22+00:00"
         },
         {
             "name": "composer/semver",

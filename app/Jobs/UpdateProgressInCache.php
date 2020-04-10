@@ -13,6 +13,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Redis;
 
 class UpdateProgressInCache implements ShouldQueue
 {
@@ -46,9 +47,13 @@ class UpdateProgressInCache implements ShouldQueue
      */
     public function handle(Progress $progress)
     {
-        foreach($this->activityInstances() as $activityInstance) {
-            $progress->updateProgressInCache($activityInstance);
-        }
+        Redis::throttle(UpdateProgressInCache::class . '-throttle')->allow(1)->every(60)->then(function() use ($progress) {
+            foreach($this->activityInstances() as $activityInstance) {
+                $progress->updateProgressInCache($activityInstance);
+            }
+        }, function() {
+            $this->release(120);
+        });
     }
 
     /**
