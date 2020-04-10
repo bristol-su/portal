@@ -52,7 +52,7 @@ class UpdateProgressInCache implements ShouldQueue
                 $progress->updateProgressInCache($activityInstance);
             }
         }, function() {
-            $this->release(120);
+            return $this->release(120);
         });
     }
 
