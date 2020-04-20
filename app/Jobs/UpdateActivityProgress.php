@@ -19,6 +19,8 @@ class UpdateActivityProgress implements ShouldQueue
      */
     private $activity;
 
+    private $delay = 0;
+
     /**
      * Create a new job instance.
      *
@@ -49,6 +51,8 @@ class UpdateActivityProgress implements ShouldQueue
 
     private function newProgressJob(Activity $activity, int $resourceId)
     {
-        return new UpdateProgressInCache($activity, $resourceId);
+        $delay = $this->delay;
+        $this->delay++;
+        return (new UpdateProgressInCache($activity, $resourceId))->delay($delay);
     }
 }
