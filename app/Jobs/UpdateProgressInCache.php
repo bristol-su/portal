@@ -47,13 +47,9 @@ class UpdateProgressInCache implements ShouldQueue
      */
     public function handle(Progress $progress)
     {
-        Redis::throttle(UpdateProgressInCache::class . '-throttle')->allow(1)->every(60)->then(function() use ($progress) {
-            foreach($this->activityInstances() as $activityInstance) {
-                $progress->updateProgressInCache($activityInstance);
-            }
-        }, function() {
-            return $this->release(120);
-        });
+        foreach($this->activityInstances() as $activityInstance) {
+            $progress->updateProgressInCache($activityInstance);
+        }
     }
 
     /**
