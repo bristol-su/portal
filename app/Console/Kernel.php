@@ -30,11 +30,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(CacheFilters::class)->hourly()->runInBackground();
-        $schedule->command(UpdateProgress::class)->hourly()->runInBackground();
+        $schedule->command(CacheFilters::class)->hourly()->runInBackground()->when(function() {
+            return config('support.caching.filters.enabled');
+        });
+//        $schedule->command(UpdateProgress::class)->hourly()->runInBackground();
         $schedule->command(RunUnionCloudCommands::class)->everyMinute()->runInBackground();
 //        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->everyThirtyMinutes()->runInBackground();
-        $schedule->command('control:export role --exporter=committee-contact-sheet')->everyFifteenMinutes()->runInBackground();
+        $schedule->command('control:export role --exporter=committee-contact-sheet')->everyThirtyMinutes()->runInBackground();
         $schedule->command('control:export role --exporter=committee-contact-sheet-old')->hourly()->runInBackground();
 
         foreach (app(CommandStore::class)->all() as $alias => $commands) {
