@@ -13,7 +13,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
+use Spatie\RateLimitedMiddleware\RateLimited;
 
 class UpdateProgressInCache implements ShouldQueue
 {
@@ -40,6 +42,16 @@ class UpdateProgressInCache implements ShouldQueue
         $this->resourceId = $resourceId;
     }
 
+    public function middleware()
+    {
+        $rateLimitedMiddleware = (new RateLimited())
+            ->allow(5)
+            ->everySeconds(60)
+            ->releaseAfterSeconds(90);
+
+        return [$rateLimitedMiddleware];
+    }
+
     /**
      * Execute the job.
      *
@@ -50,6 +62,7 @@ class UpdateProgressInCache implements ShouldQueue
         foreach($this->activityInstances() as $activityInstance) {
             $progress->updateProgressInCache($activityInstance);
         }
+        Log::info('Progress');
     }
 
     /**
