@@ -76,6 +76,23 @@ return [
             ],
             'disk' => 'google',
             'filename' => env('COMMITTEE_CONTACT_DETAILS_FILENAME', 'committee_contact_sheet.csv')
+        ],
+        'committee-contact-sheet-old' => [
+            'driver' => 'save-csv',
+            'formatters' => [
+                \App\Exports\FilterRoleByLogicGroupFormatter::class => [
+                    'logicId' => env('COMMITTEE_CONTACT_DETAILS_OLD_LOGIC_ID')
+                ],
+                \BristolSU\ControlDB\Export\Formatter\Role\SimpleRoleFormatter::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\AddGroupInformationToRoles::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\AddPositionInformationToRoles::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\AddRoleHoldersAsNewItems::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Shared\SortByColumn::class => [
+                    'column' => 'Group Name'
+                ]
+            ],
+            'disk' => 'google',
+            'filename' => env('COMMITTEE_CONTACT_DETAILS_OLD_FILENAME', 'committee_contact_sheet.csv')
         ]
     ]
 ];
