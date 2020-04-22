@@ -148,12 +148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "112862a336c2ebbcaf5931f861f89f6274d164c2"
+                "reference": "d14730f4921b35e7092988b975bf6bfdb22c7ea2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/112862a336c2ebbcaf5931f861f89f6274d164c2",
-                "reference": "112862a336c2ebbcaf5931f861f89f6274d164c2",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/d14730f4921b35e7092988b975bf6bfdb22c7ea2",
+                "reference": "d14730f4921b35e7092988b975bf6bfdb22c7ea2",
                 "shasum": ""
             },
             "require": {
@@ -187,7 +187,7 @@
                 }
             ],
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
-            "time": "2020-04-20T09:52:01+00:00"
+            "time": "2020-04-22T16:13:50+00:00"
         },
         {
             "name": "bristol-su/control",
