@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.135.0",
+            "version": "3.135.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "254f168f90b1846ffb3f70594280e66b9f10a85e"
+                "reference": "59587a4f3fc88b36ce7f2e1a102bfcd7a816b27c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/254f168f90b1846ffb3f70594280e66b9f10a85e",
-                "reference": "254f168f90b1846ffb3f70594280e66b9f10a85e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/59587a4f3fc88b36ce7f2e1a102bfcd7a816b27c",
+                "reference": "59587a4f3fc88b36ce7f2e1a102bfcd7a816b27c",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-04-20T18:16:34+00:00"
+            "time": "2020-04-21T18:14:29+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -191,16 +191,16 @@
         },
         {
             "name": "bristol-su/control",
-            "version": "v1.3.0",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "34878161a76c6e94a54da168273bded5e3d26f14"
+                "reference": "0c5c4d7ad8d2dfa16d4c56c0f7df7159e6326a84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/34878161a76c6e94a54da168273bded5e3d26f14",
-                "reference": "34878161a76c6e94a54da168273bded5e3d26f14",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/0c5c4d7ad8d2dfa16d4c56c0f7df7159e6326a84",
+                "reference": "0c5c4d7ad8d2dfa16d4c56c0f7df7159e6326a84",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +240,7 @@
                 }
             ],
             "description": "An implementation of the control contracts",
-            "time": "2020-04-08T15:57:16+00:00"
+            "time": "2020-04-22T13:35:15+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -294,20 +294,20 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.3.2",
+            "version": "v4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "a12cd76798d7d510830dcd175d35b860bf251df5"
+                "reference": "81e52c6edecb00dc7c746e62d0b7c5867b18f12e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/a12cd76798d7d510830dcd175d35b860bf251df5",
-                "reference": "a12cd76798d7d510830dcd175d35b860bf251df5",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/81e52c6edecb00dc7c746e62d0b7c5867b18f12e",
+                "reference": "81e52c6edecb00dc7c746e62d0b7c5867b18f12e",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/control": "^1.0",
+                "bristol-su/control": "^2.0",
                 "doctrine/dbal": "^2.10",
                 "ext-json": "*",
                 "laracasts/utilities": "^3.0",
@@ -362,7 +362,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-04-03T11:51:37+00:00"
+            "time": "2020-04-22T13:42:45+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -467,12 +467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "266c3ae848d2aa0e74eca768af4970c3e92acc75"
+                "reference": "9e92a2cdb00728d858dbf9be2e207d5c4a981164"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/266c3ae848d2aa0e74eca768af4970c3e92acc75",
-                "reference": "266c3ae848d2aa0e74eca768af4970c3e92acc75",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/9e92a2cdb00728d858dbf9be2e207d5c4a981164",
+                "reference": "9e92a2cdb00728d858dbf9be2e207d5c4a981164",
                 "shasum": ""
             },
             "require": {
@@ -504,7 +504,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-21T09:40:31+00:00"
+            "time": "2020-04-22T13:50:46+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -2152,16 +2152,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.18.8",
+            "version": "v6.18.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "852c91c46adfbc2f5a0f6985cba3d7b7a769b773"
+                "reference": "9177744ccdd8d5db970fdff2383fe89c2e94aabe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/852c91c46adfbc2f5a0f6985cba3d7b7a769b773",
-                "reference": "852c91c46adfbc2f5a0f6985cba3d7b7a769b773",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9177744ccdd8d5db970fdff2383fe89c2e94aabe",
+                "reference": "9177744ccdd8d5db970fdff2383fe89c2e94aabe",
                 "shasum": ""
             },
             "require": {
@@ -2294,20 +2294,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-04-15T20:56:03+00:00"
+            "time": "2020-04-21T18:53:10+00:00"
         },
         {
             "name": "laravel/passport",
-            "version": "v8.4.3",
+            "version": "v8.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "edb9ccb9993ca98c7347da2fae20e1b8b4895f31"
+                "reference": "dd4b1d96eb1fe556a6eb2c55c942360364aa02c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/edb9ccb9993ca98c7347da2fae20e1b8b4895f31",
-                "reference": "edb9ccb9993ca98c7347da2fae20e1b8b4895f31",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/dd4b1d96eb1fe556a6eb2c55c942360364aa02c1",
+                "reference": "dd4b1d96eb1fe556a6eb2c55c942360364aa02c1",
                 "shasum": ""
             },
             "require": {
@@ -2367,7 +2367,7 @@
                 "oauth",
                 "passport"
             ],
-            "time": "2020-03-31T15:48:43+00:00"
+            "time": "2020-04-21T19:24:59+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -5342,12 +5342,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Providers.git",
-                "reference": "8b866102fc34d2c1450318025e268f858ec8a5db"
+                "reference": "59d5271337395bc085b7b0066dc83ad86de899c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/8b866102fc34d2c1450318025e268f858ec8a5db",
-                "reference": "8b866102fc34d2c1450318025e268f858ec8a5db",
+                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/59d5271337395bc085b7b0066dc83ad86de899c6",
+                "reference": "59d5271337395bc085b7b0066dc83ad86de899c6",
                 "shasum": ""
             },
             "require": {
@@ -5370,7 +5370,7 @@
                 "MIT"
             ],
             "description": "Collection of all OAuth2 Providers for Laravel Socialite",
-            "time": "2019-12-12T08:20:55+00:00"
+            "time": "2020-04-21T16:46:51+00:00"
         },
         {
             "name": "spatie/macroable",

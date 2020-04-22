@@ -48,9 +48,10 @@
                     .catch(error => this.$notify.alert('Could not load users with permission: ' + error.message));
             },
             loadUsers() {
-                this.$control.user().all()
-                    .then(response => this.users = response.data)
-                    .catch(error => this.$notify.alert('Could not load users'));
+                this.$notify.warning('This section is currently under maintenance');
+                // this.$control.user().all()
+                //     .then(response => this.users = response.data)
+                //     .catch(error => this.$notify.alert('Could not load users'));
             },
             changePermission(status, userId) {
                 let request;
