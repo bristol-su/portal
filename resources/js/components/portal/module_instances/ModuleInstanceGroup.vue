@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-card class="module-instance-card">
+        <b-card class="module-instance-card" v-if="hasModuleInstances">
             <template v-slot:header v-if="hasHeading">
                 <h5>{{heading}}</h5>
             </template>
@@ -93,6 +93,9 @@
                 return this.orderedModuleInstances.filter(moduleInstance => {
                     return moduleInstance.enabled && this.evaluationObject(moduleInstance.id).visible
                 })
+            },
+            hasModuleInstances() {
+                return this.orderedAndEnabledModuleInstances.length > 0;
             }
         }
     }
