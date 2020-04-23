@@ -1,5 +1,5 @@
 <template>
-    <div class="col-xs-12 col-sm-6 col-md-4" style="padding: 2px;" v-if="!hidden">
+    <div style="padding: 2px;" v-if="!hidden">
         <a :href="url">
             <b-button :class="{mandatory: mandatory, inactive: inactive, complete: complete}"
                       :disabled="inactive"

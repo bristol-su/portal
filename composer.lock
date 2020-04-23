@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f11c213cf6f8e45fb21136aa56e6d6c5",
+    "content-hash": "bc94ec1e223dff10ecf037602f122354",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.135.1",
+            "version": "3.135.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "59587a4f3fc88b36ce7f2e1a102bfcd7a816b27c"
+                "reference": "1810725052836683d0cfd2907d515173058e710e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/59587a4f3fc88b36ce7f2e1a102bfcd7a816b27c",
-                "reference": "59587a4f3fc88b36ce7f2e1a102bfcd7a816b27c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1810725052836683d0cfd2907d515173058e710e",
+                "reference": "1810725052836683d0cfd2907d515173058e710e",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-04-21T18:14:29+00:00"
+            "time": "2020-04-22T18:11:15+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -294,16 +294,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.3.3",
+            "version": "v4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "81e52c6edecb00dc7c746e62d0b7c5867b18f12e"
+                "reference": "67c8d5705ff52cdf9a942a529f68c09af41b3dd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/81e52c6edecb00dc7c746e62d0b7c5867b18f12e",
-                "reference": "81e52c6edecb00dc7c746e62d0b7c5867b18f12e",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/67c8d5705ff52cdf9a942a529f68c09af41b3dd5",
+                "reference": "67c8d5705ff52cdf9a942a529f68c09af41b3dd5",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +362,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-04-22T13:42:45+00:00"
+            "time": "2020-04-23T11:02:35+00:00"
         },
         {
             "name": "bristol-su/typeform",

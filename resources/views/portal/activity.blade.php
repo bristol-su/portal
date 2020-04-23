@@ -27,7 +27,8 @@
                         <module-instances
                             :activity="{{$activity}}"
                             :admin="{{($admin?'true':'false')}}"
-                            :evaluation="{{$evaluation}}">
+                            :evaluation="{{$evaluation}}"
+                            :groupings="{{\BristolSU\Support\ModuleInstance\ModuleInstanceGrouping::forActivity($activity)->get()}}">
 
                         </module-instances>
 

@@ -1,23 +1,28 @@
 <template>
-    <div class="row">
-        <module-instance
-            v-for="moduleInstance in activity.module_instances"
-            v-if="moduleInstance.enabled"
-            :key="moduleInstance.id"
-            :module-instance="moduleInstance"
-            :evaluation="evaluationObject(moduleInstance.id)"
-            :activity="activity"
-            :admin="admin">
+    <b-row>
+        <b-col
+            cols="12"
+            class="padded"
+             :key="key"
+            v-for="key in Object.keys(groupedModules)">
+            <module-instance-group
+                :activity="activity"
+                :admin="admin"
+                :evaluation="evaluation"
+                :heading="getHeadingFor(key)"
+                :module-instances="groupedModules[key]">
 
-        </module-instance>
-    </div>
+            </module-instance-group>
+        </b-col>
+    </b-row>
 </template>
 
 <script>
     import ModuleInstance from './ModuleInstance';
+    import ModuleInstanceGroup from './ModuleInstanceGroup';
     export default {
         name: "ModuleInstances",
-        components: {ModuleInstance},
+        components: {ModuleInstanceGroup, ModuleInstance},
         props: {
             activity: {
                 required: true,
@@ -32,25 +37,44 @@
                 default() {
                     return [];
                 }
+            },
+            groupings: {
+                required: true,
+                type: Array
             }
         },
 
         methods: {
-            evaluationObject(id) {
-                return (this.evaluation[id] !== undefined
-                    ? this.evaluation[id]
-                    : {
-                        active: false,
-                        visible: false,
-                        mandatory: false,
-                    });
+            getHeadingFor(key) {
+                if(key === 'empty') {
+                    return null;
+                }
+                const group = this.groupings.find(grouping => grouping.id === parseInt(key));
+                if(group) {
+                    return group.heading;
+                }
+                return null;
+            }
+        },
+
+        computed: {
+            moduleInstances() {
+                return this.activity.module_instances;
             },
-
-
+            groupedModules() {
+                return this.moduleInstances.reduce((grouped, moduleInstance) => {
+                    const groupingId = ( moduleInstance.grouping_id || 'empty' );
+                    grouped[groupingId] = (grouped[groupingId] || []).concat(moduleInstance);
+                    return grouped;
+                }, {});
+            }
         }
+
     }
 </script>
 
 <style scoped>
-
+    .padded {
+        padding: 5px;
+    }
 </style>
