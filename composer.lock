@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc94ec1e223dff10ecf037602f122354",
+    "content-hash": "98137d451f73c4701379017d3cf5c138",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.135.2",
+            "version": "3.135.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1810725052836683d0cfd2907d515173058e710e"
+                "reference": "0f6f6e8f4a44193908e18b8c7b8530b02f5bc428"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1810725052836683d0cfd2907d515173058e710e",
-                "reference": "1810725052836683d0cfd2907d515173058e710e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0f6f6e8f4a44193908e18b8c7b8530b02f5bc428",
+                "reference": "0f6f6e8f4a44193908e18b8c7b8530b02f5bc428",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-04-22T18:11:15+00:00"
+            "time": "2020-04-23T18:18:24+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -148,15 +148,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "d14730f4921b35e7092988b975bf6bfdb22c7ea2"
+                "reference": "b7cc974ed3831fa5bc2b7251eadf47a8a7c778c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/d14730f4921b35e7092988b975bf6bfdb22c7ea2",
-                "reference": "d14730f4921b35e7092988b975bf6bfdb22c7ea2",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/b7cc974ed3831fa5bc2b7251eadf47a8a7c778c4",
+                "reference": "b7cc974ed3831fa5bc2b7251eadf47a8a7c778c4",
                 "shasum": ""
             },
             "require": {
+                "bristol-su/control": "dev-develop as 2.0",
                 "bristol-su/support": "^4.2",
                 "php": "^7.3"
             },
@@ -187,20 +188,20 @@
                 }
             ],
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
-            "time": "2020-04-22T16:13:50+00:00"
+            "time": "2020-04-24T16:47:04+00:00"
         },
         {
             "name": "bristol-su/control",
-            "version": "v2.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "0c5c4d7ad8d2dfa16d4c56c0f7df7159e6326a84"
+                "reference": "b1225f7aac044e339dd75e9c7b318a91e40ce787"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/0c5c4d7ad8d2dfa16d4c56c0f7df7159e6326a84",
-                "reference": "0c5c4d7ad8d2dfa16d4c56c0f7df7159e6326a84",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/b1225f7aac044e339dd75e9c7b318a91e40ce787",
+                "reference": "b1225f7aac044e339dd75e9c7b318a91e40ce787",
                 "shasum": ""
             },
             "require": {
@@ -240,7 +241,7 @@
                 }
             ],
             "description": "An implementation of the control contracts",
-            "time": "2020-04-22T13:35:15+00:00"
+            "time": "2020-04-24T17:31:37+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -467,15 +468,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "9e92a2cdb00728d858dbf9be2e207d5c4a981164"
+                "reference": "c79563549dbb8ef251a226c51172322bc7323681"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/9e92a2cdb00728d858dbf9be2e207d5c4a981164",
-                "reference": "9e92a2cdb00728d858dbf9be2e207d5c4a981164",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/c79563549dbb8ef251a226c51172322bc7323681",
+                "reference": "c79563549dbb8ef251a226c51172322bc7323681",
                 "shasum": ""
             },
             "require": {
+                "bristol-su/control": "dev-develop as 2.0",
                 "bristol-su/support": "^4.2",
                 "php": "^7.3",
                 "twigger/unioncloud": "^1.0"
@@ -504,7 +506,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-22T13:50:46+00:00"
+            "time": "2020-04-24T16:50:33+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -603,6 +605,61 @@
                 "stream_filter_register"
             ],
             "time": "2019-04-09T12:31:48+00:00"
+        },
+        {
+            "name": "composer/package-versions-deprecated",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "98df7f1b293c0550bd5b1ce6b60b59bdda23aa47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/98df7f1b293c0550bd5b1ce6b60b59bdda23aa47",
+                "reference": "98df7f1b293c0550bd5b1ce6b60b59bdda23aa47",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.2 - 1.8.99"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "time": "2020-04-23T11:49:37+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -1908,20 +1965,20 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.2",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48"
+                "reference": "e3517fb11b67e798239354fe8213927d012ad8f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/75c7effcf3f77501d0e0caa75111aff4daa0dd48",
-                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/e3517fb11b67e798239354fe8213927d012ad8f9",
+                "reference": "e3517fb11b67e798239354fe8213927d012ad8f9",
                 "shasum": ""
             },
             "require": {
-                "ocramius/package-versions": "^1.2.0",
+                "composer/package-versions-deprecated": "^1.8.0",
                 "php": "^7.0"
             },
             "require-dev": {
@@ -1955,7 +2012,7 @@
                 "release",
                 "versions"
             ],
-            "time": "2018-06-13T13:22:40+00:00"
+            "time": "2020-04-24T14:19:45+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -2622,16 +2679,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "c995966d35424bae20f76f8b31248099487a3f57"
+                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c995966d35424bae20f76f8b31248099487a3f57",
-                "reference": "c995966d35424bae20f76f8b31248099487a3f57",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/9e780d972185e4f737a03bade0fd34a9e67bbf31",
+                "reference": "9e780d972185e4f737a03bade0fd34a9e67bbf31",
                 "shasum": ""
             },
             "require": {
@@ -2692,7 +2749,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-04-20T13:36:51+00:00"
+            "time": "2020-04-24T13:39:56+00:00"
         },
         {
             "name": "league/event",
@@ -3542,57 +3599,6 @@
                 "psr-7"
             ],
             "time": "2019-09-05T13:24:16+00:00"
-        },
-        {
-            "name": "ocramius/package-versions",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "421679846270a5772534828013a93be709fb13df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/421679846270a5772534828013a93be709fb13df",
-                "reference": "421679846270a5772534828013a93be709fb13df",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1.0 || ^2.0",
-                "php": "^7.4.0"
-            },
-            "require-dev": {
-                "composer/composer": "^1.9.3 || ^2.0@dev",
-                "doctrine/coding-standard": "^7.0.2",
-                "ext-zip": "^1.15.0",
-                "infection/infection": "^0.15.3",
-                "phpunit/phpunit": "^9.0.1",
-                "vimeo/psalm": "^3.9.3"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PackageVersions\\Installer",
-                "branch-alias": {
-                    "dev-master": "1.99.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PackageVersions\\": "src/PackageVersions"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
-                }
-            ],
-            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2020-04-06T17:43:35+00:00"
         },
         {
             "name": "opis/closure",
@@ -8695,11 +8701,19 @@
             "time": "2020-04-18T12:12:48+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.0",
+            "alias_normalized": "2.0.0.0",
+            "version": "dev-develop",
+            "package": "bristol-su/control"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "socialiteproviders/providers": 20,
         "bristol-su/assign-roles": 20,
+        "bristol-su/control": 20,
         "bristol-su/unioncloud-portal": 20
     },
     "prefer-stable": true,

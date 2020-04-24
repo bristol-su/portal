@@ -31,7 +31,6 @@ Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteCon
 Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-
     // Custom Authentication Routes
     Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
