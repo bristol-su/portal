@@ -21,3 +21,4 @@ report.*
 /coverage
 /storage/clockwork
 docs
+bootstrap/cache/*
