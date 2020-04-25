@@ -47,6 +47,10 @@ class ChangeTags extends Command
     private $roleRoleTag;
 private $oldTag;
 private $newTag;
+    /**
+     * @var \BristolSU\ControlDB\Contracts\Repositories\Tags\RoleTag
+     */
+    private $roleTag;
 
     /**
      * Create a new command instance.
@@ -57,8 +61,7 @@ private $newTag;
     {
         parent::__construct();
         $this->roleRoleTag = $roleRoleTag;
-        $this->oldTag = $roleTag->getById(12);
-        $this->newTag = $roleTag->getById(13);
+        $this->roleTag = $roleTag;
     }
 
     /**
@@ -69,6 +72,8 @@ private $newTag;
      */
     public function handle()
     {
+        $this->oldTag = $this->roleTag->getById(12);
+        $this->newTag = $this->roleTag->getById(13);
         $count = 0;
         foreach($this->toChange as $details) {
             $roles = \BristolSU\ControlDB\Models\Role::where('group_id', $details['group_id'])
