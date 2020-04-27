@@ -30,7 +30,6 @@
         "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
         "bristol-su/assign-roles": "dev-develop",
-        "bristol-su/control": "dev-develop as 2.0",
         "bristol-su/unioncloud-portal": "dev-master",
         "rollbar/rollbar-laravel": "^6.0",
         "sentry/sentry-laravel": "^1.7",

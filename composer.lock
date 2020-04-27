@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98137d451f73c4701379017d3cf5c138",
+    "content-hash": "2ff2ce240dc17f4562d7213a628580f5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.135.3",
+            "version": "3.135.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "0f6f6e8f4a44193908e18b8c7b8530b02f5bc428"
+                "reference": "fb6f4a12d9ad1b8fc1481aef61ed1f8a9fe2164b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0f6f6e8f4a44193908e18b8c7b8530b02f5bc428",
-                "reference": "0f6f6e8f4a44193908e18b8c7b8530b02f5bc428",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fb6f4a12d9ad1b8fc1481aef61ed1f8a9fe2164b",
+                "reference": "fb6f4a12d9ad1b8fc1481aef61ed1f8a9fe2164b",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-04-23T18:18:24+00:00"
+            "time": "2020-04-24T18:14:04+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -148,16 +148,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "b7cc974ed3831fa5bc2b7251eadf47a8a7c778c4"
+                "reference": "487a44b7d381cbd32fff2cdc06b17b0fb451142c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/b7cc974ed3831fa5bc2b7251eadf47a8a7c778c4",
-                "reference": "b7cc974ed3831fa5bc2b7251eadf47a8a7c778c4",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/487a44b7d381cbd32fff2cdc06b17b0fb451142c",
+                "reference": "487a44b7d381cbd32fff2cdc06b17b0fb451142c",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/control": "dev-develop as 2.0",
                 "bristol-su/support": "^4.2",
                 "php": "^7.3"
             },
@@ -188,28 +187,29 @@
                 }
             ],
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
-            "time": "2020-04-24T16:47:04+00:00"
+            "time": "2020-04-27T14:32:23+00:00"
         },
         {
             "name": "bristol-su/control",
-            "version": "dev-develop",
+            "version": "v2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "a80ebd0cfec117447dcb87125eb3bb8db1c4e0a5"
+                "reference": "5cc6ab65453cb42ed35b25d50b3f362ebbf758d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/a80ebd0cfec117447dcb87125eb3bb8db1c4e0a5",
-                "reference": "a80ebd0cfec117447dcb87125eb3bb8db1c4e0a5",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/5cc6ab65453cb42ed35b25d50b3f362ebbf758d3",
+                "reference": "5cc6ab65453cb42ed35b25d50b3f362ebbf758d3",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.2"
+                "php": "^7.3"
             },
             "require-dev": {
                 "orchestra/testbench": "^4.0",
+                "phpspec/prophecy-phpunit": "2.0.0",
                 "phpstan/phpstan": "^0.12.8"
             },
             "type": "library",
@@ -241,7 +241,7 @@
                 }
             ],
             "description": "An implementation of the control contracts",
-            "time": "2020-04-24T18:09:48+00:00"
+            "time": "2020-04-27T14:28:22+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -468,16 +468,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "c79563549dbb8ef251a226c51172322bc7323681"
+                "reference": "5e96c7e218e83148dcc78357a850a8abb5b6ca10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/c79563549dbb8ef251a226c51172322bc7323681",
-                "reference": "c79563549dbb8ef251a226c51172322bc7323681",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/5e96c7e218e83148dcc78357a850a8abb5b6ca10",
+                "reference": "5e96c7e218e83148dcc78357a850a8abb5b6ca10",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/control": "dev-develop as 2.0",
                 "bristol-su/support": "^4.2",
                 "php": "^7.3",
                 "twigger/unioncloud": "^1.0"
@@ -506,7 +505,7 @@
                 }
             ],
             "description": "An integration with unioncloud for use with the portal",
-            "time": "2020-04-24T16:50:33+00:00"
+            "time": "2020-04-27T14:32:34+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -1485,16 +1484,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.131",
+            "version": "v0.132",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "c7085d771c635933baff9714732af2d5042f5dd6"
+                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/c7085d771c635933baff9714732af2d5042f5dd6",
-                "reference": "c7085d771c635933baff9714732af2d5042f5dd6",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/317c8555eaea64a38594d9e617b59547cea45f3e",
+                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e",
                 "shasum": ""
             },
             "require": {
@@ -1518,7 +1517,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-04-20T00:24:47+00:00"
+            "time": "2020-04-22T00:25:30+00:00"
         },
         {
             "name": "google/auth",
@@ -5348,12 +5347,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Providers.git",
-                "reference": "59d5271337395bc085b7b0066dc83ad86de899c6"
+                "reference": "986b92155e3aaa5629c4cd5cffb920eabc2a0bfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/59d5271337395bc085b7b0066dc83ad86de899c6",
-                "reference": "59d5271337395bc085b7b0066dc83ad86de899c6",
+                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/986b92155e3aaa5629c4cd5cffb920eabc2a0bfb",
+                "reference": "986b92155e3aaa5629c4cd5cffb920eabc2a0bfb",
                 "shasum": ""
             },
             "require": {
@@ -5376,7 +5375,7 @@
                 "MIT"
             ],
             "description": "Collection of all OAuth2 Providers for Laravel Socialite",
-            "time": "2020-04-21T16:46:51+00:00"
+            "time": "2020-04-26T22:38:07+00:00"
         },
         {
             "name": "spatie/macroable",
@@ -8005,16 +8004,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "5b149a708a74027404126abe05289ff10d9f0f1d"
+                "reference": "b948e83c0ffa82dfa6530d73a51e698356f9f5fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/5b149a708a74027404126abe05289ff10d9f0f1d",
-                "reference": "5b149a708a74027404126abe05289ff10d9f0f1d",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/b948e83c0ffa82dfa6530d73a51e698356f9f5fb",
+                "reference": "b948e83c0ffa82dfa6530d73a51e698356f9f5fb",
                 "shasum": ""
             },
             "require": {
@@ -8060,7 +8059,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2020-04-15T15:10:57+00:00"
+            "time": "2020-04-26T18:48:53+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -8701,19 +8700,11 @@
             "time": "2020-04-18T12:12:48+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "bristol-su/control"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "socialiteproviders/providers": 20,
         "bristol-su/assign-roles": 20,
-        "bristol-su/control": 20,
         "bristol-su/unioncloud-portal": 20
     },
     "prefer-stable": true,
