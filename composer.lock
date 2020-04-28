@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.135.4",
+            "version": "3.135.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fb6f4a12d9ad1b8fc1481aef61ed1f8a9fe2164b"
+                "reference": "a721de5e39eb584aa74611b07564bedba166893c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fb6f4a12d9ad1b8fc1481aef61ed1f8a9fe2164b",
-                "reference": "fb6f4a12d9ad1b8fc1481aef61ed1f8a9fe2164b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a721de5e39eb584aa74611b07564bedba166893c",
+                "reference": "a721de5e39eb584aa74611b07564bedba166893c",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-04-24T18:14:04+00:00"
+            "time": "2020-04-27T18:11:22+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -191,16 +191,16 @@
         },
         {
             "name": "bristol-su/control",
-            "version": "v2.1",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "5cc6ab65453cb42ed35b25d50b3f362ebbf758d3"
+                "reference": "224e53483ee9194c8ed35902873db917aa7d6cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/5cc6ab65453cb42ed35b25d50b3f362ebbf758d3",
-                "reference": "5cc6ab65453cb42ed35b25d50b3f362ebbf758d3",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/224e53483ee9194c8ed35902873db917aa7d6cf2",
+                "reference": "224e53483ee9194c8ed35902873db917aa7d6cf2",
                 "shasum": ""
             },
             "require": {
@@ -208,6 +208,7 @@
                 "php": "^7.3"
             },
             "require-dev": {
+                "brianium/paratest": "^4.0",
                 "orchestra/testbench": "^4.0",
                 "phpspec/prophecy-phpunit": "2.0.0",
                 "phpstan/phpstan": "^0.12.8"
@@ -241,7 +242,7 @@
                 }
             ],
             "description": "An implementation of the control contracts",
-            "time": "2020-04-27T14:28:22+00:00"
+            "time": "2020-04-27T16:43:53+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -295,16 +296,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.4",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "67c8d5705ff52cdf9a942a529f68c09af41b3dd5"
+                "reference": "1e8ee069017020f9a626a7cc6962fa348eb742f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/67c8d5705ff52cdf9a942a529f68c09af41b3dd5",
-                "reference": "67c8d5705ff52cdf9a942a529f68c09af41b3dd5",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/1e8ee069017020f9a626a7cc6962fa348eb742f3",
+                "reference": "1e8ee069017020f9a626a7cc6962fa348eb742f3",
                 "shasum": ""
             },
             "require": {
@@ -363,7 +364,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-04-23T11:02:35+00:00"
+            "time": "2020-04-28T08:56:58+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -2015,16 +2016,16 @@
         },
         {
             "name": "laminas/laminas-diactoros",
-            "version": "2.2.3",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-diactoros.git",
-                "reference": "b596c7141f5093aefec94cb5e8745212299e290f"
+                "reference": "5ab185dba63ec655a2380c97711b09adc7061f89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/b596c7141f5093aefec94cb5e8745212299e290f",
-                "reference": "b596c7141f5093aefec94cb5e8745212299e290f",
+                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/5ab185dba63ec655a2380c97711b09adc7061f89",
+                "reference": "5ab185dba63ec655a2380c97711b09adc7061f89",
                 "shasum": ""
             },
             "require": {
@@ -2055,9 +2056,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev",
-                    "dev-develop": "2.2.x-dev",
-                    "dev-release-1.8": "1.8.x-dev"
+                    "dev-master": "2.3.x-dev",
+                    "dev-develop": "2.4.x-dev"
+                },
+                "laminas": {
+                    "config-provider": "Laminas\\Diactoros\\ConfigProvider",
+                    "module": "Laminas\\Diactoros"
                 }
             },
             "autoload": {
@@ -2095,7 +2099,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2020-03-29T12:30:54+00:00"
+            "time": "2020-04-27T17:07:01+00:00"
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
