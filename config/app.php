@@ -242,5 +242,11 @@ return [
 
     'cookie_domain' => env('COOKIE_DOMAIN', '.bristolsu.org.uk'),
 
-    'cache-unioncloud' => env('CACHE_UNIONCLOUD', false)
+    'cache-unioncloud' => env('CACHE_UNIONCLOUD', false),
+
+    'helpdesk' => [
+        'widget' => [
+            'id' => env('HELPDESK_WIDGET_ID', 77000001014)
+        ]
+    ]
 ];

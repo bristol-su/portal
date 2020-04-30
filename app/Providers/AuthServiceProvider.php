@@ -34,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         Permission::registerSitePermission('show-activities','View an activities','View an activity on the settings page');
         Permission::registerSitePermission('create-activities','Create an activity','Can create an activity');
         Permission::registerSitePermission('access-control','Access Control','Can access the user management system, Control');
+        Permission::registerSitePermission('access-helpdesk','Access Helpdesk','Can view and submit the helpdesk widget');
     }
 
     public function register()

@@ -12,3 +12,13 @@
         gtag('config', '{{config('app.analytics.UA')}}');
     </script>
 @endif
+
+@can('access-helpdesk')
+    <script>
+        window.fwSettings={
+            'widget_id':{{config('app.helpdesk.widget.id')}}
+        };
+        !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}()
+    </script>
+    <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/{{config('app.helpdesk.widget.id')}}.js' async defer></script>
+@endcan

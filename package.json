@@ -20,7 +20,7 @@
     "dependencies": {
         "vue": "^2.6.11",
         "@bristol-su/control-js-api-client": "^1.1.0",
-        "@bristol-su/control-management": "^0.2.3",
+        "@bristol-su/control-management": "^0.3.0",
         "@vue/web-component-wrapper": "^1.2.0",
         "awesome-notifications": "^2.2.9",
         "axios": "^0.18.1",
