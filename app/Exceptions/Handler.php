@@ -23,6 +23,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use BristolSU\UnionCloud\Exception\PermissionDeniedException;
 
 class Handler extends ExceptionHandler
 {
@@ -131,7 +133,9 @@ class Handler extends ExceptionHandler
             }
         }
 
-
+        if($exception instanceof PermissionDeniedException) {
+            throw new HttpException(403, $exception->getMessage());
+        }
 
         // TODO Handle exceptions above if expects json
 
