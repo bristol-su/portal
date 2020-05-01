@@ -13,7 +13,8 @@ class UpdateAudienceMembers extends Command
      *
      * @var string
      */
-    protected $signature = 'audience:cache';
+    protected $signature = 'audience:cache
+                            {--sync : Run the job in sync}';
 
     /**
      * The console command description.
@@ -25,7 +26,12 @@ class UpdateAudienceMembers extends Command
     public function handle(LogicRepository $logicRepository)
     {
         foreach($logicRepository->all() as $logic) {
-            dispatch(new UpdateAudienceMembersForLogicGroup($logic));
+            $this->info('Caching logic group #' . $logic->id);
+            if($this->option('sync')) {
+                dispatch_now(new UpdateAudienceMembersForLogicGroup($logic));
+            } else {
+                dispatch_now(new UpdateAudienceMembersForLogicGroup($logic));
+            }
         }
     }
 
