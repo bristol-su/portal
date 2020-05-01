@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Jobs\UpdateAudienceMembersForLogicGroup;
 use BristolSU\Support\Logic\Contracts\LogicRepository;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class UpdateAudienceMembers extends Command
 {
@@ -27,6 +28,7 @@ class UpdateAudienceMembers extends Command
     {
         foreach($logicRepository->all() as $logic) {
             $this->info('Caching logic group #' . $logic->id);
+            Log::info('Caching logic group #' . $logic->id);
             if($this->option('sync')) {
                 dispatch_now(new UpdateAudienceMembersForLogicGroup($logic));
             } else {
