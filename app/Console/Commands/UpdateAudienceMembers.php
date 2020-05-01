@@ -32,7 +32,7 @@ class UpdateAudienceMembers extends Command
             if($this->option('sync')) {
                 dispatch_now(new UpdateAudienceMembersForLogicGroup($logic));
             } else {
-                dispatch_now(new UpdateAudienceMembersForLogicGroup($logic));
+                dispatch(new UpdateAudienceMembersForLogicGroup($logic));
             }
         }
     }
