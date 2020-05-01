@@ -48,9 +48,9 @@ class AppServiceProvider extends ServiceProvider
         ActionManager::registerAction(SendToIntegromat::class, 'Send to Integromat', 'Send the event to Integromat for processing');
         ActionManager::registerAction(TagARole::class, 'Tag a Role', 'Tag a Role with a Tag');
 
-        $this->app->extend(LogicAudience::class, function($service, $app) {
-            return new LogicAudienceCacher($service, $app->make(Repository::class));
-        });
+        //$this->app->extend(LogicAudience::class, function($service, $app) {
+       //     return new LogicAudienceCacher($service, $app->make(Repository::class));
+       // });
     }
 
     /**
