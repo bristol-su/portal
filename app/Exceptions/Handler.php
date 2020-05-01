@@ -39,7 +39,8 @@ class Handler extends ExceptionHandler
         ModuleInactive::class,
         NotInActivityInstanceException::class,
         ActivityDisabled::class,
-        ModuleInstanceDisabled::class
+        ModuleInstanceDisabled::class,
+        PermissionDeniedException::class
     ];
 
     /**
