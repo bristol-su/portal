@@ -29,6 +29,14 @@ class Progress
         });
     }
 
+    public function paginateActivity(Activity $activity, int $page, int $perPage)
+    {
+        return $this->activityInstanceRepository->allForActivity($activity->id)->forPage($page, $perPage)
+            ->map(function(ActivityInstance $activityInstance) {
+                return $this->getProgress($activityInstance);
+            })->values();
+    }
+
     public function updateProgressInCache(ActivityInstance $activityInstance)
     {
         Cache::forget($this->getKey($activityInstance));

@@ -1,19 +1,19 @@
 <template>
     <div>
-        <div v-show="searchType === 'basic'">
-            <basic-group-search ref="basicsearch" @refresh="calculateTableItems" :activity="activity"/>
-        </div>
-        <div v-show="searchType === 'advanced'">
-            <advanced-group-search ref="advancedsearch" @refresh="calculateTableItems"/>
-        </div>
-        <b-row>
-            <b-col style="text-align: right">
-                <b-checkbox @input="setSearchType">Advanced Search?</b-checkbox>
-            </b-col>
-        </b-row>
+<!--        <div v-show="searchType === 'basic'">-->
+<!--            <basic-group-search ref="basicsearch" @refresh="calculateTableItems" :activity="activity"/>-->
+<!--        </div>-->
+<!--        <div v-show="searchType === 'advanced'">-->
+<!--            <advanced-group-search ref="advancedsearch" @refresh="calculateTableItems"/>-->
+<!--        </div>-->
+<!--        <b-row>-->
+<!--            <b-col style="text-align: right">-->
+<!--                <b-checkbox @input="setSearchType">Advanced Search?</b-checkbox>-->
+<!--            </b-col>-->
+<!--        </b-row>-->
 
 
-        <b-table :busy="loading" :fields="fields" :items="filteredTableItems">
+        <b-table :busy="loading" :fields="fields" :items="progress" id="progress-table">
             <template v-slot:table-busy>
                 <div class="text-center text-danger my-2">
                     <b-spinner class="align-middle"/>
@@ -43,6 +43,15 @@
             </template>
 
         </b-table>
+
+        <b-pagination
+            v-model="page"
+            :total-rows="perPage * finalPage"
+            :per-page="perPage"
+            aria-controls="progress-table"
+            first-number
+            last-number
+        ></b-pagination>
     </div>
 </template>
 
@@ -75,10 +84,21 @@
                 ],
                 progressLoading: true,
                 tableLoading: false,
-                searchType: 'basic'
+                searchType: 'basic',
+                page: 1,
+                perPage: 10,
+                finalPage: 1
             }
         },
 
+        watch: {
+            page() {
+                this.loadProgress();
+            },
+            perPage() {
+                this.loadProgress();
+            },
+        },
 
         created() {
             this.loadProgress();
@@ -87,23 +107,28 @@
         methods: {
             loadProgress() {
                 this.progressLoading = true;
-                this.$api.activity().progress(this.activity.id)
+                this.$api.activity().progress(this.activity.id, this.page, this.perPage)
                     .then(response => {
-                        this.progress = response.data;
-                        this.calculateTableItems();
+                        this.progress = response.data.data;
+                        this.finalPage = response.data.last_page;
                     })
-                    .catch(error => this.$notify.alert('Could not load activity progress: ' + error.message))
-                    .then(() => this.progressLoading = false);
+                    .catch(error => {
+                        this.$notify.alert('Could not load activity progress: ' + error.message)
+                        this.progress = [];
+                    })
+                    .then(() => {
+                        this.progressLoading = false;
+                    });
             },
 
-            setSearchType(type) {
-                if(type) {
-                    this.searchType = 'advanced';
-                } else {
-                    this.searchType = 'basic';
-                }
-                this.calculateTableItems();
-            },
+            // setSearchType(type) {
+            //     if(type) {
+            //         this.searchType = 'advanced';
+            //     } else {
+            //         this.searchType = 'basic';
+            //     }
+            //     this.calculateTableItems();
+            // },
 
 
 
@@ -112,25 +137,25 @@
             */
 
             calculateTableItems() {
-                this.tableLoading = true;
-                if(this.searchType === 'basic') {
-                    this.filteredTableItems = this.progress
-                        .filter(this.$refs.basicsearch.filterGroupName)
-                        .filter(this.$refs.basicsearch.filterGroupEmail)
-                        .filter(this.$refs.basicsearch.filterStatus)
-                        .filter(this.$refs.basicsearch.filterComplete)
-                        .filter(this.$refs.basicsearch.filterIncomplete)
-                        .filter(this.$refs.basicsearch.filterLowerPercentage)
-                        .filter(this.$refs.basicsearch.filterUpperPercentage)
-                        .filter(this.$refs.basicsearch.filterMandatory)
-                        .filter(this.$refs.basicsearch.filterOptional);
-                } else if(this.searchType === 'advanced') {
-                    this.filteredTableItems = this.progress
-                        .filter(this.$refs.advancedsearch.evaluate);
-                } else {
+                // this.tableLoading = true;
+                // if(this.searchType === 'basic') {
+                //     this.filteredTableItems = this.progress
+                //         .filter(this.$refs.basicsearch.filterGroupName)
+                //         .filter(this.$refs.basicsearch.filterGroupEmail)
+                //         .filter(this.$refs.basicsearch.filterStatus)
+                //         .filter(this.$refs.basicsearch.filterComplete)
+                //         .filter(this.$refs.basicsearch.filterIncomplete)
+                //         .filter(this.$refs.basicsearch.filterLowerPercentage)
+                //         .filter(this.$refs.basicsearch.filterUpperPercentage)
+                //         .filter(this.$refs.basicsearch.filterMandatory)
+                //         .filter(this.$refs.basicsearch.filterOptional);
+                // } else if(this.searchType === 'advanced') {
+                //     this.filteredTableItems = this.progress
+                //         .filter(this.$refs.advancedsearch.evaluate);
+                // } else {
                     this.filteredTableItems = this.progress;
-                }
-                this.tableLoading = false;
+                // }
+                // this.tableLoading = false;
             },
 
             calculateStatus(progressInstance) {

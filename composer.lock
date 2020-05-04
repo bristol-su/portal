@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4d43567dcfc9e2cb7d109674d39722c",
+    "content-hash": "2812b1c9a8c8e2d4b5c7c1d5e8ee58a1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.137.0",
+            "version": "3.137.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e92ed36668dd546041714d3d1c520d6206423ab3"
+                "reference": "935060ae3d64f2bfeab7a6ba46bebe525047446c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e92ed36668dd546041714d3d1c520d6206423ab3",
-                "reference": "e92ed36668dd546041714d3d1c520d6206423ab3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/935060ae3d64f2bfeab7a6ba46bebe525047446c",
+                "reference": "935060ae3d64f2bfeab7a6ba46bebe525047446c",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-04-30T18:16:22+00:00"
+            "time": "2020-05-01T18:13:22+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -1485,16 +1485,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.132",
+            "version": "v0.133",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e"
+                "reference": "dd53c4a23a5c4d868e409585e30ab31da278b5d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/317c8555eaea64a38594d9e617b59547cea45f3e",
-                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/dd53c4a23a5c4d868e409585e30ab31da278b5d2",
+                "reference": "dd53c4a23a5c4d868e409585e30ab31da278b5d2",
                 "shasum": ""
             },
             "require": {
@@ -1518,7 +1518,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-04-22T00:25:30+00:00"
+            "time": "2020-05-03T00:24:28+00:00"
         },
         {
             "name": "google/auth",
@@ -5352,12 +5352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Providers.git",
-                "reference": "25fa1a4faf13f4be3c8d51f1b9599d8c36b4b0e4"
+                "reference": "e8fb15261cde424a816d41e317036c0e2433c3ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/25fa1a4faf13f4be3c8d51f1b9599d8c36b4b0e4",
-                "reference": "25fa1a4faf13f4be3c8d51f1b9599d8c36b4b0e4",
+                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/e8fb15261cde424a816d41e317036c0e2433c3ab",
+                "reference": "e8fb15261cde424a816d41e317036c0e2433c3ab",
                 "shasum": ""
             },
             "require": {
@@ -5380,7 +5380,7 @@
                 "MIT"
             ],
             "description": "Collection of all OAuth2 Providers for Laravel Socialite",
-            "time": "2020-04-30T23:01:40+00:00"
+            "time": "2020-05-03T20:42:14+00:00"
         },
         {
             "name": "spatie/macroable",
@@ -7284,20 +7284,20 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.6.3",
+            "version": "v3.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1b3103013797f04521c6cae5560f604649484066"
+                "reference": "10d3f853fdf1f3a6b3c7ea0c4620d2f699713db5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1b3103013797f04521c6cae5560f604649484066",
-                "reference": "1b3103013797f04521c6cae5560f604649484066",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/10d3f853fdf1f3a6b3c7ea0c4620d2f699713db5",
+                "reference": "10d3f853fdf1f3a6b3c7ea0c4620d2f699713db5",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4 || ^7.0",
+                "php": "^5.4 || ^7.0 || ^8.0",
                 "phpoption/phpoption": "^1.5",
                 "symfony/polyfill-ctype": "^1.9"
             },
@@ -7343,7 +7343,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2020-04-12T15:18:03+00:00"
+            "time": "2020-05-02T13:46:13+00:00"
         },
         {
             "name": "watr/typeform",
@@ -8009,16 +8009,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "b948e83c0ffa82dfa6530d73a51e698356f9f5fb"
+                "reference": "049a7dacfa8ee749bf792fcfb85515d09b0d94a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/b948e83c0ffa82dfa6530d73a51e698356f9f5fb",
-                "reference": "b948e83c0ffa82dfa6530d73a51e698356f9f5fb",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/049a7dacfa8ee749bf792fcfb85515d09b0d94a6",
+                "reference": "049a7dacfa8ee749bf792fcfb85515d09b0d94a6",
                 "shasum": ""
             },
             "require": {
@@ -8064,7 +8064,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2020-04-26T18:48:53+00:00"
+            "time": "2020-05-02T21:02:52+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -8707,8 +8707,8 @@
     ],
     "aliases": [
         {
-            "alias": "4.4",
-            "alias_normalized": "4.4.0.0",
+            "alias": "4.4.1",
+            "alias_normalized": "4.4.1.0",
             "version": "dev-develop",
             "package": "bristol-su/support"
         }
