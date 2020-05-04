@@ -368,16 +368,16 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.1.14",
+            "version": "v1.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "b7e62b9f00563d2d136534eee94ab7843833d4ed"
+                "reference": "dfdd88a4e03a6799eda3b25881b5d2cb0eae8048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/b7e62b9f00563d2d136534eee94ab7843833d4ed",
-                "reference": "b7e62b9f00563d2d136534eee94ab7843833d4ed",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/dfdd88a4e03a6799eda3b25881b5d2cb0eae8048",
+                "reference": "dfdd88a4e03a6799eda3b25881b5d2cb0eae8048",
                 "shasum": ""
             },
             "require": {
@@ -413,7 +413,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-04-09T09:02:48+00:00"
+            "time": "2020-05-04T13:17:09+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -510,16 +510,16 @@
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "v1.0.9",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "7b199db1444a6a8b979efa8c088eeb687d53992c"
+                "reference": "13526a01dc3bac03725114a3b7d64d1db1a14705"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/7b199db1444a6a8b979efa8c088eeb687d53992c",
-                "reference": "7b199db1444a6a8b979efa8c088eeb687d53992c",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/13526a01dc3bac03725114a3b7d64d1db1a14705",
+                "reference": "13526a01dc3bac03725114a3b7d64d1db1a14705",
                 "shasum": ""
             },
             "require": {
@@ -552,7 +552,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-04-29T10:32:51+00:00"
+            "time": "2020-05-04T13:34:05+00:00"
         },
         {
             "name": "clue/stream-filter",
