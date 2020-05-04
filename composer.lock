@@ -7174,16 +7174,16 @@
         },
         {
             "name": "twigger/unioncloud",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/nus-unioncloud-api-wrapper.git",
-                "reference": "202975295d9d5f6053d5c5cfc0604d95bdb624dc"
+                "reference": "0afe8f73b477435876c899ffdefefb2ca139e1a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/202975295d9d5f6053d5c5cfc0604d95bdb624dc",
-                "reference": "202975295d9d5f6053d5c5cfc0604d95bdb624dc",
+                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/0afe8f73b477435876c899ffdefefb2ca139e1a8",
+                "reference": "0afe8f73b477435876c899ffdefefb2ca139e1a8",
                 "shasum": ""
             },
             "require": {
@@ -7220,7 +7220,7 @@
                 }
             ],
             "description": "An API Wrapper for the NUS UnionCloud platform",
-            "time": "2020-04-09T13:01:50+00:00"
+            "time": "2020-05-04T12:23:42+00:00"
         },
         {
             "name": "venturecraft/revisionable",
