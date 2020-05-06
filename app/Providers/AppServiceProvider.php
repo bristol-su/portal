@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\Actions\SendToIntegromat;
 use App\Actions\TagARole;
+use App\Actions\TagAGroup;
 use App\Filters\Group\PredefinedFilter as PredefinedGroupFilter;
 use App\Filters\Role\PredefinedFilter as PredefinedRoleFilter;
 use App\Filters\User\PredefinedFilter as PredefinedUserFilter;
@@ -47,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
 
         ActionManager::registerAction(SendToIntegromat::class, 'Send to Integromat', 'Send the event to Integromat for processing');
         ActionManager::registerAction(TagARole::class, 'Tag a Role', 'Tag a Role with a Tag');
+        ActionManager::registerAction(TagAGroup::class, 'Tag a Group', 'Tag a Group with a Tag');
 
         //$this->app->extend(LogicAudience::class, function($service, $app) {
        //     return new LogicAudienceCacher($service, $app->make(Repository::class));

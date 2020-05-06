@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         });
         $schedule->command(UpdateProgress::class)->hourly()->runInBackground();
         $schedule->command(RunUnionCloudCommands::class)->everyMinute()->runInBackground();
-//        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->everyThirtyMinutes()->runInBackground();
+        $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
         $schedule->command('control:export role --exporter=committee-contact-sheet')->everyThirtyMinutes()->runInBackground();
         $schedule->command('control:export role --exporter=committee-contact-sheet-old')->daily()->runInBackground();
 
