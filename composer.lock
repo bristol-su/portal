@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5698f595b5d18e2786c9ccd72d52e77f",
+    "content-hash": "1ed811c6c4f52048e8f9e0a9068c6f20",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2558,22 +2558,22 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "38c022c8f1f0b99a0b6a2ecb1b394885d72a3c4d"
+                "reference": "3b5ac950247975ff6f905ba4a668f3a64caf8d39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/38c022c8f1f0b99a0b6a2ecb1b394885d72a3c4d",
-                "reference": "38c022c8f1f0b99a0b6a2ecb1b394885d72a3c4d",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/3b5ac950247975ff6f905ba4a668f3a64caf8d39",
+                "reference": "3b5ac950247975ff6f905ba4a668f3a64caf8d39",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.80",
                 "guzzlehttp/guzzle": "^6.3",
-                "hollodotme/fast-cgi-client": "^3.0",
+                "hollodotme/fast-cgi-client": "3.0.1",
                 "illuminate/container": "^6.0|^7.0",
                 "illuminate/http": "^6.0|^7.0",
                 "illuminate/queue": "^6.0|^7.0",
@@ -2623,7 +2623,7 @@
                 "laravel",
                 "vapor"
             ],
-            "time": "2020-04-07T14:14:29+00:00"
+            "time": "2020-05-06T13:36:19+00:00"
         },
         {
             "name": "lcobucci/jwt",
