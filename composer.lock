@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ed811c6c4f52048e8f9e0a9068c6f20",
+    "content-hash": "5698f595b5d18e2786c9ccd72d52e77f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1763,20 +1763,19 @@
         },
         {
             "name": "hollodotme/fast-cgi-client",
-            "version": "v3.1.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hollodotme/fast-cgi-client.git",
-                "reference": "bfb8177df7fcd54813463923bc24f5bc09d439d5"
+                "reference": "d4a31fba1f0432fdffafa8746e5a4460d83028b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/bfb8177df7fcd54813463923bc24f5bc09d439d5",
-                "reference": "bfb8177df7fcd54813463923bc24f5bc09d439d5",
+                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/d4a31fba1f0432fdffafa8746e5a4460d83028b6",
+                "reference": "d4a31fba1f0432fdffafa8746e5a4460d83028b6",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
                 "php": ">=7.1"
             },
             "require-dev": {
@@ -1795,11 +1794,6 @@
                     },
                     "phpunit8": {
                         "url": "https://phar.phpunit.de/phpunit-8.phar",
-                        "replace": true,
-                        "only-dev": true
-                    },
-                    "phpunit9": {
-                        "url": "https://phar.phpunit.de/phpunit-9.phar",
                         "replace": true,
                         "only-dev": true
                     }
@@ -1827,7 +1821,7 @@
                 "fastcgi",
                 "php-fpm"
             ],
-            "time": "2020-05-06T11:06:44+00:00"
+            "time": "2019-10-24T11:14:40+00:00"
         },
         {
             "name": "http-interop/http-factory-guzzle",
