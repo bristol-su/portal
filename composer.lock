@@ -296,16 +296,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.5",
+            "version": "v4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "4de5362d12ba5c6b7ceaa86617fd80a7bd385bbf"
+                "reference": "d023d98c72dfb75f6d1fad1ff19f7b62bf008eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/4de5362d12ba5c6b7ceaa86617fd80a7bd385bbf",
-                "reference": "4de5362d12ba5c6b7ceaa86617fd80a7bd385bbf",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/d023d98c72dfb75f6d1fad1ff19f7b62bf008eaf",
+                "reference": "d023d98c72dfb75f6d1fad1ff19f7b62bf008eaf",
                 "shasum": ""
             },
             "require": {
@@ -365,7 +365,7 @@
                 "portal",
                 "sdk"
             ],
-            "time": "2020-05-12T11:08:47+00:00"
+            "time": "2020-05-12T12:11:29+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -511,16 +511,16 @@
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "5013eed7261a0c71efd73dadef783db5aac27710"
+                "reference": "f62fd731e4cbed1bba3c7610f7e3ab7fe9572ed6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/5013eed7261a0c71efd73dadef783db5aac27710",
-                "reference": "5013eed7261a0c71efd73dadef783db5aac27710",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/f62fd731e4cbed1bba3c7610f7e3ab7fe9572ed6",
+                "reference": "f62fd731e4cbed1bba3c7610f7e3ab7fe9572ed6",
                 "shasum": ""
             },
             "require": {
@@ -528,7 +528,8 @@
                 "php": "^7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "^4.0"
+                "orchestra/testbench": "^4.0",
+                "phpspec/prophecy-phpunit": "^2.0"
             },
             "type": "library",
             "extra": {
@@ -553,7 +554,7 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "time": "2020-05-12T09:29:12+00:00"
+            "time": "2020-05-12T12:14:43+00:00"
         },
         {
             "name": "clue/stream-filter",
