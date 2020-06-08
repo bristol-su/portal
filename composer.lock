@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "928b52d959653f6d8fad5ded0476977c",
+    "content-hash": "64b531d8c9cd6469c30c8f7047ff1d5b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -294,16 +294,16 @@
         },
         {
             "name": "bristol-su/static-page",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "746a7bdbc6e258e434ce7bd5c5347b4fe8911ead"
+                "reference": "facdb757c98348594deee890632ca9c06b940c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/746a7bdbc6e258e434ce7bd5c5347b4fe8911ead",
-                "reference": "746a7bdbc6e258e434ce7bd5c5347b4fe8911ead",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/facdb757c98348594deee890632ca9c06b940c9a",
+                "reference": "facdb757c98348594deee890632ca9c06b940c9a",
                 "shasum": ""
             },
             "require": {
@@ -340,7 +340,7 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "time": "2020-06-08T13:54:35+00:00"
+            "time": "2020-06-08T15:21:31+00:00"
         },
         {
             "name": "bristol-su/support",
