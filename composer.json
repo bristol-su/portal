@@ -31,7 +31,8 @@
         "laravel/vapor-core": "^2.5",
         "bristol-su/assign-roles": "dev-develop",
         "bristol-su/unioncloud-portal": "dev-master",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+	"bristol-su/data-entry": "dev-develop"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
