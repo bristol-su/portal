@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.4",
         "aws/aws-sdk-php": "^3.88",
-        "doctrine/dbal": "^2.9",
+        "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laracasts/utilities": "^3.0",
         "laravel/framework": "^6.5",

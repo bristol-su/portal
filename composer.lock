@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64b531d8c9cd6469c30c8f7047ff1d5b",
+    "content-hash": "9a0b29e7589e60b239e6b34fa469fba4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -246,16 +246,16 @@
         },
         {
             "name": "bristol-su/data-entry",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/data-entry.git",
-                "reference": "e397a549da3e3f00ca4f7a5f7e4f792ada13145d"
+                "reference": "74104df742af02fb2da04076d7a29be7fcbda12c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/e397a549da3e3f00ca4f7a5f7e4f792ada13145d",
-                "reference": "e397a549da3e3f00ca4f7a5f7e4f792ada13145d",
+                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/74104df742af02fb2da04076d7a29be7fcbda12c",
+                "reference": "74104df742af02fb2da04076d7a29be7fcbda12c",
                 "shasum": ""
             },
             "require": {
@@ -290,7 +290,7 @@
                 }
             ],
             "description": "A module for the Bristol SU Portal Project to allow entering and management of data in a given data structure",
-            "time": "2020-06-08T14:43:38+00:00"
+            "time": "2020-06-08T17:27:13+00:00"
         },
         {
             "name": "bristol-su/static-page",
