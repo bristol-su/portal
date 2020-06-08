@@ -12,6 +12,8 @@
 
 <script>
     import moduleInstanceSettings from '../../../../utilities/api/resources/moduleInstanceSettings';
+    import VueFormGenerator from 'vue-form-generator';
+    import 'axios';
 
     export default {
         name: "Settings",
@@ -43,58 +45,50 @@
                 this.$api.modules().getByAlias(this.moduleInstance.alias)
                     .then(response => {
                         this.settingsSchema = response.data.settings;
-                        this.model = Object.assign(this.model, this.settingsSchema.model);
-                        this.settingsLoading = true;
-                        this.schemaLoading = false;
                         this.loadSettings();
                     })
-                    .catch(error => this.$notify.alert('Could not load available settings: ' + error.message));
+                    .catch(error => this.$notify.alert('Could not load available settings: ' + error.message))
+                    .then(() => this.schemaLoading = false);
             },
             loadSettings() {
+                this.settingsLoading = true;
                 this.$api.moduleInstanceSettings().forModuleInstance(this.moduleInstance.id)
                     .then(response => {
                         this.moduleInstanceSettings = response.data;
+                        let model = {}
                         this.moduleInstanceSettings.forEach(setting => {
                             if(_.isObject(setting.value) || _.isArray(setting.value)) {
-                                this.$set(this.model, setting.key, JSON.parse(JSON.stringify(setting.value)))
+                                this.$set(model, setting.key, JSON.parse(JSON.stringify(setting.value)))
                             } else {
-                                this.$set(this.model, setting.key, setting.value)
+                                this.$set(model, setting.key, setting.value)
                             }
                         });
+                        this.model = VueFormGenerator.schema.createDefaultObject(this.settingsSchema.schema, model);
                     })
                     .catch(error => this.$notify.alert('Could not load settings: ' + error.message))
                     .then(() => this.settingsLoading = false);
             },
 
             saveSettings() {
-                Object.keys(this.model).forEach(key => {
-                    let setting = this.moduleInstanceSettings.filter(setting => setting.key === key);
-                    if(setting.length === 0) {
-                        this.saveSetting(key, this.model[key]);
-                    } else if(!_.isEqual(setting[0].value, this.model[key])) {
-                        this.updateSetting(setting[0].id, this.model[key]);
+
+                axios.all(Object.keys(this.model).filter(key => {
+                    let settings = this.settings.filter(setting => setting.key === key);
+                    if(settings.length > 0) {
+                        return this.model[key] !== settings[0].value;
                     }
-                });
+                    return true;
+                }).map(key => {
+                    let settings = this.moduleInstanceSettings.filter(setting => setting.key === key);
+                    if(settings.length > 0) {
+                        return this.$api.moduleInstanceSettings().update(settings[0].id, this.model[key])
+                    }
+                    return this.$api.moduleInstanceSettings().create(key, this.model[key], this.moduleInstance.id);
+                }))
+                    .then(responses => this.loadSettings())
+                    .catch(error => this.$notify.alert('There was a problem saving some settings'));
+
             },
 
-            saveSetting(key, value) {
-                this.$api.moduleInstanceSettings().create(key, value, this.moduleInstance.id)
-                    .then(response => {
-                        this.moduleInstanceSettings.push(response.data);
-                        this.$notify.success('Saved setting ' + key);
-                    })
-                    .catch(error => this.$notify.alert('Could not save setting ' + key + ': ' + error.message));
-            },
-
-            updateSetting(id, value) {
-                this.$api.moduleInstanceSettings().update(id, value)
-                    .then(response => {
-                        let index = this.moduleInstanceSettings.indexOf(this.moduleInstanceSettings.filter(set => set.id === id)[0]);
-                        this.moduleInstanceSettings.splice(index, 1, response.data);
-                        this.$notify.success('Updated setting ' + id);
-                    })
-                    .catch(error => this.$notify.alert('Could not update setting ' + id + ': ' + error.message));
-            }
         },
 
         computed: {

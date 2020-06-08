@@ -8,7 +8,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "aws/aws-sdk-php": "^3.88",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
@@ -21,7 +21,7 @@
         "bristol-su/support": "^4.5",
         "bristol-su/upload-file": "^1.1",
         "bristol-su/typeform": "^1.1",
-        "bristol-su/static-page": "dev-master",
+        "bristol-su/static-page": "^1.0",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
         "nao-pon/flysystem-google-drive": "~1.1",
@@ -29,10 +29,10 @@
         "socialiteproviders/providers": "dev-master",
         "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
-        "bristol-su/assign-roles": "dev-develop",
+        "bristol-su/assign-roles": "^1.0",
         "bristol-su/unioncloud-portal": "dev-master",
         "predis/predis": "^1.1",
-	"bristol-su/data-entry": "dev-develop"
+    	"bristol-su/data-entry": "^1.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
