@@ -72,7 +72,7 @@
             saveSettings() {
 
                 axios.all(Object.keys(this.model).filter(key => {
-                    let settings = this.settings.filter(setting => setting.key === key);
+                    let settings = this.moduleInstanceSettings.filter(setting => setting.key === key);
                     if(settings.length > 0) {
                         return this.model[key] !== settings[0].value;
                     }
@@ -84,7 +84,10 @@
                     }
                     return this.$api.moduleInstanceSettings().create(key, this.model[key], this.moduleInstance.id);
                 }))
-                    .then(responses => this.loadSettings())
+                    .then(responses => {
+                        this.$notify.success('Settings saved');
+                        this.loadSettings()
+                    })
                     .catch(error => this.$notify.alert('There was a problem saving some settings'));
 
             },
