@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "545f57c91391d4b5818b2935519dc543",
+    "content-hash": "ea8a0cc18b4d332cf57080c6a57301c7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -294,16 +294,16 @@
         },
         {
             "name": "bristol-su/static-page",
-            "version": "v1.0.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "ef48135e18e38f0920cc84f8c2cbfe144cca20c9"
+                "reference": "27f4728d7544796188d7023914f937785f4885a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/ef48135e18e38f0920cc84f8c2cbfe144cca20c9",
-                "reference": "ef48135e18e38f0920cc84f8c2cbfe144cca20c9",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/27f4728d7544796188d7023914f937785f4885a1",
+                "reference": "27f4728d7544796188d7023914f937785f4885a1",
                 "shasum": ""
             },
             "require": {
@@ -340,7 +340,7 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "time": "2020-04-04T19:09:22+00:00"
+            "time": "2020-04-04T17:47:07+00:00"
         },
         {
             "name": "bristol-su/support",
@@ -8439,6 +8439,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bristol-su/static-page": 20,
         "socialiteproviders/providers": 20,
         "bristol-su/assign-roles": 20,
         "bristol-su/unioncloud-portal": 20,

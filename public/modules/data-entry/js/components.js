@@ -289,6 +289,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   },
+  watch: {
+    value: {
+      handler: function handler() {
+        this.$forceUpdate();
+      },
+      deep: true
+    }
+  },
   computed: {
     column: {
       get: function get() {
@@ -302,20 +310,28 @@ __webpack_require__.r(__webpack_exports__);
       return this.column !== null;
     },
     rules: function rules() {
-      var rules = this.globalRules;
+      if (this.hasColumn) {
+        var rules = this.globalRules;
 
-      if (this.column.type && this.fieldRules.hasOwnProperty(this.column.type)) {
-        rules = rules.concat(this.fieldRules[this.column.type]);
+        if (this.column.type && this.fieldRules.hasOwnProperty(this.column.type)) {
+          rules = rules.concat(this.fieldRules[this.column.type]);
+        }
+
+        return rules;
       }
 
-      return rules;
+      return null;
     },
     visibleText: function visibleText() {
-      if (this.column.visible) {
-        return 'Visible';
+      if (this.hasColumn) {
+        if (this.column.visible) {
+          return 'Visible';
+        }
+
+        return 'Hidden';
       }
 
-      return 'Hidden';
+      return null;
     },
     hasAdditionalConfiguration: function hasAdditionalConfiguration() {
       return this.configuration !== null;
@@ -329,11 +345,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     filledConfiguration: {
       get: function get() {
-        if (Array.isArray(this.column.configuration) && this.column.configuration.length === 0) {
-          this.column.configuration = {};
+        if (this.hasColumn) {
+          if (Object.keys(this.column.configuration).length === 0) {
+            this.column.configuration = {};
+          }
+
+          return vue_form_generator__WEBPACK_IMPORTED_MODULE_0___default.a.schema.createDefaultObject(this.configuration.schema, this.column.configuration);
         }
 
-        return vue_form_generator__WEBPACK_IMPORTED_MODULE_0___default.a.schema.createDefaultObject(this.configuration.schema, this.column.configuration);
+        return null;
       },
       set: function set(val) {
         this.column.configuration = val;
@@ -563,6 +583,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$forceUpdate();
     }
   },
+  watch: {
+    selectedUuid: function selectedUuid() {
+      this.$forceUpdate();
+    }
+  },
   computed: {
     order: {
       get: function get() {
@@ -577,11 +602,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         var cols = {};
         val.forEach(function (uuid, index) {
-          cols[uuid] = _objectSpread(_objectSpread({}, _this2.columns[uuid]), {
+          return _this2.$set(cols, uuid, _objectSpread(_objectSpread({}, _this2.columns[uuid]), {
             order: index + 1
-          });
+          }));
         });
         this.columns = cols;
+        this.$forceUpdate();
       },
       cache: false
     },
@@ -601,12 +627,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     orderedColumns: {
       get: function get() {
+        var _this3 = this;
+
         var cols = {};
-
-        for (var i = 0; i < this.order.length; i++) {
-          cols[this.order[i]] = this.columns[this.order[i]];
-        }
-
+        this.order.forEach(function (uuid) {
+          return _this3.$set(cols, uuid, _this3.columns[uuid]);
+        });
+        console.log(cols);
         return cols;
       },
       cache: false
