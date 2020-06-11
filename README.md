@@ -90,10 +90,10 @@ Although you're always welcome to develop your own modules to fit your needs, we
 
 ### Released
 - [Static Page (Show HTML)](https://github.com/bristol-su/static-page)
- 
-### In Development
 - [File Upload](https://github.com/bristol-su/upload-file)
 - [Typeform](https://github.com/bristol-su/typeform)
+- [Assigning Roles](https://github.com/bristol-su/assign-roles)
+- [Data Entry](https://github.com/bristol-su/data-entry)
 
 <!-- ROADMAP -->
 ## Roadmap
