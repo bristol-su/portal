@@ -112,6 +112,24 @@ return [
             'disk' => 'google',
             'filename' => env('COMMITTEE_CONTACT_DETAILS_OLD_OLD_FILENAME', 'committee_contact_sheet.csv')
         ],
+        'portal-airtable' => [
+            'driver' => 'airtable',
+            'formatters' => [
+                \App\Exports\FilterRoleByLogicGroupFormatter::class => [
+                    'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID')
+                ],
+                \BristolSU\ControlDB\Export\Formatter\Role\SimpleRoleFormatter::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\AddGroupInformationToRoles::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\AddPositionInformationToRoles::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\AddRoleHoldersAsNewItems::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Shared\SortByColumn::class => [
+                    'column' => 'Group Name'
+                ]
+            ],
+            'baseId' => 'applpYkQ4NQFAw2YK',
+            'tableName' => 'Control',
+            'apiKey' => env('AIRTABLE_API_KEY')
+        ]
 
     ]
 ];

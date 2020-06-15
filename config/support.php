@@ -14,5 +14,19 @@ return [
         'filters' => [
             'enabled' => env('FILTER_CACHING_ENABLED', true)
         ]
+    ],
+    'progress' => [
+        'default' => 'database',
+        'export' => [
+            'database' => [
+                'driver' => 'database'
+            ],
+            'portal-airtable' => [
+                'driver' => 'airtable',
+                'baseId' => 'applpYkQ4NQFAw2YK',
+                'tableName' => 'Progress',
+                'apiKey' => env('AIRTABLE_API_KEY')
+            ]
+        ]
     ]
 ];
