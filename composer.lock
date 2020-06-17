@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b490f1d21a24c9b833d85e6dfcdf65c7",
+    "content-hash": "4c4b306c33e55ede32c2dcb9b1d759bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -145,16 +145,16 @@
         },
         {
             "name": "bristol-su/airtable",
-            "version": "v1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/airtable.git",
-                "reference": "b4ed19ef783a2dcf222e82934b1c50a870add02c"
+                "reference": "91adc20486594c4eca75d1906e8030d22ee38865"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/b4ed19ef783a2dcf222e82934b1c50a870add02c",
-                "reference": "b4ed19ef783a2dcf222e82934b1c50a870add02c",
+                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/91adc20486594c4eca75d1906e8030d22ee38865",
+                "reference": "91adc20486594c4eca75d1906e8030d22ee38865",
                 "shasum": ""
             },
             "require": {
@@ -195,7 +195,7 @@
                 }
             ],
             "description": "An integration with AirTable for the Portal",
-            "time": "2020-06-17T10:10:14+00:00"
+            "time": "2020-06-17T10:22:12+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -8501,7 +8501,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "socialiteproviders/providers": 20,
-        "bristol-su/unioncloud-portal": 20
+        "bristol-su/unioncloud-portal": 20,
+        "bristol-su/airtable": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -33,7 +33,7 @@
         "bristol-su/unioncloud-portal": "dev-master",
         "predis/predis": "^1.1",
     	"bristol-su/data-entry": "^1.0",
-        "bristol-su/airtable": "^1.0"
+        "bristol-su/airtable": "dev-master"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
