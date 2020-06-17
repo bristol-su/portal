@@ -10,11 +10,6 @@ use BristolSU\Support\Logic\Facade\LogicTester;
 class FilterRoleByLogicGroupFormatter extends Formatter
 {
 
-    public function __construct(array $config)
-    {
-        parent::__construct($config);
-    }
-
     public function format($items)
     {
         if($this->config('logicId')) {

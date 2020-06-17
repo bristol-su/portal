@@ -124,6 +124,9 @@ return [
                 \BristolSU\ControlDB\Export\Formatter\Role\AddRoleHoldersAsNewItems::class => [],
                 \BristolSU\ControlDB\Export\Formatter\Shared\SortByColumn::class => [
                     'column' => 'Group Name'
+                ],
+                \App\Exports\WrapFieldInArray::class => [
+                    'field' => 'Group ID'
                 ]
             ],
             'baseId' => 'applpYkQ4NQFAw2YK',

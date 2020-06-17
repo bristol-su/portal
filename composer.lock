@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c4b306c33e55ede32c2dcb9b1d759bd",
+    "content-hash": "b490f1d21a24c9b833d85e6dfcdf65c7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -145,16 +145,16 @@
         },
         {
             "name": "bristol-su/airtable",
-            "version": "dev-master",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/airtable.git",
-                "reference": "b94542b2cce36dcb27198906ddb28ec256de7a64"
+                "reference": "b4ed19ef783a2dcf222e82934b1c50a870add02c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/b94542b2cce36dcb27198906ddb28ec256de7a64",
-                "reference": "b94542b2cce36dcb27198906ddb28ec256de7a64",
+                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/b4ed19ef783a2dcf222e82934b1c50a870add02c",
+                "reference": "b4ed19ef783a2dcf222e82934b1c50a870add02c",
                 "shasum": ""
             },
             "require": {
@@ -162,8 +162,7 @@
                 "bristol-su/support": "^4.6.0",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^6.5",
-                "php": "^7.4",
-                "spatie/laravel-rate-limited-job-middleware": "^1.4"
+                "php": "^7.4"
             },
             "require-dev": {
                 "brianium/paratest": "^4.0",
@@ -196,7 +195,7 @@
                 }
             ],
             "description": "An integration with AirTable for the Portal",
-            "time": "2020-06-17T11:15:13+00:00"
+            "time": "2020-06-17T10:10:14+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -4816,62 +4815,6 @@
             "time": "2020-06-15T02:03:09+00:00"
         },
         {
-            "name": "spatie/laravel-rate-limited-job-middleware",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-rate-limited-job-middleware.git",
-                "reference": "8c882dbbe78064d21597a6d15e23b9a470f71a77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-rate-limited-job-middleware/zipball/8c882dbbe78064d21597a6d15e23b9a470f71a77",
-                "reference": "8c882dbbe78064d21597a6d15e23b9a470f71a77",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/redis": "^6.0|^7.0",
-                "php": "^7.3"
-            },
-            "require-dev": {
-                "mockery/mockery": "1.3.1",
-                "orchestra/testbench": "^4.0|^5.0",
-                "phpunit/phpunit": "^8.2|^9.0",
-                "symfony/var-dumper": "^4.3|^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\RateLimitedMiddleware\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A middleware that can rate limit jobs",
-            "homepage": "https://github.com/spatie/laravel-rate-limited-job-middleware",
-            "keywords": [
-                "laravel-rate-limited-job-middleware",
-                "spatie"
-            ],
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/spatie",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2020-05-29T15:32:18+00:00"
-        },
-        {
             "name": "spatie/macroable",
             "version": "1.0.0",
             "source": {
@@ -8558,8 +8501,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "socialiteproviders/providers": 20,
-        "bristol-su/unioncloud-portal": 20,
-        "bristol-su/airtable": 20
+        "bristol-su/unioncloud-portal": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
