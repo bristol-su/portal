@@ -118,7 +118,7 @@ return [
                 \App\Exports\FilterRoleByLogicGroupFormatter::class => [
                     'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID')
                 ],
-                \BristolSU\ControlDB\Export\Formatter\Role\SimpleRoleFormatter::class => [],
+                \BristolSU\ControlDB\Export\Formatter\Role\Si\leRoleFormatter::class => [],
                 \BristolSU\ControlDB\Export\Formatter\Role\AddGroupInformationToRoles::class => [],
                 \BristolSU\ControlDB\Export\Formatter\Role\AddPositionInformationToRoles::class => [],
                 \BristolSU\ControlDB\Export\Formatter\Role\AddRoleHoldersAsNewItems::class => [],
