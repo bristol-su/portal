@@ -145,16 +145,16 @@
         },
         {
             "name": "bristol-su/airtable",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/airtable.git",
-                "reference": "729ed93d6a097b85bebd789884011960d9d10701"
+                "reference": "157ece6db85e877fb0c1c4253dadff80cce76d5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/729ed93d6a097b85bebd789884011960d9d10701",
-                "reference": "729ed93d6a097b85bebd789884011960d9d10701",
+                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/157ece6db85e877fb0c1c4253dadff80cce76d5d",
+                "reference": "157ece6db85e877fb0c1c4253dadff80cce76d5d",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
                 }
             ],
             "description": "An integration with AirTable for the Portal",
-            "time": "2020-06-18T12:33:44+00:00"
+            "time": "2020-06-18T12:55:13+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
