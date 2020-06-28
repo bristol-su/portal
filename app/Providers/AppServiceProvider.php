@@ -10,6 +10,7 @@ use App\Actions\TagAGroup;
 use App\Filters\Group\PredefinedFilter as PredefinedGroupFilter;
 use App\Filters\Role\PredefinedFilter as PredefinedRoleFilter;
 use App\Filters\User\PredefinedFilter as PredefinedUserFilter;
+use App\Rules\CustomValidator;
 use App\Support\Audience\LogicAudienceCacher;
 use App\Support\Settings\Setting;
 use App\Support\Settings\SettingRepository;
@@ -17,6 +18,7 @@ use BristolSU\Support\Action\Facade\ActionManager;
 use BristolSU\Support\Filters\Contracts\FilterManager as FilterManagerContract;
 use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
 use Illuminate\Contracts\Cache\Repository;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 
@@ -31,6 +33,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Passport::withoutCookieSerialization();
         $this->app->call([$this, 'registerFilters']);
+
+        Validator::resolver(function($translator, $data, $rules, $messages, $attributes)
+        {
+            return new CustomValidator($translator, $data, $rules, $messages, $attributes);
+        });
+
     }
 
     /**

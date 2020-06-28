@@ -25,8 +25,7 @@ import LogIntoResource from './components/login/LogIntoResource';
 import ToggleAdminOrParticipant from './components/portal/ToggleAdminOrParticipant';
 import SitePermissions from './management/sitepermissions/index/Index';
 import SitePermission from './management/sitepermissions/show/Show';
-import ActivityProgress from './components/progress/activity/ActivityProgress';
-import GroupActivityProgress from './components/progress/activity/Group/GroupActivityProgress';
+import ActivityProgress from './management/progress/ActivityProgress';
 import ConnectorIndex from './management/connector/index/Index';
 import settingKeys from './utilities/settingKeys';
 import ActivityInstanceSwitcher from './components/portal/activity/ActivityInstanceSwitcher';
@@ -88,8 +87,6 @@ new Vue({
         SitePermission,
 
         ActivityInstanceSwitcher,
-        ActivityProgress,
-        GroupActivityProgress,
 
         ConnectorIndex,
 
@@ -97,6 +94,8 @@ new Vue({
         Settings,
 
         SocialLogin,
+        ActivityProgress
+
     }
 });
 

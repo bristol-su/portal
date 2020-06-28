@@ -21,6 +21,8 @@ import Connection from './resources/connection';
 import ModuleInstanceServices from './resources/moduleinstanceservices';
 import Setting from './resources/setting';
 import ActionInstanceHistory from './resources/actioninstancehistory';
+import Progress from'./resources/progress';
+
 import axios from 'axios';
 
 // TODO Implement Cache
@@ -141,5 +143,9 @@ export default class {
 
     moduleInstanceServices() {
         return new ModuleInstanceServices(this._http);
+    }
+
+    progress() {
+        return new Progress(this._http);
     }
 }
