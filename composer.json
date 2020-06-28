@@ -29,7 +29,7 @@
         "socialiteproviders/providers": "dev-master",
         "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
-        "bristol-su/assign-roles": "^1.0",
+        "bristol-su/assign-roles": "dev-develop",
         "bristol-su/unioncloud-portal": "dev-master",
         "predis/predis": "^1.1",
     	"bristol-su/data-entry": "^1.0",
