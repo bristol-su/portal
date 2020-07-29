@@ -1,0 +1,33 @@
+= Introduction
+
+The portal uses the SDK to create a portal-style website. A portal-style
+site is things like your council website or phone company, which allow
+you to complete many disparate tasks from one page.
+
+The portal uses the SDK, which modules also use, to provide a shareable
+environment. In the following example, two modules are registered. In
+practice, registration is done through the service provider so it's as
+simple as pulling in the module package via composer.
+
+Each module passes information about itself, as well as things like the
+permissions it uses, the settings it needs etc. This is stored in the
+SDK, the black box at the centre of the architecture. The portal then
+asks the SDK for all modules, and the SDK returns all modules that've
+registered with it. The portal could also ask for the settings of the
+upload file module, the completion conditions for the form module etc.
+Furthermore, there are lots of tools the SDK allows the portal access to
+which are indirectly affected by modules. For example, the SDK can be
+used to create and retrieve connections to third party systems securely.
+
+image::architecture.png[]
+
+This could also work the other way round. A module could act like the
+portal and retrieve information about other registered modules, or
+connections etc. The portal could also be swapped out for, e.g., the
+playground. This can provide a completely different website with a
+different purpose, but share most of the core code through the SDK. This
+will reduce the number of bugs, since code is shared, and seriously
+reduces required development time through using the SDK public API.
+
+In this chapter, we will take a look at how the portal uses the SDK to
+supply a portal-style website.

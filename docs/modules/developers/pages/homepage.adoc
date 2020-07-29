@@ -1,0 +1,184 @@
+= Portal Homepage
+
+The homepage is the 'router' of the portal; it allows users to see a
+wide range of services offered, and navigate to the one they're
+interested in. This page will talk through the homepage, how it is
+loaded and what happens when a service is entered.
+
+== Homepage Layout
+
+[[bkmrk-features]]
+=== Features
+
+[[bkmrk-dropdown]]
+==== Dropdown
+
+The dropdown in the top right is a primary tool of navigation for the
+portal.
+
+
+image::user-dd-ss.png[]
+
+Your name is always to the right in the header. Clicking on this brings
+up the dropdown. The 'Home' option takes you back to the portal page
+from anywhere. 'Settings' takes you to the settings page, but requires
+the 'view-settings' permission. 'Logout' will log you out.
+
+The top option, 'Not acting as anything', shows what you are currently
+acting as. This will be covered more in depth further down the page, but
+when accessing a service you 'act' as a certain set of things. For
+example, as a member of a group or in a role. The text at the top of
+this lets you know what you're currently acting as.
+
+==== Admin/participant button
+
+When on the portal page, a button appears at the top saying either
+'Administrator' or 'Participant'. This is to indicate what you would
+like to act as.
+
+If 'Administrator' is showing, it means you're acting as a Participant.
+In this mode, clicking into a service will load the service as a
+partcipant of it. If you're an administrator, however, you will enter
+the service as an administrator and be able to see all responses.
+
+=== Users, Groups and Roles
+
+==== Activities
+
+image::single-activity-ss.png[]
+
+A list of activities for your user account is shown at the top. Services
+here will be any services you can access as just yourself. Activities
+have a Logic Group assigned to them to indicate who is a participant of
+the activity. Logic groups are made of multiple filters. So if an
+activity, Activity 2, had a logic group of 'A student', which only had
+filters that tested the user, then the activity would show up if the
+user was a student. Another activity, Activity 3, may have a logic group
+of 'Group Name Is...', which checks the group name is a given name. In
+this case, as these are activities for your user account, the activity
+would not show up because your user account does not include a group or
+a role for a group.
+
+==== Activities in varying roles
+
+To handle groups and roles, a similar idea is applied. We test all
+activities 'Activity For' logic group, to see if you in varying
+combinations are in the logic group. These combinations are either your
+user account, any memberships you have (so a user and a group) and any
+roles you have (a user, group and role, since a role has a group
+attached).
+
+image::multiple-activity-ss.png[]
+
+By defining different activities for different logic groups, a
+personalised page is created for a user and the user in all their
+various positions and memberships.
+
+==== Finding Activities
+
+When an authenticated user first comes to the portal, they are directed
+to '/portal'. This simply redirects to '/p' for now. All these routes
+are stored in the 'Pages\PortalController' class.
+
+'/p' is the portal participant page. This means it will display all
+activities for varying roles and groups, but from a participant point of
+view. On the other hand, '/a' is the admin side, and so loads all
+activities the user with their groups and roles can access as an
+administrator. The 'Administrator/Participant' button simply redirects
+between these two pages.
+
+For loading the participant services, we need to load all services
+sorted by user, group and role activities. Therefore, we return to the
+frontend both a boolean to indicate if the given page is an admin or
+participant page (false if the page is participant) and the activities.
+These look like
+
+....
+[
+    'user' => [
+        Activity( ... ),
+        Activity( ... )
+    ],
+    'group' => [
+        11 => [  // Group ID
+            Activity( ... ),
+            Activity( ... )
+        ],
+        13 => [
+            Activity( ... ),
+            Activity( ... )
+        ], ...
+    ],
+    'role' => [
+        38 => [      // Role ID
+            Activity( ... ),
+            Activity( ... )
+        ], ...
+    ]
+]
+....
+
+In this way, all the data necessary to load the activities has been
+given to the frontend.
+
+To determine the activities that go in, we first look at the user. For
+this, we use the SDKs 'getForParticipant' method in the
+ActivityRepository. This tests the participant logic group of each
+activity with the given credentials, in this case just the user.
+Although this will give all activities the user should be able to
+access, there is an additional complication. Activities have an
+'activity for' parameter, a choice of User, Group and Role. This
+describes what resource the data is saved against in a module. If, e.g.,
+group, anything a user did when acting as that group will be stored
+against the group, and others in the group will be able to see it. If
+the activity for parameter is group, an activity is not allowed to show
+up in the 'user' activities on the portal, since clicking on it would
+result on the participant entering a group activity without being logged
+into a group! Therefore, we also filter down all activities for the user
+to only user activities.
+
+We then look at all group memberships, use the SDK 'getForParticipant'
+passing in the user and group, and filter out role activities.
+
+We then look at all roles and use the SDK 'getForParticipant' method
+passing in the user, group (the group the role is attached to) and role.
+
+We do the same in the administrator method, with a small difference. As
+an administrator, although your user/groups/roles affects which
+activities you can access, you do not have to be in a group to access a
+group activity etc because administrators are always considered as
+individuals.
+
+=== Loading a Activity
+
+Having loaded the correct activities on screen, a user is able to choose
+an activity to open. When this happens, we need to log the user into
+their correct control models, e.g. a user, group and/or role. We do this
+by using the LogIntoParticipant controller, or the LogIntoAdmin
+controller.
+
+Both controllers have a 'login' method, which accept a login_id and
+login_type. These get the control user from the database user, then log
+in the correct things.
+
+* If login_type is 'user', the user from the database user will be
+logged in.
+* If the login_type is 'group', the user from the database user and the
+group with the id login_id will be logged in
+* If the login_type is 'role', the user from the database user, the role
+with the id login_id and the group attached to the role will be logged
+in.
+
+The controller will then redirect to the 'redirect' key from the input,
+or back. This means that, when a button is clicked, we fire a post
+request with the correct authentication parameters to
+/login/participant/\{activity-slug} or /login/admin/activity-slug}, and
+a redirect parameter to redirect to the correct activity. This means
+that, when the activity is loaded, we log into a user model.
+
+Additional setup is required by the portal to prepare a user for an
+activity, but this will all be covered in the
+https://docs.bristolsustaging.co.uk/books/framework-development/page/using-activities[activity
+documentation]. The activity view pages set up the rest of the portal,
+and just require the correct URL to be loaded by someone logged into
+control models.

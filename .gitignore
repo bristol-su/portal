@@ -20,5 +20,4 @@ public/css/*
 report.*
 /coverage
 /storage/clockwork
-docs
 bootstrap/cache/*

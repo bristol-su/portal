@@ -1,0 +1,164 @@
+= Management
+
+The Management page is where the portal can be set up and managed. All
+controllers are stored in Management, and these routes are solely for
+loading view files. Navigation is done through the vue sidebar, which
+just sends the user to different pages.
+
+== Activities
+
+Activities are the 'services' your portal delivers. You can create new
+activities or manage activities through managements.
+
+=== Creating Activities
+
+The 'Create Activity' button loads a form to create an activity. It
+collects basic information about the activity, to help display it.
+
+Name - Shown on the button +
+Description - May be used later +
+Slug - Where to get to the activity from +
+What kind of activity? - Completable or not, or multi completable +
+What resource is the activity for? - What resource should the activity
+focus on. +
+Who is it for? - Logic group on who can use it +
+Who are the admins - Logic group for who can access admin side +
+Active Range - DateTime when the activity is active between, or is it
+always active.
+
+How to create activities, what API calls it uses
+
+=== Viewing all activities
+
+=== Viewing a single activity
+
+==  +
+Module Instances
+
+===  +
+Viewing a module instance
+
+=== Changing managements
+
+=== Changing permissions
+
+=== Changing services
+
+==  +
+Logic
+
+=== Creating Logic
+
+=== Viewing Logic
+
+== Permissions
+
+=== Change Permissions
+
+== Connectors
+
+=== See all connectors
+
+=== Create a new connector
+
+=== Edit a connector
+
+=== Share a connector
+
+== Settings
+
+This is where site wide settings are stored.
+
+[width="100%",cols="34%,33%,33%",]
+|===
+|*Key* |*Description* |*Values*
+
+|authentication.verification.required |Is an account required to verify
+its email before being allowed to use the portal? |true or false
+
+a|
+authentication.registration_identifier
+
+.identifier
+
+|What is the key of the attribute on the user model that should be used
+for login/registration. email or an additional attribute |email,
+username, ...
+
+a|
+authentication.registration_identifier
+
+.validation
+
+|Laravel validation for the identifier of a user.
+|required|min:5|email|...
+
+|authentication.password.validation |Laravel validation for the password
+of a user |required|confirmed|min:6
+
+a|
+authentication.authorization
+
+.requiredAlreadyInData
+
+|On registration, can a new data user model be created? Or more
+specifically, must a data model with the identifier used for
+registeration already exist? |true or false
+
+a|
+authentication.authorization
+
+.requiredAlreadyInControl
+
+|On registration, can a new control user model be created? Or more
+specifically, must a control model with a data provider ID of the data
+model with the attribute used for registeration already exist? |true or
+false
+
+|authentication.messages.notInData |Message to show if a data user isn't
+found, but settings forbid data user creation. |Your `email` couldn't be
+found in our systems.
+
+|authentication.messages.notInControl |Message to show if a control user
+isn't found, but settings forbid control user creation. |You couldn't be
+found in our systems
+
+a|
+authentication.messages
+
+.alreadyRegistered
+
+|Message to show if a user tries to register but is already registered
+|You are already registered
+
+|additional_attributes.user |Additional attributes for the user. a|
+[\{"type":"user","key":"student_id","name":"Student ID"},
+
+\{"type":"user","key":"username","name":"Username"}]
+
+|additional_attributes.group |Additional attributes for the grpup.
+|[\{"type":"group","key":"student_id","name":"Student ID"}]
+
+|additional_attributes.role |Additional attributes for the role.
+|[\{"type":"role","key":"student_id","name":"Student ID"}]
+
+|additional_attributes.position |Additional attributes for the position.
+|[\{"type":"position","key":"student_id","name":"Student ID"}]
+
+|welcome.fillInRegInformation |Should the user be given the chance to
+fill out registration information on the homepage? |true or false
+
+|welcome.messages.title |Title to show on the welcome page |'Welcome to
+the portal!'
+
+|welcome.messages.subtitle |Subtitle to show on the welcome page.
+|Update your information below to get started.
+
+|welcome.attributes |Settings for attribute editing on the welcome page.
+Through this, you can control which attributes are visible, which are
+editable and which are required.
+|\{"email":\{"visible":true,"editable":true,"required":false}, ... }
+
+|thirdPartyAuthentication.providers |Which third party logins are
+enabled. |["github", "facebook", ... ]
+|===
