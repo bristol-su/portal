@@ -4,7 +4,6 @@ namespace App\Console;
 
 use App\Console\Commands\CreateMissingActivityInstancesForAllActivities;
 use App\Console\Commands\RunUnionCloudCommands;
-use App\Console\Commands\UpdateProgress;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
 use Illuminate\Console\Scheduling\Schedule;
@@ -39,7 +38,8 @@ class Kernel extends ConsoleKernel
             $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
             $schedule->command('control:export role --exporter=committee-contact-sheet')->cron('0 */2 * * *')->runInBackground();
             $schedule->command('control:export role --exporter=committee-contact-sheet-old')->daily()->runInBackground();
-            $schedule->command('control:export role --exporter=portal-airtable')->daily()->runInBackground();
+            $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('08:00')->runInBackground();
+            $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('14:00')->runInBackground();
 
             foreach (app(CommandStore::class)->all() as $alias => $commands) {
                 foreach ($commands as $command => $cron) {

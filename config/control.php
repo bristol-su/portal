@@ -114,7 +114,7 @@ return [
         ],
         'portal-airtable' => [
             'driver' => 'airtable',
-            'debug' => true,
+            'debug' => false,
             'formatters' => [
                 \App\Exports\FilterRoleByLogicGroupFormatter::class => [
                     'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID')
