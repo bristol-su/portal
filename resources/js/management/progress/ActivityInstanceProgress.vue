@@ -29,6 +29,7 @@
                     <b-row v-for="module in mandatoryCompleteModules" :key="module.id">
                         <b-col>
                             <activity-instance-progress-module-entry
+                                :module-id="module.id"
                                 :name="module.name"
                                 :active="module.active"
                                 :visible="module.visible"
@@ -44,6 +45,7 @@
                     <b-row v-for="module in optionalCompleteModules" :key="module.id">
                         <b-col>
                             <activity-instance-progress-module-entry
+                                :module-id="module.id"
                                 :name="module.name"
                                 :active="module.active"
                                 :visible="module.visible"
@@ -67,6 +69,7 @@
                     <b-row v-for="module in mandatoryIncompleteModules" :key="module.id">
                         <b-col>
                             <activity-instance-progress-module-entry
+                                :module-id="module.id"
                                 :name="module.name"
                                 :active="module.active"
                                 :visible="module.visible"
@@ -82,6 +85,7 @@
                     <b-row v-for="module in optionalIncompleteModules" :key="module.id">
                         <b-col>
                             <activity-instance-progress-module-entry
+                                :module-id="module.id"
                                 :name="module.name"
                                 :active="module.active"
                                 :visible="module.visible"
@@ -349,7 +353,6 @@ export default {
         },
         diffOptions() {
             return this.diff.map(d => {
-                console.log(d);
                 return {
                     type: (this.humanReadableDiffTypes.hasOwnProperty(d.type) ? this.humanReadableDiffTypes[d.type] : 'N/A'),
                     details: (this.humanReadableDetails.hasOwnProperty(d.type) ? this.humanReadableDetails[d.type](d) : 'N/A'),
