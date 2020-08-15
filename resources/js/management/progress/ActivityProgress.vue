@@ -75,7 +75,7 @@
             </b-col>
         </b-row>
 
-        <b-modal id="progress-modal" scrollable cancel-disabled ref="progress-modal" :title="modalTitle + ' - ' + activityName">
+        <b-modal id="progress-modal" size="lg" scrollable cancel-disabled ref="progress-modal" :title="modalTitle + ' - ' + activityName">
             <activity-instance-progress
                 :activity-instance-id="visibleActivityInstanceId"
                 @update:title="modalTitle = $event"
