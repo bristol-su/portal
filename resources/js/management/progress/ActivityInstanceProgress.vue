@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div v-if="loading || !hasProgress">
+        <div v-if="loading">
+            <b-spinner large label="Spinning"></b-spinner>
+        </div>
+        <div v-else-if="!hasProgress">
             No progress found
         </div>
         <div v-else>
@@ -326,7 +329,12 @@ export default {
                     completedModules++;
                 }
             })
-            return completedModules.toString() + '/' + this.recentModuleInstanceProgress.length;
+            return completedModules.toString()
+                + '/'
+                + this.recentModuleInstanceProgress.filter(m => m.mandatory === 1).length
+                + '('
+                + this.recentModuleInstanceProgress.length
+                + ' total)';
         },
         mandatoryCompleteModules() {
             return this.recentModuleInstanceProgress.filter(m => m.mandatory === 1 && m.complete === 1).map(this.formatModuleInstanceProgress);
