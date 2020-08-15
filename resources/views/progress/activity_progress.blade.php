@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <activity-progress :activity-id="{{$activity->id}}"></activity-progress>
+                <activity-progress :activity-id="{{$activity->id}}" activity-name="{{$activity->name}}"></activity-progress>
             </div>
         </div>
     </div>

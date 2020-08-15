@@ -6,4 +6,13 @@ export default class extends BaseResource{
         return this.request('post', '/activity-instance', attributes);
     }
 
+    search(activityId, query) {
+        return this.request('post', '/activity/' + activityId + '/activity-instance/search', {
+            query: query
+        })
+    }
+
+    progress(activityInstanceId) {
+        return this.request('get', '/progress/activity-instance/' + activityInstanceId);
+    }
 }

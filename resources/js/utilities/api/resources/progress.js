@@ -6,4 +6,8 @@ export default class extends BaseResource{
         return this.request('get', '/activity/' + activityId + '/progress', null, parameters);
     }
 
+    takeSnapshot(activityId) {
+        return this.request('post', '/activity/' + activityId + '/progress/snapshot');
+    }
+
 }
