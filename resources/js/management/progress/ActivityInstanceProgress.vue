@@ -107,6 +107,9 @@
             <b-row>
                 <b-col>
                     <b-table striped hover small responsive="true" sticky-header="700px" :items="diffOptions" :fields="diffFields">
+                        <template v-slot:cell(timestamp)="data">
+                            {{data.item.timestamp | datetime}}
+                        </template>
                     </b-table>
                 </b-col>
             </b-row>
@@ -170,6 +173,11 @@ export default {
                 {key: 'details', label: 'Details'},
                 {key: 'timestamp', label: 'Timestamp', sortable: true}
             ]
+        }
+    },
+    filters: {
+        datetime(val) {
+            return moment(val).format('D/M/YYYY HH:mm')
         }
     },
     watch: {
@@ -302,7 +310,7 @@ export default {
             }
             let progress = this.progress.filter(p => p.id === progressId);
             if (progress.length === 1) {
-                let timestamp = moment(progress[0].timestamp).format('D/M/YYYY HH:mm')
+                let timestamp = progress[0].timestamp
                 this.progressTimestampCache[progressId] = timestamp;
                 return timestamp;
             }
@@ -328,7 +336,7 @@ export default {
         fractionalCompletion() {
             let completedModules = 0;
             this.recentModuleInstanceProgress.forEach(miProgress => {
-                if (miProgress.complete === 1) {
+                if (miProgress.complete === 1 && miProgress.mandatory === 1) {
                     completedModules++;
                 }
             })

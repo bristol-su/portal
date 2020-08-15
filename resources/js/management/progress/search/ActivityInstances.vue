@@ -32,13 +32,18 @@ export default {
     },
     methods: {
         loadActivityInstances() {
-            this.isLoading = true;
-            this.$api.activityInstance().search(this.activityId, this.search)
-                .then(response => {
-                    this.$emit('set', response.data)
-                })
-                .catch(error => this.$notify.alert('Could not load name search results: ' + error.response.data.message))
-                .finally(() => this.isLoading = false);
+            if(this.search) {
+                this.isLoading = true;
+                this.$api.activityInstance().search(this.activityId, this.search)
+                    .then(response => {
+                        this.$emit('set', response.data)
+                    })
+                    .catch(error => this.$notify.alert('Could not load name search results: ' + error.response.data.message))
+                    .finally(() => this.isLoading = false);
+            } else {
+                this.$emit('set', [])
+            }
+
         }
     },
     computed: {
