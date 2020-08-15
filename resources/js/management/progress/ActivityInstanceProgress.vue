@@ -228,7 +228,6 @@ export default {
             } else {
                 return 'No log available';
             }
-
         },
         calculateState(progress) {
             let state = {
@@ -299,7 +298,7 @@ export default {
             }
             let progress = this.progress.filter(p => p.id === progressId);
             if (progress.length === 1) {
-                let timestamp = moment(progress[0].timestamp).format('D/M/YYYY H:m')
+                let timestamp = moment(progress[0].timestamp).format('D/M/YYYY HH:mm')
                 this.progressTimestampCache[progressId] = timestamp;
                 return timestamp;
             }
