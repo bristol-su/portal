@@ -34,6 +34,30 @@ services:
       LOG_CHANNEL: graylog
       GELF_HOST: graylog
       GELF_PORT: 12201
+#      AWS_STATIC_BUCKET: "bristol-su-static-bucket"
+#      AWS_STATIC_FOLDER: "committee-portal"
+#      AWS_STATIC_URL: "s3.eu-west-2.amazonaws.com"
+#      MIX_AWS_STATIC_BUCKET: "bristol-su-static-bucket"
+#      MIX_AWS_STATIC_FOLDER: "committee-portal"
+#      MIX_AWS_STATIC_URL: "s3.eu-west-2.amazonaws.com"
+#      COOKIE_DOMAIN: "localhost:8080"
+#      BROADCAST_DRIVER: "log"
+#      CACHE_DRIVER: "array"
+#      QUEUE_CONNECTION: "database"
+#      SESSION_DRIVER: "file"
+#      SESSION_LIFETIME: "120"
+#      LOG_CHANNEL: "daily"
+#      FILESYSTEM_DRIVER: "local"
+#      APP_NAME: "Portal"
+#      APP_ENV: "local"
+#      APP_KEY: "base64:gDV+W0mZpt3g3wdh7THxoSVp9F76tC+2UR2qTKVF7DM="
+#      APP_DEBUG: "true"
+#      APP_URL: "http://localhost:8080"
+#      API_URL: "${APP_URL}/api"
+#      MIX_APP_URL: "${APP_URL}"
+#      MIX_API_URL: "${API_URL}"
+#      CONTROL_API_PREFIX: "/api/control"
+#      MIX_CONTROL_API_URL: "${APP_URL}${CONTROL_API_PREFIX}"
     ports:
       - ${DEV_PORT:-8080}:80
     volumes:
