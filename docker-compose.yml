@@ -32,8 +32,9 @@ services:
       MAIL_HOST: mailhog
       MAIL_PORT: 1025
       LOG_CHANNEL: graylog
+      GELF_TRANSPORT: udp
       GELF_HOST: graylog
-      GELF_PORT: 12201
+      GELF_PORT: 1514
 #      AWS_STATIC_BUCKET: "bristol-su-static-bucket"
 #      AWS_STATIC_FOLDER: "committee-portal"
 #      AWS_STATIC_URL: "s3.eu-west-2.amazonaws.com"
@@ -73,30 +74,11 @@ services:
     image: mailhog/mailhog
     ports:
       - ${DEV_MAIL_PORT:-8025}:8025
-  graylog:
-    image: graylog/graylog:3.3
-    environment:
-      - GRAYLOG_PASSWORD_SECRET=somesupersecretpasswordforgraylog
-      # Password: admin
-      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
-      - GRAYLOG_HTTP_EXTERNAL_URI=http://localhost:9000/
-    ports:
-      # Graylog web interface and REST API
-      - 9001:9000
-      # Syslog TCP
-      - 1514:1514
-      # Syslog UDP
-      - 1514:1514/udp
-      # GELF TCP
-      - 12201:12201
-      # GELF UDP
-      - 12201:12201/udp
-    # MongoDB: https://hub.docker.com/_/mongo/
   mongo:
     image: mongo:3
     networks:
       - graylog
-  # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.x/docker.html
+    # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.x/docker.html
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.10
     environment:
@@ -114,6 +96,31 @@ services:
           memory: 1g
     networks:
       - graylog
+  # Graylog: https://hub.docker.com/r/graylog/graylog/
+  graylog:
+    image: graylog/graylog:3.3
+    environment:
+      # CHANGE ME (must be at least 16 characters)!
+      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
+      # Password: admin
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9001/
+    networks:
+      - graylog
+    depends_on:
+      - mongo
+      - elasticsearch
+    ports:
+      # Graylog web interface and REST API
+      - 9001:9000
+      # Syslog TCP
+      - 1514:1514
+      # Syslog UDP
+      - 1514:1514/udp
+      # GELF TCP
+      - 12201:12201
+      # GELF UDP
+      - 12201:12201/udp
 networks:
   graylog:
     driver: bridge
