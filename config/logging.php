@@ -110,6 +110,15 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+
+        'graylog' => [
+            'driver'  => 'custom',
+            'via' => \App\Log\GraylogLoggerFactory::class,
+            'name' => 'graylog',
+            'host' => env('GELF_HOST', '127.0.0.1'),
+            'port' => env('GELF_PORT', 12202),
+            'path' => env('GELF_PATH', '/gelf')
+        ]
     ],
 
 ];

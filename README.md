@@ -63,13 +63,14 @@ It also comes with a fully-featured API to control users, services, automations 
 
 This project is still under heavy development, and is due for release in mid March. Therefore, it should not yet be used in production.
 
-The best way to get started is by [trying out our demo site](https://portal-demo.bristolsustaging.co.uk). Use the credentials
+### Docker
 
-```username: admin@example.com```
+1. Make sure you have docker and docker-compose installed (https://docs.docker.com/compose/install/)
+2. Run ```docker-compose build``` in the root of this repository
+3. Run ```docker-compose up``` in the root of this repository
+4. Access the portal at localhost:8001
 
-```password: admin```
-
-We're working on a docker deployment at the moment. For now, you should:
+### Non-docker
 
 1. Clone the package: ```git clone https://github.com/bristol-su/portal```
 2. Install dependencies: ```composer install && npm install```

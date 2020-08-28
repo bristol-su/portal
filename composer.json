@@ -32,7 +32,8 @@
         "bristol-su/unioncloud-portal": "dev-master",
         "predis/predis": "^1.1",
     	"bristol-su/data-entry": "^1.0",
-        "bristol-su/airtable": "^1.0"
+        "bristol-su/airtable": "^1.0",
+        "graylog2/gelf-php": "^1.6"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",

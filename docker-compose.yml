@@ -1,0 +1,95 @@
+# This is a Docker Compose configuration
+# intended for development purposes only
+
+version: '3'
+
+volumes:
+  db: {}
+
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: portal-test
+      MYSQL_USER: portal-test
+      MYSQL_PASSWORD: portal-test
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db:/var/lib/mysql
+  app:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile-php
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: portal-test
+      DB_USERNAME: portal-test
+      DB_PASSWORD: portal-test
+      MAIL_DRIVER: smtp
+      MAIL_HOST: mailhog
+      MAIL_PORT: 1025
+      LOG_CHANNEL: graylog
+      GELF_HOST: graylog
+      GELF_PORT: 12201
+    ports:
+      - ${DEV_PORT:-8080}:80
+    volumes:
+      - ./:/app
+    entrypoint: /app/build/entrypoint.app.sh
+  node:
+    image: node:alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    entrypoint: /app/build/entrypoint.node.sh
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - ${DEV_MAIL_PORT:-8025}:8025
+  graylog:
+    image: graylog/graylog:3.3
+    environment:
+      - GRAYLOG_PASSWORD_SECRET=somesupersecretpasswordforgraylog
+      # Password: admin
+      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://localhost:9000/
+    ports:
+      # Graylog web interface and REST API
+      - 9001:9000
+      # Syslog TCP
+      - 1514:1514
+      # Syslog UDP
+      - 1514:1514/udp
+      # GELF TCP
+      - 12201:12201
+      # GELF UDP
+      - 12201:12201/udp
+    # MongoDB: https://hub.docker.com/_/mongo/
+  mongo:
+    image: mongo:3
+    networks:
+      - graylog
+  # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.x/docker.html
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.10
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+    networks:
+      - graylog
+networks:
+  graylog:
+    driver: bridge
