@@ -68,8 +68,22 @@ This project is still under heavy development, and is due for release in mid Mar
 1. Make sure you have docker and docker-compose installed (https://docs.docker.com/compose/install/)
 2. Run ```docker-compose build``` in the root of this repository
 3. Run ```docker-compose up``` in the root of this repository
-4. Access the portal at localhost:8001
+4. Access the portal at localhost:8080
 
+You can also use the following tools:
+
+- Log Viewer: [http://localhost:8080/log-viewer](http://localhost:8080/log-viewer)
+- MailHog: [http://localhost:8025](http://localhost:8025)
+
+
+TODO
+- How to make yourself an admin
+- How to seed an example activity
+
+After registering, you'll have to give yourself admin permissions by running a command on the docker container. You can see the names of your containers by running ```docker-compose ps```. The container should be called something like ```portal_app```
+
+Give yourself admin permissions: ```docker-compose exec -i portal_app php artisan user:promote```
+`
 ### Non-docker
 
 1. Clone the package: ```git clone https://github.com/bristol-su/portal```
