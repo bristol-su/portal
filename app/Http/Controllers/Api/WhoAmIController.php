@@ -10,7 +10,12 @@ class WhoAmIController extends Controller
 
     public function index(UserAuthentication $authentication)
     {
-        return $authentication->getUser();
+        $user = $authentication->getUser();
+        $controlUser = $user->controlUser();
+        $userAsArray = $user->toArray();
+        $userAsArray['control'] = $controlUser->toArray();
+
+        return $userAsArray;
     }
 
 }
