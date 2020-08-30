@@ -31,42 +31,39 @@ services:
       MAIL_DRIVER: smtp
       MAIL_HOST: mailhog
       MAIL_PORT: 1025
-      LOG_CHANNEL: graylog
-      GELF_TRANSPORT: udp
-      GELF_HOST: graylog
-      GELF_PORT: 1514
-#      AWS_STATIC_BUCKET: "bristol-su-static-bucket"
-#      AWS_STATIC_FOLDER: "committee-portal"
-#      AWS_STATIC_URL: "s3.eu-west-2.amazonaws.com"
-#      MIX_AWS_STATIC_BUCKET: "bristol-su-static-bucket"
-#      MIX_AWS_STATIC_FOLDER: "committee-portal"
-#      MIX_AWS_STATIC_URL: "s3.eu-west-2.amazonaws.com"
-#      COOKIE_DOMAIN: "localhost:8080"
-#      BROADCAST_DRIVER: "log"
-#      CACHE_DRIVER: "array"
-#      QUEUE_CONNECTION: "database"
-#      SESSION_DRIVER: "file"
-#      SESSION_LIFETIME: "120"
-#      LOG_CHANNEL: "daily"
-#      FILESYSTEM_DRIVER: "local"
-#      APP_NAME: "Portal"
-#      APP_ENV: "local"
-#      APP_KEY: "base64:gDV+W0mZpt3g3wdh7THxoSVp9F76tC+2UR2qTKVF7DM="
-#      APP_DEBUG: "true"
-#      APP_URL: "http://localhost:8080"
-#      API_URL: "${APP_URL}/api"
-#      MIX_APP_URL: "${APP_URL}"
-#      MIX_API_URL: "${API_URL}"
-#      CONTROL_API_PREFIX: "/api/control"
-#      MIX_CONTROL_API_URL: "${APP_URL}${CONTROL_API_PREFIX}"
+      AWS_STATIC_BUCKET: bristol-su-static-bucket
+      AWS_STATIC_FOLDER: committee-portal
+      AWS_STATIC_URL: s3.eu-west-2.amazonaws.com
+      MIX_AWS_STATIC_BUCKET: bristol-su-static-bucket
+      MIX_AWS_STATIC_FOLDER: committee-portal
+      MIX_AWS_STATIC_URL: s3.eu-west-2.amazonaws.com
+      COOKIE_DOMAIN: localhost:8080
+      BROADCAST_DRIVER: log
+      CACHE_DRIVER: array
+      QUEUE_CONNECTION: database
+      SESSION_DRIVER: file
+      SESSION_LIFETIME: 120
+      LOG_CHANNEL: daily
+      FILESYSTEM_DRIVER: local
+      APP_NAME: Portal
+      APP_ENV: local
+      APP_KEY: "base64:gDV+W0mZpt3g3wdh7THxoSVp9F76tC+2UR2qTKVF7DM="
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:8080
+      API_URL: http://localhost:8080/api
+      CONTROL_API_PREFIX: /api/control
     ports:
       - ${DEV_PORT:-8080}:80
     volumes:
       - ./:/app
-    entrypoint: /app/build/entrypoint.app.sh
+    entrypoint: ["/app/build/entrypoint.app.sh", "apache2-foreground"]
   node:
     image: node:alpine
     working_dir: /app
+    environment:
+      MIX_APP_URL: "http://localhost:8080"
+      MIX_API_URL: "http://localhost:8080/api"
+      MIX_CONTROL_API_URL: "http://localhost:8080/api/control"
     volumes:
       - ./:/app
     entrypoint: /app/build/entrypoint.node.sh
@@ -74,44 +71,3 @@ services:
     image: mailhog/mailhog
     ports:
       - ${DEV_MAIL_PORT:-8025}:8025
-  mongo:
-    image: mongo:3
-    # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/6.x/docker.html
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.10
-    environment:
-      - http.host=0.0.0.0
-      - transport.host=localhost
-      - network.host=0.0.0.0
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    deploy:
-      resources:
-        limits:
-          memory: 1g
-  # Graylog: https://hub.docker.com/r/graylog/graylog/
-  graylog:
-    image: graylog/graylog:3.3
-    environment:
-      # CHANGE ME (must be at least 16 characters)!
-      - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
-      # Password: admin
-      - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
-      - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9001/
-    depends_on:
-      - mongo
-      - elasticsearch
-    ports:
-      # Graylog web interface and REST API
-      - 9001:9000
-      # Syslog TCP
-      - 1514:1514
-      # Syslog UDP
-      - 1514:1514/udp
-      # GELF TCP
-      - 12201:12201
-      # GELF UDP
-      - 12201:12201/udp

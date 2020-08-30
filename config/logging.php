@@ -109,22 +109,6 @@ return [
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => 'debug',
-        ],
-
-        'graylog' => [
-            'driver' => 'custom',
-            'via' => \App\Log\Gelf\GraylogLoggerFactory::class,
-            'processors' => [
-                \App\Log\Gelf\NullStringProcessor::class,
-            ],
-            'level' => 'debug',
-            'name' => 'Portal',
-            'system_name' => 'Bristol SU Portal',
-            'transport' => env('GELF_TRANSPORT', 'http'),
-            'host' => env('GELF_HOST', '127.0.0.1'),
-            'port' => env('GELF_PORT', 12202),
-            'path' => env('GELF_PATH', '/gelf'),
-            'max_length' => 500000,
         ]
     ],
 
