@@ -20,7 +20,7 @@
         "bristol-su/support": "^4.7.1",
         "bristol-su/upload-file": "^1.0",
         "bristol-su/typeform": "^1.1",
-        "bristol-su/static-page": "^1.0",
+        "bristol-su/static-page": "^1.1.1",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
         "nao-pon/flysystem-google-drive": "~1.1",
