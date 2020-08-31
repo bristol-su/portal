@@ -75,15 +75,15 @@ You can also use the following tools:
 - Log Viewer: [http://localhost:8080/log-viewer](http://localhost:8080/log-viewer)
 - MailHog: [http://localhost:8025](http://localhost:8025)
 
+Once you've registered with the portal, there are a few tools you can use to get started quickly. 
 
-TODO
-- How to make yourself an admin
-- How to seed an example activity
+**Make yourself an admin**
+To make your user an admin, you can run ```docker-compose exec app php artisan user:promote```. It will ask for the email of the user you just registered with, and give you full admin permissions.
 
-After registering, you'll have to give yourself admin permissions by running a command on the docker container. You can see the names of your containers by running ```docker-compose ps```. The container should be called something like ```portal_app```
+**Create an example activity**
+To create an example activity, run ```docker-compose exec app php artisan db:seed --class=ExampleActivitySeeder```. This will create an example activity for you.
 
-Give yourself admin permissions: ```docker-compose exec -i portal_app php artisan user:promote```
-`
+You can, of course, run any command by prefixing it with ```docker-compose exec app```
 ### Non-docker
 
 1. Clone the package: ```git clone https://github.com/bristol-su/portal```
