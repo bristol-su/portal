@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4589a0a562ec16a83d82cfb6f14fa45e",
+    "content-hash": "4902a693286a4311beba19a089f18665",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -398,7 +398,7 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "time": "2020-08-31T17:39:06+00:00"
+            "time": "2020-08-31T18:10:37+00:00"
         },
         {
             "name": "bristol-su/support",
