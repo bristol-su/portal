@@ -63,13 +63,28 @@ It also comes with a fully-featured API to control users, services, automations 
 
 This project is still under heavy development, and is due for release in mid March. Therefore, it should not yet be used in production.
 
-The best way to get started is by [trying out our demo site](https://portal-demo.bristolsustaging.co.uk). Use the credentials
+### Docker
 
-```username: admin@example.com```
+1. Make sure you have docker and docker-compose installed (https://docs.docker.com/compose/install/)
+2. Run ```docker-compose build``` in the root of this repository
+3. Run ```docker-compose up``` in the root of this repository
+4. Access the portal at localhost:8080
 
-```password: admin```
+You can also use the following tools:
 
-We're working on a docker deployment at the moment. For now, you should:
+- Log Viewer: [http://localhost:8080/log-viewer](http://localhost:8080/log-viewer)
+- MailHog: [http://localhost:8025](http://localhost:8025)
+
+Once you've registered with the portal, there are a few tools you can use to get started quickly. 
+
+**Make yourself an admin**
+To make your user an admin, you can run ```docker-compose exec app php artisan user:promote```. It will ask for the email of the user you just registered with, and give you full admin permissions.
+
+**Create an example activity**
+To create an example activity, run ```docker-compose exec app php artisan db:seed --class=ExampleActivitySeeder```. This will create an example activity for you.
+
+You can, of course, run any command by prefixing it with ```docker-compose exec app```
+### Non-docker
 
 1. Clone the package: ```git clone https://github.com/bristol-su/portal```
 2. Install dependencies: ```composer install && npm install```
