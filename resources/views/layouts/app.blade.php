@@ -7,3 +7,11 @@
         @yield('app-content')
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+@endpush
+
+@prepend('scripts')
+    <script src="{{mix('js/app.js')}}"></script>
+@endprepend

@@ -1,7 +1,8 @@
-@extends('bristolsu::base')
+@extends('layouts.app')
 
 @section('title', 'Welcome')
-@section('content')
+
+@section('app-content')
     <div class="text-center py-5">
         <div class="container">
             <div class="row my-5 justify-content-center">
@@ -17,7 +18,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{{ mix('js/app.js') }}"></script>
-@endpush

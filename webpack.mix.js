@@ -18,3 +18,6 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/control.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps();
+
+
+console.log(mix.config);

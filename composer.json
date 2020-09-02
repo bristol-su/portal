@@ -43,7 +43,8 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "arcanedev/log-viewer": "^5.0"
+        "arcanedev/log-viewer": "^5.0",
+        "barryvdh/laravel-debugbar": "^3.4"
     },
     "autoload": {
         "psr-4": {

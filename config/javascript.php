@@ -13,7 +13,7 @@ return [
     | Example: 'footer' or ['footer', 'bottom']
     |
     */
-    'bind_js_vars_to_this_view' => 'templates.javascript_injection',
+    'bind_js_vars_to_this_view' => 'partials.javascript',
 
     /*
     |--------------------------------------------------------------------------
