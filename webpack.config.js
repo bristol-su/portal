@@ -29,8 +29,8 @@ module.exports = {
             './resources/sass/app.scss'
         ],
         // Assets specifically for the header, since this is shown on modules when the app.js isn't.
-        header: [
-            './resources/js/header.js'
+        page: [
+            './resources/js/page.js'
         ]
     },
 
@@ -162,7 +162,9 @@ module.exports = {
             // Holds all stand-alone components
             Components: path.resolve(__dirname, 'resources/js/components'),
             // Base path
-            '@': path.resolve(__dirname, 'resources/js')
+            '@': path.resolve(__dirname, 'resources/js'),
+            // Set up vue to contain the template compiler
+            'vue$': 'vue/dist/vue.esm.js'
         }
     },
     stats: {

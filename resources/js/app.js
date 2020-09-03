@@ -9,15 +9,3 @@ new Vue({
 // This is used so module components can register their own components here...
 window.Vue = Vue;
 
-
-class Form {
-    notify(notify) {
-        alert(notify);
-    }
-}
-
-let form = new Form;
-
-form.notify(
-    [1,2,3].reduce((prev, n) => prev += n + ', ', '')
-);
