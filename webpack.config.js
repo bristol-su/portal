@@ -1,10 +1,14 @@
 const path = require("path");
 const development = process.env.NODE_ENV !== 'production';
 const TerserJSPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// TODO https://vuejs.org/v2/guide/deployment.html#Extracting-Component-CSS
 
 module.exports = {
     // Set the mode based on the NODE_ENV environment variable
@@ -19,31 +23,39 @@ module.exports = {
 
     // Entry points
     entry: {
+        // Assets for the majority of the site
         app: [
             './resources/js/app.js',
             './resources/sass/app.scss'
+        ],
+        // Assets specifically for the header, since this is shown on modules when the app.js isn't.
+        header: [
+            './resources/js/header.js'
         ]
     },
 
     // Outputs
     output: {
+        // Specify the public path
         path: path.resolve(__dirname, './public'),
+        // Specify where the js should be saved. Give it a chunkhash if in production to allow caching
         filename: development ? 'js/[name].js' : 'js/[name].[chunkhash].js',
     },
     module: {
         rules: [
-            // Loader for ecma script
+            // Compile JS with babel so we can use modern JS
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
 
-            // Loader for sass.
+            // Compile SASS. Sass must use the indented syntax
             {
-                test: /\.scss$/,
-                // Convert the sass to css, then inject it
+                test: /\.sass$/,
+                // Convert sass to css, load the css, extract it into its own file and load vue styles
                 use: [
+                    'vue-style-loader',
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
@@ -55,34 +67,106 @@ module.exports = {
                             },
                         }
                     },
-                    'css-loader', 'sass-loader'
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                            sassOptions: {
+                                fiber: require('fibers'),
+                                indentedSyntax: true
+                            },
+                        },
+                    }
                 ]
             },
 
-            // Loader for css. Will take effect from right to left
+            // Compile SCSS. Scss must NOT use the indented syntax
+            {
+                test: /\.scss$/,
+                // Convert sass to css, load the css, extract it into its own file and load vue styles
+                use: [
+                    'vue-style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: (resourcePath, context) => {
+                                // publicPath is the relative path of the resource to the context
+                                // e.g. for ./css/admin/main.css the publicPath will be ../../
+                                // while for ./css/main.css the publicPath will be ../
+                                return path.relative(path.dirname(resourcePath), context) + '/';
+                            },
+                        }
+                    },
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                            sassOptions: {
+                                fiber: require('fibers'),
+                                indentedSyntax: false
+                            },
+                        },
+                    }
+                ]
+            },
+
+            // Loader for css.
             {
                 test: /\.css$/,
-                // Load the css, and inject it
+                // Load the css, and extract it to its own file
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
                     },
-                    'css-loader', 'sass-loader'
+                    'css-loader'
                 ]
+            },
+
+            // Loader for .vue files
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
         ]
     },
 
     plugins: [
+        // Clean old compiled files before new ones are compiles
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ['js/*', 'css/*'],
+        }),
+
+        // Load Vue
+        new VueLoaderPlugin(),
+
+        // Save the webpack asset manifest
+        new WebpackAssetsManifest({
+            writeToDisk: true
+        }),
+
+        // Load Vuetify through the loader
+        new VuetifyLoaderPlugin(),
+
+        // Extract css to its own file
         new MiniCssExtractPlugin({
             filename: development ? 'css/[name].css' : 'css/[name].[chunkhash].css',
             chunkFilename: development ? 'css/[id].css' : 'css/[id].[chunkhash].css',
         }),
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['js/*', 'css/*'],
-        }),
-        new WebpackAssetsManifest({
-            writeToDisk: true
-        }),
-    ]
+    ],
+
+    resolve: {
+        // Define aliases
+        alias: {
+            // Holds all stand-alone components
+            Components: path.resolve(__dirname, 'resources/js/components'),
+            // Base path
+            '@': path.resolve(__dirname, 'resources/js')
+        }
+    },
+    stats: {
+        // Hide stats about child output
+        children: false
+    }
 }

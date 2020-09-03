@@ -13,3 +13,18 @@ if (!function_exists('siteSetting')) {
         return app(\App\Support\Settings\SettingRepository::class)->get($key, $default);
     }
 }
+
+if (!function_exists('webpackUrl')) {
+    /**
+     * Load a webpack path dynamically
+     *
+     * @param string|null $asset
+     * @return \App\Support\Webpack|string
+     * @throws Exception
+     */
+    function webpack(?string $asset = null)
+    {
+        $webpack = new \App\Support\Webpack();
+        return ($asset === null ? $webpack : $webpack->path($asset));
+    }
+}

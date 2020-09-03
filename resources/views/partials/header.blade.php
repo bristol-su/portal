@@ -112,5 +112,5 @@
 </div>
 
 @push('scripts')
-    <script src="{{ mix('js/header.js') }}"></script>
+    <script src="{{ webpack('header.js') }}"></script>
 @endpush

@@ -11,7 +11,8 @@ class Webpack
     /**
      * @param string $asset The path name of the asset (e.g. app.css)
      *
-     *
+     * @return string
+     * @throws \Exception If manifest not found
      */
     public function path(string $asset)
     {
@@ -33,25 +34,11 @@ class Webpack
      */
     public static function manifest(): array
     {
-//        if (! Str::startsWith($path, '/')) {
-//            $path = "/{$path}";
-//        }
-//
-//        if ($manifestDirectory && ! Str::startsWith($manifestDirectory, '/')) {
-//            $manifestDirectory = "/{$manifestDirectory}";
-//        }
-//
-//        if (file_exists(public_path($manifestDirectory.'/hot'))) {
-//            $url = rtrim(file_get_contents(public_path($manifestDirectory.'/hot')));
-//
-//            if (Str::startsWith($url, ['http://', 'https://'])) {
-//                return new HtmlString(Str::after($url, ':').$path);
-//            }
-//
-//            return new HtmlString("//localhost:8080{$path}");
-//        }
-//
-//        $manifestPath = public_path($manifestDirectory.'/mix-manifest.json');
+        $manifestPath = public_path('/manifest.json');
+        if(file_exists($manifestPath)) {
+            return json_decode(file_get_contents($manifestPath), true);
+        }
+        throw new \Exception('Webpack manifest not found');
     }
 
 }

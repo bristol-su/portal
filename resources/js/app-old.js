@@ -5,7 +5,6 @@ import vuetify from './plugins/vuetify';
 
 import axios from 'axios';
 import api from "./utilities/api/api";
-import control from '@bristol-su/control-js-api-client';
 import VueFormGenerator from 'vue-form-generator'
 
 import settingKeys from './utilities/settingKeys';
@@ -23,7 +22,6 @@ if (token) {
 }
 
 Vue.prototype.$api = new api(portal.API_URL, axios);
-Vue.prototype.$control = new control(portal.API_URL + '/control', axios);
 Vue.prototype.$csrf = token.content;
 
 new Vue({

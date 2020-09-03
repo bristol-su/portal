@@ -3,15 +3,15 @@
 @section('title', 'Portal')
 
 @section('content')
-    <div id="vue-root">
+    <div id="portal-vue-root">
         @yield('app-content')
     </div>
 @endsection
 
 @push('styles')
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ webpack('app.css') }}" rel="stylesheet">
 @endpush
 
 @prepend('scripts')
-    <script src="{{mix('js/app.js')}}"></script>
+    <script src="{{webpack('app.js')}}"></script>
 @endprepend

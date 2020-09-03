@@ -8,5 +8,5 @@
 
 
 @push('scripts')
-    <script src="{{mix('js/control.js')}}"></script>
+    <script src="{{webpack('control.js')}}"></script>
 @endpush
