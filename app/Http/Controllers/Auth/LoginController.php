@@ -23,6 +23,11 @@ class LoginController extends Controller
 
     protected $redirectTo = '/portal';
 
+    public function showLoginForm()
+    {
+        return view('pages.auth.login');
+    }
+
     /**
      * Create a new controller instance.
      *

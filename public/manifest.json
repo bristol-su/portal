@@ -1,5 +1,6 @@
 {
   "app.css": "css/app.css",
   "app.js": "js/app.js",
-  "page.js": "js/page.js"
+  "portal.css": "css/portal.css",
+  "portal.js": "js/portal.js"
 }

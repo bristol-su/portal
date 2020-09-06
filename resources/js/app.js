@@ -1,11 +1,18 @@
-import Vue from 'vue'
-import vuetify from '@/plugins/vuetify' // path to vuetify export
+import createVue from '@/plugins/vue';
 
-new Vue({
-    el: '#portal-vue-root',
-    vuetify,
-})
+import PApp from 'Components/page/PApp.vue';
+import PHeader from 'Components/page/PHeader.vue';
+import PMain from 'Components/page/PMain.vue';
+import PFooter from 'Components/page/PFooter.vue';
 
-// This is used so module components can register their own components here...
+let Vue = createVue({
+    el: '#vue-root-app',
+    components: {
+        PApp,
+        PHeader,
+        PMain,
+        PFooter
+    }
+});
+
 window.Vue = Vue;
-

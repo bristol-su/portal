@@ -29,8 +29,8 @@ module.exports = {
             './resources/sass/app.scss'
         ],
         // Assets specifically for the header, since this is shown on modules when the app.js isn't.
-        page: [
-            './resources/js/page.js'
+        portal: [
+            './resources/js/portal.js'
         ]
     },
 
@@ -141,13 +141,14 @@ module.exports = {
         // Load Vue
         new VueLoaderPlugin(),
 
+        // Load Vuetify through the loader
+        new VuetifyLoaderPlugin(),
+
         // Save the webpack asset manifest
         new WebpackAssetsManifest({
             writeToDisk: true
         }),
 
-        // Load Vuetify through the loader
-        new VuetifyLoaderPlugin(),
 
         // Extract css to its own file
         new MiniCssExtractPlugin({
@@ -161,6 +162,8 @@ module.exports = {
         alias: {
             // Holds all stand-alone components
             Components: path.resolve(__dirname, 'resources/js/components'),
+            // Holds all pages
+            Pages: path.resolve(__dirname, 'resources/js/pages'),
             // Base path
             '@': path.resolve(__dirname, 'resources/js'),
             // Set up vue to contain the template compiler
