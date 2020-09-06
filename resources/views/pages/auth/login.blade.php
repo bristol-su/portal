@@ -3,5 +3,7 @@
 @section('title', 'Login')
 
 @section('app-content')
-    <p-login></p-login>
+    <p-login
+        route="{{route('login')}}">
+    </p-login>
 @endsection

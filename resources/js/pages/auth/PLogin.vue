@@ -11,14 +11,19 @@
                         <span class="primary--text">Sign In</span>
                     </v-card-title>
                     <v-card-text>
-                        <v-form>
+                        <v-form method="POST" :action="route">
+                            <v-input type="hidden" :value="csrf"></v-input>
+
+<!--                            identifier-->
                             <v-text-field
                                 label="Login"
-                                name="login"
+                                name="identity"
                                 prepend-icon="mdi-account"
                                 type="text"
+                                autofocus
                             ></v-text-field>
 
+<!--                            password-->
                             <v-text-field
                                 id="password"
                                 label="Password"
@@ -34,41 +39,7 @@
                 </v-card>
             </v-col>
         </v-row>
-<!--                                        <form method="POST" action="{{ route('login') }}">-->
-<!--                                            @csrf-->
-
-<!--                                            <div class="form-group row">-->
-<!--                                                <label for="identifier"-->
 <!--                                                       class="col-md-4 col-form-label text-md-right">{{ ucfirst(siteSetting('authentication.registration_identifier.identifier')) }}</label>-->
-
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <input id="identifier" type="text"-->
-<!--                                                           class="form-control{{ $errors->has('identifier') ? ' is-invalid' : '' }}"-->
-<!--                                                           name="identifier" value="{{ old('identifier') }}" required-->
-<!--                                                           autofocus>-->
-
-<!--                                                    @if ($errors->has('identifier'))-->
-<!--                                                    <span class="invalid-feedback" role="alert">-->
-<!--                                        <strong>{{ $errors->first('identifier') }}</strong>-->
-<!--                                    </span>-->
-<!--                                                    @endif-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-
-<!--                                            <div class="form-group row">-->
-<!--                                                <label for="password"-->
-<!--                                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>-->
-
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <input id="password" type="password"-->
-<!--                                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"-->
-<!--                                                           name="password" required>-->
-
-<!--                                                    @if ($errors->has('password'))-->
-<!--                                                    <span class="invalid-feedback" role="alert">-->
-<!--                                        <strong>{{ $errors->first('password') }}</strong>-->
-<!--                                    </span>-->
-<!--                                                    @endif-->
 <!--                                                </div>-->
 <!--                                            </div>-->
 
@@ -126,8 +97,18 @@
 </template>
 
 <script>
+import csrf from 'Mixins/csrf';
+import errors from 'Mixins/errors';
+
 export default {
-    name: "PLogin"
+    name: "PLogin",
+    mixins: [csrf],
+    props: {
+        route: {
+            required: true,
+            type: String
+        }
+    }
 }
 </script>
 

@@ -164,6 +164,8 @@ module.exports = {
             Components: path.resolve(__dirname, 'resources/js/components'),
             // Holds all pages
             Pages: path.resolve(__dirname, 'resources/js/pages'),
+            // Holds all mixins
+            Mixins: path.resolve(__dirname, 'resources/js/mixins'),
             // Base path
             '@': path.resolve(__dirname, 'resources/js'),
             // Set up vue to contain the template compiler
