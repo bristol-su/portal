@@ -1,22 +1,39 @@
 <template>
-<!--    <div class="container">-->
-<!--        <div class="row justify-content-center">-->
-<!--            <div class="col-md-8" style="padding-top: 15px;">-->
-<!--                <div class="card">-->
-<!--                    <div class="card-header">{{ __('Login') }}</div>-->
+        <v-row
+            justify="center"
+            align="center">
+            <v-col
+                cols="12"
+                sm="8"
+                md="4">
+                <v-card>
+                    <v-card-title class="justify-center">
+                        <span class="primary--text">Sign In</span>
+                    </v-card-title>
+                    <v-card-text>
+                        <v-form>
+                            <v-text-field
+                                label="Login"
+                                name="login"
+                                prepend-icon="mdi-account"
+                                type="text"
+                            ></v-text-field>
 
-<!--                    <div class="card-body">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-9">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-md-12">-->
-<!--                                        <h5>Login...</h5>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-md-12">-->
-
-
+                            <v-text-field
+                                id="password"
+                                label="Password"
+                                name="password"
+                                prepend-icon="mdi-lock"
+                                type="password"
+                            ></v-text-field>
+                        </v-form>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-btn color="primary" block>Login <v-icon>mdi-arrow-right</v-icon></v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-col>
+        </v-row>
 <!--                                        <form method="POST" action="{{ route('login') }}">-->
 <!--                                            @csrf-->
 

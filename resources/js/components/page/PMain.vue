@@ -1,7 +1,11 @@
 <template>
     <v-main>
-        <v-container>
-            <slot></slot>
+        <v-container fill-height>
+            <v-row>
+                <v-col>
+                    <slot></slot>
+                </v-col>
+            </v-row>
         </v-container>
     </v-main>
 </template>
