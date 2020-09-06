@@ -1,15 +1,15 @@
 <template>
     <div>
-<!--        <v-navigation-drawer-->
-<!--            app-->
-<!--            permanent-->
-<!--            v-model="showDrawer">-->
-<!---->
-<!--        </v-navigation-drawer>-->
+        <v-navigation-drawer
+            app
+            v-if="isLoggedIn"
+            v-model="showDrawer">
+
+        </v-navigation-drawer>
 
         <v-app-bar app color="primary">
 
-<!--            <v-app-bar-nav-icon @click.stop="showDrawer = !showDrawer"></v-app-bar-nav-icon>-->
+            <v-app-bar-nav-icon @click.stop="showDrawer = !showDrawer" v-if="isLoggedIn"></v-app-bar-nav-icon>
 
             <v-spacer></v-spacer>
 
