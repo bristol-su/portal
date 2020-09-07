@@ -1,7 +1,7 @@
 export default {
     computed: {
         csrf() {
-            return document.head.querySelector('meta[name="csrf-token"]');
+            return document.head.querySelector('meta[name="csrf-token"]').content;
         }
     }
 }

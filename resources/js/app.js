@@ -6,6 +6,7 @@ import PMain from 'Components/page/PMain.vue';
 import PFooter from 'Components/page/PFooter.vue';
 
 let Vue = createVue({
+    name: 'App',
     el: '#vue-root-app',
     components: {
         PApp,

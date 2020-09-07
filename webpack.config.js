@@ -7,6 +7,7 @@ const WebpackAssetsManifest = require('webpack-assets-manifest');
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var WebpackNotifierPlugin = require('webpack-notifier');
 
 // TODO https://vuejs.org/v2/guide/deployment.html#Extracting-Component-CSS
 
@@ -155,17 +156,23 @@ module.exports = {
             filename: development ? 'css/[name].css' : 'css/[name].[chunkhash].css',
             chunkFilename: development ? 'css/[id].css' : 'css/[id].[chunkhash].css',
         }),
+
+        // Notify on completed build. Notify on error in production, or always in development
+        new WebpackNotifierPlugin({
+            title: 'Portal',
+            alwaysNotify: development
+        })
     ],
 
     resolve: {
         // Define aliases
         alias: {
             // Holds all stand-alone components
-            Components: path.resolve(__dirname, 'resources/js/components'),
+            'Components': path.resolve(__dirname, 'resources/js/components'),
             // Holds all pages
-            Pages: path.resolve(__dirname, 'resources/js/pages'),
+            'Pages': path.resolve(__dirname, 'resources/js/pages'),
             // Holds all mixins
-            Mixins: path.resolve(__dirname, 'resources/js/mixins'),
+            'Mixins': path.resolve(__dirname, 'resources/js/mixins'),
             // Base path
             '@': path.resolve(__dirname, 'resources/js'),
             // Set up vue to contain the template compiler
