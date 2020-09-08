@@ -4,8 +4,6 @@
 
 @section('content')
     <p-main>
-        <div id="vue-root-portal" v-pre>
-            @yield('app-content')
-        </div>
+        @yield('app-content')
     </p-main>
 @endsection
