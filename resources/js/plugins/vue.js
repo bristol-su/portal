@@ -1,47 +1,33 @@
-import vuetify from '@/plugins/vuetify' // path to vuetify export
+let registerComponent = (name, component) => {
+    if(!window.hasOwnProperty('injector')) {
+        window.injector = new VueComponentInjector;
+    }
 
-let createVue = (options) => {
-
-    let defaults = {
-        vuetify,
-        template: '<div><slot></slot></div>'
-    };
-
-    let mergedOptions = Object.assign(defaults, options);
-
-    window.injector.inject(mergedOptions);
+    window.injector.register(name, component);
 }
 
-let setupInjections = () => {
-    window.injector = new VueConfigInjector();
+let getComponents = () => {
+    if(!window.hasOwnProperty('injector')) {
+        window.injector = new VueComponentInjector;
+    }
+
+    return window.injector.get();
 }
 
-class VueConfigInjector {
+class VueComponentInjector {
 
     constructor() {
-        this._callback = null;
-        this._config = null;
+        this._components = {};
     }
 
-    inject(config) {
-        this._config = config;
-        if(this._callback !== null) {
-            this._callback(config);
-        }
-    }
-
-    hasConfig() {
-        return this._config !== null;
+    register(name, component) {
+        this._components[name] = component;
     }
 
     get() {
-        return this._config;
-    }
-
-    onModified(callback) {
-        this._callback = callback;
+        return this._components;
     }
 
 }
 
-export {createVue, VueConfigInjector, setupInjections}
+export {registerComponent, getComponents}
