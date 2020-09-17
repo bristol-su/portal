@@ -2,14 +2,66 @@
     <div>
         <v-navigation-drawer
             app
-            v-if="isLoggedIn"
-            v-model="showDrawer">
+            clipped
+            :permanent="showDrawer"
+            :mini-variant.sync="isMini"
+            v-model="showDrawer"
+            v-if="isLoggedIn">
+
+            <template v-slot:prepend>
+                <v-list-item>
+                    <v-list-item-avatar v-if="!isMini">
+                        <img src="https://randomuser.me/api/portraits/men/81.jpg">
+                    </v-list-item-avatar>
+
+                    <v-list-item-title v-if="!isMini">Welcome Toby</v-list-item-title>
+
+                    <v-btn
+                        icon
+                        @click.stop="toggleMini"
+                    >
+                        <v-icon v-if="isMini">mdi-chevron-right</v-icon>
+                        <v-icon v-else>mdi-chevron-left</v-icon>
+                    </v-btn>
+                </v-list-item>
+            </template>
+
+            <v-divider></v-divider>
+
+            <v-list>
+                <v-list-item
+                    link
+                >
+                    <v-list-item-icon>
+                        <v-icon>mdi-person</v-icon>
+                    </v-list-item-icon>
+
+                    <v-list-item-content>
+                        <v-list-item-title>User Info</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+
+            <template v-slot:append>
+                <div class="pa-2">
+                    <v-switch v-if="!isMini" v-model="darkMode" inset :label="'Dark Mode ' + (darkMode ? 'On' : 'Off')"></v-switch>
+                    <v-form action="/logout" method="POST">
+                        <input type="hidden" name="_token" :value="csrf" />
+                        <v-btn type="submit" text v-if="!isMini">
+                            Sign out <v-icon>mdi-logout</v-icon>
+                        </v-btn>
+                        <v-btn type="submit" icon v-else>
+                            <v-icon>mdi-logout</v-icon>
+                        </v-btn>
+                    </v-form>
+                </div>
+            </template>
 
         </v-navigation-drawer>
 
-        <v-app-bar app color="primary">
+        <v-app-bar app clipped-left color="primary">
 
-            <v-app-bar-nav-icon @click.stop="showDrawer = !showDrawer" v-if="isLoggedIn"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon @click.stop="toggleDrawer" v-if="isLoggedIn && tinyScreen"></v-app-bar-nav-icon>
 
             <v-spacer></v-spacer>
 
@@ -51,8 +103,12 @@
 </template>
 
 <script>
+import csrf from 'Mixins/csrf';
+import userpreferences from 'Mixins/userpreferences';
+
 export default {
     name: "PHeader",
+    mixins: [csrf, userpreferences],
     props: {
         title: {
             required: false,
@@ -65,10 +121,41 @@ export default {
             default: false
         }
     },
+    created() {
+        this.isMini = this.smallScreen;
+    },
     data() {
         return {
-            showDrawer: false,
-
+            isMini: false,
+            showDrawer: true,
+        }
+    },
+    methods: {
+        toggleMini() {
+            this.isMini = !this.isMini;
+        },
+        toggleDrawer() {
+            this.showDrawer = !this.showDrawer;
+            if(this.showDrawer) {
+                this.isMini = false;
+            }
+        },
+    },
+    computed: {
+        smallScreen() {
+            return this.$vuetify.breakpoint.smOnly;
+        },
+        tinyScreen() {
+            return this.$vuetify.breakpoint.xsOnly;
+        },
+        darkMode: {
+            get() {
+                return this.$vuetify.theme.dark;
+            },
+            set(val) {
+                this.$vuetify.theme.dark = val;
+                this.setUserPreference('dark-mode', (val ? 'true' : 'false'));
+            }
         }
     }
 }

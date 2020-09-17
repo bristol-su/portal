@@ -47,7 +47,7 @@ class PortalController extends Controller
             $activities['role'][$role->id()] = $activityRepository->getForParticipant($user, $group, $role);
         }
 
-        return view('portal.portal')->with([
+        return view('pages.portal.portal')->with([
             'activities' => $activities,
             'administrator' => false,
             'roleGroupRelations' => $roleGroupRelations,
@@ -80,7 +80,7 @@ class PortalController extends Controller
             $activities['role'][$role->id] = $activityRepository->getForAdministrator($user, $group, $role);
         }
 
-        return view('portal.portal')->with([
+        return view('pages.portal.portal')->with([
             'activities' => $activities,
             'administrator' => true,
             'roleGroupRelations' => $roleGroupRelations,

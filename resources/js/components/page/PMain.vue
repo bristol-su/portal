@@ -3,7 +3,9 @@
         <v-container fill-height>
             <v-row>
                 <v-col>
-                    <slot></slot>
+                    <div>
+                        <slot></slot>
+                    </div>
                 </v-col>
             </v-row>
         </v-container>

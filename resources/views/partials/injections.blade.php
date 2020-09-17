@@ -9,6 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
+@prepend('scripts')
+    <script src="{{ webpack('app.js') }}"></script>
+@endprepend
+
+
 @push('styles')
     <link href="{{ webpack('app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">

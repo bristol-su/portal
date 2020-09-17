@@ -24,7 +24,10 @@ if (!function_exists('webpackUrl')) {
      */
     function webpack(?string $asset = null)
     {
-        $webpack = new \App\Support\Webpack();
-        return ($asset === null ? $webpack : $webpack->path($asset));
+        if($asset === null) {
+            return app(\App\Support\Webpack::class);
+        }
+
+        return app(\App\Support\Webpack::class)->path($asset);
     }
 }

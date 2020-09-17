@@ -13,15 +13,15 @@
                             <span class="primary--text">Sign In</span>
                         </v-card-title>
                         <v-card-text>
-                            <input type="hidden" :value="csrf" name="_token" id="_token"></input>
+                            <input type="hidden" :value="csrf" name="_token" id="_token"/>
 
                             <validation-provider
                                 v-slot="{ errors }"
                                 name="identifier"
-                                rules="required|email">
-                                <!--                            identifier-->
+                                rules="required">
+
                                 <v-text-field
-                                    label="Login"
+                                    :label="getSetting(settingKeys.authentication.identifier.label)"
                                     id="identifier"
                                     name="identifier"
                                     v-model="credentials.identifier"
@@ -32,7 +32,6 @@
                                 ></v-text-field>
                             </validation-provider>
 
-                            <!--                            password-->
                             <v-text-field
                                 id="password"
                                 label="Password"
@@ -50,7 +49,8 @@
                             ></v-checkbox>
                         </v-card-text>
                         <v-card-actions>
-                            <v-btn color="primary" block type="submit" aria-label="Login" :disabled="invalid" :loading="loading">
+                            <v-btn color="primary" block type="submit" aria-label="Login" :disabled="invalid"
+                                   :loading="loading">
                                 <v-icon>mdi-arrow-right</v-icon>
                             </v-btn>
                         </v-card-actions>
@@ -96,11 +96,12 @@
 <script>
 import csrf from 'Mixins/csrf';
 import validation from 'Mixins/validation';
-import {required,email} from 'vee-validate/dist/rules';
+import {required, email} from 'vee-validate/dist/rules';
+import sitesettings from 'Mixins/sitesettings';
 
 export default {
     name: "PLogin",
-    mixins: [csrf, validation],
+    mixins: [csrf, validation, sitesettings],
     props: {
         route: {
             required: true,

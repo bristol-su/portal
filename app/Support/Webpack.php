@@ -2,11 +2,22 @@
 
 namespace App\Support;
 
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 class Webpack
 {
+
+    /**
+     * @var UrlGenerator
+     */
+    private UrlGenerator $urlGenerator;
+
+    public function __construct(UrlGenerator $urlGenerator)
+    {
+        $this->urlGenerator = $urlGenerator;
+    }
 
     /**
      * @param string $asset The path name of the asset (e.g. app.css)
@@ -24,7 +35,7 @@ class Webpack
             );
         }
 
-        return $manifest[$asset];
+        return $this->urlGenerator->to($manifest[$asset]);
     }
 
     /**

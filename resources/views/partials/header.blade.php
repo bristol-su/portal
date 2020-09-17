@@ -5,4 +5,3 @@
     :is-logged-in="{{($authentication->getUser() === null ? 'false' : 'true')}}">
 
 </p-header>
-
