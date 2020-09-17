@@ -143,7 +143,7 @@ module.exports = {
         new VueLoaderPlugin(),
 
         // Load Vuetify through the loader
-        new VuetifyLoaderPlugin(),
+        // new VuetifyLoaderPlugin(),
 
         // Save the webpack asset manifest
         new WebpackAssetsManifest({

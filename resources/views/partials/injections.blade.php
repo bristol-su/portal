@@ -9,9 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
-@prepend('scripts')
+@push('scripts')
     <script src="{{ webpack('app.js') }}"></script>
-@endprepend
+@endpush
 
 
 @push('styles')

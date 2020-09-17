@@ -1,14 +1,16 @@
-import Vue from 'vue';
-import vuetify from '@/plugins/vuetify';
+import {registerComponent} from '@/plugins/vue';
 
 import PLogin from 'Pages/auth/PLogin.vue';
 import PPortal from 'Pages/portal/PPortal.vue';
 
-new Vue({
-    el: '#portal-vue-root',
-    vuetify,
-    components: {
-        PLogin,
-        PPortal,
-    }
-})
+registerComponent('p-login', PLogin);
+registerComponent('p-portal', PPortal);
+
+// new Vue({
+//     el: '#portal-vue-root',
+//     vuetify,
+//     components: {
+//         PLogin,
+//         PPortal,
+//     }
+// })
