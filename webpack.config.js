@@ -30,9 +30,9 @@ module.exports = {
             './resources/sass/app.scss'
         ],
         // Assets specifically for the header, since this is shown on modules when the app.js isn't.
-        portal: [
-            './resources/js/portal.js'
-        ]
+        // portal: [
+        //     './resources/js/portal.js'
+        // ],
     },
 
     // Outputs

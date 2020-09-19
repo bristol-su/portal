@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "95352729726e11d8e47e7c16edab2495",
+    "content-hash": "75f7723c2313ed63e40502af7e50b4c2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -60,16 +60,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.154.4",
+            "version": "3.154.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "199a3e1ee89c38251a4a47433560faf5d6a3ef14"
+                "reference": "50b1ef32d51d80f35a691e13c34f67b920765c18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/199a3e1ee89c38251a4a47433560faf5d6a3ef14",
-                "reference": "199a3e1ee89c38251a4a47433560faf5d6a3ef14",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/50b1ef32d51d80f35a691e13c34f67b920765c18",
+                "reference": "50b1ef32d51d80f35a691e13c34f67b920765c18",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +141,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-09-16T18:16:18+00:00"
+            "time": "2020-09-17T18:22:25+00:00"
         },
         {
             "name": "bristol-su/airtable",
@@ -475,17 +475,11 @@
         },
         {
             "name": "bristol-su/template",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/template.git",
-                "reference": "d8e3a389b9dde142c68050d0f8b454ca5a822c52"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/template/zipball/d8e3a389b9dde142c68050d0f8b454ca5a822c52",
-                "reference": "d8e3a389b9dde142c68050d0f8b454ca5a822c52",
-                "shasum": ""
+                "type": "path",
+                "url": "./../modules/template",
+                "reference": "4677f94f51baf3e7831f362bed02a75c06e45554"
             },
             "require": {
                 "bristol-su/support": "^4.0",
@@ -507,7 +501,11 @@
                     "BristolSU\\Module\\Template\\": "app/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Module\\Tests\\Template\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -518,7 +516,9 @@
                 }
             ],
             "description": "A template module for the Bristol SU Portal Project",
-            "time": "2020-03-18T20:14:06+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "bristol-su/typeform",
@@ -3845,20 +3845,20 @@
         },
         {
             "name": "nyholm/psr7",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nyholm/psr7.git",
-                "reference": "c17f4f73985f62054a331cbc4ffdf9868c4ef256"
+                "reference": "21b71a31eab5c0c2caf967b9c0fd97020254ed75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/c17f4f73985f62054a331cbc4ffdf9868c4ef256",
-                "reference": "c17f4f73985f62054a331cbc4ffdf9868c4ef256",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/21b71a31eab5c0c2caf967b9c0fd97020254ed75",
+                "reference": "21b71a31eab5c0c2caf967b9c0fd97020254ed75",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1",
+                "php": ">=7.1",
                 "php-http/message-factory": "^1.0",
                 "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0"
@@ -3914,7 +3914,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-05-23T11:29:07+00:00"
+            "time": "2020-06-13T15:59:10+00:00"
         },
         {
             "name": "opis/closure",
@@ -8519,16 +8519,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v4.1.7",
+            "version": "v4.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "49c28d7c43f6021eca4c290f620f13ee7d15f668"
+                "reference": "0dc2e5be39de88b18719bb4f3cdacfa605ad2146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/49c28d7c43f6021eca4c290f620f13ee7d15f668",
-                "reference": "49c28d7c43f6021eca4c290f620f13ee7d15f668",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/0dc2e5be39de88b18719bb4f3cdacfa605ad2146",
+                "reference": "0dc2e5be39de88b18719bb4f3cdacfa605ad2146",
                 "shasum": ""
             },
             "require": {
@@ -8580,7 +8580,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-25T20:05:21+00:00"
+            "time": "2020-09-17T19:21:25+00:00"
         },
         {
             "name": "justinrainbow/json-schema",

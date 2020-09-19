@@ -79,5 +79,11 @@
                 "bristol-su/control"
             ]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../modules/template"
+        }
+    ]
 }

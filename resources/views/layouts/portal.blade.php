@@ -9,5 +9,5 @@
 @endsection
 
 @push('scripts')
-        <script src="{{ webpack('portal.js') }}"></script>
+{{--        <script src="{{ webpack('portal.js') }}"></script>--}}
 @endpush
