@@ -2,6 +2,7 @@
     <div>
         <v-navigation-drawer
             app
+            :width="drawerWidth"
             clipped
             :permanent="showDrawer"
             :mini-variant.sync="isMini"
@@ -14,7 +15,7 @@
                         <img src="https://randomuser.me/api/portraits/men/81.jpg">
                     </v-list-item-avatar>
 
-                    <v-list-item-title v-if="!isMini">Welcome Toby</v-list-item-title>
+                    <v-list-item-title v-if="!isMini">Welcome{{ (firstName === '' ? '' : ', ' + firstName)}}</v-list-item-title>
 
                     <v-btn
                         icon
@@ -28,19 +29,10 @@
 
             <v-divider></v-divider>
 
-            <v-list>
-                <v-list-item
-                    link
-                >
-                    <v-list-item-icon>
-                        <v-icon>mdi-person</v-icon>
-                    </v-list-item-icon>
+            <p-nav-drawer-portal>
 
-                    <v-list-item-content>
-                        <v-list-item-title>User Info</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-            </v-list>
+            </p-nav-drawer-portal>
+<!--            <component :is="drawerTag"></component>-->
 
             <template v-slot:append>
                 <div class="pa-2">
@@ -119,6 +111,15 @@ export default {
             required: false,
             type: Boolean,
             default: false
+        },
+        drawerTag: {
+            required: true,
+            type: String
+        },
+        firstName: {
+            required: false,
+            type: String,
+            default: ''
         }
     },
     created() {
@@ -156,6 +157,19 @@ export default {
                 this.$vuetify.theme.dark = val;
                 this.setUserPreference('dark-mode', (val ? 'true' : 'false'));
             }
+        },
+        drawerWidth() {
+            if(this.$vuetify.breakpoint.xlOnly) {
+                return '20%';
+            } else if(this.$vuetify.breakpoint.lgAndUp) {
+                return '25%';
+            } else if(this.$vuetify.breakpoint.mdAndUp) {
+                return '35%';
+            }
+            else if(this.$vuetify.breakpoint.smAndUp) {
+                return '45%';
+            }
+            return '90%'
         }
     }
 }

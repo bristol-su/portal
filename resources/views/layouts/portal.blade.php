@@ -3,9 +3,7 @@
 @section('title', 'Portal')
 
 @section('content')
-    <div id="portal-vue-root">
-        @yield('app-content')
-    </div>
+    @yield('app-content')
 @endsection
 
 @push('scripts')

@@ -1,11 +1,9 @@
 <template>
     <v-main>
-        <v-container fill-height>
-            <v-row>
-                <v-col>
-                    <div>
-                        <slot></slot>
-                    </div>
+        <v-container fill-height class="align-start">
+            <v-row class="fill-height">
+                <v-col class="fill-height">
+                    <slot></slot>
                 </v-col>
             </v-row>
         </v-container>

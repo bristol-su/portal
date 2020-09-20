@@ -25,6 +25,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use BristolSU\UnionCloud\Exception\PermissionDeniedException;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -56,11 +57,11 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param Exception $exception
+     * @param Throwable $exception
      * @return void
-     * @throws Exception
+     * @throws Throwable
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         parent::report($exception);
     }
@@ -74,13 +75,13 @@ class Handler extends ExceptionHandler
      * - Log into the default activity instance if possible if $e instanceof NotInActivityInstanceException
      *
      * @param Request $request
-     * @param Exception $exception
+     * @param Throwable $exception
      * @return Response|RedirectResponse|JsonResponse
      * @throws ActivityRequiresGroup
      * @throws ActivityRequiresRole
      * @throws ActivityRequiresUser
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
         if (!$request->expectsJson()) {
 

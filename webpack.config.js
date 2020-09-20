@@ -177,10 +177,11 @@ module.exports = {
             '@': path.resolve(__dirname, 'resources/js'),
             // Set up vue to contain the template compiler
             'vue$': 'vue/dist/vue.esm.js'
-        }
+        },
+        extensions: ['*', '.js', '.vue', '.json']
     },
     stats: {
         // Hide stats about child output
         children: false
-    }
+    },
 }

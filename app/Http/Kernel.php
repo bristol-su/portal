@@ -12,6 +12,8 @@ use App\Http\Middleware\SetCredentialCookies;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
+use BristolSU\Support\Authorization\Middleware\CheckAdditionalCredentialsOwnedByUser;
+use BristolSU\Support\Authorization\Middleware\CheckDatabaseUserOwnsControlUser;
 use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
@@ -86,6 +88,11 @@ class Kernel extends HttpKernel
             'throttle:150,1',
             'bindings',
         ],
+
+        'portal' => [
+            CheckDatabaseUserOwnsControlUser::class,
+            CheckAdditionalCredentialsOwnedByUser::class
+        ]
 
     ];
 

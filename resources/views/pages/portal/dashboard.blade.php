@@ -3,8 +3,7 @@
 @section('title', 'Portal')
 
 @section('app-content')
-    <p-portal
-        :admin="{{request()->is('a/*') ? 'true' : 'false'}}">
+    <p-dashboard>
 
-    </p-portal>
+    </p-dashboard>
 @endsection

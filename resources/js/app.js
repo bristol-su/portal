@@ -1,31 +1,36 @@
-// import './bootstrap';
-
 import Vue from 'vue';
 import vuetify from '@/plugins/vuetify';
-// import Toolkit from '@bristol-su/frontend-toolkit'
+import VueFormGenerator from 'vue-form-generator'
+import PLogin from 'Pages/auth/PLogin';
+import PPortal from 'Pages/portal/PActivityLayout';
+import PDashboard from 'Pages/portal/PDashboard';
+import PApp from 'Components/page/PApp';
+import PHeader from 'Components/page/PHeader';
+import axios from 'axios';
+Vue.use(VueFormGenerator);
 
-import PLogin from 'Pages/auth/PLogin.vue';
-import PPortal from 'Pages/portal/PPortal.vue';
-import PApp from 'Components/page/PApp.vue';
-import PHeader from 'Components/page/PHeader.vue';
-import PMain from 'Components/page/PMain.vue';
-import PFooter from 'Components/page/PFooter.vue';
+import PNavDrawerPortal from 'Components/page/navbars/PNavDrawerPortal';
+import PNavDrawerActivity from 'Components/page/navbars/PNavDrawerActivity';
+import PNavDrawerModule from 'Components/page/navbars/PNavDrawerModule';
+import PNavDrawerSettings from 'Components/page/navbars/PNavDrawerSettings';
+Vue.component('p-nav-drawer-portal', PNavDrawerPortal);
+Vue.component('p-nav-drawer-activity', PNavDrawerActivity);
+Vue.component('p-nav-drawer-module', PNavDrawerModule);
+Vue.component('p-nav-drawer-settings', PNavDrawerSettings);
 
-// import PLogin from 'Pages/auth/PLogin.vue';
-// import PPortal from 'Pages/portal/PPortal.vue';
+import PMain from 'Components/page/PMain';
+import PFooter from 'Components/page/PFooter';
+import api from '@/utilities/api/api';
 
 
-// COuld components be a promise? TO load later to speed up page load.
-// Load components from the class
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-// Load them in
+let token = document.head.querySelector('meta[name="csrf-token"]');
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+}
 
-// let registeredComponents = getComponents();
-
-// Object.keys(registeredComponents).forEach(name => {
-//     components[name] = registeredComponents[name];
-// });
-//
+Vue.prototype.$api = new api(portal.API_URL, axios);
 
 new Vue({
     el: '#vue-root-app',
@@ -35,9 +40,11 @@ new Vue({
         PHeader,
         PMain,
         PFooter,
+
         PLogin,
-        PPortal
+        PPortal,
+        PDashboard
     }
 });
 
-
+window.Vue = Vue;

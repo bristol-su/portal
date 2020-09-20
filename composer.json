@@ -13,38 +13,31 @@
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laracasts/utilities": "^3.0",
-        "laravel/framework": "^6.5",
-        "laravel/tinker": "^1.0",
+        "laravel/framework": "^8.0",
+        "laravel/tinker": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
         "bristol-su/support": "dev-feature/frontend as 4.7.2",
-        "bristol-su/upload-file": "^1.0",
-        "bristol-su/typeform": "^1.1",
+        "bristol-su/control": "dev-laravel-8 as 2.1.5",
+        "bristol-su/upload-file": "dev-laravel-8 as 1.0",
         "bristol-su/static-page": "^1.1.1",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
         "nao-pon/flysystem-google-drive": "~1.1",
-        "laravel/socialite": "^4.3",
-        "socialiteproviders/providers": "dev-master",
-        "linkeys/signed-url": "^1.0",
+        "laravel/socialite": "^5.0",
         "laravel/vapor-core": "^2.5",
-        "bristol-su/assign-roles": "^1.0.1",
-        "bristol-su/unioncloud-portal": "dev-master",
         "predis/predis": "^1.1",
-    	"bristol-su/data-entry": "^1.0",
-        "bristol-su/airtable": "^1.0",
-        "bristol-su/template": "@dev"
+        "laravel/ui": "^3.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
         "beyondcode/laravel-dump-server": "^1.0",
-        "bmitch/churn-php": "^1.0",
         "composer/composer": "^1.8",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^2.0",
-        "arcanedev/log-viewer": "^5.0",
+        "nunomaduro/collision": "^5.0",
+        "arcanedev/log-viewer": "^8.0",
         "barryvdh/laravel-debugbar": "^3.4"
     },
     "autoload": {
@@ -83,7 +76,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./../modules/template"
+            "url": "./../support/support"
         }
     ]
 }
