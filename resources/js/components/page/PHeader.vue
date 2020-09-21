@@ -15,7 +15,7 @@
                         <img src="https://randomuser.me/api/portraits/men/81.jpg">
                     </v-list-item-avatar>
 
-                    <v-list-item-title v-if="!isMini">Welcome{{ (firstName === '' ? '' : ', ' + firstName)}}</v-list-item-title>
+                    <v-list-item-title v-if="!isMini">Welcome{{ (firstName === '' ? '' : ' ' + firstName)}}!</v-list-item-title>
 
                     <v-btn
                         icon
@@ -29,10 +29,7 @@
 
             <v-divider></v-divider>
 
-            <p-nav-drawer-portal>
-
-            </p-nav-drawer-portal>
-<!--            <component :is="drawerTag"></component>-->
+            <component :is="drawerTag"></component>
 
             <template v-slot:append>
                 <div class="pa-2">

@@ -3,8 +3,9 @@
 @section('title', 'Portal')
 
 @section('app-content')
-    <p-activities-layout
+    <p-activity-layout
+        :activity="{{$activity}}"
         :admin="{{request()->is('a/*') ? 'true' : 'false'}}">
 
-    </p-activities-layout>
+    </p-activity-layout>
 @endsection

@@ -1,5 +1,6 @@
 import OwnedResource from './resources/owned-resource';
 import Activities from './resources/activities';
+import ModuleInstances from './resources/module-instances';
 import ActivityEvaluation from './resources/activity-evaluation';
 
 // TODO Implement Cache
@@ -36,6 +37,10 @@ export default class {
 
     activities() {
         return new Activities(this._http);
+    }
+
+    moduleInstances() {
+        return new ModuleInstances(this._http);
     }
 
     activityEvaluation() {

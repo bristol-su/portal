@@ -9,24 +9,24 @@
         ></v-img>
 
         <v-card-title>
-            {{activity.name}}
-            <span class="px-2"><v-icon :color="activityPercentageColour" v-if="evaluation.complete">mdi-check-circle</v-icon></span>
+            {{moduleInstance.name}}
+            <span class="px-2"><v-icon :color="moduleInstancePercentageColour" v-if="moduleInstance.evaluation.complete">mdi-check-circle</v-icon></span>
 
         </v-card-title>
 
         <v-card-subtitle>
-            {{activity.description}}
+            {{moduleInstance.description}}
         </v-card-subtitle>
 
         <v-card-text v-if="!admin">
             <v-skeleton-loader
-                :loading="evaluationLoading"
+                :loading="false"
                 type="text"
                 transition="scale-transition">
 
             <v-progress-linear
-                v-model="evaluation.percentage"
-                :color="activityPercentageColour"
+                v-model="moduleInstance.evaluation.percentage"
+                :color="moduleInstancePercentageColour"
                 height="25"
             >
                 <template v-slot="{ value }">
@@ -38,7 +38,7 @@
         </v-card-text>
 
         <v-card-actions>
-            <a :href="activityUrl">
+            <a :href="moduleInstanceUrl">
                 <v-btn color="primary">View</v-btn>
             </a>
 
@@ -66,9 +66,13 @@
 
 <script>
 export default {
-    name: "PActivityCard",
+    name: "PModuleInstanceCard",
 
     props: {
+        moduleInstance: {
+            type: Object,
+            required: true
+        },
         activity: {
             type: Object,
             required: true
@@ -95,30 +99,13 @@ export default {
                 {lower: 40, color: '#eda109'},
                 {lower: 60, color: '#85a708'},
                 {lower: 80, color: '#03880D'}
-            ],
-            evaluation: {
-                percentage: 0,
-                complete: false
-            },
-            evaluationLoading: false
+            ]
         }
     },
 
     created() {
-        this.loadEvaluation();
     },
     methods: {
-        loadEvaluation() {
-            if (!this.admin) {
-                this.evaluationLoading = true;
-                this.$api.activityEvaluation().forResource(this.activity.id, this.userId, this.groupId, this.roleId)
-                    .then(response => this.evaluation = response.data)
-                    .catch(error => {
-                        console.log(error);
-                    })
-                    .finally(() => this.evaluationLoading = false)
-            }
-        }
     },
     computed: {
         hasUser() {
@@ -129,6 +116,9 @@ export default {
         },
         hasRole() {
             return window.portal.hasOwnProperty('role') && window.portal.role !== null && window.portal.role.hasOwnProperty('id');
+        },
+        hasActivityInstance() {
+            return window.portal.hasOwnProperty('activity_instance') && window.portal.activity_instance !== null && window.portal.activity_instance.hasOwnProperty('id');
         },
         userId() {
             if (this.hasUser) {
@@ -148,14 +138,30 @@ export default {
             }
             return null;
         },
-        activityUrl() {
-            return (this.admin?'/a/':'/p/')
-            + this.activity.slug + '?' + Object.keys(this.query).map(key => key + '=' + this.query[key]).join('&')
+        activityInstanceId() {
+            if (this.hasActivityInstance) {
+                return window.portal.activity_instance.id;
+            }
+            return null;
         },
-        activityPercentageColour() {
+        moduleInstanceUrl() {
+            let query = {};
+            if(this.hasActivityInstance) {
+                query.a = this.activityInstanceId;
+            } if(this.hasUser) {
+                query.u = this.userId;
+            } if(this.hasGroup) {
+                query.g = this.groupId;
+            } if(this.hasRole) {
+                query.r = this.roleId;
+            }
+            return (this.admin?'/a/':'/p/')
+                + this.activity.slug + '/' + this.moduleInstance.slug + '?' + Object.keys(query).map(key => key + '=' + query[key]).join('&')
+        },
+        moduleInstancePercentageColour() {
                 for(let color of this.progressColor.slice()
                     .sort((a, b) => b.lower - a.lower)) {
-                    if(color.lower <= this.evaluation.percentage) {
+                    if(color.lower <= this.moduleInstance.evaluation.percentage) {
                         return color.color;
                     }
                 }

@@ -33,6 +33,16 @@ class ForgotPasswordController extends Controller
     }
 
     /**
+     * Display the form to request a password reset link.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLinkRequestForm()
+    {
+        return view('pages.auth.passwords.email');
+    }
+
+    /**
      * Get the needed authentication credentials from the request.
      *
      * @param  \Illuminate\Http\Request  $request

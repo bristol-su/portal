@@ -43,6 +43,7 @@
                             ></v-text-field>
 
                             <v-checkbox
+                                class="ma-0"
                                 id="remember"
                                 name="remember"
                                 v-model="credentials.remember"
@@ -55,6 +56,10 @@
                                 <v-icon>mdi-arrow-right</v-icon>
                             </v-btn>
                         </v-card-actions>
+                        <v-card-text>
+                            <v-btn text block href="/register">I'm new here</v-btn>
+                            <v-btn text block href="/password/reset">I've forgotten my password</v-btn>
+                        </v-card-text>
                     </v-card>
                 </v-form>
             </validation-observer>

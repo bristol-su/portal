@@ -36,6 +36,16 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('pages.auth.register');
+    }
+
+    /**
      * Register the user.
      *
      * This registration method is only for standard registration, not single sign on.

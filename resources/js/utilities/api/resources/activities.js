@@ -44,12 +44,4 @@ export default class extends BaseResource{
         });
     }
 
-    showAdmin(activityId) {
-        return this.request('get', '/activity/' + activityId)
-    }
-
-    showUser() {
-
-    }
-
 }

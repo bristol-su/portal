@@ -18,6 +18,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('owned-resource', [\App\Http\Controllers\Api\Portal\OwnedResourceController::class, 'index']);
 
+    // Retrieve activities for a specific user/group/role combo
     Route::get('activity/role', [\App\Http\Controllers\Api\Portal\ActivityParticipantController::class, 'role']);
     Route::get('activity/group', [\App\Http\Controllers\Api\Portal\ActivityParticipantController::class, 'group']);
     Route::get('activity/user', [\App\Http\Controllers\Api\Portal\ActivityParticipantController::class, 'user']);
@@ -26,13 +27,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('activity/admin/group', [\App\Http\Controllers\Api\Portal\ActivityAdminController::class, 'group']);
     Route::get('activity/admin/user', [\App\Http\Controllers\Api\Portal\ActivityAdminController::class, 'user']);
 
-    Route::get('activity/{activity}/evaluate/role', [\App\Http\Controllers\Api\Portal\ActivityParticipantEvaluationController::class, 'role']);
-    Route::get('activity/{activity}/evaluate/group', [\App\Http\Controllers\Api\Portal\ActivityParticipantEvaluationController::class, 'group']);
-    Route::get('activity/{activity}/evalute/user', [\App\Http\Controllers\Api\Portal\ActivityParticipantEvaluationController::class, 'user']);
+    // Retrieve evaluation of activity for the activity resource
+    Route::get('activity/{activity}/evaluate/resource', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'resource']);
+    Route::get('activity/{activity}/evaluate/participant', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'participant']);
+    Route::get('activity/{activity}/evaluate/admin', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'admin']);
 
-    Route::get('activity/{activity}/evaluate/admin/role', [\App\Http\Controllers\Api\Portal\ActivityAdminEvaluationController::class, 'role']);
-    Route::get('activity/{activity}/evaluate/admin/group', [\App\Http\Controllers\Api\Portal\ActivityAdminEvaluationController::class, 'group']);
-    Route::get('activity/{activity}/evaluate/admin/user', [\App\Http\Controllers\Api\Portal\ActivityAdminEvaluationController::class, 'user']);
+    // Retrieve evaluation of module instances
+    Route::get('activity/{activity}/evaluate/resource', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'resource']);
+    Route::get('activity/{activity}/module-instance/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'participant']);
+    Route::get('activity/{activity}/module-instance/admin/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'admin']);
 
 //    Route::apiResource('whoami', 'WhoAmIController')->only(['index']);
 

@@ -1,70 +1,50 @@
 <template>
     <div>
-        <v-list>
-            <v-skeleton-loader
-                :loading="loadingActivities"
-                transition="fade-transition"
-                type="list-item">
-                <div>
-                    <v-list-group v-model="showActivities">
-                        <template v-slot:activator>
-                            <v-list-item-title>More for {{resourceName}}</v-list-item-title>
-                        </template>
-
-
-                        <v-list-item v-for="activity in activities" :key="activity.id" link :href="addQueryToUrl('/p/' + activity.slug)">
-                            <v-list-item-title>{{ activity.name }}</v-list-item-title>
-                        </v-list-item>
-
-                    </v-list-group>
-                </div>
-            </v-skeleton-loader>
-        </v-list>
+        <v-skeleton-loader
+            :loading="loading"
+            transition="scale-transition"
+            type="card"
+        >
+            <v-row>
+                <v-col v-for="activity in activities" :key="activity.id" cols="12" lg="4" md="6" xl="3">
+                    <p-activity-card :activity="activity" :admin="admin" :query="query"></p-activity-card>
+                </v-col>
+            </v-row>
+        </v-skeleton-loader>
     </div>
 </template>
 
 <script>
+
+import PActivityCard from 'Components/PActivityCard';
+
 export default {
-    name: "PNavDrawerActivity",
-
-    props: {
-
-    },
-
+    name: "PActivitiesLayout",
+    components: {PActivityCard},
     data() {
         return {
             activities: [],
-            loadingActivities: false,
-            showActivities: true
+            loading: false
         }
     },
-
+    props: {
+        admin: {
+            required: true,
+            type: Boolean
+        }
+    },
     created() {
         this.loadActivities();
     },
-
     methods: {
-        addQueryToUrl(url) {
-            let params = {};
-            if(this.hasUser) {
-                params.u = this.user.id;
-            }
-            if(this.hasGroup) {
-                params.g = this.group.id;
-            }
-            if(this.hasRole) {
-                params.r = this.role.id;
-            }
-            return url + '?' + Object.keys(params).map(param => param + '=' + params[param]).join('&');
-        },
         loadActivities() {
-            this.loadingActivities = true;
+            this.loading = true;
             this.getActivities()
                 .then(response => this.activities = response.data)
                 .catch(error => {
                     console.log(error);
                 })
-                .finally(() => this.loadingActivities = false)
+                .finally(() => this.loading = false)
         },
         getActivities() {
             if (this.admin) {
@@ -85,7 +65,6 @@ export default {
             return this.$api.activities().forUser(this.userId);
         }
     },
-
     computed: {
         hasUser() {
             return window.portal.hasOwnProperty('user') && window.portal.user !== null && window.portal.user.hasOwnProperty('id');
@@ -96,32 +75,36 @@ export default {
         hasRole() {
             return window.portal.hasOwnProperty('role') && window.portal.role !== null && window.portal.role.hasOwnProperty('id');
         },
-        user() {
+        userId() {
             if (this.hasUser) {
-                return window.portal.user;
+                return window.portal.user.id;
             }
             return null;
         },
-        group() {
+        groupId() {
             if (this.hasGroup) {
-                return window.portal.group;
+                return window.portal.group.id;
             }
             return null;
         },
-        role() {
+        roleId() {
             if (this.hasRole) {
-                return window.portal.role;
+                return window.portal.role.id;
             }
             return null;
         },
-        resourceName() {
-            if(this.hasRole) {
-                return this.role.data.role_name + ' of ' + this.group.data.name;
+        query() {
+            let query = {};
+            if (this.hasUser) {
+                query.u = this.userId;
             }
-            if(this.hasGroup) {
-                return 'membership to ' + this.group.data.name;
+            if (this.hasGroup) {
+                query.g = this.groupId;
             }
-            return 'you';
+            if (this.hasRole) {
+                query.r = this.roleId;
+            }
+            return query;
         }
     }
 }

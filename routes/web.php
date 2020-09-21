@@ -1,23 +1,27 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Pages\ActivityController;
+use App\Http\Controllers\Pages\PortalController;
 use Illuminate\Support\Facades\Route;
 
 // Laravel Authentication Routes
-Route::get('login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
-Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 //
 //// Registration Routes...
-//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-//Route::post('register', 'Auth\RegisterController@register');
+Route::get('register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
 //
 //// Email Verification Routes...
-//Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify', [\App\Http\Controllers\Auth\VerificationController::class, 'show'])->name('verification.notice');
 //Route::middleware('link')->get('email/verify/authorize', 'Auth\VerificationController@verify')->name('verification.verify');
-//Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 //
-//// Password Reset Routes...
-//Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// Password Reset Routes...
+// Show the forgot password form
+Route::get('password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 //Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 //Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 //Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
@@ -59,19 +63,19 @@ Route::middleware(['auth', 'verified', 'portal'])->group(function () {
 //        Route::get('/control', 'ControlController@index')->name('control');
 //
 //        Route::middleware('nonmodule')->group(function () {
-            Route::get('/portal', [\App\Http\Controllers\Pages\PortalController::class, 'portal'])->name('portal');
 //            Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
-            Route::get('/a', [\App\Http\Controllers\Pages\PortalController::class, 'administrator'])->name('administrator');
-            Route::get('/p', [\App\Http\Controllers\Pages\PortalController::class, 'participant'])->name('participant');
+    Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
+    Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
+    Route::get('/p', [PortalController::class, 'participant'])->name('participant');
 //            Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
 //
 //        });
 //
-        Route::middleware('activity')->group(function () {
-            Route::middleware('administrator')->get('/a/{activity_slug}', 'ActivityController@administrator')->name('administrator.activity');
-            Route::middleware('participant')->get('/p/{activity_slug}', 'ActivityController@participant')->name('participant.activity');
-        });
-//
+    Route::middleware('activity')->group(function () {
+        Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
+        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
+    });
+
 //    });
 //
 });

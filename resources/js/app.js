@@ -2,7 +2,11 @@ import Vue from 'vue';
 import vuetify from '@/plugins/vuetify';
 import VueFormGenerator from 'vue-form-generator'
 import PLogin from 'Pages/auth/PLogin';
-import PPortal from 'Pages/portal/PActivityLayout';
+import PRegister from 'Pages/auth/PRegister';
+import PVerify from 'Pages/auth/PVerify';
+
+import PActivitiesLayout from 'Pages/portal/PActivitiesLayout';
+import PActivityLayout from 'Pages/portal/PActivityLayout';
 import PDashboard from 'Pages/portal/PDashboard';
 import PApp from 'Components/page/PApp';
 import PHeader from 'Components/page/PHeader';
@@ -42,7 +46,11 @@ new Vue({
         PFooter,
 
         PLogin,
-        PPortal,
+        PRegister,
+        PVerify,
+
+        PActivitiesLayout,
+        PActivityLayout,
         PDashboard
     }
 });
