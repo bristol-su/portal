@@ -4,7 +4,7 @@
 
 @section('app-content')
     <p-verify
-        email-sent="{{session('resent')}}"
+        :email-sent="{{(session('resent', false) ? 'true' : 'false')}}"
     >
-        </div>
+    </p-verify>
 @endsection

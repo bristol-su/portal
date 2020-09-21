@@ -7,7 +7,7 @@
             :permanent="showDrawer"
             :mini-variant.sync="isMini"
             v-model="showDrawer"
-            v-if="isLoggedIn">
+            v-if="drawerTag !== 'none'">
 
             <template v-slot:prepend>
                 <v-list-item>
@@ -29,7 +29,7 @@
 
             <v-divider></v-divider>
 
-            <component :is="drawerTag"></component>
+            <component :is="drawerTag" v-if="drawerTag !== 'none'"></component>
 
             <template v-slot:append>
                 <div class="pa-2">
@@ -50,7 +50,7 @@
 
         <v-app-bar app clipped-left color="primary">
 
-            <v-app-bar-nav-icon @click.stop="toggleDrawer" v-if="isLoggedIn && tinyScreen"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon @click.stop="toggleDrawer" v-if="drawerTag !== 'none' && tinyScreen"></v-app-bar-nav-icon>
 
             <v-spacer></v-spacer>
 

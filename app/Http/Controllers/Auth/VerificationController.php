@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Notifications\VerifyEmail;
+use App\Support\DrawerTag;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\VerifiesEmails;
@@ -52,7 +53,8 @@ class VerificationController extends Controller
     {
         return $request->user()->hasVerifiedEmail()
             ? redirect($this->redirectPath())
-            : view('pages.auth.verify');
+            : view('pages.auth.verify')->with('drawerTag', DrawerTag::NONE);
+
     }
 
     /**
@@ -65,8 +67,6 @@ class VerificationController extends Controller
      */
     public function verify(Request $request)
     {
-        // TODO Move this check into middleware
-
         $id = $request->get('id');
         if($id !== $request->user()->id) {
             throw new AuthorizationException;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Support\DrawerTag;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 
@@ -39,9 +40,10 @@ class ForgotPasswordController extends Controller
      */
     public function showLinkRequestForm()
     {
-        return view('pages.auth.passwords.email');
+        return view('pages.auth.passwords.email')
+            ->with('drawerTag', DrawerTag::NONE);
     }
-
+// TODO Convert Auth to use predominantly API for smoother interactions
     /**
      * Get the needed authentication credentials from the request.
      *

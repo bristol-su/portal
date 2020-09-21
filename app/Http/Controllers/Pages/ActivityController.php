@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Support\DrawerTag;
 use BristolSU\Support\Activity\Activity;
 
 class ActivityController extends Controller
@@ -13,7 +14,7 @@ class ActivityController extends Controller
         return view('pages.portal.activity')->with([
             'activity' => $activity,
             'admin' => false,
-            'drawerTag' => 'p-nav-drawer-activity'
+            'drawerTag' => DrawerTag::ACTIVITY
         ]);
     }
 
@@ -22,7 +23,7 @@ class ActivityController extends Controller
         return view('pages.portal.activity')->with([
             'activity' => $activity,
             'admin' => true,
-            'drawerTag' => 'p-nav-drawer-activity'
+            'drawerTag' => DrawerTag::ACTIVITY
         ]);
     }
 

@@ -4,6 +4,8 @@ import VueFormGenerator from 'vue-form-generator'
 import PLogin from 'Pages/auth/PLogin';
 import PRegister from 'Pages/auth/PRegister';
 import PVerify from 'Pages/auth/PVerify';
+import PPasswordEmailForm from 'Pages/auth/PPasswordEmailForm';
+import PResetPassword from 'Pages/auth/PResetPassword';
 
 import PActivitiesLayout from 'Pages/portal/PActivitiesLayout';
 import PActivityLayout from 'Pages/portal/PActivityLayout';
@@ -48,6 +50,8 @@ new Vue({
         PLogin,
         PRegister,
         PVerify,
+        PPasswordEmailForm,
+        PResetPassword,
 
         PActivitiesLayout,
         PActivityLayout,

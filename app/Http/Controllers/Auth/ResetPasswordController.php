@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Support\DrawerTag;
 use BristolSU\Support\User\Contracts\UserRepository;
 use BristolSU\Support\User\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class ResetPasswordController extends Controller
 {
@@ -38,6 +40,33 @@ class ResetPasswordController extends Controller
     }
 
     /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    public function reset(Request $request)
+    {
+        $request->validate($this->rules(), $this->validationErrorMessages());
+
+        // Here we will attempt to reset the user's password. If it is successful we
+        // will update the password on an actual user model and persist it to the
+        // database. Otherwise we will parse the error and return the response.
+        $response = $this->broker()->reset(
+            $this->credentials($request), function ($user, $password) {
+            $this->resetPassword($user, $password);
+        }
+        );
+
+        // If the password was successfully reset, we will redirect the user back to
+        // the application's home authenticated view. If there is an error we can
+        // redirect them back to where they came from with their error message.
+        return $response == Password::PASSWORD_RESET
+            ? $this->sendResetResponse($request, $response)
+            : $this->sendResetFailedResponse($request, $response);
+    }
+
+    /**
      * @param Request $request
      * @param null $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -51,8 +80,8 @@ class ResetPasswordController extends Controller
 
         $identifier = $this->getIdentifierFromEmail($request->input('email'));
 
-        return view('auth.passwords.reset')->with(
-            ['token' => $token, 'identifier' => $identifier]
+        return view('pages.auth.passwords.reset')->with(
+            ['token' => $token, 'identifier' => $identifier, 'drawerTag' => DrawerTag::NONE]
         );
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\UserVerificationRequestGenerated;
 use App\Http\Controllers\Controller;
+use App\Support\DrawerTag;
 use BristolSU\ControlDB\Contracts\Repositories\DataUser;
 use BristolSU\Support\User\Contracts\UserAuthentication;
 use BristolSU\Support\User\Contracts\UserRepository;
@@ -42,7 +43,9 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('pages.auth.register');
+        return view('pages.auth.register')
+            ->with('drawerTag', DrawerTag::NONE);
+
     }
 
     /**

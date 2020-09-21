@@ -27,7 +27,8 @@
         "laravel/socialite": "^5.0",
         "laravel/vapor-core": "^2.5",
         "predis/predis": "^1.1",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^3.0",
+        "linkeys/signed-url": "^3.0.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",

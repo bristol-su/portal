@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('activity/{activity}/evaluate/admin', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'admin']);
 
     // Retrieve evaluation of module instances
-    Route::get('activity/{activity}/evaluate/resource', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'resource']);
+    Route::get('activity/{activity}/module-instance/evaluate/resource', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'resource']);
     Route::get('activity/{activity}/module-instance/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'participant']);
     Route::get('activity/{activity}/module-instance/admin/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'admin']);
 

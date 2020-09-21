@@ -25,7 +25,7 @@
                 transition="scale-transition">
 
             <v-progress-linear
-                v-model="evaluation.percentage"
+                :value="evaluation.percentage"
                 :color="activityPercentageColour"
                 height="25"
             >

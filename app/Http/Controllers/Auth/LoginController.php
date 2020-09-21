@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Support\DrawerTag;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,9 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('pages.auth.login');
+        return view('pages.auth.login')
+            ->with('drawerTag', DrawerTag::NONE);
+
     }
 
     /**
