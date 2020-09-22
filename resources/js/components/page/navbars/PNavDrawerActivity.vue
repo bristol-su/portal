@@ -1,6 +1,12 @@
 <template>
     <div>
         <v-list>
+            <v-list-item link :href="addQueryToUrl('/p')">
+                <v-list-item-icon>
+                    <v-icon>mdi-arrow-left</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>All activities</v-list-item-title>
+            </v-list-item>
             <v-skeleton-loader
                 :loading="loadingActivities"
                 transition="fade-transition"

@@ -4,7 +4,8 @@
         max-width="344"
     >
         <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            :src="moduleInstance.image_url"
+            v-if="moduleInstance.image_url !== null"
             height="200px"
         ></v-img>
 
@@ -51,6 +52,10 @@
                 <v-icon>{{ expand ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
             </v-btn>
         </v-card-actions>
+
+        <v-card-text>
+
+        </v-card-text>
 
         <v-expand-transition>
             <div v-show="expand">

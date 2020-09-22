@@ -8,12 +8,15 @@
                     <v-img
                         class="white--text align-end"
                         height="200px"
-                        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                        v-if="activity.image_url !== null"
+                        :src="activity.image_url"
                     >
                         <v-card-title>{{ activity.name }}</v-card-title>
                     </v-img>
 
-                    <v-card-subtitle class="pb-0">10% Complete</v-card-subtitle>
+                    <v-card-subtitle class="pb-0">
+
+                    </v-card-subtitle>
 
                 </v-card>
             </v-col>

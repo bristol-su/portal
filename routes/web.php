@@ -33,12 +33,13 @@ Route::post('password/reset', [\App\Http\Controllers\Auth\ResetPasswordControlle
 //Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 //
 //// Landing Page Route
-//Route::middleware('guest')->get('/', 'Pages\LandingController@index');
+Route::middleware('guest')->get('/', [\App\Http\Controllers\Pages\LandingController::class, 'index']);
 //Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
 //Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 //
-Route::middleware(['auth', 'verified', 'portal'])->group(function () {
-//    // Custom Authentication Routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::middleware('portal')->group(function() {
+        //    // Custom Authentication Routes
 //    Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
 //    Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
 //
@@ -67,12 +68,14 @@ Route::middleware(['auth', 'verified', 'portal'])->group(function () {
 //
 //        Route::middleware('nonmodule')->group(function () {
 //            Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
-    Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
-    Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
-    Route::get('/p', [PortalController::class, 'participant'])->name('participant');
+        Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
+        Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
+        Route::get('/p', [PortalController::class, 'participant'])->name('participant');
 //            Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
 //
 //        });
+    });
+
 //
     Route::middleware('activity')->group(function () {
         Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
