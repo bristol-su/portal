@@ -182,7 +182,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\ControlServiceProvider::class,
         \App\Providers\AdditionalAttributeProvider::class,
-        \App\Providers\GoogleDriveServiceProvider::class
+        \App\Providers\GoogleDriveServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
     ],
 
     /*

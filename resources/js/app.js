@@ -26,7 +26,7 @@ Vue.component('p-nav-drawer-settings', PNavDrawerSettings);
 
 import PMain from 'Components/page/PMain';
 import PFooter from 'Components/page/PFooter';
-import api from '@/utilities/api/api';
+import Api from '@/utilities/api/api';
 
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -36,7 +36,8 @@ if (token) {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 }
 
-Vue.prototype.$api = new api(portal.API_URL, axios);
+Vue.prototype.$api = new Api(portal.API_URL, axios);
+Vue.prototype.$env = environment;
 
 new Vue({
     el: '#vue-root-app',

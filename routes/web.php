@@ -67,6 +67,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //        Route::get('/control', 'ControlController@index')->name('control');
 //
 //        Route::middleware('nonmodule')->group(function () {
+        Route::redirect('/welcome', '/portal')->name('welcome');
 //            Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
         Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
         Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');

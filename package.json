@@ -43,6 +43,7 @@
         "vee-validate": "^3.3.11",
         "vue": "^2.6.12",
         "vue-form-generator": "^2.3.4",
-        "vuetify": "^2.3.10"
+        "vuetify": "^2.3.10",
+        "@bristol-su/frontend-toolkit": "*"
     }
 }
