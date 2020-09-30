@@ -28,6 +28,8 @@ import PMain from 'Components/page/PMain';
 import PFooter from 'Components/page/PFooter';
 import Api from '@/utilities/api/api';
 
+import ToolInstaller from '@bristol-su/frontend-toolkit/dist/VueInstaller';
+Vue.use(ToolInstaller);
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -37,7 +39,6 @@ if (token) {
 }
 
 Vue.prototype.$api = new Api(portal.API_URL, axios);
-Vue.prototype.$env = environment;
 
 new Vue({
     el: '#vue-root-app',

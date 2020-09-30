@@ -104,19 +104,9 @@ export default {
             type: String,
             default: 'Portal'
         },
-        isLoggedIn: {
-            required: false,
-            type: Boolean,
-            default: false
-        },
         drawerTag: {
             required: true,
             type: String
-        },
-        firstName: {
-            required: false,
-            type: String,
-            default: ''
         }
     },
     created() {
@@ -152,7 +142,7 @@ export default {
             },
             set(val) {
                 this.$vuetify.theme.dark = val;
-                this.setUserPreference('dark-mode', (val ? 'true' : 'false'));
+                this.$tools.settings.user.set('dark-mode', (val ? 'true' : 'false'));
             }
         },
         drawerWidth() {
@@ -167,6 +157,9 @@ export default {
                 return '45%';
             }
             return '90%'
+        },
+        isLoggedIn() {
+            return !this.$tools.environment.authentication.isGuest();
         }
     }
 }

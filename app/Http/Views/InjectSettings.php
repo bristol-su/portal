@@ -5,6 +5,8 @@ namespace App\Http\Views;
 
 
 use App\Support\Settings\SettingRepository;
+use BristolSU\ControlDB\Contracts\Repositories\User as UserRepository;
+use BristolSU\Support\User\Contracts\UserAuthentication;
 use Illuminate\Contracts\View\View;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade;
 
@@ -15,10 +17,20 @@ class InjectSettings
      * @var SettingRepository
      */
     private SettingRepository $settingRepository;
+    /**
+     * @var UserAuthentication
+     */
+    private UserAuthentication $userAuthentication;
+    /**
+     * @var UserRepository
+     */
+    private UserRepository $userRepository;
 
-    public function __construct(SettingRepository $settingRepository)
+    public function __construct(SettingRepository $settingRepository, UserAuthentication $userAuthentication, UserRepository $userRepository)
     {
         $this->settingRepository = $settingRepository;
+        $this->userAuthentication = $userAuthentication;
+        $this->userRepository = $userRepository;
     }
 
     public function compose(View $view)
@@ -26,7 +38,7 @@ class InjectSettings
         JavaScriptFacade::put([
             'siteSettings' => $this->settingRepository->all(),
             'APP_URL' => config('app.url'),
-            'API_URL' => config('app.api_url'),
+            'API_URL' => config('app.api_url')
         ]);
     }
 

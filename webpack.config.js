@@ -7,7 +7,7 @@ const WebpackAssetsManifest = require('webpack-assets-manifest');
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var WebpackNotifierPlugin = require('webpack-notifier');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 // TODO https://vuejs.org/v2/guide/deployment.html#Extracting-Component-CSS
 
