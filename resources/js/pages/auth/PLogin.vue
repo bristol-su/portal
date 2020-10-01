@@ -14,7 +14,7 @@
                             <span class="primary--text">Sign In</span>
                         </v-card-title>
                         <v-card-text>
-                            <input type="hidden" :value="csrf" name="_token" id="_token"/>
+                            <csrf-token></csrf-token>
 
                             <validation-provider
                                 v-slot="{ errors }"
@@ -100,14 +100,13 @@
 </template>
 
 <script>
-import csrf from 'Mixins/csrf';
 import validation from 'Mixins/validation';
 import {required, email} from 'vee-validate/dist/rules';
 import sitesettings from 'Mixins/sitesettings';
 
 export default {
     name: "PLogin",
-    mixins: [csrf, validation, sitesettings],
+    mixins: [validation, sitesettings],
     props: {
         route: {
             required: true,
@@ -144,14 +143,6 @@ export default {
     },
     mounted() {
         this.setServerErrors(this.$refs.observer);
-    },
-    methods: {
-        submit(event) {
-            event();
-            alert('hi');
-            this.loading = true;
-            this.$refs.form.submit();
-        }
     }
 }
 </script>

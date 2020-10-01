@@ -35,7 +35,7 @@
                 <div class="pa-2">
                     <v-switch v-if="!isMini" v-model="darkMode" inset :label="'Dark Mode ' + (darkMode ? 'On' : 'Off')"></v-switch>
                     <v-form action="/logout" method="POST">
-                        <input type="hidden" name="_token" :value="csrf" />
+                        <csrf-token></csrf-token>
                         <v-btn type="submit" text v-if="!isMini">
                             Sign out <v-icon>mdi-logout</v-icon>
                         </v-btn>
@@ -92,12 +92,9 @@
 </template>
 
 <script>
-import csrf from 'Mixins/csrf';
-import userpreferences from 'Mixins/userpreferences';
 
 export default {
     name: "PHeader",
-    mixins: [csrf, userpreferences],
     props: {
         title: {
             required: false,
@@ -160,6 +157,12 @@ export default {
         },
         isLoggedIn() {
             return !this.$tools.environment.authentication.isGuest();
+        },
+        firstName() {
+            if(this.$tools.environment.authentication.hasUser()) {
+                return this.$tools.environment.authentication.getDataUser().first_name;
+            }
+            return '';
         }
     }
 }
