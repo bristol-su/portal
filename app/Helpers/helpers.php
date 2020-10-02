@@ -8,9 +8,9 @@ if (!function_exists('siteSetting')) {
      * @param mixed $default Default to return if the setting is not found
      * @return mixed Value of the setting
      */
-    function siteSetting(string $key, $default = null)
+    function siteSetting(string $key)
     {
-        return app(\App\Support\Settings\SettingRepository::class)->get($key, $default);
+        return app(\BristolSU\Support\Settings\SettingRepository::class)->get($key);
     }
 }
 

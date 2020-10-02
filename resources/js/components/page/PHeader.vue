@@ -96,11 +96,6 @@
 export default {
     name: "PHeader",
     props: {
-        title: {
-            required: false,
-            type: String,
-            default: 'Portal'
-        },
         drawerTag: {
             required: true,
             type: String
@@ -163,6 +158,9 @@ export default {
                 return this.$tools.environment.authentication.getDataUser().first_name;
             }
             return '';
+        },
+        title() {
+            return this.$tools.settings.site.get('Appearance.Messaging.SiteTitle')
         }
     }
 }

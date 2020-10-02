@@ -1,3 +1,3 @@
 <p-footer app>
-    {!! siteSetting('pageText.footer', 'Portal Footer') !!}
+    {!! siteSetting('Appearance.Messaging.Footer') !!}
 </p-footer>
