@@ -2,7 +2,6 @@
 
 namespace App\Support\Auth;
 
-use App\Support\Settings\SettingRepository;
 use BristolSU\ControlDB\Contracts\Repositories\DataUser;
 use BristolSU\Support\User\Contracts\UserRepository;
 use BristolSU\Support\User\User;
@@ -81,7 +80,7 @@ class UserProvider implements \Illuminate\Contracts\Auth\UserProvider
 
         try {
             $dataUser = app(DataUser::class)->getWhere([
-                siteSetting('authentication.registration_identifier.identifier', 'email') => $credentials['identifier']
+                siteSetting('Authentication.Attributes.Identifier') => $credentials['identifier']
             ]);
         } catch (ModelNotFoundException $e) {
             return null;

@@ -22,14 +22,14 @@
                                 rules="required">
 
                                 <v-text-field
-                                    :label="getSetting(settingKeys.authentication.identifier.label)"
+                                    :label="$tools.settings.site.get('Authentication.Attributes.IdentifierLabel')"
                                     id="identifier"
                                     name="identifier"
                                     v-model="credentials.identifier"
                                     prepend-icon="mdi-account"
                                     :error-messages="errors"
                                     type="text"
-                                    :autofocus="!hasServerErrors('identifier')"
+                                    :autofocus="!$tools.validation.server.has('identifier')"
                                 ></v-text-field>
                             </validation-provider>
 
@@ -42,13 +42,16 @@
                                 type="password"
                             ></v-text-field>
 
-                            <v-checkbox
-                                class="ma-0"
+                            <v-switch
                                 id="remember"
                                 name="remember"
-                                v-model="credentials.remember"
-                                label="Remember Me"
-                            ></v-checkbox>
+                                class="ma-0"
+                                :input-value="credentials.remember"
+                                @change="credentials.remember = $event"
+                                label="Remember me"
+                                :value="credentials.remember"
+                            ></v-switch>
+
                         </v-card-text>
                         <v-card-actions>
                             <v-btn color="primary" block type="submit" aria-label="Login" :disabled="invalid"
@@ -102,40 +105,27 @@
 <script>
 import validation from 'Mixins/validation';
 import {required, email} from 'vee-validate/dist/rules';
-import sitesettings from 'Mixins/sitesettings';
 
 export default {
     name: "PLogin",
-    mixins: [validation, sitesettings],
+    mixins: [validation],
     props: {
         route: {
             required: true,
             type: String
-        },
-        defaultIdentifier: {
-            required: false,
-            type: String,
-            default: null
-        },
-        defaultRemember: {
-            required: false,
-            type: Boolean,
-            default: false
         }
     },
     data() {
         return {
             credentials: {
-                identifier: null,
+                identifier: this.$tools.validation.oldInput.get('identifier', null),
                 password: null,
-                remember: false
+                remember: this.$tools.validation.oldInput.get('remember', 'false') === 'true'
             },
             loading: false
         }
     },
     created() {
-        this.credentials.identifier = this.defaultIdentifier;
-        this.credentials.remember = this.defaultRemember;
         this.useRules({
             email,
             required

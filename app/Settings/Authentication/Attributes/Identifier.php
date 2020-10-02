@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Settings\Appearance\Messaging;
+
+namespace App\Settings\Authentication\Attributes;
+
 
 use BristolSU\Support\Settings\Definition\Definition;
 
-class Footer extends Definition
+class Identifier extends Definition
 {
 
     public static function key(): string
     {
-        return 'Appearance.Messaging.Footer';
+        return 'Authentication.Attributes.Identifier';
     }
 
     public static function defaultValue()
     {
-        return '';
+        return 'email';
     }
 }

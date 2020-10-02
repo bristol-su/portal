@@ -1,15 +1,6 @@
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 
 export default {
-    props: {
-        serverErrors: {
-            required: false,
-            type: Object,
-            default: function() {
-                return {};
-            }
-        }
-    },
     components: {
         ValidationProvider, ValidationObserver
     },
@@ -25,6 +16,9 @@ export default {
         },
         hasServerErrors(key) {
             return this.serverErrors.hasOwnProperty(key) && this.serverErrors[key].length > 0;
+        },
+        serverErrors() {
+            return this.$tools.validation.server.all()
         }
     }
 }

@@ -27,7 +27,8 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('pages.auth.login')
-            ->with('drawerTag', DrawerTag::NONE);
+            ->with('drawerTag', DrawerTag::NONE)
+            ->withErrors(['test' => 'one']);
 
     }
 

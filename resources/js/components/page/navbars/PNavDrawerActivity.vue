@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-list>
-            <v-list-item link :href="addQueryToUrl('/p')">
+            <v-list-item link :href="$tools.routes.addQueryStringToWebUrl('/p')">
                 <v-list-item-icon>
                     <v-icon>mdi-arrow-left</v-icon>
                 </v-list-item-icon>
@@ -14,11 +14,12 @@
                 <div>
                     <v-list-group v-model="showActivities">
                         <template v-slot:activator>
-                            <v-list-item-title>More for {{resourceName}}</v-list-item-title>
+                            <v-list-item-title>More for {{ resourceName }}</v-list-item-title>
                         </template>
 
 
-                        <v-list-item v-for="activity in activities" :key="activity.id" link :href="addQueryToUrl('/p/' + activity.slug)">
+                        <v-list-item v-for="activity in activities" :key="activity.id" link
+                                     :href="$tools.routes.addQueryStringToWebUrl('/p/' + activity.slug)">
                             <v-list-item-title>{{ activity.name }}</v-list-item-title>
                         </v-list-item>
 
@@ -33,10 +34,6 @@
 export default {
     name: "PNavDrawerActivity",
 
-    props: {
-
-    },
-
     data() {
         return {
             activities: [],
@@ -50,19 +47,6 @@ export default {
     },
 
     methods: {
-        addQueryToUrl(url) {
-            let params = {};
-            if(this.hasUser) {
-                params.u = this.user.id;
-            }
-            if(this.hasGroup) {
-                params.g = this.group.id;
-            }
-            if(this.hasRole) {
-                params.r = this.role.id;
-            }
-            return url + '?' + Object.keys(params).map(param => param + '=' + params[param]).join('&');
-        },
         loadActivities() {
             this.loadingActivities = true;
             this.getActivities()
@@ -73,58 +57,33 @@ export default {
                 .finally(() => this.loadingActivities = false)
         },
         getActivities() {
-            if (this.admin) {
-                if (this.hasRole) {
-                    return this.$api.activities().forAdminRole(this.userId, this.groupId, this.roleId);
-                }
-                if (this.hasGroup) {
-                    return this.$api.activities().forAdminGroup(this.userId, this.groupId);
-                }
-                return this.$api.activities().forAdminUser(this.userId);
+            let role = (this.$tools.environment.authentication.hasRole() ? this.$tools.environment.authentication.getRole() : null);
+            let group = (this.$tools.environment.authentication.hasGroup() ? this.$tools.environment.authentication.getGroup() : null);
+            let user = (this.$tools.environment.authentication.hasUser() ? this.$tools.environment.authentication.getUser() : null);
+
+            let method = 'for';
+
+            if (this.$tools.environment.authentication.admin()) {
+                method += 'Admin';
             }
-            if (this.hasRole) {
-                return this.$api.activities().forRole(this.userId, this.groupId, this.roleId);
+            if (role !== null) {
+                method += 'Role';
+            } else if (group !== null) {
+                method += 'Group';
+            } else {
+                method += 'User';
             }
-            if (this.hasGroup) {
-                return this.$api.activities().forGroup(this.userId, this.groupId);
-            }
-            return this.$api.activities().forUser(this.userId);
+
+            return this.$api.activities()[method](user, group, role);
         }
     },
 
     computed: {
-        hasUser() {
-            return window.portal.hasOwnProperty('user') && window.portal.user !== null && window.portal.user.hasOwnProperty('id');
-        },
-        hasGroup() {
-            return window.portal.hasOwnProperty('group') && window.portal.group !== null && window.portal.group.hasOwnProperty('id');
-        },
-        hasRole() {
-            return window.portal.hasOwnProperty('role') && window.portal.role !== null && window.portal.role.hasOwnProperty('id');
-        },
-        user() {
-            if (this.hasUser) {
-                return window.portal.user;
-            }
-            return null;
-        },
-        group() {
-            if (this.hasGroup) {
-                return window.portal.group;
-            }
-            return null;
-        },
-        role() {
-            if (this.hasRole) {
-                return window.portal.role;
-            }
-            return null;
-        },
         resourceName() {
-            if(this.hasRole) {
+            if (this.hasRole) {
                 return this.role.data.role_name + ' of ' + this.group.data.name;
             }
-            if(this.hasGroup) {
+            if (this.hasGroup) {
                 return 'membership to ' + this.group.data.name;
             }
             return 'you';
