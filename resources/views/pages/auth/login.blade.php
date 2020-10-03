@@ -3,8 +3,5 @@
 @section('title', 'Login')
 
 @section('app-content')
-        <p-login
-            route="{{route('login')}}"
-            class="align-center">
-    </div>
+    <p-login></p-login>
 @endsection
