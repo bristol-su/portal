@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Support\DrawerTag;
+use BristolSU\Support\Translation\Detect;
+use BristolSU\Support\Translation\Locale;
+use BristolSU\Support\Translation\Translate;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 

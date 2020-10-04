@@ -28,8 +28,9 @@ import PMain from 'Components/page/PMain';
 import PFooter from 'Components/page/PFooter';
 import Api from '@/utilities/api/api';
 
-import ToolInstaller from '@bristol-su/frontend-toolkit/dist/VueInstaller';
-Vue.use(ToolInstaller);
+import {VueInstaller} from '@bristol-su/frontend-toolkit/dist/VueInstaller';
+Vue.use(VueInstaller);
+Vue.use(vuetify);
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

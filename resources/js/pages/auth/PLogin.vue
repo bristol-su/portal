@@ -13,7 +13,7 @@
                 method="POST">
                 <v-card>
                     <v-card-title class="justify-center">
-                        <span class="primary--text">Sign In</span>
+                        <span class="primary--text"><translate text="Sign In"></translate></span>
                     </v-card-title>
                     <v-card-text>
                         <csrf-token></csrf-token>

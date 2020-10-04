@@ -9,8 +9,10 @@ use App\Filters\Group\PredefinedFilter as PredefinedGroupFilter;
 use App\Filters\Role\PredefinedFilter as PredefinedRoleFilter;
 use App\Filters\User\PredefinedFilter as PredefinedUserFilter;
 use App\Rules\CustomValidator;
+use App\Support\Handlers\AWSTranslator;
 use BristolSU\Support\Action\Facade\ActionManager;
 use BristolSU\Support\Filters\Contracts\FilterManager as FilterManagerContract;
+use BristolSU\Support\Translation\Translate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
@@ -30,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
         Validator::resolver(function($translator, $data, $rules, $messages, $attributes)
         {
             return new CustomValidator($translator, $data, $rules, $messages, $attributes);
+        });
+
+        Translate::extend('aws', function($container, $config) {
+            return new AWSTranslator($config);
         });
 
     }
