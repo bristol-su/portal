@@ -31,6 +31,7 @@ services:
       MAIL_DRIVER: smtp
       MAIL_HOST: mailhog
       MAIL_PORT: 1025
+      MAIL_ENCRYPTION: ""
       AWS_STATIC_BUCKET: bristol-su-static-bucket
       AWS_STATIC_FOLDER: committee-portal
       AWS_STATIC_URL: s3.eu-west-2.amazonaws.com

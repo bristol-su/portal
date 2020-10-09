@@ -10,7 +10,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -26,7 +26,7 @@
 
                                             <div class="form-group row">
                                                 <label for="identifier"
-                                                       class="col-md-4 col-form-label text-md-right">{{ ucfirst(siteSetting('authentication.registration_identifier.identifier')) }}</label>
+                                                       class="col-md-4 col-form-label text-md-right">{{ ucfirst(siteSetting('authentication.registration_identifier.identifier', 'email')) }}</label>
 
                                                 <div class="col-md-6">
                                                     <input id="identifier" type="text"
@@ -68,32 +68,39 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row mb-0">
+                                            <div class="form-group row">
                                                 <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" class="btn btn-primary">
-                                                        {{ __('Register') }}
+                                                    <button type="submit" class="btn btn-block btn-primary">
+                                                        {{ __('Create Account') }}
                                                     </button>
                                                 </div>
                                             </div>
                                         </form>
+                                        <div class="form-group row">
+                                            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-xl-6 offset-md-4">
+                                                <a class="btn btn-link" href="{{ route('login') }}">
+                                                    {{ __('I have an account!') }}
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             @if(is_array(siteSetting('thirdPartyAuthentication.providers', [])) && count(siteSetting('thirdPartyAuthentication.providers', [])) > 0)
 
-                            <div class="col-md-3" style="border-left: 2px solid black">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5>Or login with...</h5>
+                                <div class="col-md-3" style="border-left: 2px solid black">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5>Or login with...</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <social-login
+                                                :providers="{{json_encode(siteSetting('thirdPartyAuthentication.providers'))}}"></social-login>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <social-login
-                                            :providers="{{json_encode(siteSetting('thirdPartyAuthentication.providers'))}}"></social-login>
-                                    </div>
-                                </div>
-                            </div>
                             @endif
                         </div>
                     </div>

@@ -11,7 +11,8 @@
                         {!! siteSetting('pageText.landing', 'Welcome to the portal!') !!}
                     </p>
                     {{--                    <a href="{{url('/login')}}" class="btn btn-primary m-2">Login</a>--}}
-                    <a href="{{url('/register')}}" class="btn btn-lg btn-secondary m-1">Register</a>
+                    <a href="{{url('/register')}}" class="btn btn-lg btn-primary m-1">Register</a>
+                    <a href="{{url('/login')}}" class="btn btn-lg btn-outline-secondary m-1">Login</a>
                 </div>
             </div>
         </div>

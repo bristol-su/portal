@@ -29,7 +29,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->userAuthentication->getUser() !== null) {
-            return redirect()->route('portal');
+            return redirect()->route('login');
         }
 
         return $next($request);
