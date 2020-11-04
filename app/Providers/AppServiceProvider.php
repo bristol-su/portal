@@ -34,10 +34,6 @@ class AppServiceProvider extends ServiceProvider
             return new CustomValidator($translator, $data, $rules, $messages, $attributes);
         });
 
-        Translate::extend('aws', function($container, $config) {
-            return new AWSTranslator($config);
-        });
-
     }
 
     /**

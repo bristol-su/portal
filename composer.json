@@ -17,7 +17,7 @@
         "laravel/tinker": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
-        "bristol-su/support": "dev-feature/frontend as 4.7.2",
+        "bristol-su/support": "dev-portal-v4 as 4.7.2",
         "bristol-su/control": "dev-laravel-8 as 2.1.5",
         "bristol-su/upload-file": "dev-laravel-8 as 1.0",
         "bristol-su/static-page": "^1.1.1",
@@ -28,7 +28,8 @@
         "laravel/vapor-core": "^2.5",
         "predis/predis": "^1.1",
         "laravel/ui": "^3.0",
-        "linkeys/signed-url": "^3.0.0"
+        "linkeys/signed-url": "^3.0.0",
+        "twigger/laravel-translate": "^0.1.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
