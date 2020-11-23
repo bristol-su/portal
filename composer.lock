@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.163.2",
+            "version": "3.163.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ef46d2daf80f2a21809608ada7ba76dddfd103cd"
+                "reference": "f6cd8fe1334b19e1dc0d841fa1b2da7cd30a1e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ef46d2daf80f2a21809608ada7ba76dddfd103cd",
-                "reference": "ef46d2daf80f2a21809608ada7ba76dddfd103cd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f6cd8fe1334b19e1dc0d841fa1b2da7cd30a1e8a",
+                "reference": "f6cd8fe1334b19e1dc0d841fa1b2da7cd30a1e8a",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.163.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.163.3"
             },
-            "time": "2020-11-20T19:13:16+00:00"
+            "time": "2020-11-23T20:34:30+00:00"
         },
         {
             "name": "brick/math",
@@ -9519,7 +9519,7 @@
             "dist": {
                 "type": "path",
                 "url": "./../../../themes/blade-themes",
-                "reference": "9f754e53af99da100004ffe3ee81af8393e57232"
+                "reference": "abea37f72c3451bf54261f6b05c17c64c6a1bdd1"
             },
             "require": {
                 "doctrine/annotations": "^1.11",
@@ -11602,22 +11602,10 @@
     ],
     "aliases": [
         {
-            "package": "bristol-su/control",
-            "version": "dev-laravel-8",
-            "alias": "2.1.5",
-            "alias_normalized": "2.1.5.0"
-        },
-        {
             "package": "bristol-su/support",
             "version": "dev-portal-v4",
             "alias": "4.7.2",
             "alias_normalized": "4.7.2.0"
-        },
-        {
-            "package": "bristol-su/upload-file",
-            "version": "dev-laravel-8",
-            "alias": "1.0",
-            "alias_normalized": "1.0.0.0"
         }
     ],
     "minimum-stability": "dev",

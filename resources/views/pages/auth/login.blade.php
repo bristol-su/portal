@@ -10,13 +10,15 @@
             align="center"
             class="fill-height">
             <x-theme-col cols="12" sm="8" md="4">
-                ABC123
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <x-theme-card>
+                        <x-theme-card-title>Log In</x-theme-card-title>
+                    </x-theme-card>
+                </form>
             </x-theme-col>
         </x-theme-row>
 
-        <x-theme-button type="success">
-            Test
-        </x-theme-button>
     </x-theme-container>
     {{--            <p-form--}}
     {{--                v-slot="{ invalid }"--}}

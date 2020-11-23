@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'theme' => 'materialize',
+    'theme' => 'bootstrap',
     'tag-prefix' => 'theme',
     'components' => [
         \Twigger\Blade\Schema\Button::class,
