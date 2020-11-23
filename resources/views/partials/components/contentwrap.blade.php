@@ -1,3 +1,1 @@
-<p-main>
-    {{$slot}}
-</p-main>
+{{$slot}}

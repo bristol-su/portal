@@ -1,3 +1,1 @@
-<p-footer app>
-    {!! siteSetting('Appearance.Messaging.Footer') !!}
-</p-footer>
+{!! siteSetting('Appearance.Messaging.Footer') !!}

@@ -6,6 +6,11 @@
     @yield('app-content')
 @endsection
 
+
 @push('scripts')
-{{--        <script src="{{ webpack('portal.js') }}"></script>--}}
+    @include('theme::scripts')
+@endpush
+
+@push('styles')
+    @include('theme::styles')
 @endpush
