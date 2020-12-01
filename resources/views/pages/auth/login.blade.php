@@ -17,9 +17,13 @@
             And keep us <a href="#">informed</a>
         </x-theme-alert>
 
+        <hr />
+
         <x-theme-button variant="info">
             Test
         </x-theme-button>
+
+        <hr />
 
         <x-theme-spinner variant="info" size="lg" alt="Loading...">
 
@@ -27,4 +31,16 @@
         <x-theme-spinner variant="info" alt="Loading...">
 
         </x-theme-spinner>
+
+        <hr />
+
+        <x-theme-toggle id="testComponent" name="testComponent">
+            This is the test toggle
+        </x-theme-toggle>
+
+        <hr />
+
+        <x-theme-link href="{{route('login')}}">
+            This is a link to the same page!
+        </x-theme-link>
 @endsection
