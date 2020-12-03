@@ -82,11 +82,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./../support/support"
-        },
-        {
-            "type": "path",
-            "url": "./../../../themes/blade-themes"
+            "url": "./../blade-themes"
         }
     ]
 }
