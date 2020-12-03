@@ -82,7 +82,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./../blade-themes"
+            "url": "./blade-themes"
         }
     ]
 }
