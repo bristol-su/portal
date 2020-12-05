@@ -1,93 +1,201 @@
-@extends('layouts.portal')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <title>Theme Demo</title>
+    @include('theme::styles')
+</head>
+<body>
 
-@section('title', 'Theme Demo')
+<x-theme-alert variant="danger" :dismissible="true">
+    Uho, it looks like something went wrong! Give it another go :)
+</x-theme-alert>
+<x-theme-alert variant="success" :dismissible="true">
+    Or maybe it went right!
+</x-theme-alert>
+<x-theme-alert variant="warning" :dismissible="true">
+    Let's settle with being careful
+</x-theme-alert>
+<x-theme-alert variant="info" :dismissible="false">
+    And keep us <a href="#">informed</a>
+</x-theme-alert>
 
-@section('app-content')
+<hr/>
 
-        <x-theme-alert variant="danger" :dismissible="true" name="top-of-page">
-            Uho, it looks like something went wrong! Give it another go :)
-        </x-theme-alert>
-        <x-theme-alert variant="success" :dismissible="true">
-            Or maybe it went right!
-        </x-theme-alert>
-        <x-theme-alert variant="warning" :dismissible="true">
-            Let's settle with being careful
-        </x-theme-alert>
-        <x-theme-alert variant="info" :dismissible="false">
-            And keep us <a href="#">informed</a>
-        </x-theme-alert>
+<x-theme-button variant="info">
+    Test
+</x-theme-button>
 
-        <hr />
+<hr/>
 
-        <x-theme-button variant="info">
-            Test
-        </x-theme-button>
+<x-theme-spinner variant="info" size="lg" alt="Loading...">
 
-        <hr />
+</x-theme-spinner>
+<x-theme-spinner variant="info" alt="Loading...">
 
-        <x-theme-spinner variant="info" size="lg" alt="Loading...">
+</x-theme-spinner>
 
-        </x-theme-spinner>
-        <x-theme-spinner variant="info" alt="Loading...">
+<hr/>
 
-        </x-theme-spinner>
+<x-theme-toggle id="testComponent" name="testComponent">
+    This is the test toggle
+</x-theme-toggle>
 
-        <hr />
+<hr/>
 
-        <x-theme-toggle id="testComponent" name="testComponent">
-            This is the test toggle
-        </x-theme-toggle>
+<x-theme-link href="{{route('login')}}">
+    This is a link to the same page!
+</x-theme-link>
 
-        <hr />
+<hr/>
 
-        <x-theme-link href="{{route('login')}}">
-            This is a link to the same page!
-        </x-theme-link>
+<form>
+    <x-theme-select
+        id="some-select"
+        name="my-select"
+        label="This is my select"
+        help="Why not select an option?"
+        sr-label="A select for the demo page. This can only be seen by screen readers."
+        :errors="[]"
+        :disabled="true"
+        :validated="false"
+        :required="true"
+        :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
 
-        <hr/>
+    </x-theme-select>
 
-        <form>
-            <x-theme-select
-                id="some-select"
-                name="my-select"
-                label="This is my select"
-                help="Why not select an option?"
-                sr-label="A select for the demo page. This can only be seen by screen readers."
-                :errors="[]"
-                :validated="false"
-                :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
+    <x-theme-select
+        id="some-other-select"
+        name="my-select-2"
+        label="A select with errors"
+        help="This select has errors for validation"
+        sr-label="A select with errors for the demo page. This can only be seen by screen readers."
+        :errors="['This is the first error', 'And this is the second!']"
+        :validated="true"
+        :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
 
-            </x-theme-select>
+    </x-theme-select>
 
-            <x-theme-select
-                id="some-other-select"
-                name="my-select-2"
-                label="A select with errors"
-                help="This select has errors for validation"
-                sr-label="A select with errors for the demo page. This can only be seen by screen readers."
-                :errors="['This is the first error', 'And this is the second!']"
-                :validated="true"
-                :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
+    <x-theme-select
+        id="some-other-select-3"
+        name="my-select-3"
+        label="This is a valid select"
+        help="This select has no errors, but has been validated"
+        sr-label="Something or other here."
+        :errors="[]"
+        :validated="true"
+        :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
 
-            </x-theme-select>
+    </x-theme-select>
+</form>
 
-            <x-theme-select
-                id="some-other-select"
-                name="my-select-3"
-                label="This is a valid select"
-                help="This select has no errors, but has been validated"
-                sr-label="Something or other here."
-                :errors="[]"
-                :validated="true"
-                :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
+<hr/>
 
-            </x-theme-select>
-        </form>
+<x-theme-error-summary
+    :errors="$errors">
 
-    <hr/>
+</x-theme-error-summary>
 
-    <x-theme-error-summary
-        :errors="$errors">
+<hr/>
 
-    </x-theme-error-summary>
-@endsection
+<x-theme-checkbox
+    id="some-checkbox"
+    name="my-checkbox"
+    label="This is my checkbox"
+    help="First checkbox!"
+    sr-label="A checkbox for the demo page. This can only be seen by screen readers."
+    :errors="[]"
+    :disabled="true"
+    :validated="false"
+    value="test1"
+    :checked="true">
+
+</x-theme-checkbox>
+
+<x-theme-checkbox
+    id="some-checkbox-2"
+    name="my-checkbox-2"
+    label="This is my checkbox 2"
+    help="Second checkbox!"
+    sr-label="Another checkbox for the demo page. This can only be seen by screen readers."
+    :errors="['First error', 'Maybe a second error too']"
+    :validated="true"
+    value="test2"
+    :required="true"
+    :checked="false">
+
+</x-theme-checkbox>
+
+<x-theme-checkbox
+    id="some-checkbox-3"
+    name="my-checkbox-3"
+    label="This is my checkbox 3"
+    help="Third checkbox!"
+    sr-label="A third checkbox for the demo page. This can only be seen by screen readers."
+    :errors="[]"
+    :validated="true"
+    value="test3"
+    :required="false"
+    :checked="true">
+</x-theme-checkbox>
+
+
+<hr/>
+
+<x-theme-radio
+    id="some-radio"
+    name="my-radio"
+    label="This is my radio"
+    help="First radio!"
+    sr-label="A radio for the demo page. This can only be seen by screen readers."
+    :errors="[]"
+    :validated="false"
+    value="test1"
+    :checked="true">
+
+</x-theme-radio>
+
+<x-theme-radio
+    id="some-radio-2"
+    name="my-radio"
+    label="This is my radio 2"
+    help="Second radio!"
+    sr-label="Another radio for the demo page. This can only be seen by screen readers."
+    :errors="['First error', 'Maybe a second error too']"
+    :validated="true"
+    value="test2"
+    :required="true"
+    :checked="false">
+
+</x-theme-radio>
+
+<x-theme-radio
+    id="some-radio-3"
+    name="my-radio"
+    label="This is my radio 3"
+    help="Third radio!"
+    sr-label="A third radio for the demo page. This can only be seen by screen readers."
+    :errors="[]"
+    :validated="true"
+    value="test3"
+    :required="false"
+    :checked="true">
+</x-theme-radio>
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+@include('theme::scripts')
+
+</body>
+</html>
