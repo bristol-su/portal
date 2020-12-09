@@ -31,7 +31,7 @@
         "linkeys/signed-url": "^3.0.0",
         "twigger/laravel-translate": "dev-feature/ui",
         "stichoza/google-translate-php": "^4.1",
-        "twigger/blade-themes": "@dev"
+        "twigger/blade-themes": "dev-develop"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
@@ -78,11 +78,5 @@
                 "bristol-su/control"
             ]
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./blade-themes"
-        }
-    ]
+    }
 }
