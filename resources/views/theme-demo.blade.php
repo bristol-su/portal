@@ -2,7 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title>Theme Demo</title>
-    @include('theme::styles')
 </head>
 <body>
 
@@ -351,6 +350,30 @@
     <br />
 
 @endforeach
+
+
+<hr />
+
+<x-theme-card>
+    <x-slot name="image">
+        <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
+    </x-slot>
+    <x-slot name="title">
+        A title for the card
+    </x-slot>
+    <x-slot name="subtitle">
+        A subtitle
+    </x-slot>
+    <x-slot name="body">
+        This is some body. We can use any other components we want here!
+    </x-slot>
+    <x-slot name="actions">
+        <x-theme-link href="#">Go here</x-theme-link>
+        <x-theme-link href="#">Or here!</x-theme-link>
+    </x-slot>
+
+</x-theme-card>
+
 <br/>
 <br/>
 <br/>
@@ -362,6 +385,7 @@
 <br/>
 <br/>
 
+@include('theme::styles')
 @include('theme::scripts')
 
 </body>
