@@ -370,7 +370,16 @@
 </x-theme-card>
 
 <br/>
+
+<hr />
+
+<x-theme-icon icon="user"></x-theme-icon>
+<x-theme-icon icon="password"></x-theme-icon>
+<x-theme-icon icon="lock"></x-theme-icon>
+<x-theme-icon icon="lock-open"></x-theme-icon>
 <br/>
+<hr />
+
 <br/>
 <br/>
 <br/>
