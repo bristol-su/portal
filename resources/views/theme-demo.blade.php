@@ -354,16 +354,11 @@
 
 <hr />
 
-<x-theme-card>
-    <x-slot name="image">
-        <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
-    </x-slot>
-    <x-slot name="title">
-        A title for the card
-    </x-slot>
-    <x-slot name="subtitle">
-        A subtitle
-    </x-slot>
+<x-theme-card
+    image-src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
+    image-alt="A random image"
+    title="A title"
+    subtitle="Some more information here">
     <x-slot name="body">
         This is some body. We can use any other components we want here!
     </x-slot>
