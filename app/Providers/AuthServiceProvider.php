@@ -40,14 +40,6 @@ class AuthServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->rebinding('request', function ($app, $request) {
-            $request->setUserResolver(function () use ($app) {
-                return $app->make(UserAuthentication::class)->getUser();
-            });
-        });
 
-        Auth::provider('database-user-provider', function(Container $app, array $config) {
-            return new UserProvider($app->make(UserRepository::class));
-        });
     }
 }
