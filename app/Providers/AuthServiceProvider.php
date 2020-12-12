@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use App\Support\Auth\UserProvider;
-use BristolSU\Support\User\Contracts\UserAuthentication;
+use App\Auth\Contracts\UserAuthentication;
+use App\Auth\Contracts\UserRepository;
+use App\Auth\UserProvider;
+use App\Auth\UserServiceProvider;
 use BristolSU\Support\Permissions\Facade\Permission;
-use BristolSU\Support\User\Contracts\UserRepository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->app->rebinding('request', function ($app, $request) {
             $request->setUserResolver(function () use ($app) {
-                return app(UserAuthentication::class)->getUser();
+                return $app->make(UserAuthentication::class)->getUser();
             });
         });
 
