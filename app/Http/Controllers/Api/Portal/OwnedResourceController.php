@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Portal;
 
 use App\Http\Controllers\Controller;
 use BristolSU\ControlDB\Contracts\Models\Role;
-use BristolSU\Support\User\Contracts\UserAuthentication;
+use BristolSU\Support\Authentication\Contracts\Authentication;
 
 class OwnedResourceController extends Controller
 {
@@ -12,12 +12,12 @@ class OwnedResourceController extends Controller
     /**
      * Get resources the logged in user owns
      *
-     * @param UserAuthentication $userAuthentication
+     * @param Authentication $authentication
      * @return array
      */
-    public function index(UserAuthentication $userAuthentication)
+    public function index(Authentication $authentication)
     {
-        $user = $userAuthentication->getUser()->controlUser();
+        $user = $authentication->getUser();
 
         return [
             'user' => $user,

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Http\Controllers\Controller;
+use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\Filters\FilterInstance;
 use BristolSU\Support\Logic\Contracts\LogicRepository;
 use BristolSU\Support\Logic\Logic;
-use BristolSU\Support\User\Contracts\UserAuthentication;
 use Illuminate\Http\Request;
 
 class LogicController extends Controller
@@ -24,13 +24,13 @@ class LogicController extends Controller
         return Logic::all();
     }
 
-    public function store(Request $request, LogicRepository $repository)
+    public function store(Request $request, LogicRepository $repository, Authentication $authentication)
     {
         /** @var Logic $logic */
         $logic = $repository->create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
-            'user_id' => app(UserAuthentication::class)->getUser()->controlId()
+            'user_id' => $authentication->getUser()->id()
         ]);
 
         // TODO Refactor below

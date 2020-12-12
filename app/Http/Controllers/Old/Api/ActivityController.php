@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\Activity\Contracts\Repository;
-use BristolSU\Support\User\Contracts\UserAuthentication;
+use BristolSU\Support\Authentication\Contracts\Authentication;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +32,7 @@ class ActivityController extends Controller
      * @param Repository $repository Repository to create the activity with
      * @return \BristolSU\Support\Activity\Activity Created Activity
      */
-    public function store(Request $request, Repository $repository)
+    public function store(Request $request, Repository $repository, Authentication $authentication)
     {
         $request->validate([
             'name' => 'required',
@@ -56,7 +56,7 @@ class ActivityController extends Controller
             'admin_logic' => $request->input('admin_logic'),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
-            'user_id' => app(UserAuthentication::class)->getUser()->controlId()
+            'user_id' => $authentication->getUser()->id()
         ]);
     }
 
