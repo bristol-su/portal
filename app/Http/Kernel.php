@@ -57,15 +57,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => Authenticate::class,
         'bindings' => SubstituteBindings::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
-        'guest' => RedirectIfAuthenticated::class,
         'signed' => ValidateSignature::class,
-        'throttle' => ThrottleRequests::class,
-        'verified' => EnsureEmailIsVerified::class,
-        'password.confirm' => RequirePassword::class,
+        'throttle' => ThrottleRequests::class
     ];
 
     /**
@@ -135,15 +131,6 @@ class Kernel extends HttpKernel
         // Throttle requests if needed
         ThrottleRequests::class,
 
-        // Check the user is logged in if needed
-        Authenticate::class,
-
-        // Redirect a logged out user to the portal page when authenticated but accessing a guest page
-        RedirectIfAuthenticated::class,
-
-        // Check a users email is verified.
-        EnsureEmailIsVerified::class,
-
         // Check an admin is logged into a user
         \BristolSU\Support\Authorization\Middleware\CheckAdminIsAtLeastUser::class,
 
@@ -164,9 +151,6 @@ class Kernel extends HttpKernel
 
         // Check an activity is enabled
         \BristolSU\Support\Authorization\Middleware\CheckActivityEnabled::class,
-
-        // Make variables available to the frontend of any module
-        \BristolSU\Support\Http\Middleware\InjectJavascriptVariables::class,
 
         // Check the control user logged in is owned by the database user
         \BristolSU\Support\Authorization\Middleware\CheckDatabaseUserOwnsControlUser::class,
