@@ -37,7 +37,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('activity/{activity}/module-instance/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'participant']);
     Route::get('activity/{activity}/module-instance/admin/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'admin']);
 
-//    Route::apiResource('whoami', 'WhoAmIController')->only(['index']);
 
 //    Route::middleware(['can:view-management'])->group(function () {
 //        Route::apiResource('activity', 'ActivityController')->only(['store', 'update']);

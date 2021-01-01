@@ -2,22 +2,13 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\Authenticate;
-use App\Http\Middleware\CheckCredentialCookies;
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
-use App\Http\Middleware\EnsureEmailIsVerified;
-use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Http\Middleware\SetCredentialCookies;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
-use BristolSU\Support\Authorization\Middleware\CheckAdditionalCredentialsOwnedByUser;
-use BristolSU\Support\Authorization\Middleware\CheckDatabaseUserOwnsControlUser;
 use Fruitcake\Cors\HandleCors;
-use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
-use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
@@ -57,15 +48,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => Authenticate::class,
         'bindings' => SubstituteBindings::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
-        'guest' => RedirectIfAuthenticated::class,
         'signed' => ValidateSignature::class,
-        'throttle' => ThrottleRequests::class,
-        'verified' => EnsureEmailIsVerified::class,
-        'password.confirm' => RequirePassword::class,
+        'throttle' => ThrottleRequests::class
     ];
 
     /**
@@ -87,11 +74,6 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:150,1',
             'bindings',
-        ],
-
-        'portal' => [
-            CheckDatabaseUserOwnsControlUser::class,
-            CheckAdditionalCredentialsOwnedByUser::class
         ]
 
     ];
@@ -135,18 +117,6 @@ class Kernel extends HttpKernel
         // Throttle requests if needed
         ThrottleRequests::class,
 
-        // Check the user is logged in if needed
-        Authenticate::class,
-
-        // Redirect a logged out user to the portal page when authenticated but accessing a guest page
-        RedirectIfAuthenticated::class,
-
-        // Check a users email is verified.
-        EnsureEmailIsVerified::class,
-
-        // Check an admin is logged into a user
-        \BristolSU\Support\Authorization\Middleware\CheckAdminIsAtLeastUser::class,
-
         // Inject the module instance into the container
         \BristolSU\Support\ModuleInstance\Middleware\InjectModuleInstance::class,
 
@@ -164,15 +134,6 @@ class Kernel extends HttpKernel
 
         // Check an activity is enabled
         \BristolSU\Support\Authorization\Middleware\CheckActivityEnabled::class,
-
-        // Make variables available to the frontend of any module
-        \BristolSU\Support\Http\Middleware\InjectJavascriptVariables::class,
-
-        // Check the control user logged in is owned by the database user
-        \BristolSU\Support\Authorization\Middleware\CheckDatabaseUserOwnsControlUser::class,
-
-        // Check the logged in control user can be logged into the group/role they're logged into
-        \BristolSU\Support\Authorization\Middleware\CheckAdditionalCredentialsOwnedByUser::class,
 
         // Ensure an activity instance has been set
         \BristolSU\Support\ActivityInstance\Middleware\CheckLoggedIntoActivityInstance::class,
