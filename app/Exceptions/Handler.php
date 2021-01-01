@@ -24,7 +24,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use BristolSU\UnionCloud\Exception\PermissionDeniedException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -40,8 +39,7 @@ class Handler extends ExceptionHandler
         ModuleInactive::class,
         NotInActivityInstanceException::class,
         ActivityDisabled::class,
-        ModuleInstanceDisabled::class,
-        PermissionDeniedException::class
+        ModuleInstanceDisabled::class
     ];
 
     /**
@@ -133,10 +131,6 @@ class Handler extends ExceptionHandler
             if($exception instanceof IncorrectLogin) {
                 return response()->json(['message' => $exception->getMessage()], $exception->getStatusCode());
             }
-        }
-
-        if($exception instanceof PermissionDeniedException) {
-            throw new HttpException(403, $exception->getMessage());
         }
 
         // TODO Handle exceptions above if expects json

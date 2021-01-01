@@ -31,7 +31,7 @@
         "twigger/laravel-translate": "dev-feature/ui",
         "stichoza/google-translate-php": "^4.1",
         "twigger/blade-themes": "dev-develop",
-        "bristol-su/portal-auth": "dev-portal-227",
+        "bristol-su/portal-auth": "dev-develop",
         "laravel/legacy-factories": "^v1.1.0"
     },
     "require-dev": {

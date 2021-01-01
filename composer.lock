@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ac0bd8156739e46e513ab525ebba7dd",
+    "content-hash": "775daf36a95d1dcd45c58402ab180c7b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -269,16 +269,16 @@
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-portal-227",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "bba7229c76eb52d07a9251d85ddef63f4672f777"
+                "reference": "b7d3b837219907a283371316039dddc5c6e34a3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/bba7229c76eb52d07a9251d85ddef63f4672f777",
-                "reference": "bba7229c76eb52d07a9251d85ddef63f4672f777",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/b7d3b837219907a283371316039dddc5c6e34a3b",
+                "reference": "b7d3b837219907a283371316039dddc5c6e34a3b",
                 "shasum": ""
             },
             "require": {
@@ -334,9 +334,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/portal-auth/issues",
-                "source": "https://github.com/bristol-su/portal-auth/tree/portal-227"
+                "source": "https://github.com/bristol-su/portal-auth/tree/develop"
             },
-            "time": "2020-12-31T01:52:41+00:00"
+            "time": "2021-01-01T19:35:22+00:00"
         },
         {
             "name": "bristol-su/static-page",
