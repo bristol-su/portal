@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 //
 //// Landing Page Route
-Route::middleware('guest')->get('/', [\App\Http\Controllers\Pages\LandingController::class, 'index']);
+Route::middleware('portal-guest')->get('/', [\App\Http\Controllers\Pages\LandingController::class, 'index']);
 //Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
 //Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 //
@@ -18,8 +18,9 @@ Route::get('/theme/demo', function() {
        'date-of-birth' => ['Your date of birth must be in the past']
    ]);
 });
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::middleware('portal')->group(function() {
+
+
+Route::middleware(['portal-auth'])->group(function () {
         //    // Custom Authentication Routes
 //    Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
 //    Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
@@ -56,7 +57,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //            Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
 //
 //        });
-    });
 
 //
     Route::middleware('activity')->group(function () {

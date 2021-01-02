@@ -1,2 +1,2 @@
-@inject('authentication', 'BristolSU\Support\User\Contracts\UserAuthentication')
+@inject('authentication', 'BristolSU\Auth\Authentication\Contracts\AuthenticationUserResolver')
 
