@@ -273,7 +273,7 @@
             "dist": {
                 "type": "path",
                 "url": "./../support/portal-auth",
-                "reference": "5400f08708f0bd7716912e93f9b2dbbfa07937dd"
+                "reference": "86c866248b6c8859cb2bedd9697a24028e54d14b"
             },
             "require": {
                 "bristol-su/control": "dev-laravel-8",
@@ -11595,6 +11595,12 @@
         }
     ],
     "aliases": [
+        {
+            "package": "bristol-su/control",
+            "version": "dev-laravel-8",
+            "alias": "2.1.5",
+            "alias_normalized": "2.1.5.0"
+        },
         {
             "package": "bristol-su/support",
             "version": "dev-portal-226",

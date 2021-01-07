@@ -17,7 +17,7 @@ use BristolSU\Support\Authorization\Exception\ModuleInactive;
 use BristolSU\Support\Authorization\Exception\ModuleInstanceDisabled;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
-use BristolSU\Auth\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

@@ -80,9 +80,14 @@ Route::middleware(['portal-auth', 'portal-verified', 'portal-confirmed'])->get('
 Route::middleware(['portal-guest'])->get('/test-4', function() {
     return response('You are a guest');
 })->name('test-4');
-Route::middleware(['portal-verified'])->get('/test-5', function() {
+Route::middleware(['portal-not-verified'])->get('/test-5', function() {
     return response('You are not verified');
 })->name('test-5');
 Route::get('/test-6', function() {
     return response('You are nothing');
 })->name('test-6');
+Route::get('/logout-test', function() {
+    return '
+        <html><body><form action="' . route('logout') . '" method="post">' . csrf_field() . '<button type="submit">Logout</button></form></body></html>
+    ';
+});
