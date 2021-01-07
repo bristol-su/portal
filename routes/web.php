@@ -67,3 +67,22 @@ Route::middleware(['portal-auth'])->group(function () {
 //    });
 //
 });
+
+Route::middleware('portal-auth')->name('test-1')->get('/test-1', function() {
+    return response('You are logged in');
+});
+Route::middleware(['portal-auth', 'portal-verified'])->get('/test-2', function() {
+    return response('You are logged in and email is verified');
+})->name('test-2');
+Route::middleware(['portal-auth', 'portal-verified', 'portal-confirmed'])->get('/test-3', function() {
+    return response('You are logged in, verified and confirmed');
+})->name('test-3');
+Route::middleware(['portal-guest'])->get('/test-4', function() {
+    return response('You are a guest');
+})->name('test-4');
+Route::middleware(['portal-verified'])->get('/test-5', function() {
+    return response('You are not verified');
+})->name('test-5');
+Route::get('/test-6', function() {
+    return response('You are nothing');
+})->name('test-6');
