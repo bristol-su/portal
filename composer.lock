@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32a4f51ea1c0c2e1380311b8efb40c6d",
+    "content-hash": "aaa5771326405499fcf9f3607ed04060",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -269,11 +269,11 @@
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-portal-226",
+            "version": "dev-portal-226-forgot-password",
             "dist": {
                 "type": "path",
                 "url": "./../support/portal-auth",
-                "reference": "7ad6c1a033b99dd276b950a590997097f73ce681"
+                "reference": "be94ee9598929e468f8e4af5d4a45e4bb2c5d304"
             },
             "require": {
                 "bristol-su/control": "dev-laravel-8",
@@ -11123,6 +11123,12 @@
         }
     ],
     "aliases": [
+        {
+            "package": "bristol-su/control",
+            "version": "dev-laravel-8",
+            "alias": "2.1.5",
+            "alias_normalized": "2.1.5.0"
+        },
         {
             "package": "bristol-su/support",
             "version": "dev-portal-226",
