@@ -30,7 +30,6 @@
         "linkeys/signed-url": "^3.0.0",
         "twigger/laravel-translate": "dev-feature/ui",
         "stichoza/google-translate-php": "^4.1",
-        "twigger/blade-themes": "dev-develop",
         "bristol-su/portal-auth": "dev-portal-226-forgot-password",
         "laravel/legacy-factories": "^v1.1.0"
     },
