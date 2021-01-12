@@ -17,7 +17,7 @@
         "laravel/tinker": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
-        "bristol-su/support": "dev-portal-226 as 4.7.2",
+        "bristol-su/support": "dev-portal-v4 as 4.7.2",
         "bristol-su/control": "dev-laravel-8 as 2.1.5",
         "bristol-su/static-page": "^1.1.1",
         "fruitcake/laravel-cors": "^1.0",
@@ -30,7 +30,7 @@
         "linkeys/signed-url": "^3.0.0",
         "twigger/laravel-translate": "dev-feature/ui",
         "stichoza/google-translate-php": "^4.1",
-        "bristol-su/portal-auth": "dev-portal-226",
+        "bristol-su/portal-auth": "dev-master",
         "laravel/legacy-factories": "^v1.1.0"
     },
     "require-dev": {
@@ -77,11 +77,5 @@
                 "bristol-su/control"
             ]
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../support/portal-auth"
-        }
-    ]
+    }
 }

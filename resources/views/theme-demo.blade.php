@@ -5,50 +5,50 @@
 </head>
 <body>
 
-<x-theme-alert variant="danger" :dismissible="true">
+<x-portal-alert variant="danger" :dismissible="true">
     Uho, it looks like something went wrong! Give it another go :)
-</x-theme-alert>
-<x-theme-alert variant="success" :dismissible="true">
+</x-portal-alert>
+<x-portal-alert variant="success" :dismissible="true">
     Or maybe it went right!
-</x-theme-alert>
-<x-theme-alert variant="warning" :dismissible="true">
+</x-portal-alert>
+<x-portal-alert variant="warning" :dismissible="true">
     Let's settle with being careful
-</x-theme-alert>
-<x-theme-alert variant="info" :dismissible="false">
+</x-portal-alert>
+<x-portal-alert variant="info" :dismissible="false">
     And keep us <a href="#">informed</a>
-</x-theme-alert>
+</x-portal-alert>
 
 <hr/>
 
-<x-theme-button variant="info">
+<x-portal-button variant="info">
     Test
-</x-theme-button>
+</x-portal-button>
 
 <hr/>
 
-<x-theme-spinner variant="info" size="lg" alt="Loading...">
+<x-portal-spinner variant="info" size="lg" alt="Loading...">
 
-</x-theme-spinner>
-<x-theme-spinner variant="info" alt="Loading...">
+</x-portal-spinner>
+<x-portal-spinner variant="info" alt="Loading...">
 
-</x-theme-spinner>
+</x-portal-spinner>
 
 <hr/>
 
-<x-theme-toggle id="testComponent" name="testComponent">
+<x-portal-toggle id="testComponent" name="testComponent">
     This is the test toggle
-</x-theme-toggle>
+</x-portal-toggle>
 
 <hr/>
 
-<x-theme-link href="{{route('login')}}">
+<x-portal-link href="{{route('login')}}">
     This is a link to the same page!
-</x-theme-link>
+</x-portal-link>
 
 <hr/>
 
 <form>
-    <x-theme-select
+    <x-portal-select
         id="some-select"
         name="my-select"
         label="This is my select"
@@ -60,9 +60,9 @@
         :required="true"
         :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
 
-    </x-theme-select>
+    </x-portal-select>
 
-    <x-theme-select
+    <x-portal-select
         id="some-other-select"
         name="my-select-2"
         label="A select with errors"
@@ -72,9 +72,9 @@
         :validated="true"
         :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
 
-    </x-theme-select>
+    </x-portal-select>
 
-    <x-theme-select
+    <x-portal-select
         id="some-other-select-3"
         name="my-select-3"
         label="This is a valid select"
@@ -84,21 +84,21 @@
         :validated="true"
         :items="['item1' => 'Item 1', 'item2' => 'Item 2', 'Other' => ['item3' => 'Item 3', 'item4' => 'Item 4']]">
 
-    </x-theme-select>
+    </x-portal-select>
 </form>
 
 <hr/>
 
-<x-theme-error-summary
+<x-portal-error-summary
     :errors="$errors">
 
-</x-theme-error-summary>
+</x-portal-error-summary>
 
 <hr/>
 
-<x-theme-fieldset legend="Checkboxes!!">
+<x-portal-fieldset legend="Checkboxes!!">
 
-    <x-theme-checkbox
+    <x-portal-checkbox
         id="some-checkbox"
         name="my-checkbox"
         label="This is my checkbox"
@@ -110,9 +110,9 @@
         value="test1"
         :checked="true">
 
-    </x-theme-checkbox>
+    </x-portal-checkbox>
 
-    <x-theme-checkbox
+    <x-portal-checkbox
         id="some-checkbox-2"
         name="my-checkbox-2"
         label="This is my checkbox 2"
@@ -124,9 +124,9 @@
         :required="true"
         :checked="false">
 
-    </x-theme-checkbox>
+    </x-portal-checkbox>
 
-    <x-theme-checkbox
+    <x-portal-checkbox
         id="some-checkbox-3"
         name="my-checkbox-3"
         label="This is my checkbox 3"
@@ -137,16 +137,16 @@
         value="test3"
         :required="false"
         :checked="true">
-    </x-theme-checkbox>
-</x-theme-fieldset>
+    </x-portal-checkbox>
+</x-portal-fieldset>
 
 
 <hr/>
 
-<x-theme-fieldset legend="Select a radio">
+<x-portal-fieldset legend="Select a radio">
 
 
-<x-theme-radio
+<x-portal-radio
     id="some-radio"
     name="my-radio"
     label="This is my radio"
@@ -157,9 +157,9 @@
     value="test1"
     :checked="true">
 
-</x-theme-radio>
+</x-portal-radio>
 
-<x-theme-radio
+<x-portal-radio
     id="some-radio-2"
     name="my-radio"
     label="This is my radio 2"
@@ -171,9 +171,9 @@
     :required="true"
     :checked="false">
 
-</x-theme-radio>
+</x-portal-radio>
 
-<x-theme-radio
+<x-portal-radio
     id="some-radio-3"
     name="my-radio"
     label="This is my radio 3"
@@ -184,12 +184,12 @@
     value="test3"
     :required="false"
     :checked="true">
-</x-theme-radio>
-</x-theme-fieldset>
+</x-portal-radio>
+</x-portal-fieldset>
 
 <hr/>
 
-<x-theme-text
+<x-portal-text
     id="some-text"
     name="my-text"
     label="This is my text input"
@@ -202,9 +202,9 @@
     value="The default input"
 >
 
-</x-theme-text>
+</x-portal-text>
 
-<x-theme-text
+<x-portal-text
     id="some-other-text"
     name="my-text-2"
     label="A text with errors"
@@ -214,9 +214,9 @@
     :validated="true"
 >
 
-</x-theme-text>
+</x-portal-text>
 
-<x-theme-text
+<x-portal-text
     id="some-other-text-3"
     name="my-text-3"
     label="This is a valid text"
@@ -225,11 +225,11 @@
     :errors="[]"
     :validated="true"
 >
-</x-theme-text>
+</x-portal-text>
 
 <hr/>
 
-<x-theme-email
+<x-portal-email
     id="some-email"
     name="my-email"
     label="This is my email input"
@@ -242,9 +242,9 @@
     value="The default input"
 >
 
-</x-theme-email>
+</x-portal-email>
 
-<x-theme-email
+<x-portal-email
     id="some-other-email"
     name="my-email-2"
     label="A email with errors"
@@ -254,9 +254,9 @@
     :validated="true"
 >
 
-</x-theme-email>
+</x-portal-email>
 
-<x-theme-email
+<x-portal-email
     id="some-other-email-3"
     name="my-email-3"
     label="This is a valid email"
@@ -266,11 +266,11 @@
     :validated="true"
 >
 
-</x-theme-email>
+</x-portal-email>
 
 <hr/>
 
-<x-theme-password
+<x-portal-password
     id="some-password"
     name="my-password"
     label="This is my password input"
@@ -283,9 +283,9 @@
     value="The default input"
 >
 
-</x-theme-password>
+</x-portal-password>
 
-<x-theme-password
+<x-portal-password
     id="some-other-password"
     name="my-password-2"
     label="A password with errors"
@@ -295,9 +295,9 @@
     :validated="true"
 >
 
-</x-theme-password>
+</x-portal-password>
 
-<x-theme-password
+<x-portal-password
     id="some-other-password-3"
     name="my-password-3"
     label="This is a valid password"
@@ -307,46 +307,46 @@
     :validated="true"
 >
 
-</x-theme-password>
+</x-portal-password>
 
 <hr/>
 
 @foreach([[true,true], [false,true], [true,false], [false,false]] as $vals)
-    <x-theme-list-group
+    <x-portal-list-group
         :bordered="$vals[0]"
         :horizontal="$vals[1]">
 
-        <x-theme-list-item
+        <x-portal-list-item
             :active="true"
             :disabled="false"
             href="/test"
             variant="info">
             Item 1
-        </x-theme-list-item>
+        </x-portal-list-item>
 
-        <x-theme-list-item
+        <x-portal-list-item
             :active="false"
             :disabled="false"
             href="/test2"
             variant="warning">
             Item 2
-        </x-theme-list-item>
+        </x-portal-list-item>
 
-        <x-theme-list-item
+        <x-portal-list-item
             :active="false"
             :disabled="true"
             variant="danger">
             Item 3
-        </x-theme-list-item>
+        </x-portal-list-item>
 
-        <x-theme-list-item
+        <x-portal-list-item
             :active="false"
             :disabled="false"
             href="/test3">
             Item 4
-        </x-theme-list-item>
+        </x-portal-list-item>
 
-    </x-theme-list-group>
+    </x-portal-list-group>
     <br />
 
 @endforeach
@@ -354,7 +354,7 @@
 
 <hr />
 
-<x-theme-card
+<x-portal-card
     image-src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"
     image-alt="A random image"
     title="A title"
@@ -363,20 +363,20 @@
         This is some body. We can use any other components we want here!
     </x-slot>
     <x-slot name="actions">
-        <x-theme-link href="#">Go here</x-theme-link>
-        <x-theme-link href="#">Or here!</x-theme-link>
+        <x-portal-link href="#">Go here</x-portal-link>
+        <x-portal-link href="#">Or here!</x-portal-link>
     </x-slot>
 
-</x-theme-card>
+</x-portal-card>
 
 <br/>
 
 <hr />
 
-<x-theme-icon icon="user"></x-theme-icon>
-<x-theme-icon icon="password"></x-theme-icon>
-<x-theme-icon icon="lock"></x-theme-icon>
-<x-theme-icon icon="lock-open"></x-theme-icon>
+<x-portal-icon icon="user"></x-portal-icon>
+<x-portal-icon icon="password"></x-portal-icon>
+<x-portal-icon icon="lock"></x-portal-icon>
+<x-portal-icon icon="lock-open"></x-portal-icon>
 <br/>
 <hr />
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d86eb8a1951889d4a6d6224ce6de04a5",
+    "content-hash": "5252ca6a15ad2ebdb365545fd923ef7b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -269,15 +269,21 @@
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-portal-226",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/portal-auth.git",
+                "reference": "f6121470bedfbe3f3766de274078fc427862627f"
+            },
             "dist": {
-                "type": "path",
-                "url": "./../support/portal-auth",
-                "reference": "2d31740d8914c5551c42b9bf2f9effc468854519"
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/f6121470bedfbe3f3766de274078fc427862627f",
+                "reference": "f6121470bedfbe3f3766de274078fc427862627f",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/control": "dev-laravel-8",
-                "bristol-su/support": "dev-portal-226",
+                "bristol-su/support": "dev-portal-v4",
                 "doctrine/dbal": "^2.10",
                 "ext-json": "*",
                 "laravel/framework": "^8.0",
@@ -292,6 +298,7 @@
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpstan/phpstan": "^0.12.3"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -307,16 +314,7 @@
                     "Database\\Auth\\Seeders\\": "database/seeders/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Auth\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit --colors=always --process-isolation --verbose --configuration phpunit.xml"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -334,9 +332,11 @@
                 "portal",
                 "sdk"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/portal-auth/issues",
+                "source": "https://github.com/bristol-su/portal-auth/tree/master"
+            },
+            "time": "2021-01-12T02:47:13+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -394,16 +394,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "dev-portal-226",
+            "version": "dev-portal-v4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "b2e45e8e533e6c637d12dba8f4e630c24251029f"
+                "reference": "cb39f9da78ea855f582290be2116cb1a2cb46c03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/b2e45e8e533e6c637d12dba8f4e630c24251029f",
-                "reference": "b2e45e8e533e6c637d12dba8f4e630c24251029f",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/cb39f9da78ea855f582290be2116cb1a2cb46c03",
+                "reference": "cb39f9da78ea855f582290be2116cb1a2cb46c03",
                 "shasum": ""
             },
             "require": {
@@ -468,9 +468,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/support/issues",
-                "source": "https://github.com/bristol-su/support/tree/portal-226"
+                "source": "https://github.com/bristol-su/support/tree/portal-v4"
             },
-            "time": "2021-01-12T00:31:21+00:00"
+            "time": "2021-01-12T02:37:16+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -11132,7 +11132,7 @@
         },
         {
             "package": "bristol-su/support",
-            "version": "dev-portal-226",
+            "version": "dev-portal-v4",
             "alias": "4.7.2",
             "alias_normalized": "4.7.2.0"
         }
