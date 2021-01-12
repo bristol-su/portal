@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e567823aa8655c46ff5d85577c8beb56",
+    "content-hash": "d86eb8a1951889d4a6d6224ce6de04a5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.171.14",
+            "version": "3.171.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2bc8681a623caa13d5c1da90ca4d6c76436b545d"
+                "reference": "26c7f2deb05110c62e38cc867658f1ef89123365"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2bc8681a623caa13d5c1da90ca4d6c76436b545d",
-                "reference": "2bc8681a623caa13d5c1da90ca4d6c76436b545d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26c7f2deb05110c62e38cc867658f1ef89123365",
+                "reference": "26c7f2deb05110c62e38cc867658f1ef89123365",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.171.14"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.171.15"
             },
-            "time": "2021-01-07T19:16:26+00:00"
+            "time": "2021-01-11T19:28:59+00:00"
         },
         {
             "name": "brick/math",
@@ -269,11 +269,11 @@
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-portal-226-forgot-password",
+            "version": "dev-portal-226",
             "dist": {
                 "type": "path",
                 "url": "./../support/portal-auth",
-                "reference": "30ff09365566f642aca56e1fa5605990d6dbaa63"
+                "reference": "2d31740d8914c5551c42b9bf2f9effc468854519"
             },
             "require": {
                 "bristol-su/control": "dev-laravel-8",
@@ -398,12 +398,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "dbfb3aaf109b3f19c09de79c8c67be5988393c8f"
+                "reference": "b2e45e8e533e6c637d12dba8f4e630c24251029f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/dbfb3aaf109b3f19c09de79c8c67be5988393c8f",
-                "reference": "dbfb3aaf109b3f19c09de79c8c67be5988393c8f",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/b2e45e8e533e6c637d12dba8f4e630c24251029f",
+                "reference": "b2e45e8e533e6c637d12dba8f4e630c24251029f",
                 "shasum": ""
             },
             "require": {
@@ -435,7 +435,8 @@
                     ],
                     "dont-discover": [
                         "laravel/passport",
-                        "venturecraft/revisionable"
+                        "venturecraft/revisionable",
+                        "twigger/blade-themes"
                     ]
                 }
             },
@@ -469,7 +470,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/portal-226"
             },
-            "time": "2021-01-11T02:11:48+00:00"
+            "time": "2021-01-12T00:31:21+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -11123,6 +11124,12 @@
         }
     ],
     "aliases": [
+        {
+            "package": "bristol-su/control",
+            "version": "dev-laravel-8",
+            "alias": "2.1.5",
+            "alias_normalized": "2.1.5.0"
+        },
         {
             "package": "bristol-su/support",
             "version": "dev-portal-226",
