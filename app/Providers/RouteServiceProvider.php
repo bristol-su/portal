@@ -23,8 +23,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
-
-        $this->mapPassportRoutes();
     }
 
     /**
@@ -38,13 +36,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
                 ->group(base_path('routes/web.php'));
-    }
-
-    protected function mapPassportRoutes()
-    {
-        Route::prefix('oauth')
-            ->namespace('\Laravel\Passport\Http\Controllers')
-            ->group(base_path('routes/passport.php'));
     }
 
     /**

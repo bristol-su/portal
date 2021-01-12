@@ -1,1 +1,1 @@
-{!! siteSetting('Appearance.Messaging.Footer') !!}
+{!! \App\Settings\Appearance\Messaging\Footer::getValue() !!}

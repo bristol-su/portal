@@ -15,7 +15,6 @@ use BristolSU\Support\Filters\Contracts\FilterManager as FilterManagerContract;
 use BristolSU\Support\Translation\Translate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Passport\Passport;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Passport::withoutCookieSerialization();
         $this->app->call([$this, 'registerFilters']);
 
         Validator::resolver(function($translator, $data, $rules, $messages, $attributes)

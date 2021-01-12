@@ -30,12 +30,10 @@
         "linkeys/signed-url": "^3.0.0",
         "twigger/laravel-translate": "dev-feature/ui",
         "stichoza/google-translate-php": "^4.1",
-        "twigger/blade-themes": "dev-develop",
-        "bristol-su/portal-auth": "dev-develop",
+        "bristol-su/portal-auth": "dev-master",
         "laravel/legacy-factories": "^v1.1.0"
     },
     "require-dev": {
-        "itsgoingd/clockwork": "^4",
         "beyondcode/laravel-dump-server": "^1.0",
         "composer/composer": "^1.8",
         "filp/whoops": "^2.0",
