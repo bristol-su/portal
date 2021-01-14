@@ -12,13 +12,6 @@ Route::middleware('portal-guest')->get('/', [\App\Http\Controllers\Pages\Landing
 //Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 //
 
-Route::get('/theme/demo', function() {
-   return view('theme-demo')->withErrors([
-       'my-select-2' => ['This is the first error', 'And this is the second!'],
-       'date-of-birth' => ['Your date of birth must be in the past']
-   ]);
-});
-
 
 Route::middleware(['portal-auth'])->group(function () {
         //    // Custom Authentication Routes
