@@ -63,6 +63,20 @@ It also comes with a fully-featured API to control users, services, automations 
 
 This project is still under heavy development, and is due for release in mid March. Therefore, it should not yet be used in production.
 
+### Sail
+
+1. Make sure you have docker compose installed (https://docs.docker.com/compose/install/)
+2. Clone the project, install dependencies with `composer install` and set up the `.env` file using `.env.example.sail` as a template.
+3. Set up the environment with `./vendor/bin/sail up`
+4. Generate an application key with `php artisan key:generate` and migrate the database with `sail artisan migrate`
+5. Access the portal at localhost:8000.
+
+You can also use the following tools:
+
+- Log Viewer: [http://localhost:8080/log-viewer](http://localhost:8000/log-viewer)
+- MailHog: [http://localhost:8025](http://localhost:8025)
+
+
 ### Docker
 
 1. Make sure you have docker and docker-compose installed (https://docs.docker.com/compose/install/)
