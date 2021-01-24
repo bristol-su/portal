@@ -1,73 +1,70 @@
-# This is a Docker Compose configuration
-# intended for development purposes only
-
+# For more information: https://laravel.com/docs/sail
 version: '3'
-
-volumes:
-  db: {}
-
 services:
-  db:
-    image: mysql:8
-    environment:
-      MYSQL_DATABASE: portal-test
-      MYSQL_USER: portal-test
-      MYSQL_PASSWORD: portal-test
-      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - db:/var/lib/mysql
-  app:
-    build:
-      context: .
-      dockerfile: ./build/Dockerfile-php
-    environment:
-      DB_CONNECTION: mysql
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_DATABASE: portal-test
-      DB_USERNAME: portal-test
-      DB_PASSWORD: portal-test
-      MAIL_DRIVER: smtp
-      MAIL_HOST: mailhog
-      MAIL_PORT: 1025
-      AWS_STATIC_BUCKET: bristol-su-static-bucket
-      AWS_STATIC_FOLDER: committee-portal
-      AWS_STATIC_URL: s3.eu-west-2.amazonaws.com
-      MIX_AWS_STATIC_BUCKET: bristol-su-static-bucket
-      MIX_AWS_STATIC_FOLDER: committee-portal
-      MIX_AWS_STATIC_URL: s3.eu-west-2.amazonaws.com
-      COOKIE_DOMAIN: localhost:8080
-      BROADCAST_DRIVER: log
-      CACHE_DRIVER: array
-      QUEUE_CONNECTION: database
-      SESSION_DRIVER: file
-      SESSION_LIFETIME: 120
-      LOG_CHANNEL: daily
-      FILESYSTEM_DRIVER: local
-      APP_NAME: Portal
-      APP_ENV: local
-      APP_KEY: "base64:gDV+W0mZpt3g3wdh7THxoSVp9F76tC+2UR2qTKVF7DM="
-      APP_DEBUG: "true"
-      APP_URL: http://localhost:8080
-      API_URL: http://localhost:8080/api
-      CONTROL_API_PREFIX: /api/control
-    ports:
-      - ${DEV_PORT:-8080}:80
-    volumes:
-      - ./:/app
-    entrypoint: /app/build/entrypoint.app.sh
-  node:
-    image: node:alpine
-    working_dir: /app
-    environment:
-      MIX_APP_URL: "http://localhost:8080"
-      MIX_API_URL: "http://localhost:8080/api"
-      MIX_CONTROL_API_URL: "http://localhost:8080/api/control"
-    volumes:
-      - ./:/app
-    entrypoint: /app/build/entrypoint.node.sh
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - ${DEV_MAIL_PORT:-8025}:8025
+    portal.test:
+        build:
+            context: ./vendor/laravel/sail/runtimes/8.0
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: sail-8.0/app
+        ports:
+            - '${APP_PORT:-80}:80'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        depends_on:
+            - mysql
+            - redis
+            # - selenium
+    # selenium:
+    #     image: 'selenium/standalone-chrome'
+    #     volumes:
+    #         - '/dev/shm:/dev/shm'
+    #     networks:
+    #         - sail
+    mysql:
+        image: 'mysql:8.0'
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - 'sailmysql:/var/lib/mysql'
+        networks:
+            - sail
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping" ]
+    redis:
+        image: 'redis:alpine'
+        ports:
+            - '${FORWARD_REDIS_PORT:-6379}:6379'
+        volumes:
+            - 'sailredis:/data'
+        networks:
+            - sail
+        healthcheck:
+            test: [ "CMD", "redis-cli", "ping" ]
+    mailhog:
+        image: 'mailhog/mailhog:latest'
+        ports:
+            - '${FORWARD_MAILHOG_PORT:-1025}:1025'
+            - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
+        networks:
+            - sail
+networks:
+    sail:
+        driver: bridge
+volumes:
+    sailmysql:
+        driver: local
+    sailredis:
+        driver: local
