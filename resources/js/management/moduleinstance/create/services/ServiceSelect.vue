@@ -9,6 +9,7 @@
             >
 
             <b-form-select :options="connectionOptions" @input="saveService" :value="value" :disabled="doesActiveConnectionBelongToUser"></b-form-select>
+            <p class="text-danger" v-if="doesActiveConnectionBelongToUser">No access to connection</p>
         </b-form-group>
         <div v-else>Loading...</div>
     </div>
