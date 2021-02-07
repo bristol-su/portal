@@ -8,7 +8,8 @@
             v-if="!loading"
             >
 
-            <b-form-select :options="connectionOptions" @input="saveService" :value="value"></b-form-select>
+            <b-form-select :options="connectionOptions" @input="saveService" :value="value" :disabled="doesActiveConnectionBelongToUser"></b-form-select>
+            <p class="text-danger" v-if="doesActiveConnectionBelongToUser">No access to connection</p>
         </b-form-group>
         <div v-else>Loading...</div>
     </div>
@@ -107,6 +108,10 @@
             },
             loading() {
                 return this.connectionsLoading;
+            },
+            doesActiveConnectionBelongToUser() {
+                // If a user Can see the current connection then enable the dropdown
+                return ! this.connectionOptions.filter(c => c.value === this.currentConnection.id).length > 0;
             }
         },
     }
