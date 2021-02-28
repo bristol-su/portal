@@ -9,7 +9,7 @@
                     <b-spinner></b-spinner>
                 </b-col>
                 <b-col v-else>
-                    <b-table-simple responsive striped hover v-for="(modules, group) in groupedModules" :key="group">
+                    <b-table-simple responsive striped hover v-for="(modules, group) in orderedModules" :key="group">
                         <b-thead>
                             <b-tr>
                                 <b-th colspan="4" class="text-center">{{ group }}</b-th>
@@ -24,9 +24,9 @@
                                         <b-spinner></b-spinner>
                                     </div>
                                     <div v-else>
-                                        <module-instance-group-select :groupings="groupings" @update="updateGroupingId(module.id, $event.grouping_id)">
+                                        <module-instance-group-select :disabled="loadingOrder" :groupings="groupings" @update="updateGroupingId(module.id, $event)" :grouping-id="module.grouping_id">
                                         </module-instance-group-select>
-                                        <module-instance-order-changer @down="updatePosition(module.id, module.order - 1)" @up="updatePosition(module.id, module.order + 1)">
+                                        <module-instance-order-changer :disabled="loadingOrder" @down="updatePosition(module.id, module.order - 1)" @up="updatePosition(module.id, module.order + 1)">
                                         </module-instance-order-changer>
                                     </div>
                                 </b-td>
@@ -52,6 +52,9 @@
 </template>
 
 <script>
+    import ModuleInstanceGroupSelect from "./ModuleInstanceGroupSelect";
+    import ModuleInstanceOrderChanger from "./ModuleInstanceOrderChanger";
+
     export default {
         name: "Index",
         components: {ModuleInstanceOrderChanger, ModuleInstanceGroupSelect},
@@ -75,6 +78,7 @@
 
         created() {
             this.loadModules();
+            this.loadGroupings();
         },
 
         methods: {
@@ -102,7 +106,7 @@
                 return 'Group not found';
             },
             updateGroupingId(moduleId, groupingId) {
-                console.log(moduleId, groupingId, 'grp')
+                this.updatingModuleInstanceGroup = true;
 
                 this.$api.moduleInstances().update(moduleId, {
                     grouping_id: groupingId
@@ -116,12 +120,12 @@
                         )
                     })
                     .catch(error => this.$notify.alert('There was an error updating the module instance: ' + error.message))
-                    .then(this.updatingModuleInstancePosition = true)
+                    .then(this.updatingModuleInstanceGroup = false)
 
                 console.log('Updating ' + moduleId + ' to group ' + groupingId);
             },
             updatePosition(moduleId, position) {
-                console.log(moduleId, position, 'Test')
+                this.updatingModuleInstancePosition = true;
                 if(position < 0) {
                     position = 0;
                 }
@@ -137,7 +141,7 @@
                     )
                 })
                 .catch(error => this.$notify.alert('There was an error updating the module instance: ' + error.message))
-                .then(this.updatingModuleInstancePosition = true)
+                .then(this.updatingModuleInstancePosition = false)
             }
         },
 
@@ -149,13 +153,16 @@
                         name: module.name,
                         description: module.description,
                         group: this.getGroupingNameFromId(module.grouping_id),
-                        order: module.order
+                        order: module.order,
+                        grouping_id: module.grouping_id
                     }
                 });
             },
             loading() {
-                return this.loadingGroupings || this.loadingModuleInstances
-                    || this.updatingModuleInstanceGroup || this.updatingModuleInstancePosition;
+                return this.loadingGroupings || this.loadingModuleInstances;
+            },
+            loadingOrder() {
+                return this.updatingModuleInstanceGroup || this.updatingModuleInstancePosition
             },
             groupedModules() {
                 return this.formattedModules.reduce((objectsByKeyValue, obj) => {
@@ -163,6 +170,24 @@
                     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
                     return objectsByKeyValue;
                 }, {});
+            },
+            orderedModules() {
+                let groupedModules = this.groupedModules;
+                Object.keys(groupedModules).map(group => {
+                    groupedModules[group].sort((a, b) => {
+                        if(a.order === null && b.order === null) {
+                            return 0;
+                        }
+                        if(a.order === null) {
+                            return 1;
+                        }
+                        if(b.order === null) {
+                            return -1;
+                        }
+                        return (a.order > b.order ? 1 : -1);
+                    })
+                })
+                return groupedModules;
             }
         }
 

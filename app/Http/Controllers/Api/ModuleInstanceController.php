@@ -18,14 +18,15 @@ class ModuleInstanceController extends Controller
     {
         return $moduleInstanceRepo->create(array_merge($request->only([
             'alias', 'activity_id', 'name', 'description', 'slug', 'active', 'visible', 'mandatory',
-            'completion_condition_instance_id'
+            'completion_condition_instance_id', 'order', 'grouping_id'
         ]), ['user_id' => app(UserAuthentication::class)->getUser()->controlId()]));
     }
 
     public function update(ModuleInstance $moduleInstance, Request $request, ModuleInstanceRepository $repository)
     {
         return $repository->update($moduleInstance->id(), $request->only([
-            'name', 'description', 'enabled', 'active', 'visible', 'mandatory', 'completion_condition_instance_id'
+            'name', 'description', 'enabled', 'active', 'visible', 'mandatory',
+            'completion_condition_instance_id', 'order', 'grouping_id'
         ]));
     }
 
