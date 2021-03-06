@@ -28,7 +28,7 @@
         "bristol-su/support": "^4.7.5",
         "bristol-su/unioncloud-portal": "^1.0.0",
         "bristol-su/upload-file": "^1.0",
-        "bristol-su/typeform": "^1.1",
+        "bristol-su/typeform": "^1.1.20",
         "bristol-su/static-page": "^1.1.1",
         "bristol-su/data-entry": "^1.0",
         "bristol-su/airtable": "v2.0.0",

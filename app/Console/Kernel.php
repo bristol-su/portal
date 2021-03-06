@@ -6,6 +6,8 @@ use App\Console\Commands\CreateMissingActivityInstancesForAllActivities;
 use App\Console\Commands\RunUnionCloudCommands;
 use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
+use BristolSU\UnionCloud\Commands\CacheUnionCloudUserGroupMemberships;
+use BristolSU\UnionCloud\Commands\CacheUnionCloudUsersUserGroupMemberships;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -39,6 +41,11 @@ class Kernel extends ConsoleKernel
             $schedule->command('control:export role --exporter=committee-contact-sheet')->cron('0 */2 * * *')->runInBackground();
             $schedule->command('control:export role --exporter=committee-contact-sheet-old')->daily()->runInBackground();
             $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('22:00')->runInBackground();
+
+            if(config('app.cache-unioncloud', false) && config('unioncloud-portal.enabled.memberships', false)) {
+                $schedule->command(CacheUnionCloudUserGroupMemberships::class)->cron('*/2 * * * *');
+                $schedule->command(CacheUnionCloudUsersUserGroupMemberships::class)->cron('1-59/2 * * * *');
+            }
 
             foreach (app(CommandStore::class)->all() as $alias => $commands) {
                 foreach ($commands as $command => $cron) {
