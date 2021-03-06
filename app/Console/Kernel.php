@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         if(app()->environment('production')) {
-            $schedule->command(CacheFilters::class)->hourly()->runInBackground()->when(function() {
+            $schedule->command(CacheFilters::class)->twiceDaily()->runInBackground()->when(function() {
                 return config('support.caching.filters.enabled');
             });
             $schedule->command('progress:snapshot -E database')->dailyAt('07:00')->runInBackground();
