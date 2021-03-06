@@ -33,13 +33,12 @@ class Kernel extends ConsoleKernel
                 return config('support.caching.filters.enabled');
             });
             $schedule->command('progress:snapshot -E database')->dailyAt('07:00')->runInBackground();
-            $schedule->command('progress:snapshot 1 -E portal-airtable')->dailyAt('07:00')->runInBackground();
-            // $schedule->command(RunUnionCloudCommands::class)->everyMinute()->runInBackground();
+            $schedule->command('progress:snapshot 1 -E portal-airtable')->dailyAt('06:00')->runInBackground();
+
             $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
             $schedule->command('control:export role --exporter=committee-contact-sheet')->cron('0 */2 * * *')->runInBackground();
             $schedule->command('control:export role --exporter=committee-contact-sheet-old')->daily()->runInBackground();
-            $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('08:00')->runInBackground();
-            $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('14:00')->runInBackground();
+            $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('22:00')->runInBackground();
 
             foreach (app(CommandStore::class)->all() as $alias => $commands) {
                 foreach ($commands as $command => $cron) {

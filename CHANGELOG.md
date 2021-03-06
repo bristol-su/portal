@@ -7,4 +7,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/bristol-su/portal 
+### Changed
+- AirTable integration updated to v2.0.0, changed control configuration to match new schema.

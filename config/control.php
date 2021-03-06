@@ -132,7 +132,8 @@ return [
             ],
             'baseId' => 'applpYkQ4NQFAw2YK',
             'tableName' => 'Control',
-            'apiKey' => env('AIRTABLE_API_KEY')
+            'apiKey' => env('AIRTABLE_API_KEY'),
+            'uniqueIdColumnName' => ['Role ID', 'User ID']
         ]
 
     ]
