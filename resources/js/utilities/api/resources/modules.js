@@ -23,4 +23,11 @@ export default class extends BaseResource{
             heading: heading
         })
     }
+
+    reorderGrouping(groupId, order) {
+        return this.request('patch', '/module-instance-grouping', {
+            order: order
+        })
+    }
+
 }

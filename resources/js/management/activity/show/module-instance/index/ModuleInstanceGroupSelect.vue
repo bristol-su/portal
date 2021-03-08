@@ -1,6 +1,9 @@
 <template>
     <div>
         <b-form-select :disabled="disabled" v-model="currentGroup" :options="options"></b-form-select>
+        <b-button @click="$emit('new')" pill variant="outline-secondary">
+            <i class="fa fa-plus" />
+        </b-button>
     </div>
 </template>
 

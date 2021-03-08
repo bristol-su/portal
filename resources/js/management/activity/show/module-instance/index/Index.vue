@@ -12,7 +12,7 @@
                     <b-table-simple responsive striped hover v-for="(modules, group) in orderedModules" :key="group">
                         <b-thead>
                             <b-tr>
-                                <b-th colspan="4" class="text-center">{{ group }}</b-th>
+                                <b-th colspan="4" class="text-center"> {{ group }} </b-th>
                             </b-tr>
                         </b-thead>
                         <b-tbody>
@@ -24,7 +24,7 @@
                                         <b-spinner></b-spinner>
                                     </div>
                                     <div v-else>
-                                        <module-instance-group-select :disabled="loadingOrder" :groupings="groupings" @update="updateGroupingId(module.id, $event)" :grouping-id="module.grouping_id">
+                                        <module-instance-group-select :disabled="loadingOrder" :groupings="groupings" @update="updateGroupingId(module.id, $event)" @new="$bvModal.show('new-module-group')" :grouping-id="module.grouping_id">
                                         </module-instance-group-select>
                                         <module-instance-order-changer :disabled="loadingOrder" @down="updatePosition(module.id, module.order - 1)" @up="updatePosition(module.id, module.order + 1)">
                                         </module-instance-order-changer>
@@ -47,6 +47,10 @@
             </b-row>
 
         </div>
+
+        <b-modal id="new-module-group" title="New Module Group" @ok="createNewGrouping">
+            <b-input type="text" name="new" id="new" v-model="newGroupingName"></b-input>
+        </b-modal>
 
     </div>
 </template>
@@ -72,7 +76,8 @@
                 loadingModuleInstances: true,
                 loadingGroupings: true,
                 updatingModuleInstancePosition: false,
-                updatingModuleInstanceGroup: false
+                updatingModuleInstanceGroup: false,
+                newGroupingName: null
             }
         },
 
@@ -104,6 +109,19 @@
                     return grouping.heading;
                 }
                 return 'Group not found';
+            },
+            createNewGrouping() {
+                if(!this.newGroupingName) {
+                    this.$notify.alert('Please enter a group name');
+                } else {
+                    this.$api.modules().addGrouping(this.newGroupingName)
+                        .then(response => this.groupings.push(response.data))
+                        .catch(error => this.$notify.alert('Something went wrong creating the module instance group: ' + error.message))
+                        .then(() => {
+                            this.loadingGroupings = false;
+                            this.newGroupingName = '';
+                        });
+                }
             },
             updateGroupingId(moduleId, groupingId) {
                 this.updatingModuleInstanceGroup = true;
