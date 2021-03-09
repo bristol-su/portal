@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [v3.1.2] - 2021-03-09
+## [3.1.2] - 2021-03-09
 
 ### Added
 - Updated UnionCloud from v1.0.0 to v1.0.1. Includes portal-315 and portal-316
 
-## [v3.1.1] - 2021-03-06
+## [3.1.1] - 2021-03-06
 
 ### Added
 - UnionCloud scheduled commands run every minute
@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Remove the unused unioncloud command runner
 
-## [v3.1.0] - 2021-03-06
+## [3.1.0] - 2021-03-06
 
 ### Changed
 - AirTable integration updated to v2.0.0, changed control configuration to match new schema.
