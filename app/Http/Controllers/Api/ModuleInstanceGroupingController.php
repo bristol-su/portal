@@ -11,7 +11,7 @@ class ModuleInstanceGroupingController extends Controller
 
     public function index()
     {
-        return ModuleInstanceGrouping::all();
+        return ModuleInstanceGrouping::ordered()->get();
     }
 
     public function store(Request $request)
@@ -28,12 +28,11 @@ class ModuleInstanceGroupingController extends Controller
     public function update(ModuleInstanceGrouping $moduleInstanceGrouping, Request $request)
     {
         $request->validate([
-            'order' => 'sometimes|nullable|integer|min:0|max:100',
             'heading' => 'sometimes|nullable|min:1|max:256'
         ]);
 
         $moduleInstanceGrouping->fill(
-            $request->only(['order', 'heading'])
+            $request->only(['heading'])
         );
 
         $moduleInstanceGrouping->save();

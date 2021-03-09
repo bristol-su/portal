@@ -12,7 +12,11 @@
                     <b-table-simple responsive striped hover v-for="(modules, group) in orderedModules" :key="group">
                         <b-thead>
                             <b-tr>
-                                <b-th colspan="4" class="text-center"> {{ group }} </b-th>
+                                <b-th colspan="4" class="text-center">
+                                    {{ group }}
+                                    <module-instance-order-changer :disabled="updatingModuleInstanceGroupingPosition" @down="moveModuleGroupingDown(group)" @up="moveModuleGroupingUp(group)">
+                                    </module-instance-order-changer>
+                                </b-th>
                             </b-tr>
                         </b-thead>
                         <b-tbody>
@@ -26,7 +30,7 @@
                                     <div v-else>
                                         <module-instance-group-select :disabled="loadingOrder" :groupings="groupings" @update="updateGroupingId(module.id, $event)" @new="$bvModal.show('new-module-group')" :grouping-id="module.grouping_id">
                                         </module-instance-group-select>
-                                        <module-instance-order-changer :disabled="loadingOrder" @down="updatePosition(module.id, module.order - 1)" @up="updatePosition(module.id, module.order + 1)">
+                                        <module-instance-order-changer :disabled="loadingOrder" @down="moveModuleDown(module.id)" @up="moveModuleUp(module.id)">
                                         </module-instance-order-changer>
                                     </div>
                                 </b-td>
@@ -77,6 +81,7 @@
                 loadingGroupings: true,
                 updatingModuleInstancePosition: false,
                 updatingModuleInstanceGroup: false,
+                updatingModuleInstanceGroupingPosition: false,
                 newGroupingName: null
             }
         },
@@ -95,7 +100,7 @@
             },
             loadGroupings() {
                 this.loadingGroupings = true;
-                this.$api.modules().getGroupings()
+                this.$api.moduleInstanceGrouping().getGroupings()
                     .then(response => this.groupings = response.data)
                     .catch(error => this.$notify.alert('Something went wrong getting the module instance groups: ' + error.message))
                     .then(() => this.loadingGroupings = false);
@@ -110,11 +115,21 @@
                 }
                 return 'Group not found';
             },
+            getGroupingIdFromName(groupingName) {
+                if(!groupingName) {
+                    return null;
+                }
+                let grouping = this.groupings.find(grouping => grouping.heading === groupingName);
+                if(grouping !== undefined) {
+                    return grouping.id;
+                }
+                return null;
+            },
             createNewGrouping() {
                 if(!this.newGroupingName) {
                     this.$notify.alert('Please enter a group name');
                 } else {
-                    this.$api.modules().addGrouping(this.newGroupingName)
+                    this.$api.moduleInstanceGrouping().addGrouping(this.newGroupingName)
                         .then(response => this.groupings.push(response.data))
                         .catch(error => this.$notify.alert('Something went wrong creating the module instance group: ' + error.message))
                         .then(() => {
@@ -142,25 +157,64 @@
 
                 console.log('Updating ' + moduleId + ' to group ' + groupingId);
             },
-            updatePosition(moduleId, position) {
+            moveModuleUp(moduleId) {
                 this.updatingModuleInstancePosition = true;
-                if(position < 0) {
-                    position = 0;
-                }
-                this.$api.moduleInstances().update(moduleId, {
-                    order: position
-                })
-                .then(response => {
-                    this.modules.splice(
-                        this.modules.indexOf(
-                            this.modules.find(m => m.id === moduleId)
-                        ),
-                        1, response.data
-                    )
-                })
-                .catch(error => this.$notify.alert('There was an error updating the module instance: ' + error.message))
-                .then(this.updatingModuleInstancePosition = false)
-            }
+                this.$api.moduleInstances().moveUp(moduleId)
+                    .then(response => {
+                        this.modules.splice(
+                            this.modules.indexOf(
+                                this.modules.find(m => m.id === moduleId)
+                            ),
+                            1, response.data
+                        )
+                    })
+                    .catch(error => this.$notify.alert('There was an error updating the module instance: ' + error.message))
+                    .then(this.updatingModuleInstancePosition = false)
+            },
+            moveModuleDown(moduleId) {
+                this.updatingModuleInstancePosition = true;
+                this.$api.moduleInstances().moveDown(moduleId)
+                    .then(response => {
+                        this.modules.splice(
+                            this.modules.indexOf(
+                                this.modules.find(m => m.id === moduleId)
+                            ),
+                            1, response.data
+                        )
+                    })
+                    .catch(error => this.$notify.alert('There was an error updating the module instance: ' + error.message))
+                    .then(this.updatingModuleInstancePosition = false)
+            },
+            moveModuleGroupingUp(moduleGroupingName) {
+                let moduleGroupingId = this.getGroupingIdFromName(moduleGroupingName);
+                this.updatingModuleInstanceGroupingPosition = true;
+                this.$api.moduleInstanceGrouping().moveGroupingUp(moduleGroupingId)
+                    .then(response => {
+                        this.groupings.splice(
+                            this.groupings.indexOf(
+                                this.groupings.find(g => g.id === moduleGroupingId)
+                            ),
+                            1, response.data
+                        )
+                    })
+                    .catch(error => this.$notify.alert('There was an error updating the module instance group: ' + error.message))
+                    .then(this.updatingModuleInstanceGroupingPosition = false)
+            },
+            moveModuleGroupingDown(moduleGroupingName) {
+                let moduleGroupingId = this.getGroupingIdFromName(moduleGroupingName);
+                this.updatingModuleInstanceGroupingPosition = true;
+                this.$api.moduleInstanceGrouping().moveGroupingDown(moduleGroupingId)
+                    .then(response => {
+                        this.groupings.splice(
+                            this.groupings.indexOf(
+                                this.groupings.find(g => g.id === moduleGroupingId)
+                            ),
+                            1, response.data
+                        )
+                    })
+                    .catch(error => this.$notify.alert('There was an error updating the module instance group: ' + error.message))
+                    .then(this.updatingModuleInstanceGroupingPosition = false)
+            },
         },
 
         computed: {

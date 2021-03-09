@@ -25,7 +25,7 @@
         "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
         "predis/predis": "^1.1",
-        "bristol-su/support": "^4.7.5",
+        "bristol-su/support": "dev-portal-311 as 4.7.5",
         "bristol-su/unioncloud-portal": "^1.0.0",
         "bristol-su/upload-file": "^1.0",
         "bristol-su/typeform": "^1.1.20",

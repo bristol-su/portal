@@ -32,6 +32,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::apiResource('module-instance-grouping', 'ModuleInstanceGroupingController')->only([
             'index', 'store', 'update'
         ]);
+        Route::post('module-instance-grouping/{module_instance_grouping}/order/up', 'ModuleInstanceGroupingOrderController@up');
+        Route::post('module-instance-grouping/{module_instance_grouping}/order/down', 'ModuleInstanceGroupingOrderController@down');
+        Route::post('module-instance/{module_instance}/order/up', 'ModuleInstanceOrderController@up');
+        Route::post('module-instance/{module_instance}/order/down', 'ModuleInstanceOrderController@down');
+
         Route::apiResource('action', 'ActionController')->only(['index']);
         Route::apiResource('action-instance', 'ActionInstanceController')->only(['store', 'update']);
         Route::apiResource('action-instance-field', 'ActionInstanceFieldController')->only(['store', 'update']);

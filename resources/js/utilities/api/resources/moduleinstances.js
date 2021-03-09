@@ -10,4 +10,12 @@ export default class extends BaseResource{
         return this.request('patch', '/module-instance/' + id, attributes);
     }
 
+    moveUp(moduleId) {
+        return this.request('post', '/module-instance/' + moduleId + '/order/up');
+    }
+
+    moveDown(moduleId) {
+        return this.request('post', '/module-instance/' + moduleId + '/order/down');
+    }
+
 }

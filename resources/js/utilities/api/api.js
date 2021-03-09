@@ -22,6 +22,7 @@ import ModuleInstanceServices from './resources/moduleinstanceservices';
 import Setting from './resources/setting';
 import ActionInstanceHistory from './resources/actioninstancehistory';
 import Progress from'./resources/progress';
+import ModuleInstanceGrouping from'./resources/moduleinstancegrouping';
 
 import axios from 'axios';
 
@@ -147,5 +148,9 @@ export default class {
 
     progress() {
         return new Progress(this._http);
+    }
+
+    moduleInstanceGrouping() {
+        return new ModuleInstanceGrouping(this._http);
     }
 }

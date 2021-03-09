@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f027c682fc55b805325fdb37f57996b2",
+    "content-hash": "b9db43a1debbc976dd558a334404825c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.173.23",
+            "version": "3.173.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "259fa1a47a46f81e66b1ea328ed961a58fa061c2"
+                "reference": "e7275b22d0076d7bbb3c1a90810b1665ed72460c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/259fa1a47a46f81e66b1ea328ed961a58fa061c2",
-                "reference": "259fa1a47a46f81e66b1ea328ed961a58fa061c2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e7275b22d0076d7bbb3c1a90810b1665ed72460c",
+                "reference": "e7275b22d0076d7bbb3c1a90810b1665ed72460c",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.173.23"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.173.24"
             },
-            "time": "2021-03-05T19:20:35+00:00"
+            "time": "2021-03-08T19:22:30+00:00"
         },
         {
             "name": "bristol-su/airtable",
@@ -432,16 +432,16 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v4.7.5",
+            "version": "dev-portal-311",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "447808191d8692cb29d922aa2c7b536af3d4e49f"
+                "reference": "5fe70ef0cc5da2550374ca945b7864359ddada59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/447808191d8692cb29d922aa2c7b536af3d4e49f",
-                "reference": "447808191d8692cb29d922aa2c7b536af3d4e49f",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/5fe70ef0cc5da2550374ca945b7864359ddada59",
+                "reference": "5fe70ef0cc5da2550374ca945b7864359ddada59",
                 "shasum": ""
             },
             "require": {
@@ -452,6 +452,7 @@
                 "laravel/framework": "^6.0",
                 "laravel/passport": "^9.0",
                 "php": "^7.4",
+                "spatie/eloquent-sortable": "^3.11",
                 "tobytwigger/form-schema-generator": "^1.1",
                 "venturecraft/revisionable": "^1.33"
             },
@@ -504,9 +505,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/support/issues",
-                "source": "https://github.com/bristol-su/support/tree/v4.7.5"
+                "source": "https://github.com/bristol-su/support/tree/portal-311"
             },
-            "time": "2021-03-06T15:27:27+00:00"
+            "time": "2021-03-09T01:12:46+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -1690,16 +1691,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.162.0",
+            "version": "v0.163.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "9085ff13f32f5baf8b3d2917ea63e2e029ecedb6"
+                "reference": "8e326f378a1f505064912fddd19fd93bbdcc80fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/9085ff13f32f5baf8b3d2917ea63e2e029ecedb6",
-                "reference": "9085ff13f32f5baf8b3d2917ea63e2e029ecedb6",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/8e326f378a1f505064912fddd19fd93bbdcc80fb",
+                "reference": "8e326f378a1f505064912fddd19fd93bbdcc80fb",
                 "shasum": ""
             },
             "require": {
@@ -1725,9 +1726,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.162.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.163.0"
             },
-            "time": "2021-02-28T12:20:02+00:00"
+            "time": "2021-03-06T12:20:02+00:00"
         },
         {
             "name": "google/auth",
@@ -1859,16 +1860,16 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "60d379c243457e073cff02bc323a2a86cb355631"
+                "reference": "8e7d04f1f6450fef59366c399cfad4b9383aa30d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
-                "reference": "60d379c243457e073cff02bc323a2a86cb355631",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/8e7d04f1f6450fef59366c399cfad4b9383aa30d",
+                "reference": "8e7d04f1f6450fef59366c399cfad4b9383aa30d",
                 "shasum": ""
             },
             "require": {
@@ -1908,9 +1909,9 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/1.4.0"
+                "source": "https://github.com/guzzle/promises/tree/1.4.1"
             },
-            "time": "2020-09-30T07:37:28+00:00"
+            "time": "2021-03-07T09:25:29+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -3933,16 +3934,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.45.1",
+            "version": "2.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "528783b188bdb853eb21239b1722831e0f000a8d"
+                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/528783b188bdb853eb21239b1722831e0f000a8d",
-                "reference": "528783b188bdb853eb21239b1722831e0f000a8d",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
+                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
                 "shasum": ""
             },
             "require": {
@@ -4022,7 +4023,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-11T18:30:17+00:00"
+            "time": "2021-02-24T17:30:44+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -5323,6 +5324,74 @@
                 "source": "https://github.com/SocialiteProviders/Providers/tree/master"
             },
             "time": "2021-02-27T23:19:47+00:00"
+        },
+        {
+            "name": "spatie/eloquent-sortable",
+            "version": "3.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/eloquent-sortable.git",
+                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\EloquentSortable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be"
+                }
+            ],
+            "description": "Sortable behaviour for eloquent models",
+            "homepage": "https://github.com/spatie/eloquent-sortable",
+            "keywords": [
+                "behaviour",
+                "eloquent",
+                "laravel",
+                "model",
+                "sort",
+                "sortable"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/eloquent-sortable/issues",
+                "source": "https://github.com/spatie/eloquent-sortable/tree/3.11.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-18T00:32:12+00:00"
         },
         {
             "name": "spatie/laravel-rate-limited-job-middleware",
@@ -9523,10 +9592,18 @@
             "time": "2020-07-08T17:02:28+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "bristol-su/support",
+            "version": "dev-portal-311",
+            "alias": "4.7.5",
+            "alias_normalized": "4.7.5.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "socialiteproviders/providers": 20
+        "socialiteproviders/providers": 20,
+        "bristol-su/support": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
