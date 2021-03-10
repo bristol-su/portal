@@ -37,7 +37,7 @@ return [
 
         'vapor-slack' => [
             'driver' => 'stack',
-            'channels' => ['stderr', 'verbose-slack'],
+            'channels' => ['stderr', 'larabug'],
             'ignore_exceptions' => false,
         ],
 
@@ -50,6 +50,10 @@ return [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
+        ],
+
+        'larabug' => [
+            'driver' => 'larabug'
         ],
 
         'daily' => [
