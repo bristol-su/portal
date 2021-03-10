@@ -29,6 +29,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::apiResource('module-instance-service', 'ModuleInstanceServiceController')->only(['show', 'store', 'update', 'index']);
         Route::apiResource('module-instance-setting', 'ModuleInstanceSettingController')->only(['show', 'store', 'update']);
         Route::apiResource('module-instance', 'ModuleInstanceController')->only(['store', 'update']);
+        Route::get('module-instance-grouping', 'ModuleInstanceGroupingController@index');
+        Route::post('module-instance-grouping', 'ModuleInstanceGroupingController@store');
         Route::apiResource('action', 'ActionController')->only(['index']);
         Route::apiResource('action-instance', 'ActionInstanceController')->only(['store', 'update']);
         Route::apiResource('action-instance-field', 'ActionInstanceFieldController')->only(['store', 'update']);

@@ -180,6 +180,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\VaporUiServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         \App\Providers\ControlServiceProvider::class,
         \App\Providers\AdditionalAttributeProvider::class,
