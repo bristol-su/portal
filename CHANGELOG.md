@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## Changed
-- Update to Laravel Tinker v2.0
+- portal-322: Update to Laravel Tinker v2.0
+
+## Added
+- portal-324: Run the UnionCloud sync command daily at 6pm
 
 ## [3.1.3] - 2021-03-10
 
