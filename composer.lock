@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3aeae116275fdca8a55e3b9104169c84",
+    "content-hash": "9939cdec068018e98f6dce8caf6abb74",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2816,6 +2816,72 @@
             "time": "2020-12-29T15:06:52+00:00"
         },
         {
+            "name": "laravel/vapor-ui",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/vapor-ui.git",
+                "reference": "093d3fa0a0a65300f565bd20ed7dec9cc5c6abe2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/vapor-ui/zipball/093d3fa0a0a65300f565bd20ed7dec9cc5c6abe2",
+                "reference": "093d3fa0a0a65300f565bd20ed7dec9cc5c6abe2",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.148.3",
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "nunomaduro/larastan": "^0.6.4",
+                "orchestra/testbench": "^5.0|^6.0",
+                "pestphp/pest": "^0.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\VaporUi\\VaporUiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\VaporUi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Nuno Maduro",
+                    "email": "enunomaduro@gmail.com"
+                }
+            ],
+            "description": "The Laravel Vapor UI.",
+            "homepage": "https://github.com/laravel/vapor-ui",
+            "keywords": [
+                "laravel",
+                "vapor"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/vapor-ui/issues",
+                "source": "https://github.com/laravel/vapor-ui"
+            },
+            "time": "2021-01-11T10:18:06+00:00"
+        },
+        {
             "name": "lcobucci/clock",
             "version": "2.0.0",
             "source": {
@@ -5288,12 +5354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Providers.git",
-                "reference": "2b50281ae1914f20f739b01e4ba94c769ed7cfc2"
+                "reference": "246f67f1f25f6536910a990ff3c674794e00b428"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/2b50281ae1914f20f739b01e4ba94c769ed7cfc2",
-                "reference": "2b50281ae1914f20f739b01e4ba94c769ed7cfc2",
+                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/246f67f1f25f6536910a990ff3c674794e00b428",
+                "reference": "246f67f1f25f6536910a990ff3c674794e00b428",
                 "shasum": ""
             },
             "require": {
@@ -5322,7 +5388,7 @@
                 "issues": "https://github.com/SocialiteProviders/Providers/issues",
                 "source": "https://github.com/SocialiteProviders/Providers/tree/master"
             },
-            "time": "2021-02-27T23:19:47+00:00"
+            "time": "2021-03-10T01:39:17+00:00"
         },
         {
             "name": "spatie/laravel-rate-limited-job-middleware",
