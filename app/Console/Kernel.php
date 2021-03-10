@@ -8,6 +8,7 @@ use BristolSU\Support\Filters\Commands\CacheFilters;
 use BristolSU\Support\ModuleInstance\Contracts\Scheduler\CommandStore;
 use BristolSU\UnionCloud\Commands\CacheUnionCloudUserGroupMemberships;
 use BristolSU\UnionCloud\Commands\CacheUnionCloudUsersUserGroupMemberships;
+use BristolSU\UnionCloud\Commands\SyncUnionCloudDataUsers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -45,6 +46,7 @@ class Kernel extends ConsoleKernel
             if(config('app.cache-unioncloud', false) && config('unioncloud-portal.enabled.memberships', false)) {
                 $schedule->command(CacheUnionCloudUserGroupMemberships::class)->cron('*/2 * * * *');
                 $schedule->command(CacheUnionCloudUsersUserGroupMemberships::class)->cron('1-59/2 * * * *');
+                $schedule->command(SyncUnionCloudDataUsers::class)->dailyAt('18:00')->runInBackground();
             }
 
             foreach (app(CommandStore::class)->all() as $alias => $commands) {
