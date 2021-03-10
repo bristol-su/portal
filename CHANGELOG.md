@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - portal-320: Vapor UI
 
+### Fixed
+- portal-321: Connection sometimes can't be changed
+
 ## [3.1.2] - 2021-03-09
 
 ### Added
