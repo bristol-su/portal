@@ -7,16 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## Changed
+### Fixed
+- portal-331: Can't set connection if not set during module creation
+
+### Changed
 - Added faker to `require` rather than `require-dev`
 
 ## [3.1.4] - 2021-03-10
 
-## Changed
+### Changed
 - portal-322: Update to Laravel Tinker v2.0
 - portal-323: Updated to use UnionCloud v1.0.2
 
-## Added
+### Added
 - portal-324: Run the UnionCloud sync command daily at 6pm
 
 ## [3.1.3] - 2021-03-10

@@ -111,7 +111,7 @@
             },
             doesActiveConnectionBelongToUser() {
                 // If a user Can see the current connection then enable the dropdown
-                return ! this.connectionOptions.filter(c => c.value === this.currentConnection.connection_id).length > 0;
+                return this.hasCurrentConnection && ! this.connectionOptions.filter(c => c.value === this.currentConnection.connection_id).length > 0;
             }
         },
     }
