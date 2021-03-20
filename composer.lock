@@ -514,12 +514,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "d5b15f7e5918836d5c8c03d8d37ead32e936a5ca"
+                "reference": "030430e0c7b69d0a70411c8f852a6f087cb37c5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/d5b15f7e5918836d5c8c03d8d37ead32e936a5ca",
-                "reference": "d5b15f7e5918836d5c8c03d8d37ead32e936a5ca",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/030430e0c7b69d0a70411c8f852a6f087cb37c5b",
+                "reference": "030430e0c7b69d0a70411c8f852a6f087cb37c5b",
                 "shasum": ""
             },
             "require": {
@@ -561,7 +561,7 @@
                 "issues": "https://github.com/bristol-su/typeform/issues",
                 "source": "https://github.com/bristol-su/typeform/tree/v1.1.22"
             },
-            "time": "2021-03-20T16:30:53+00:00"
+            "time": "2021-03-20T16:48:09+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
