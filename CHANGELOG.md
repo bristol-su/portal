@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.6] - 2021-03-20
+
+### Fixed
+- portal-332: Update typeform dependency
+
 ## [3.1.5] - 2021-03-20
 
 ### Fixed
@@ -52,7 +57,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - AirTable integration updated to v2.0.0, changed control configuration to match new schema.
 
-[Unreleased]: https://github.com/bristol-su/portal/compare/v3.1.5...HEAD
+[Unreleased]: https://github.com/bristol-su/portal/compare/v3.1.6...HEAD
+[3.1.6]: https://github.com/bristol-su/portal/compare/v3.1.5...v3.1.6
 [3.1.5]: https://github.com/bristol-su/portal/compare/v3.1.4...v3.1.5
 [3.1.4]: https://github.com/bristol-su/portal/compare/v3.1.3...v3.1.4
 [3.1.3]: https://github.com/bristol-su/portal/compare/v3.1.2...v3.1.3

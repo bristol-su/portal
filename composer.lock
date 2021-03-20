@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "061dae3301568039e58e18f8a434d9f8",
+    "content-hash": "ba108ebf1e9f5dbfcc3d54cc211c143e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -510,16 +510,16 @@
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v1.1.21",
+            "version": "v1.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "2ad3c19a76dfa1930d7760d35a66186d20f20a98"
+                "reference": "d5b15f7e5918836d5c8c03d8d37ead32e936a5ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/2ad3c19a76dfa1930d7760d35a66186d20f20a98",
-                "reference": "2ad3c19a76dfa1930d7760d35a66186d20f20a98",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/d5b15f7e5918836d5c8c03d8d37ead32e936a5ca",
+                "reference": "d5b15f7e5918836d5c8c03d8d37ead32e936a5ca",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/typeform/issues",
-                "source": "https://github.com/bristol-su/typeform/tree/v1.1.21"
+                "source": "https://github.com/bristol-su/typeform/tree/v1.1.22"
             },
-            "time": "2021-03-20T13:34:37+00:00"
+            "time": "2021-03-20T16:30:53+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
