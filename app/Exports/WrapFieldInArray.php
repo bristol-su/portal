@@ -11,9 +11,11 @@ class WrapFieldInArray extends Formatter
 
     public function formatItem(FormattedItem $formattedItem): FormattedItem
     {
-        $formattedItem->addRow(
-            $this->config('field'), Arr::wrap($formattedItem->getItem($this->config('field'))),
-        );
+        foreach(Arr::wrap($this->config('field')) as $field) {
+            $formattedItem->addRow(
+                $field, Arr::wrap($formattedItem->getItem($field))
+            );
+        }
         return $formattedItem;
     }
 

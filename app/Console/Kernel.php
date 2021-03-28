@@ -36,12 +36,13 @@ class Kernel extends ConsoleKernel
                 return config('support.caching.filters.enabled');
             });
             $schedule->command('progress:snapshot -E database')->dailyAt('07:00')->runInBackground();
-            $schedule->command('progress:snapshot 1 -E portal-airtable')->dailyAt('06:00')->runInBackground();
+            $schedule->command('progress:snapshot 8 -E portal-airtable')->dailyAt('06:00')->runInBackground();
 
             $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
-            $schedule->command('control:export role --exporter=committee-contact-sheet')->cron('0 */2 * * *')->runInBackground();
-            $schedule->command('control:export role --exporter=committee-contact-sheet-old')->daily()->runInBackground();
-            $schedule->command('control:export role --exporter=portal-airtable')->dailyAt('22:00')->runInBackground();
+            $schedule->command('control:export role --exporter=bristol-control-users')->dailyAt('22:00')->runInBackground();
+            $schedule->command('control:export role --exporter=bristol-control-groups')->dailyAt('22:00')->runInBackground();
+            $schedule->command('control:export role --exporter=bristol-control-positions')->dailyAt('22:00')->runInBackground();
+            $schedule->command('control:export role --exporter=bristol-control-roles')->dailyAt('02:00')->runInBackground();
 
             if(config('app.cache-unioncloud', false) && config('unioncloud-portal.enabled.memberships', false)) {
                 $schedule->command(CacheUnionCloudUserGroupMemberships::class)->cron('*/2 * * * *');
