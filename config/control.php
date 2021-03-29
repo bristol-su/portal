@@ -194,7 +194,7 @@ return [
                 \App\Exports\LinkRolesToPosition::class => [],
                 \App\Exports\LinkRolesToGroup::class => [],
                 \BristolSU\ControlDB\Export\Formatter\Shared\SortByColumn::class => [
-                    'column' => 'User Last Name'
+                    'column' => 'Group'
                 ],
                 \App\Exports\WrapFieldInArray::class => [
                     'field' => ['Group', 'Position']
