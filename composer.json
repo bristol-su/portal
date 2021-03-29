@@ -35,7 +35,8 @@
         "bristol-su/airtable": "v2.0.0",
         "bristol-su/assign-roles": "^1.0.1",
         "laravel/vapor-ui": "^1.0",
-        "fzaninotto/faker": "^1.4"
+        "fzaninotto/faker": "^1.4",
+        "bristol-su/control": "dev-portal-335 as 2.1.5"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^4",
@@ -80,5 +81,6 @@
                 "bristol-su/control"
             ]
         }
-    }
+    },
+    "repositories": [{"type": "vcs", "url": "git@github.com:bristol-su/control"}]
 }

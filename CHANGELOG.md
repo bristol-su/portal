@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- portal-334: Update export configuration for Bristol SU reaffiliation
+
 ## [3.1.6] - 2021-03-20
 
 ### Fixed
