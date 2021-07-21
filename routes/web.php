@@ -30,7 +30,7 @@ Route::middleware('guest')->get('/', 'Pages\LandingController@index');
 Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
 Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth.portal', 'verified'])->group(function () {
     // Custom Authentication Routes
     Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
     Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');

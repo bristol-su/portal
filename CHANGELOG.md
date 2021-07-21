@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Updated
+- portal-294: Move Laravel version 8
+
+### Added
+- portal-224: Support for Laravel Sail
+
 ### Removed
 - portal-157: Removed config/portal.php
 - portal-156: Removed config/laravel-page-speed.php
+- Remove `siteSetting` function
 
 ## [3.1.6] - 2021-03-20
 

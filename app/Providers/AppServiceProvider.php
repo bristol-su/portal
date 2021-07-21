@@ -31,7 +31,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Passport::withoutCookieSerialization();
         $this->app->call([$this, 'registerFilters']);
 
         Validator::resolver(function($translator, $data, $rules, $messages, $attributes)

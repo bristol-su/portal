@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth.portal', 'verified'])->group(function () {
 
     Route::apiResource('whoami', 'WhoAmIController')->only(['index']);
 

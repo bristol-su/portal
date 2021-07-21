@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
  *
  * @return void
  */
-    Route::group(['middleware' => ['web', 'auth']], function ($router) {
+    Route::group(['middleware' => ['web', 'auth.portal']], function ($router) {
         Route::get('/authorize', [
             'uses' => 'AuthorizationController@authorize',
             'as' => 'passport.authorizations.authorize',
@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
         'middleware' => 'throttle',
     ]);
 
-    Route::group(['middleware' => ['web', 'auth']], function ($router) {
+    Route::group(['middleware' => ['web', 'auth.portal']], function ($router) {
         Route::get('/tokens', [
             'uses' => 'AuthorizedAccessTokenController@forUser',
             'as' => 'passport.tokens.index',
@@ -53,7 +53,7 @@ use Illuminate\Support\Facades\Route;
  * @return void
  */
     Route::post('/token/refresh', [
-        'middleware' => ['web', 'auth'],
+        'middleware' => ['web', 'auth.portal'],
         'uses' => 'TransientTokenController@refresh',
         'as' => 'passport.token.refresh',
     ]);
@@ -63,7 +63,7 @@ use Illuminate\Support\Facades\Route;
  *
  * @return void
  */
-//    Route::group(['middleware' => ['web', 'auth']], function ($router) {
+//    Route::group(['middleware' => ['web', 'auth.portal']], function ($router) {
 //        Route::get('/clients', [
 //            'uses' => 'ClientController@forUser',
 //            'as' => 'passport.clients.index',
@@ -92,7 +92,7 @@ use Illuminate\Support\Facades\Route;
  *
  * @return void
  */
-//    Route::group(['middleware' => ['web', 'auth']], function ($router) {
+//    Route::group(['middleware' => ['web', 'auth.portal']], function ($router) {
 //        Route::get('/scopes', [
 //            'uses' => 'ScopeController@all',
 //            'as' => 'passport.scopes.index',
