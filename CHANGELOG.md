@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- portal-157: Removed config/portal.php
+- portal-156: Removed config/laravel-page-speed.php
+
 ## [3.1.6] - 2021-03-20
 
 ### Fixed
