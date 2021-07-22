@@ -30,7 +30,7 @@
         "linkeys/signed-url": "^3.0.1",
         "twigger/laravel-translate": "dev-develop",
         "stichoza/google-translate-php": "^4.1",
-        "bristol-su/portal-auth": "dev-master",
+        "bristol-su/portal-auth": "dev-portal-v4",
         "laravel/legacy-factories": "^v1.1.0"
     },
     "require-dev": {

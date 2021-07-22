@@ -15,7 +15,7 @@ Route::middleware(['portal-auth'])->group(function () {
     Route::get('/login/participant/{activity_slug}', [\App\Http\Controllers\Auth\LogIntoParticipantController::class, 'show'])->name('login.participant');
     Route::get('/login/admin/{activity_slug}', [\App\Http\Controllers\Auth\LogIntoAdminController::class, 'show'])->name('login.admin');
 
-    Route::middleware(['nonmodule', 'can:view-management'])->group(function () {
+    Route::middleware(['can:view-management'])->group(function () {
         // Settings Routes
         Route::get('/management', [\App\Http\Controllers\Management\ManagementController::class, 'index'])->name('management');
         Route::resource('activity', ActivityController::class)->only(['index', 'create', 'show']);
@@ -36,13 +36,10 @@ Route::middleware(['portal-auth'])->group(function () {
     // Portal Routes
     Route::get('/control', [\App\Http\Controllers\Pages\ControlController::class, 'index'])->name('control');
 
-    Route::middleware('nonmodule')->group(function () {
-        Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
-        Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
-        Route::get('/p', [PortalController::class, 'participant'])->name('participant');
-        Route::get('/activity/{activity}/progress', [\App\Http\Controllers\Pages\ActivityProgressController::class, 'index']);
-
-    });
+    Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
+    Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
+    Route::get('/p', [PortalController::class, 'participant'])->name('participant');
+    Route::get('/activity/{activity}/progress', [\App\Http\Controllers\Pages\ActivityProgressController::class, 'index']);
 
     Route::middleware('activity')->group(function () {
         Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');

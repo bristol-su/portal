@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8da4f3c1f8947617ab4989bd3d0e8a12",
+    "content-hash": "581a67a792054b876a8608148e062110",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.185.17",
+            "version": "3.185.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3f639e8a6fff677f788700940a68dc138ea5da71"
+                "reference": "726d042a6e445557a5709735b494886d4f12025a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f639e8a6fff677f788700940a68dc138ea5da71",
-                "reference": "3f639e8a6fff677f788700940a68dc138ea5da71",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/726d042a6e445557a5709735b494886d4f12025a",
+                "reference": "726d042a6e445557a5709735b494886d4f12025a",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.17"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.18"
             },
-            "time": "2021-07-20T18:19:09+00:00"
+            "time": "2021-07-21T18:18:25+00:00"
         },
         {
             "name": "brick/math",
@@ -269,16 +269,16 @@
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-master",
+            "version": "dev-portal-v4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "ca5d29a9e4e9e95c4f2a0d1dc926f7bb6a5f8d9b"
+                "reference": "6c985a1be7e948f6aff2dac4515c17ca0b99713f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/ca5d29a9e4e9e95c4f2a0d1dc926f7bb6a5f8d9b",
-                "reference": "ca5d29a9e4e9e95c4f2a0d1dc926f7bb6a5f8d9b",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/6c985a1be7e948f6aff2dac4515c17ca0b99713f",
+                "reference": "6c985a1be7e948f6aff2dac4515c17ca0b99713f",
                 "shasum": ""
             },
             "require": {
@@ -295,10 +295,10 @@
                 "brianium/paratest": "^6.0",
                 "laravel/legacy-factories": "^1.1",
                 "orchestra/testbench": "^6.0",
+                "orchestra/testbench-dusk": "^6.9",
                 "phpspec/prophecy-phpunit": "^2.0.1",
                 "phpstan/phpstan": "^0.12.3"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -335,9 +335,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/portal-auth/issues",
-                "source": "https://github.com/bristol-su/portal-auth/tree/master"
+                "source": "https://github.com/bristol-su/portal-auth/tree/portal-v4"
             },
-            "time": "2021-01-20T02:37:11+00:00"
+            "time": "2021-07-22T14:35:27+00:00"
         },
         {
             "name": "bristol-su/support",
@@ -345,12 +345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "d0e246bbf70947b4b9351d621c7df08a743c2a3e"
+                "reference": "ef739cfd900d88cb6431aef057fe477e1b2f86cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/d0e246bbf70947b4b9351d621c7df08a743c2a3e",
-                "reference": "d0e246bbf70947b4b9351d621c7df08a743c2a3e",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/ef739cfd900d88cb6431aef057fe477e1b2f86cb",
+                "reference": "ef739cfd900d88cb6431aef057fe477e1b2f86cb",
                 "shasum": ""
             },
             "require": {
@@ -415,7 +415,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/portal-v4"
             },
-            "time": "2021-07-21T15:42:33+00:00"
+            "time": "2021-07-22T14:32:59+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -6536,6 +6536,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -6646,117 +6647,6 @@
                 }
             ],
             "time": "2020-09-28T06:39:44+00:00"
-        },
-        {
-            "name": "socialiteproviders/manager",
-            "version": "4.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SocialiteProviders/Manager.git",
-                "reference": "0f5e82af0404df0080bdc5c105cef936c1711524"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/0f5e82af0404df0080bdc5c105cef936c1711524",
-                "reference": "0f5e82af0404df0080bdc5c105cef936c1711524",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "laravel/socialite": "~4.0|~5.0",
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.2",
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "SocialiteProviders\\Manager\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SocialiteProviders\\Manager\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andy Wendt",
-                    "email": "andy@awendt.com"
-                },
-                {
-                    "name": "Anton Komarev",
-                    "email": "a.komarev@cybercog.su"
-                },
-                {
-                    "name": "Miguel Piedrafita",
-                    "email": "soy@miguelpiedrafita.com"
-                },
-                {
-                    "name": "atymic",
-                    "email": "atymicq@gmail.com",
-                    "homepage": "https://atymic.dev"
-                }
-            ],
-            "description": "Easily add new or override built-in providers in Laravel Socialite.",
-            "homepage": "https://socialiteproviders.com/",
-            "support": {
-                "issues": "https://github.com/SocialiteProviders/Manager/issues",
-                "source": "https://github.com/SocialiteProviders/Manager/tree/4.0.1"
-            },
-            "time": "2020-12-01T23:09:06+00:00"
-        },
-        {
-            "name": "socialiteproviders/providers",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SocialiteProviders/Providers.git",
-                "reference": "b78a81591dda9c9f0fe3066f07e47931226efbc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Providers/zipball/b78a81591dda9c9f0fe3066f07e47931226efbc2",
-                "reference": "b78a81591dda9c9f0fe3066f07e47931226efbc2",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "league/oauth1-client": "^1.9",
-                "php": "^7.2 || ^8.0",
-                "socialiteproviders/manager": "~4.0"
-            },
-            "require-dev": {
-                "kitetail/zttp": "^0.6.0",
-                "php-parallel-lint/php-console-highlighter": "^0.5.0",
-                "php-parallel-lint/php-parallel-lint": "^1.3",
-                "symplify/monorepo-builder": "^6.1 || ^8.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SocialiteProviders\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Collection of all OAuth2 Providers for Laravel Socialite",
-            "support": {
-                "issues": "https://github.com/SocialiteProviders/Providers/issues",
-                "source": "https://github.com/SocialiteProviders/Providers/tree/master"
-            },
-            "time": "2021-07-20T04:06:34+00:00"
         },
         {
             "name": "spatie/macroable",
@@ -11117,16 +11007,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.10",
+            "version": "5.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "2ba9c8c862ecd5510ed16c6340aa9f6eadb4f31b"
+                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2ba9c8c862ecd5510ed16c6340aa9f6eadb4f31b",
-                "reference": "2ba9c8c862ecd5510ed16c6340aa9f6eadb4f31b",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2ab6744b7296ded80f8cc4f9509abbff393399aa",
+                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa",
                 "shasum": ""
             },
             "require": {
@@ -11181,9 +11071,9 @@
             ],
             "support": {
                 "issues": "https://github.com/justinrainbow/json-schema/issues",
-                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.10"
+                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.11"
             },
-            "time": "2020-05-27T16:41:55+00:00"
+            "time": "2021-07-22T09:24:00+00:00"
         },
         {
             "name": "laravel/sail",
@@ -11729,7 +11619,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "socialiteproviders/providers": 20,
         "bristol-su/support": 20,
         "bristol-su/control": 20,
         "twigger/laravel-translate": 20,
