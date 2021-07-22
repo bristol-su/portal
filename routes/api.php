@@ -16,69 +16,91 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth.portal', 'verified'])->group(function () {
 
-    Route::apiResource('whoami', 'WhoAmIController')->only(['index']);
+    Route::apiResource('whoami', \App\Http\Controllers\Api\WhoAmIController::class)->only(['index']);
+
+    Route::get('owned-resource', [\App\Http\Controllers\Api\Portal\OwnedResourceController::class, 'index']);
+
+    // Retrieve activities for a specific user/group/role combo
+    Route::get('activity/role', [\App\Http\Controllers\Api\Portal\ActivityParticipantController::class, 'role']);
+    Route::get('activity/group', [\App\Http\Controllers\Api\Portal\ActivityParticipantController::class, 'group']);
+    Route::get('activity/user', [\App\Http\Controllers\Api\Portal\ActivityParticipantController::class, 'user']);
+
+    Route::get('activity/admin/role', [\App\Http\Controllers\Api\Portal\ActivityAdminController::class, 'role']);
+    Route::get('activity/admin/group', [\App\Http\Controllers\Api\Portal\ActivityAdminController::class, 'group']);
+    Route::get('activity/admin/user', [\App\Http\Controllers\Api\Portal\ActivityAdminController::class, 'user']);
+
+    // Retrieve evaluation of activity for the activity resource
+    Route::get('activity/{activity}/evaluate/resource', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'resource']);
+    Route::get('activity/{activity}/evaluate/participant', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'participant']);
+    Route::get('activity/{activity}/evaluate/admin', [\App\Http\Controllers\Api\Portal\ActivityEvaluationController::class, 'admin']);
+
+    // Retrieve evaluation of module instances
+    Route::get('activity/{activity}/module-instance/evaluate/resource', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'resource']);
+    Route::get('activity/{activity}/module-instance/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'participant']);
+    Route::get('activity/{activity}/module-instance/admin/evaluate', [\App\Http\Controllers\Api\Portal\ModuleInstanceEvaluationController::class, 'admin']);
+
+
 
     Route::middleware(['can:view-management'])->group(function () {
-        Route::apiResource('activity', 'ActivityController')->only(['store', 'update']);
-        Route::apiResource('setting', 'SettingController')->only(['index', 'show', 'update']);
-        Route::apiResource('filter', 'FilterController')->only(['index']);
-        Route::apiResource('filter-instances', 'FilterInstanceController')->only(['store']);
-        Route::apiResource('logic', 'LogicController')->only(['index', 'show', 'store', 'update']);
-        Route::apiResource('module', 'ModuleController')->only(['index', 'show']);
-        Route::apiResource('module-instance-permission', 'ModuleInstancePermissionController')->only(['show', 'store', 'update', 'destroy']);
-        Route::apiResource('module-instance-service', 'ModuleInstanceServiceController')->only(['show', 'store', 'update', 'index']);
-        Route::apiResource('module-instance-setting', 'ModuleInstanceSettingController')->only(['show', 'store', 'update']);
-        Route::apiResource('module-instance', 'ModuleInstanceController')->only(['store', 'update']);
-        Route::get('module-instance-grouping', 'ModuleInstanceGroupingController@index');
-        Route::post('module-instance-grouping', 'ModuleInstanceGroupingController@store');
-        Route::apiResource('action', 'ActionController')->only(['index']);
-        Route::apiResource('action-instance', 'ActionInstanceController')->only(['store', 'update']);
-        Route::apiResource('action-instance-field', 'ActionInstanceFieldController')->only(['store', 'update']);
-        Route::apiResource('site-permission', 'SitePermissionController')->only('index', 'show');
-        Route::apiResource('connector', 'ConnectorController')->only('index', 'show');
-        Route::apiResource('connection', 'ConnectionController')->only('index', 'destroy', 'update', 'store');
-        Route::get('connection/{connection_id}/test', 'ConnectionController@test');
-        Route::apiResource('completion-condition-instance', 'CompletionConditionInstanceController')->only(['store', 'update']);
-        Route::apiResource('activity-instance', 'ActivityInstanceController')->only(['store', 'show']);
-        Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
-        Route::post('/activity/{activity}/progress/snapshot', 'ActivityProgressSnapshotController@store');
-        Route::post('/activity/{activity}/activity-instance/search', 'ActivityInstanceSearchController@search');
-        Route::get('/progress/activity-instance/{activity_instance}', 'ActivityInstanceProgressController@index');
+        Route::apiResource('activity', \App\Http\Controllers\Api\ActivityController::class)->only(['store', 'update']);
+        Route::apiResource('filter', \App\Http\Controllers\Api\FilterController::class)->only(['index']);
+        Route::apiResource('filter-instances', \App\Http\Controllers\Api\FilterInstanceController::class)->only(['store']);
+        Route::apiResource('logic', \App\Http\Controllers\Api\LogicController::class)->only(['index', 'show', 'store', 'update']);
+        Route::apiResource('module', \App\Http\Controllers\Api\ModuleController::class)->only(['index', 'show']);
+        Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\ModuleInstancePermissionController::class)->only(['show', 'store', 'update', 'destroy']);
+        Route::apiResource('module-instance-service', \App\Http\Controllers\Api\ModuleInstanceServiceController::class)->only(['show', 'store', 'update', 'index']);
+        Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\ModuleInstanceSettingController::class)->only(['show', 'store', 'update']);
+        Route::apiResource('module-instance', \App\Http\Controllers\Api\ModuleInstanceController::class)->only(['store', 'update']);
+        Route::get('module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'index']);
+        Route::post('module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'store']);
+        Route::apiResource('action', \App\Http\Controllers\Api\ActionController::class)->only(['index']);
+        Route::apiResource('action-instance', \App\Http\Controllers\Api\ActionInstanceController::class)->only(['store', 'update']);
+        Route::apiResource('action-instance-field', \App\Http\Controllers\Api\ActionInstanceFieldController::class)->only(['store', 'update']);
+        Route::apiResource('site-permission', \App\Http\Controllers\Api\SitePermissionController::class)->only('index', 'show');
+        Route::apiResource('connector', \App\Http\Controllers\Api\ConnectorController::class)->only('index', 'show');
+        Route::apiResource('connection', \App\Http\Controllers\Api\ConnectionController::class)->only('index', 'destroy', 'update', 'store');
+        Route::get('connection/{connection_id}/test', [\App\Http\Controllers\Api\ConnectionController::class, 'test']);
+        Route::apiResource('completion-condition-instance', \App\Http\Controllers\Api\CompletionConditionInstanceController::class)->only(['store', 'update']);
+        Route::apiResource('activity-instance', \App\Http\Controllers\Api\ActivityInstanceController::class)->only(['store', 'show']);
+        Route::get('/activity/{activity}/progress', [\App\Http\Controllers\Api\ActivityProgressController::class, 'index']);
+        Route::post('/activity/{activity}/progress/snapshot', [\App\Http\Controllers\Api\ActivityProgressSnapshotController::class, 'store']);
+        Route::post('/activity/{activity}/activity-instance/search', [\App\Http\Controllers\Api\ActivityInstanceSearchController::class, 'search']);
+        Route::get('/progress/activity-instance/{activity_instance}', [\App\Http\Controllers\Api\ActivityInstanceProgressController::class, 'index']);
 
         Route::prefix('/module/{module_alias}')->group(function () {
-            Route::get('completion-condition/{completion_condition_alias}', 'CompletionConditionController@show');
-            Route::get('completion-condition', 'CompletionConditionController@index');
+            Route::get('completion-condition/{completion_condition_alias}', [\App\Http\Controllers\Api\CompletionConditionController::class, 'show']);
+            Route::get('completion-condition', [\App\Http\Controllers\Api\CompletionConditionController::class, 'index']);
         });
 
         Route::namespace('Relationships')->group(function () {
             Route::prefix('/action-instance/{action_instance}')->group(function () {
-                Route::get('action-instance-field', 'ActionInstanceActionInstanceFieldController@index');
-                Route::get('history', 'ActionInstanceActionInstanceHistoryController@index');
+                Route::get('action-instance-field', [\App\Http\Controllers\Api\Relationships\ActionInstanceActionInstanceFieldController::class, 'index']);
+                Route::get('history', [\App\Http\Controllers\Api\Relationships\ActionInstanceActionInstanceHistoryController::class, 'index']);
             });
 
             Route::prefix('logic/{logic}')->group(function () {
-                Route::resource('filter-instance', 'LogicFilterInstanceController')->only(['index', 'update', 'destroy']);
+                Route::resource('filter-instance', \App\Http\Controllers\Api\Relationships\LogicFilterInstanceController::class)->only(['index', 'update', 'destroy']);
             });
 
-            Route::get('/activity/{activity}/module-instance', 'ActivityModuleInstancesController@index');
+            Route::get('/activity/{activity}/module-instance', [\App\Http\Controllers\Api\Relationships\ActivityModuleInstancesController::class, 'index']);
 
-            Route::get('service/{service}/connection', 'ServiceConnectionController@index');
+            Route::get('service/{service}/connection', [\App\Http\Controllers\Api\Relationships\ServiceConnectionController::class, 'index']);
 
-            Route::get('/logic/{logic}/audience', 'LogicAudienceController@index');
-            Route::get('/logic/{logic}/audience/user', 'LogicAudienceController@user');
-            Route::get('/logic/{logic}/audience/group', 'LogicAudienceController@group');
-            Route::get('/logic/{logic}/audience/role', 'LogicAudienceController@role');
+            Route::get('/logic/{logic}/audience', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'index']);
+            Route::get('/logic/{logic}/audience/user', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'user']);
+            Route::get('/logic/{logic}/audience/group', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'group']);
+            Route::get('/logic/{logic}/audience/role', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'role']);
 
-            Route::get('/me/roles', 'MeRolesController@index');
+            Route::get('/me/roles', [\App\Http\Controllers\Api\Relationships\MeRolesController::class, 'index']);
 
-            Route::get('/site-permission/{site_permission}/user', 'SitePermissionUserController@index');
-            Route::post('/site-permission/{site_permission}/user/{control_user_id}', 'SitePermissionUserController@store');
-            Route::delete('/site-permission/{site_permission}/user/{control_user_id}', 'SitePermissionUserController@delete');
+            Route::get('/site-permission/{site_permission}/user', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'index']);
+            Route::post('/site-permission/{site_permission}/user/{control_user_id}', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'store']);
+            Route::delete('/site-permission/{site_permission}/user/{control_user_id}', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'delete']);
 
             Route::prefix('/module-instance/{module_instance_id}')->group(function () {
-                Route::apiResource('module-instance-setting', 'ModuleInstanceModuleInstanceSettingController')->only(['index']);
-                Route::apiResource('module-instance-permission', 'ModuleInstanceModuleInstancePermissionController')->only(['index']);
-                Route::apiResource('module-instance-service', 'ModuleInstanceModuleInstanceServiceController')->only(['index']);
+                Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceSettingController::class)->only(['index']);
+                Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstancePermissionController::class)->only(['index']);
+                Route::apiResource('module-instance-service', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceServiceController::class)->only(['index']);
             });
 
         });

@@ -17,7 +17,7 @@ import ModuleInstanceShow from './management/moduleinstance/show/Show';
 import ModuleInstanceCreate from './management/moduleinstance/create/Create';
 import LogicShow from './management/logic/show/Show';
 import LogicIndex from './management/logic/index/Index';
-import LogicCreate from './management/logic/create/Create';
+import LogicCreate from './management/logic/create/Create';``
 import ActionShow from './management/action/show/Show';
 import ActionCreate from './management/action/create/Create';
 import Activities from './components/portal/activity/index/show/Activities';
