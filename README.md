@@ -63,19 +63,22 @@ It also comes with a fully-featured API to control users, services, automations 
 
 This project is still under heavy development, and is due for release in mid March. Therefore, it should not yet be used in production.
 
-### Docker
+### The CLI
 
-1. Make sure you have docker and docker-compose installed (https://docs.docker.com/compose/install/)
-2. Run ```docker-compose build``` in the root of this repository
-3. Run ```docker-compose up``` in the root of this repository
-4. Access the portal at localhost:8080
+The easiest way to get started is to [download the CLI](https://github.com/bristol-su/portal-cli).
+
+### Sail
+
+1. Make sure you have docker compose installed (https://docs.docker.com/compose/install/)
+2. Clone the project, install dependencies with `composer install` and set up the `.env` file using `.env.example.sail` as a template.
+3. Set up the environment with `./vendor/bin/sail up`
+4. Generate an application key with `php artisan key:generate` and migrate the database with `sail artisan migrate`
+5. Access the portal at localhost:8000.
 
 You can also use the following tools:
 
-- Log Viewer: [http://localhost:8080/log-viewer](http://localhost:8080/log-viewer)
+- Log Viewer: [http://localhost:8080/log-viewer](http://localhost:8000/log-viewer)
 - MailHog: [http://localhost:8025](http://localhost:8025)
-
-Once you've registered with the portal, there are a few tools you can use to get started quickly. 
 
 **Make yourself an admin**
 To make your user an admin, you can run ```docker-compose exec app php artisan user:promote```. It will ask for the email of the user you just registered with, and give you full admin permissions.
@@ -84,6 +87,7 @@ To make your user an admin, you can run ```docker-compose exec app php artisan u
 To create an example activity, run ```docker-compose exec app php artisan db:seed --class=ExampleActivitySeeder```. This will create an example activity for you.
 
 You can, of course, run any command by prefixing it with ```docker-compose exec app```
+
 ### Non-docker
 
 1. Clone the package: ```git clone https://github.com/bristol-su/portal```
