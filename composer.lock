@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.185.18",
+            "version": "3.185.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "726d042a6e445557a5709735b494886d4f12025a"
+                "reference": "7db5021b3c823235ee7f2ceb3f75ceb0811d74ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/726d042a6e445557a5709735b494886d4f12025a",
-                "reference": "726d042a6e445557a5709735b494886d4f12025a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7db5021b3c823235ee7f2ceb3f75ceb0811d74ac",
+                "reference": "7db5021b3c823235ee7f2ceb3f75ceb0811d74ac",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.18"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.19"
             },
-            "time": "2021-07-21T18:18:25+00:00"
+            "time": "2021-07-22T18:18:09+00:00"
         },
         {
             "name": "brick/math",
@@ -273,12 +273,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "6c985a1be7e948f6aff2dac4515c17ca0b99713f"
+                "reference": "bbedac416953b818a13b529355000fe93aa9bd16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/6c985a1be7e948f6aff2dac4515c17ca0b99713f",
-                "reference": "6c985a1be7e948f6aff2dac4515c17ca0b99713f",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/bbedac416953b818a13b529355000fe93aa9bd16",
+                "reference": "bbedac416953b818a13b529355000fe93aa9bd16",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +337,7 @@
                 "issues": "https://github.com/bristol-su/portal-auth/issues",
                 "source": "https://github.com/bristol-su/portal-auth/tree/portal-v4"
             },
-            "time": "2021-07-22T14:35:27+00:00"
+            "time": "2021-07-23T08:43:51+00:00"
         },
         {
             "name": "bristol-su/support",
@@ -345,12 +345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "ef739cfd900d88cb6431aef057fe477e1b2f86cb"
+                "reference": "1709f9898d23bf1c6627030e2acb03509e1c0add"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/ef739cfd900d88cb6431aef057fe477e1b2f86cb",
-                "reference": "ef739cfd900d88cb6431aef057fe477e1b2f86cb",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/1709f9898d23bf1c6627030e2acb03509e1c0add",
+                "reference": "1709f9898d23bf1c6627030e2acb03509e1c0add",
                 "shasum": ""
             },
             "require": {
@@ -415,7 +415,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/portal-v4"
             },
-            "time": "2021-07-22T14:32:59+00:00"
+            "time": "2021-07-23T08:54:41+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -3048,16 +3048,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "9738e495f288eec0b187e310b7cdbbb285777dbe"
+                "reference": "71312564759a7db5b789296369c1a264efc43aad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/9738e495f288eec0b187e310b7cdbbb285777dbe",
-                "reference": "9738e495f288eec0b187e310b7cdbbb285777dbe",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/71312564759a7db5b789296369c1a264efc43aad",
+                "reference": "71312564759a7db5b789296369c1a264efc43aad",
                 "shasum": ""
             },
             "require": {
@@ -3128,7 +3128,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.1"
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.2"
             },
             "funding": [
                 {
@@ -3140,7 +3140,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-14T11:56:39+00:00"
+            "time": "2021-07-23T07:42:52+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
