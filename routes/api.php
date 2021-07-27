@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth.portal', 'verified'])->group(function () {
+Route::middleware(['portal-auth'])->group(function () {
 
     Route::apiResource('whoami', \App\Http\Controllers\Api\WhoAmIController::class)->only(['index']);
 
@@ -72,38 +72,36 @@ Route::middleware(['auth.portal', 'verified'])->group(function () {
             Route::get('completion-condition', [\App\Http\Controllers\Api\CompletionConditionController::class, 'index']);
         });
 
-        Route::namespace('Relationships')->group(function () {
-            Route::prefix('/action-instance/{action_instance}')->group(function () {
-                Route::get('action-instance-field', [\App\Http\Controllers\Api\Relationships\ActionInstanceActionInstanceFieldController::class, 'index']);
-                Route::get('history', [\App\Http\Controllers\Api\Relationships\ActionInstanceActionInstanceHistoryController::class, 'index']);
-            });
-
-            Route::prefix('logic/{logic}')->group(function () {
-                Route::resource('filter-instance', \App\Http\Controllers\Api\Relationships\LogicFilterInstanceController::class)->only(['index', 'update', 'destroy']);
-            });
-
-            Route::get('/activity/{activity}/module-instance', [\App\Http\Controllers\Api\Relationships\ActivityModuleInstancesController::class, 'index']);
-
-            Route::get('service/{service}/connection', [\App\Http\Controllers\Api\Relationships\ServiceConnectionController::class, 'index']);
-
-            Route::get('/logic/{logic}/audience', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'index']);
-            Route::get('/logic/{logic}/audience/user', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'user']);
-            Route::get('/logic/{logic}/audience/group', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'group']);
-            Route::get('/logic/{logic}/audience/role', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'role']);
-
-            Route::get('/me/roles', [\App\Http\Controllers\Api\Relationships\MeRolesController::class, 'index']);
-
-            Route::get('/site-permission/{site_permission}/user', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'index']);
-            Route::post('/site-permission/{site_permission}/user/{control_user_id}', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'store']);
-            Route::delete('/site-permission/{site_permission}/user/{control_user_id}', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'delete']);
-
-            Route::prefix('/module-instance/{module_instance_id}')->group(function () {
-                Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceSettingController::class)->only(['index']);
-                Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstancePermissionController::class)->only(['index']);
-                Route::apiResource('module-instance-service', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceServiceController::class)->only(['index']);
-            });
-
+        Route::prefix('/action-instance/{action_instance}')->group(function () {
+            Route::get('action-instance-field', [\App\Http\Controllers\Api\Relationships\ActionInstanceActionInstanceFieldController::class, 'index']);
+            Route::get('history', [\App\Http\Controllers\Api\Relationships\ActionInstanceActionInstanceHistoryController::class, 'index']);
         });
+
+        Route::prefix('logic/{logic}')->group(function () {
+            Route::resource('filter-instance', \App\Http\Controllers\Api\Relationships\LogicFilterInstanceController::class)->only(['index', 'update', 'destroy']);
+        });
+
+        Route::get('/activity/{activity}/module-instance', [\App\Http\Controllers\Api\Relationships\ActivityModuleInstancesController::class, 'index']);
+
+        Route::get('service/{service}/connection', [\App\Http\Controllers\Api\Relationships\ServiceConnectionController::class, 'index']);
+
+        Route::get('/logic/{logic}/audience', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'index']);
+        Route::get('/logic/{logic}/audience/user', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'user']);
+        Route::get('/logic/{logic}/audience/group', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'group']);
+        Route::get('/logic/{logic}/audience/role', [\App\Http\Controllers\Api\Relationships\LogicAudienceController::class, 'role']);
+
+        Route::get('/me/roles', [\App\Http\Controllers\Api\Relationships\MeRolesController::class, 'index']);
+
+        Route::get('/site-permission/{site_permission}/user', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'index']);
+        Route::post('/site-permission/{site_permission}/user/{control_user_id}', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'store']);
+        Route::delete('/site-permission/{site_permission}/user/{control_user_id}', [\App\Http\Controllers\Api\Relationships\SitePermissionUserController::class, 'delete']);
+
+        Route::prefix('/module-instance/{module_instance_id}')->group(function () {
+            Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceSettingController::class)->only(['index']);
+            Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstancePermissionController::class)->only(['index']);
+            Route::apiResource('module-instance-service', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceServiceController::class)->only(['index']);
+        });
+
     });
 
 });

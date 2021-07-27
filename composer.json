@@ -1,12 +1,8 @@
 {
     "name": "bristol-su/portal",
-    "type": "project",
     "description": "Bristol SU Portal.",
-    "keywords": [
-    ],
+    "type": "project",
     "license": "MIT",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^8.0",
         "aws/aws-sdk-php": "^3.88",
@@ -23,7 +19,7 @@
         "laravel/vapor-core": "^2.5",
         "predis/predis": "^1.1",
         "larabug/larabug": "^2.3",
-        "bristol-su/support": "dev-portal-v4 as 4.7.2",
+        "bristol-su/support": "dev-portal-v4",
         "bristol-su/control": "dev-develop as 2.1.5",
         "laravel/vapor-ui": "^1.0",
         "laravel/ui": "^3.0",
@@ -31,7 +27,10 @@
         "twigger/laravel-translate": "dev-develop",
         "stichoza/google-translate-php": "^4.1",
         "bristol-su/portal-auth": "dev-portal-v4",
-        "laravel/legacy-factories": "^v1.1.0"
+        "laravel/legacy-factories": "^v1.1.0",
+        "bristol-su/static-page": "dev-feature/port-modules",
+        "bristol-su/upload-file": "dev-feature/port-modules",
+        "bristol-su/data-entry": "dev-feature/port-modules"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",
@@ -62,6 +61,8 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -78,5 +79,6 @@
                 "bristol-su/control"
             ]
         }
-    }
+    },
+    "abandoned": false
 }

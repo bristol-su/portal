@@ -18,7 +18,7 @@ Route::middleware(['portal-auth'])->group(function () {
     Route::middleware(['can:view-management'])->group(function () {
         // Settings Routes
         Route::get('/management', [\App\Http\Controllers\Management\ManagementController::class, 'index'])->name('management');
-        Route::resource('activity', ActivityController::class)->only(['index', 'create', 'show']);
+        Route::resource('activity', \App\Http\Controllers\Management\ActivityController::class)->only(['index', 'create', 'show']);
         Route::resource('logic', \App\Http\Controllers\Management\LogicController::class)->only(['index', 'show', 'create']);
         Route::resource('site-permission', \App\Http\Controllers\Management\SitePermissionController::class)->only(['index', 'show']);
         Route::resource('connector', \App\Http\Controllers\Management\ConnectorController::class)->only(['index']);
