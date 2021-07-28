@@ -30,7 +30,12 @@
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/static-page": "dev-feature/port-modules",
         "bristol-su/upload-file": "dev-feature/port-modules",
-        "bristol-su/data-entry": "dev-feature/port-modules"
+        "bristol-su/data-entry": "dev-feature/port-modules",
+        "bristol-su/airtable": "dev-feature/port-modules",
+        "bristol-su/unioncloud-portal": "dev-feature/port-modules",
+        "bristol-su/typeform-service": "dev-feature/port-modules",
+        "bristol-su/typeform": "dev-feature/port-modules",
+        "bristol-su/assign-roles": "dev-feature/port-modules"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",

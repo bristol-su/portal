@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c323007ff4c1b7d475938b9cf365036e",
+    "content-hash": "c66a4baf8fa02ca7cd2a32e9b7af1f36",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.185.21",
+            "version": "3.186.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "58a64da8f232913842f08ce93e62f3a5961664b3"
+                "reference": "e8511d38de286233bcb6a827d3344c0fc4808b75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/58a64da8f232913842f08ce93e62f3a5961664b3",
-                "reference": "58a64da8f232913842f08ce93e62f3a5961664b3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e8511d38de286233bcb6a827d3344c0fc4808b75",
+                "reference": "e8511d38de286233bcb6a827d3344c0fc4808b75",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.185.21"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.186.0"
             },
-            "time": "2021-07-26T18:15:01+00:00"
+            "time": "2021-07-27T18:17:00+00:00"
         },
         {
             "name": "brick/math",
@@ -207,6 +207,120 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
+        },
+        {
+            "name": "bristol-su/airtable",
+            "version": "dev-feature/port-modules",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/airtable.git",
+                "reference": "b5efe36a49ea6b306c47621d282ef1cbdeac9ac4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/b5efe36a49ea6b306c47621d282ef1cbdeac9ac4",
+                "reference": "b5efe36a49ea6b306c47621d282ef1cbdeac9ac4",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/control": "dev-develop as 2.1.4",
+                "bristol-su/support": "dev-portal-v4 as 4.6.0",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.0",
+                "php": "^8.0",
+                "predis/predis": "^1.1",
+                "spatie/laravel-rate-limited-job-middleware": "^1.4"
+            },
+            "require-dev": {
+                "brianium/paratest": "^6.0",
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.0",
+                "phpspec/prophecy-phpunit": "^2.0.0",
+                "phpstan/phpstan": "^0.12.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "dont-discover": [],
+                    "providers": [
+                        "BristolSU\\AirTable\\AirTableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\AirTable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger1@gmail.com"
+                }
+            ],
+            "description": "An integration with AirTable for the Portal",
+            "support": {
+                "issues": "https://github.com/bristol-su/airtable/issues",
+                "source": "https://github.com/bristol-su/airtable/tree/feature/port-modules"
+            },
+            "time": "2021-07-28T11:30:30+00:00"
+        },
+        {
+            "name": "bristol-su/assign-roles",
+            "version": "dev-feature/port-modules",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/assign-roles.git",
+                "reference": "b1edd687e8fa35733d6f486ff3fd1039d0c3a3fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/b1edd687e8fa35733d6f486ff3fd1039d0c3a3fb",
+                "reference": "b1edd687e8fa35733d6f486ff3fd1039d0c3a3fb",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "dev-portal-v4 as 4.2",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.19",
+                "phpspec/prophecy-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\Module\\AssignRoles\\ModuleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\Module\\AssignRoles\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger1@gmail.com"
+                }
+            ],
+            "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
+            "support": {
+                "issues": "https://github.com/bristol-su/assign-roles/issues",
+                "source": "https://github.com/bristol-su/assign-roles/tree/feature/port-modules"
+            },
+            "time": "2021-07-28T11:24:09+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -266,6 +380,60 @@
                 "source": "https://github.com/bristol-su/control/tree/develop"
             },
             "time": "2021-01-12T19:42:48+00:00"
+        },
+        {
+            "name": "bristol-su/data-entry",
+            "version": "dev-feature/port-modules",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/data-entry.git",
+                "reference": "00e8f79dc351ce977d7aa3b108d40972eb650ed2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/00e8f79dc351ce977d7aa3b108d40972eb650ed2",
+                "reference": "00e8f79dc351ce977d7aa3b108d40972eb650ed2",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "league/csv": "^9.6",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.19",
+                "phpspec/prophecy-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\Module\\DataEntry\\ModuleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\Module\\DataEntry\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger1@gmail.com"
+                }
+            ],
+            "description": "A module for the Bristol SU Portal Project to allow entering and management of data in a given data structure",
+            "support": {
+                "issues": "https://github.com/bristol-su/data-entry/issues",
+                "source": "https://github.com/bristol-su/data-entry/tree/feature/port-modules"
+            },
+            "time": "2021-07-27T16:15:32+00:00"
         },
         {
             "name": "bristol-su/portal-auth",
@@ -473,6 +641,165 @@
                 "source": "https://github.com/bristol-su/support/tree/portal-v4"
             },
             "time": "2021-07-27T14:17:05+00:00"
+        },
+        {
+            "name": "bristol-su/typeform",
+            "version": "dev-feature/port-modules",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/typeform.git",
+                "reference": "1cb5339b62c71fa81e314aecdc00c38c2ace232a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/1cb5339b62c71fa81e314aecdc00c38c2ace232a",
+                "reference": "1cb5339b62c71fa81e314aecdc00c38c2ace232a",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "bristol-su/typeform-service": "dev-feature/port-modules as 1.0.1",
+                "ext-json": "*",
+                "php": "^8.0",
+                "spatie/laravel-rate-limited-job-middleware": "^1.4",
+                "watr/typeform": "^1.5"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.19",
+                "phpspec/prophecy-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\Module\\Typeform\\ModuleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\Module\\Typeform\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "toby.twigger@bristol.ac.uk"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/bristol-su/typeform/issues",
+                "source": "https://github.com/bristol-su/typeform/tree/feature/port-modules"
+            },
+            "time": "2021-07-28T11:45:02+00:00"
+        },
+        {
+            "name": "bristol-su/typeform-service",
+            "version": "dev-feature/port-modules",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/typeform-service.git",
+                "reference": "8636363c5c06e64c5afd15ed79d140388f9d9e99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/typeform-service/zipball/8636363c5c06e64c5afd15ed79d140388f9d9e99",
+                "reference": "8636363c5c06e64c5afd15ed79d140388f9d9e99",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "ext-json": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.19",
+                "phpspec/prophecy-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\Service\\Typeform\\TypeformServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\Service\\Typeform\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "toby.twigger@bristol.ac.uk"
+                }
+            ],
+            "description": "A third party service for typeform",
+            "support": {
+                "issues": "https://github.com/bristol-su/typeform-service/issues",
+                "source": "https://github.com/bristol-su/typeform-service/tree/feature/port-modules"
+            },
+            "time": "2021-07-28T11:43:14+00:00"
+        },
+        {
+            "name": "bristol-su/unioncloud-portal",
+            "version": "dev-feature/port-modules",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/unioncloud-portal.git",
+                "reference": "12cc549565dbe260f23d56cc72a44990303bba56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/12cc549565dbe260f23d56cc72a44990303bba56",
+                "reference": "12cc549565dbe260f23d56cc72a44990303bba56",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "dev-portal-v4 as 4.2",
+                "php": "^8.0",
+                "twigger/unioncloud": "dev-develop as 1.0.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\UnionCloud\\UnionCloudIntegrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\UnionCloud\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger1@gmail.com"
+                }
+            ],
+            "description": "An integration with unioncloud for use with the portal",
+            "support": {
+                "issues": "https://github.com/bristol-su/unioncloud-portal/issues",
+                "source": "https://github.com/bristol-su/unioncloud-portal/tree/feature/port-modules"
+            },
+            "time": "2021-07-28T11:44:25+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -3204,6 +3531,90 @@
             "time": "2021-06-19T15:52:37+00:00"
         },
         {
+            "name": "league/csv",
+            "version": "9.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "0ec57e8264ec92565974ead0d1724cf1026e10c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/0ec57e8264ec92565974ead0d1724cf1026e10c1",
+                "reference": "0ec57e8264ec92565974ead0d1724cf1026e10c1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "phpstan/phpstan": "^0.12.0",
+                "phpstan/phpstan-phpunit": "^0.12.0",
+                "phpstan/phpstan-strict-rules": "^0.12.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "suggest": {
+                "ext-dom": "Required to use the XMLConverter and or the HTMLConverter classes",
+                "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSV data manipulation made easy in PHP",
+            "homepage": "http://csv.thephpleague.com",
+            "keywords": [
+                "convert",
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "transform",
+                "write"
+            ],
+            "support": {
+                "docs": "https://csv.thephpleague.com",
+                "issues": "https://github.com/thephpleague/csv/issues",
+                "rss": "https://github.com/thephpleague/csv/releases.atom",
+                "source": "https://github.com/thephpleague/csv"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-04-17T16:32:08+00:00"
+        },
+        {
             "name": "league/event",
             "version": "2.2.0",
             "source": {
@@ -4056,22 +4467,23 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.50.0",
+            "version": "2.51.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "f47f17d17602b2243414a44ad53d9f8b9ada5fdb"
+                "reference": "48ebff252df4d3b60ecb8e2583f79dfba6b56bc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f47f17d17602b2243414a44ad53d9f8b9ada5fdb",
-                "reference": "f47f17d17602b2243414a44ad53d9f8b9ada5fdb",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/48ebff252df4d3b60ecb8e2583f79dfba6b56bc8",
+                "reference": "48ebff252df4d3b60ecb8e2583f79dfba6b56bc8",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
                 "symfony/polyfill-mbstring": "^1.0",
+                "symfony/polyfill-php80": "^1.16",
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
@@ -4090,8 +4502,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev",
-                    "dev-3.x": "3.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -4145,7 +4557,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-28T22:38:45+00:00"
+            "time": "2021-07-28T08:28:41+00:00"
         },
         {
             "name": "nette/schema",
@@ -7491,6 +7903,66 @@
             "time": "2020-09-28T06:39:44+00:00"
         },
         {
+            "name": "spatie/laravel-rate-limited-job-middleware",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-rate-limited-job-middleware.git",
+                "reference": "7b72592e0d823e2948c413f5e661de0fd3431db5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-rate-limited-job-middleware/zipball/7b72592e0d823e2948c413f5e661de0fd3431db5",
+                "reference": "7b72592e0d823e2948c413f5e661de0fd3431db5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/redis": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.2|^9.0",
+                "symfony/var-dumper": "^4.3|^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\RateLimitedMiddleware\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A middleware that can rate limit jobs",
+            "homepage": "https://github.com/spatie/laravel-rate-limited-job-middleware",
+            "keywords": [
+                "laravel-rate-limited-job-middleware",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-rate-limited-job-middleware/issues",
+                "source": "https://github.com/spatie/laravel-rate-limited-job-middleware/tree/1.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-11-27T09:36:55+00:00"
+        },
+        {
             "name": "spatie/macroable",
             "version": "1.0.1",
             "source": {
@@ -9395,16 +9867,16 @@
         },
         {
             "name": "symfony/psr-http-message-bridge",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/psr-http-message-bridge.git",
-                "reference": "81db2d4ae86e9f0049828d9343a72b9523884e5d"
+                "reference": "c9012994c4b4fb23e7c57dd86b763a417a04feba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/81db2d4ae86e9f0049828d9343a72b9523884e5d",
-                "reference": "81db2d4ae86e9f0049828d9343a72b9523884e5d",
+                "url": "https://api.github.com/repos/symfony/psr-http-message-bridge/zipball/c9012994c4b4fb23e7c57dd86b763a417a04feba",
+                "reference": "c9012994c4b4fb23e7c57dd86b763a417a04feba",
                 "shasum": ""
             },
             "require": {
@@ -9414,7 +9886,7 @@
             },
             "require-dev": {
                 "nyholm/psr7": "^1.1",
-                "psr/log": "^1.1",
+                "psr/log": "^1.1 || ^2 || ^3",
                 "symfony/browser-kit": "^4.4 || ^5.0",
                 "symfony/config": "^4.4 || ^5.0",
                 "symfony/event-dispatcher": "^4.4 || ^5.0",
@@ -9463,7 +9935,7 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony/psr-http-message-bridge/issues",
-                "source": "https://github.com/symfony/psr-http-message-bridge/tree/v2.1.0"
+                "source": "https://github.com/symfony/psr-http-message-bridge/tree/v2.1.1"
             },
             "funding": [
                 {
@@ -9479,7 +9951,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-17T10:35:25+00:00"
+            "time": "2021-07-27T17:25:39+00:00"
         },
         {
             "name": "symfony/routing",
@@ -10072,16 +10544,16 @@
         },
         {
             "name": "theseer/tokenizer",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "75a63c33a8577608444246075ea0af0d052e452a"
+                "reference": "34a41e998c2183e22995f158c581e7b5e755ab9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/75a63c33a8577608444246075ea0af0d052e452a",
-                "reference": "75a63c33a8577608444246075ea0af0d052e452a",
+                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/34a41e998c2183e22995f158c581e7b5e755ab9e",
+                "reference": "34a41e998c2183e22995f158c581e7b5e755ab9e",
                 "shasum": ""
             },
             "require": {
@@ -10110,7 +10582,7 @@
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "support": {
                 "issues": "https://github.com/theseer/tokenizer/issues",
-                "source": "https://github.com/theseer/tokenizer/tree/master"
+                "source": "https://github.com/theseer/tokenizer/tree/1.2.1"
             },
             "funding": [
                 {
@@ -10118,7 +10590,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-12T23:59:07+00:00"
+            "time": "2021-07-28T10:34:58+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -10301,6 +10773,60 @@
                 }
             ],
             "time": "2021-01-12T22:54:04+00:00"
+        },
+        {
+            "name": "twigger/unioncloud",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/nus-unioncloud-api-wrapper.git",
+                "reference": "ed2d77a691476d90380a6a71e2e608b5d0e2bcc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/ed2d77a691476d90380a6a71e2e608b5d0e2bcc6",
+                "reference": "ed2d77a691476d90380a6a71e2e608b5d0e2bcc6",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "^3.0@dev",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "nesbot/carbon": "^2.24"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7",
+                "vlucas/phpdotenv": "^2.5@dev"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Twigger\\UnionCloud\\API\\UnionCloudServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Twigger\\UnionCloud\\API\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tt15951@bristol.ac.uk"
+                }
+            ],
+            "description": "An API Wrapper for the NUS UnionCloud platform",
+            "support": {
+                "issues": "https://github.com/bristol-su/nus-unioncloud-api-wrapper/issues",
+                "source": "https://github.com/bristol-su/nus-unioncloud-api-wrapper/tree/develop"
+            },
+            "time": "2021-07-21T14:15:18+00:00"
         },
         {
             "name": "venturecraft/revisionable",
@@ -10519,6 +11045,54 @@
                 }
             ],
             "time": "2020-11-12T00:07:28+00:00"
+        },
+        {
+            "name": "watr/typeform",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wearetherobots/typeform.git",
+                "reference": "4a98e689524b54dfecf5142f261a02e4564ae9d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wearetherobots/typeform/zipball/4a98e689524b54dfecf5142f261a02e4564ae9d3",
+                "reference": "4a98e689524b54dfecf5142f261a02e4564ae9d3",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0|^7.0"
+            },
+            "require-dev": {
+                "php-vcr/php-vcr": "^1.4",
+                "phpunit/phpunit": "~7|^8.0",
+                "psy/psysh": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "psr-4": {
+                    "WATR\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Tapia",
+                    "email": "rtapia92@gmail.com"
+                }
+            ],
+            "description": "A simple wrapper for Typeform API calls",
+            "support": {
+                "issues": "https://github.com/wearetherobots/typeform/issues",
+                "source": "https://github.com/wearetherobots/typeform/tree/1.5.2"
+            },
+            "time": "2021-07-21T16:12:26+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -12463,7 +13037,13 @@
         "twigger/laravel-translate": 20,
         "bristol-su/portal-auth": 20,
         "bristol-su/static-page": 20,
-        "bristol-su/upload-file": 20
+        "bristol-su/upload-file": 20,
+        "bristol-su/data-entry": 20,
+        "bristol-su/airtable": 20,
+        "bristol-su/unioncloud-portal": 20,
+        "bristol-su/typeform-service": 20,
+        "bristol-su/typeform": 20,
+        "bristol-su/assign-roles": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
