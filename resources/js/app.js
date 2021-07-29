@@ -31,6 +31,7 @@ import settingKeys from './utilities/settingKeys';
 import ActivityInstanceSwitcher from './components/portal/activity/ActivityInstanceSwitcher';
 import Welcome from './components/welcome/Welcome';
 import Settings from './management/settings/Settings';
+import DynamicSettings from './management/settings/DynamicSettings';
 import SocialLogin from './components/login/social/SocialLogin';
 import Clipboard from 'v-clipboard'
 
@@ -92,6 +93,7 @@ new Vue({
 
         Welcome,
         Settings,
+        DynamicSettings,
 
         SocialLogin,
         ActivityProgress

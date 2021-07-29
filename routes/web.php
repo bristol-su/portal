@@ -29,7 +29,8 @@ Route::middleware(['portal-auth'])->group(function () {
             });
         });
         Route::resource('action', \App\Http\Controllers\Management\ActionController::class)->only(['show'])->parameter('action', 'action_instance');
-        Route::get('settings', [\App\Http\Controllers\Management\SettingsController::class, 'index']);
+        Route::get('settings', [\App\Http\Controllers\Management\SettingsController::class, 'index'])->name('settings.index');
+        Route::get('settings/{category}', [\App\Http\Controllers\Management\SettingsController::class, 'show'])->name('settings.show');
     });
 
 

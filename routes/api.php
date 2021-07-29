@@ -102,6 +102,8 @@ Route::middleware(['portal-auth'])->group(function () {
             Route::apiResource('module-instance-service', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceServiceController::class)->only(['index']);
         });
 
+        Route::apiResource('setting', \App\Http\Controllers\Api\SettingController::class)->only(['show', 'update']);
+
     });
 
 });

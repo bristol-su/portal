@@ -6,8 +6,6 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Contracts\Repository as ActivityRepositoryContract;
-use BristolSU\ControlDB\Contracts\Repositories\Group as GroupRepository;
-use BristolSU\ControlDB\Contracts\Repositories\Role as RoleRepository;
 use BristolSU\ControlDB\Contracts\Repositories\User as UserRepository;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use Illuminate\Support\Facades\Response;
