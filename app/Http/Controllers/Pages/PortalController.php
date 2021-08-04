@@ -6,10 +6,8 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Contracts\Repository as ActivityRepositoryContract;
-use BristolSU\Support\User\Contracts\UserAuthentication;
-use BristolSU\ControlDB\Contracts\Repositories\Group as GroupRepository;
-use BristolSU\ControlDB\Contracts\Repositories\Role as RoleRepository;
 use BristolSU\ControlDB\Contracts\Repositories\User as UserRepository;
+use BristolSU\Support\Authentication\Contracts\Authentication;
 use Illuminate\Support\Facades\Response;
 
 class PortalController extends Controller
@@ -20,9 +18,9 @@ class PortalController extends Controller
         return Response::redirectTo('p');
     }
 
-    public function participant(ActivityRepositoryContract $activityRepository, UserRepository $userRepository, UserAuthentication $userAuthentication)
+    public function participant(ActivityRepositoryContract $activityRepository, UserRepository $userRepository, Authentication $authentication)
     {
-        $user = $userRepository->getById($userAuthentication->getUser()->control_id);
+        $user = $authentication->getUser();
         $activities = ['role' => [], 'group' => [], 'user' => []];
         $roleGroupRelations = [];
         $roles = collect();
@@ -56,14 +54,14 @@ class PortalController extends Controller
         ]);
     }
 
-    public function administrator(ActivityRepositoryContract $activityRepository, UserAuthentication $userAuthentication)
+    public function administrator(ActivityRepositoryContract $activityRepository, Authentication $authentication)
     {
         $activities = ['role' => [], 'group' => [], 'user' => []];
         $roleGroupRelations = [];
         $roles = collect();
         $groups = collect();
 
-        $user = $userAuthentication->getUser()->controlUser();
+        $user = $authentication->getUser();
         $activities['user'] = $activityRepository->getForAdministrator($user);
 
 

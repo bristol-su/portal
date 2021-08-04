@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Activity;
-use BristolSU\Support\User\Contracts\UserAuthentication;
+use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\Logic\Contracts\Audience\AudienceMemberFactory;
 use Illuminate\Http\Request;
 
 class LogIntoParticipantController extends Controller
 {
 
-    public function show(Request $request, Activity $activity, AudienceMemberFactory $factory, UserAuthentication $userAuthentication)
+    public function show(Request $request, Activity $activity, AudienceMemberFactory $factory, Authentication $authentication)
     {
-        $user = $userAuthentication->getUser()->controlUser();
+        $user = $authentication->getUser();
         $audienceMember = $factory->fromUser($user);
         $audienceMember->filterForLogic($activity->forLogic);
 

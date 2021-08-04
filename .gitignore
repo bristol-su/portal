@@ -21,3 +21,4 @@ report.*
 /coverage
 /storage/clockwork
 bootstrap/cache/*
+/public/vendor

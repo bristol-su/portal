@@ -23,7 +23,9 @@ import Setting from './resources/setting';
 import ActionInstanceHistory from './resources/actioninstancehistory';
 import Progress from'./resources/progress';
 import ModuleInstanceGrouping from'./resources/moduleinstancegrouping';
-
+import OwnedResource from './resources/owned-resource';
+import Activities from './resources/activities';
+import ActivityEvaluation from './resources/activity-evaluation';
 import axios from 'axios';
 
 // TODO Implement Cache
@@ -52,6 +54,19 @@ export default class {
             return Promise.reject(error);
         });
         return this;
+    }
+
+
+    ownedResource() {
+        return new OwnedResource(this._http);
+    }
+
+    activities() {
+        return new Activities(this._http);
+    }
+
+    activityEvaluation() {
+        return new ActivityEvaluation(this._http);
     }
 
     action() {

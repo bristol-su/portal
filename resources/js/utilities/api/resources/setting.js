@@ -2,12 +2,8 @@ import BaseResource from './../baseresource';
 
 export default class extends BaseResource{
 
-    all() {
-        return this.request('get', '/setting');
-    }
-
-    get(key, defaultValue = null) {
-        return this.request('get', '/setting/' + key, {}, {default: defaultValue});
+    get(key) {
+        return this.request('get', '/setting/' + key);
     }
 
     set(key, value) {

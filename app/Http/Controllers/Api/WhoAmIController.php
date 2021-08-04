@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use BristolSU\Support\User\Contracts\UserAuthentication;
+use BristolSU\Auth\Authentication\Contracts\AuthenticationUserResolver;
 
 class WhoAmIController extends Controller
 {
 
-    public function index(UserAuthentication $authentication)
+    public function index(AuthenticationUserResolver $authentication)
     {
         $user = $authentication->getUser();
         $controlUser = $user->controlUser();

@@ -75,13 +75,13 @@
                 return Object.keys(this.moduleInstance).length > 0;
             },
             moduleInstance() {
-                if(window.portal.hasOwnProperty('moduleinstance')) {
-                    return window.portal.moduleinstance;
+                if(window.portal.hasOwnProperty('module_instance') && window.portal.module_instance !== null) {
+                    return window.portal.module_instance;
                 }
                 return {};
             },
             activity() {
-                if(window.portal.hasOwnProperty('activity')) {
+                if(window.portal.hasOwnProperty('activity') && window.portal.activity !== null) {
                     return window.portal.activity;
                 }
                 return {};

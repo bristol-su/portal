@@ -132,7 +132,7 @@
         },
 
         created() {
-            this.$api.settings().get(window.settingKeys.additional_attributes.user)
+            this.$api.settings().get(window.settingKeys.control['data-fields'].user)
                 .then(response => this.additionalAttributes = (response.data.value === null ? [] : response.data.value))
                 .catch(error => this.$notify.alert('Could not load user information'));
         },
