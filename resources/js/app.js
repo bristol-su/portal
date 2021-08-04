@@ -27,10 +27,9 @@ import SitePermissions from './management/sitepermissions/index/Index';
 import SitePermission from './management/sitepermissions/show/Show';
 import ActivityProgress from './management/progress/ActivityProgress';
 import ConnectorIndex from './management/connector/index/Index';
-import settingKeys from './utilities/settingKeys';
+import settingKeys from './settings';
 import ActivityInstanceSwitcher from './components/portal/activity/ActivityInstanceSwitcher';
 import Welcome from './components/welcome/Welcome';
-import Settings from './management/settings/Settings';
 import DynamicSettings from './management/settings/DynamicSettings';
 import SocialLogin from './components/login/social/SocialLogin';
 import Clipboard from 'v-clipboard'
@@ -92,7 +91,6 @@ new Vue({
         ConnectorIndex,
 
         Welcome,
-        Settings,
         DynamicSettings,
 
         SocialLogin,

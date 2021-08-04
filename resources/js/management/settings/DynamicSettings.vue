@@ -31,7 +31,11 @@ export default {
         }
     },
     created() {
-        this.model = VueFormGenerator.schema.createDefaultObject(this.schema.schema);
+        let defaultModel = VueFormGenerator.schema.createDefaultObject(this.schema.schema);
+        this.schema.schema.groups.forEach(group => {
+            Object.assign(defaultModel, VueFormGenerator.schema.createDefaultObject(group))
+        })
+        this.model = defaultModel;
     },
     methods: {
         save() {
@@ -42,7 +46,7 @@ export default {
                 );
             })
             Promise.all(promises)
-                .then(values => console.log(values))
+                .then(values => this.$notify.success('Settings saved'))
                 .catch(error => console.log(error));
         }
     }

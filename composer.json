@@ -73,7 +73,8 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --force --tag=module",
-            "@php artisan vapor-ui:publish --ansi"
+            "@php artisan vapor-ui:publish --ansi",
+            "@php artisan settings:keys"
         ]
     },
     "extra": {
