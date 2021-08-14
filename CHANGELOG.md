@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.1] - 2021-08-15
+
+### Updated
+- Update composer dependencies to stable versions
+
 ## [3.2.0] - 2021-08-14
 
 ### Updated
@@ -71,7 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - AirTable integration updated to v2.0.0, changed control configuration to match new schema.
 
-[Unreleased]: https://github.com/bristol-su/portal/compare/v3.2.0...HEAD
+[Unreleased]: https://github.com/bristol-su/portal/compare/v3.2.1...HEAD
+[3.2.1]: https://github.com/bristol-su/portal/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/bristol-su/portal/compare/v3.1.6...v3.2.0
 [3.1.6]: https://github.com/bristol-su/portal/compare/v3.1.5...v3.1.6
 [3.1.5]: https://github.com/bristol-su/portal/compare/v3.1.4...v3.1.5
