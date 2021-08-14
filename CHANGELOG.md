@@ -72,7 +72,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - AirTable integration updated to v2.0.0, changed control configuration to match new schema.
 
 [Unreleased]: https://github.com/bristol-su/portal/compare/v3.2.0...HEAD
-[3.1.6]: https://github.com/bristol-su/portal/compare/v3.1.6...v3.2.0
+[3.2.0]: https://github.com/bristol-su/portal/compare/v3.1.6...v3.2.0
 [3.1.6]: https://github.com/bristol-su/portal/compare/v3.1.5...v3.1.6
 [3.1.5]: https://github.com/bristol-su/portal/compare/v3.1.4...v3.1.5
 [3.1.4]: https://github.com/bristol-su/portal/compare/v3.1.3...v3.1.4
