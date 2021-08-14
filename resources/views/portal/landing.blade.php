@@ -8,7 +8,7 @@
                 <div class="col-md-9">
                     <h1>Bristol SU Portal</h1>
                     <p class="lead text-muted">
-                        {!! siteSetting('pageText.landing', 'Welcome to the portal!') !!}
+                        {!! \App\Settings\Appearance\Messaging\LandingPageTitle::getValue() !!}
                     </p>
                     {{--                    <a href="{{url('/login')}}" class="btn btn-primary m-2">Login</a>--}}
                     <a href="{{url('/register')}}" class="btn btn-lg btn-primary m-1">Register</a>

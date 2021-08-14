@@ -1,51 +1,56 @@
 {
     "name": "bristol-su/portal",
-    "type": "project",
     "description": "Bristol SU Portal.",
-    "keywords": [
-    ],
+    "type": "project",
     "license": "MIT",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "aws/aws-sdk-php": "^3.88",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laracasts/utilities": "^3.0",
-        "laravel/framework": "^6.5",
+        "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "php-console/php-console": "^3.1",
         "fruitcake/laravel-cors": "^1.0",
         "ext-json": "*",
         "nao-pon/flysystem-google-drive": "~1.1",
-        "laravel/socialite": "^4.3",
-        "socialiteproviders/providers": "dev-master",
-        "linkeys/signed-url": "^1.0",
         "laravel/vapor-core": "^2.5",
         "predis/predis": "^1.1",
         "larabug/larabug": "^2.3",
-        "bristol-su/support": "^4.7.6",
-        "bristol-su/unioncloud-portal": "^1.0.2",
-        "bristol-su/upload-file": "^1.0",
-        "bristol-su/typeform": "^1.1.22",
-        "bristol-su/static-page": "^1.1.1",
-        "bristol-su/data-entry": "^1.0",
-        "bristol-su/airtable": "v2.0.0",
-        "bristol-su/assign-roles": "^1.0.1",
+        "bristol-su/support": "dev-portal-v4",
+        "bristol-su/control": "dev-develop as 2.1.5",
         "laravel/vapor-ui": "^1.0",
-        "fzaninotto/faker": "^1.4"
+        "laravel/ui": "^3.0",
+        "linkeys/signed-url": "^3.0.1",
+        "twigger/laravel-translate": "dev-develop",
+        "stichoza/google-translate-php": "^4.1",
+        "bristol-su/portal-auth": "dev-portal-v4",
+        "laravel/legacy-factories": "^v1.1.0",
+        "bristol-su/static-page": "dev-feature/port-modules",
+        "bristol-su/upload-file": "dev-feature/port-modules",
+        "bristol-su/data-entry": "dev-feature/port-modules",
+        "bristol-su/airtable": "dev-feature/port-modules",
+        "bristol-su/unioncloud-portal": "dev-feature/port-modules",
+        "bristol-su/typeform-service": "dev-feature/port-modules",
+        "bristol-su/typeform": "dev-feature/port-modules",
+        "bristol-su/assign-roles": "dev-feature/port-modules"
     },
     "require-dev": {
-        "itsgoingd/clockwork": "^4",
+        "itsgoingd/clockwork": "^5.0.3",
         "beyondcode/laravel-dump-server": "^1.0",
         "bmitch/churn-php": "^1.0",
         "composer/composer": "^1.8",
         "filp/whoops": "^2.0",
-        "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^2.0",
-        "arcanedev/log-viewer": "^5.0"
+        "arcanedev/log-viewer": "^8.0",
+        "barryvdh/laravel-debugbar": "^3.4",
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3",
+        "laravel/sail": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -54,9 +59,6 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ],
-        "files": [
-            "app/Helpers/helpers.php"
         ]
     },
     "autoload-dev": {
@@ -64,12 +66,15 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --force --tag=module",
-            "@php artisan vapor-ui:publish --ansi"
+            "@php artisan vapor-ui:publish --ansi",
+            "@php artisan settings:keys"
         ]
     },
     "extra": {
@@ -80,5 +85,6 @@
                 "bristol-su/control"
             ]
         }
-    }
+    },
+    "abandoned": false
 }

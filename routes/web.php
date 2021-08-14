@@ -1,77 +1,55 @@
 <?php
 
+
+use App\Http\Controllers\Pages\ActivityController;
+use App\Http\Controllers\Pages\PortalController;
 use Illuminate\Support\Facades\Route;
 
-// Laravel Authentication Routes
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
-
-// Email Verification Routes...
-Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::middleware('link')->get('email/verify/authorize', 'Auth\VerificationController@verify')->name('verification.verify');
-Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
-
-// Password Reset Routes...
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
-
-Route::get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')->name('password.confirm');
-Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
-
 // Landing Page Route
-Route::middleware('guest')->get('/', 'Pages\LandingController@index');
-Route::middleware('guest')->get('/login/provider/{provider}', 'Auth\SocialiteController@redirect');
-Route::middleware('guest')->get('/login/provider/{provider}/callback', 'Auth\SocialiteController@handleCallback');
+Route::middleware('portal-guest')->get('/', [\App\Http\Controllers\Pages\LandingController::class, 'index']);
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['portal-auth'])->group(function () {
+
+
     // Custom Authentication Routes
-    Route::get('/login/participant/{activity_slug}', 'Auth\LogIntoParticipantController@show')->name('login.participant');
-    Route::get('/login/admin/{activity_slug}', 'Auth\LogIntoAdminController@show')->name('login.admin');
+    Route::get('/login/participant/{activity_slug}', [\App\Http\Controllers\Auth\LogIntoParticipantController::class, 'show'])->name('login.participant');
+    Route::get('/login/admin/{activity_slug}', [\App\Http\Controllers\Auth\LogIntoAdminController::class, 'show'])->name('login.admin');
 
-    Route::middleware(['nonmodule', 'can:view-management'])->namespace('Management')->group(function () {
+    Route::middleware(['can:view-management'])->group(function () {
         // Settings Routes
-        Route::get('/management', 'ManagementController@index')->name('management');
-        Route::resource('activity', 'ActivityController')->only(['index', 'create', 'show']);
-        Route::resource('logic', 'LogicController')->only(['index', 'show', 'create']);
-        Route::resource('site-permission', 'SitePermissionController')->only(['index', 'show']);
-        Route::resource('connector', 'ConnectorController')->only(['index']);
+        Route::get('/management', [\App\Http\Controllers\Management\ManagementController::class, 'index'])->name('management');
+        Route::resource('activity', \App\Http\Controllers\Management\ActivityController::class)->only(['index', 'create', 'show']);
+        Route::resource('logic', \App\Http\Controllers\Management\LogicController::class)->only(['index', 'show', 'create']);
+        Route::resource('site-permission', \App\Http\Controllers\Management\SitePermissionController::class)->only(['index', 'show']);
+        Route::resource('connector', \App\Http\Controllers\Management\ConnectorController::class)->only(['index']);
         Route::prefix('/activity/{activity}')->group(function () {
-            Route::resource('module-instance', 'ModuleInstanceController')->only(['show', 'create']);
+            Route::resource('module-instance', \App\Http\Controllers\Management\ModuleInstanceController::class)->only(['show', 'create']);
             Route::prefix('/module-instance/{module_instance}')->group(function () {
-                Route::resource('action', 'ActionController')->only(['create']);
+                Route::resource('action', \App\Http\Controllers\Management\ActionController::class)->only(['create']);
             });
         });
-        Route::resource('action', 'ActionController')->only(['show'])->parameter('action', 'action_instance');
-        Route::get('settings', 'SettingsController@index');
+        Route::resource('action', \App\Http\Controllers\Management\ActionController::class)->only(['show'])->parameter('action', 'action_instance');
+        Route::get('settings', [\App\Http\Controllers\Management\SettingsController::class, 'index'])->name('settings.index');
+        Route::get('settings/{category}', [\App\Http\Controllers\Management\SettingsController::class, 'show'])->name('settings.show');
     });
 
 
-
     // Portal Routes
-    Route::namespace('Pages')->group(function () {
-        Route::get('/control', 'ControlController@index')->name('control');
+    Route::get('/control', [\App\Http\Controllers\Pages\ControlController::class, 'index'])->name('control');
 
-        Route::middleware('nonmodule')->group(function () {
-            Route::get('/portal', 'PortalController@portal')->name('portal');
-            Route::get('/welcome', 'WelcomeController@welcome')->name('welcome');
-            Route::get('/a', 'PortalController@administrator')->name('administrator');
-            Route::get('/p', 'PortalController@participant')->name('participant');
-            Route::get('/activity/{activity}/progress', 'ActivityProgressController@index');
+    Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
+    Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
+    Route::get('/p', [PortalController::class, 'participant'])->name('participant');
+    Route::get('/activity/{activity}/progress', [\App\Http\Controllers\Pages\ActivityProgressController::class, 'index']);
 
-        });
+    Route::middleware('activity')->group(function () {
+        Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
+        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
+    });
 
-        Route::middleware('activity')->group(function () {
-            Route::middleware('administrator')->get('/a/{activity_slug}', 'ActivityController@administrator')->name('administrator.activity');
-            Route::middleware('participant')->get('/p/{activity_slug}', 'ActivityController@participant')->name('participant.activity');
-        });
-
+    Route::middleware('activity')->group(function () {
+        Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
+        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
     });
 
 });

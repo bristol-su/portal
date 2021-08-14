@@ -12,7 +12,7 @@
         :activities="{{json_encode($activities)}}"
         :admin="{{($administrator?'true':'false')}}"
         :role-group="{{json_encode($roleGroupRelations)}}"
-        :user-id="{{app(\BristolSU\Support\User\Contracts\UserAuthentication::class)->getUser()->control_id}}"
+        :user-id="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->id()}}"
         :roles="{{$roles->toJson()}}"
         :groups="{{$groups->toJson()}}">
     </activities>

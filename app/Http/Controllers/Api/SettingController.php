@@ -3,30 +3,53 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Support\Settings\SettingRepository;
+use BristolSU\Support\Settings\Definition\SettingStore;
+use BristolSU\Support\Settings\Definition\UserSetting;
+use BristolSU\Support\Settings\SettingRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class SettingController extends Controller
 {
 
-    public function index(SettingRepository $settingRepository)
+    /**
+     * Display the specified resource.
+     *
+     * @param string $key
+     * @param SettingRepository $settingRepository
+     * @param SettingStore $settingStore
+     * @return \Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function show(string $key, SettingRepository $settingRepository, SettingStore $settingStore)
     {
-        return $settingRepository->all();
+        $setting = $settingStore->getSetting($key);
+        if($setting instanceof UserSetting) {
+            $value = $settingRepository->getUserValue($key);
+        } else {
+            $value = $settingRepository->getGlobalValue($key);
+        }
+        return Response::make($value, 200);
     }
 
-    public function update($key, Request $request, SettingRepository $settingRepository)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, string $key, SettingRepository $settingRepository, SettingStore $settingStore)
     {
-        $settingRepository->set($key, $request->input('value'));
-        return [
-            'key' => $key, 'value' => $settingRepository->get($key)
-        ];
+        $request->validate([
+            'value' => 'required'
+        ]);
+        $setting = $settingStore->getSetting($key);
+        if($setting instanceof UserSetting) {
+            $settingRepository->setForUser($key, $request->input('value'));
+        } else {
+            $settingRepository->setGlobal($key, $request->input('value'));
+        }
+        return Response::make('', 201);
     }
-
-    public function show($key, Request $request, SettingRepository $settingRepository)
-    {
-        return [
-            'key' => $key, 'value' => $settingRepository->get($key, $request->input('default'))
-        ];
-    }
-
 }
