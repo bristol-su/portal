@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - portal-224: Support for Laravel Sail
+- Support for SDK 5
 
 ### Removed
 - portal-157: Removed config/portal.php
