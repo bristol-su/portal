@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c66a4baf8fa02ca7cd2a32e9b7af1f36",
+    "content-hash": "cc4f34405a81fb1f2d367fdc63b5fe1a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.187.1",
+            "version": "3.190.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "62fc63f8116eaa5ab0d4910e2de6450ed44668a9"
+                "reference": "8ca6a5f9834de3eb3fb84b28fc12c9088bc01293"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/62fc63f8116eaa5ab0d4910e2de6450ed44668a9",
-                "reference": "62fc63f8116eaa5ab0d4910e2de6450ed44668a9",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8ca6a5f9834de3eb3fb84b28fc12c9088bc01293",
+                "reference": "8ca6a5f9834de3eb3fb84b28fc12c9088bc01293",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.187.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.190.2"
             },
-            "time": "2021-08-04T14:17:01+00:00"
+            "time": "2021-08-13T18:12:28+00:00"
         },
         {
             "name": "brick/math",
@@ -210,21 +210,21 @@
         },
         {
             "name": "bristol-su/airtable",
-            "version": "dev-feature/port-modules",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/airtable.git",
-                "reference": "b5efe36a49ea6b306c47621d282ef1cbdeac9ac4"
+                "reference": "87829459c39015cfb4f61bca553204ba3a118d11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/b5efe36a49ea6b306c47621d282ef1cbdeac9ac4",
-                "reference": "b5efe36a49ea6b306c47621d282ef1cbdeac9ac4",
+                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/87829459c39015cfb4f61bca553204ba3a118d11",
+                "reference": "87829459c39015cfb4f61bca553204ba3a118d11",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/control": "dev-develop as 2.1.4",
-                "bristol-su/support": "dev-portal-v4 as 4.6.0",
+                "bristol-su/control": "^3.0.1",
+                "bristol-su/support": "^5.0.0",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.0",
                 "php": "^8.0",
@@ -265,26 +265,26 @@
             "description": "An integration with AirTable for the Portal",
             "support": {
                 "issues": "https://github.com/bristol-su/airtable/issues",
-                "source": "https://github.com/bristol-su/airtable/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/airtable/tree/v3.0.0"
             },
-            "time": "2021-07-28T11:30:30+00:00"
+            "time": "2021-08-12T20:49:57+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "b1edd687e8fa35733d6f486ff3fd1039d0c3a3fb"
+                "reference": "a91e91e2bdb7d6eb1699862b43d8395f3318742a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/b1edd687e8fa35733d6f486ff3fd1039d0c3a3fb",
-                "reference": "b1edd687e8fa35733d6f486ff3fd1039d0c3a3fb",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/a91e91e2bdb7d6eb1699862b43d8395f3318742a",
+                "reference": "a91e91e2bdb7d6eb1699862b43d8395f3318742a",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.2",
+                "bristol-su/support": "^5.0.0",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -318,22 +318,22 @@
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
             "support": {
                 "issues": "https://github.com/bristol-su/assign-roles/issues",
-                "source": "https://github.com/bristol-su/assign-roles/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/assign-roles/tree/v2.0.0"
             },
-            "time": "2021-07-28T11:24:09+00:00"
+            "time": "2021-08-12T16:14:22+00:00"
         },
         {
             "name": "bristol-su/control",
-            "version": "dev-develop",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "c3450e49b5c6f4963e7bd47def5bb8891f805b01"
+                "reference": "c01b10bbbd3ec21ad1ab87c8b119ceb382137405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/c3450e49b5c6f4963e7bd47def5bb8891f805b01",
-                "reference": "c3450e49b5c6f4963e7bd47def5bb8891f805b01",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/c01b10bbbd3ec21ad1ab87c8b119ceb382137405",
+                "reference": "c01b10bbbd3ec21ad1ab87c8b119ceb382137405",
                 "shasum": ""
             },
             "require": {
@@ -343,7 +343,6 @@
             },
             "require-dev": {
                 "brianium/paratest": "^6.0",
-                "laravel/legacy-factories": "^1.0",
                 "orchestra/testbench": "^6.0",
                 "phpspec/prophecy-phpunit": "2.0.1",
                 "phpstan/phpstan": "^0.12.8"
@@ -371,32 +370,32 @@
             "authors": [
                 {
                     "name": "Toby Twigger",
-                    "email": "tt15951@my.bristol.ac.uk"
+                    "email": "tobytwigger1@gmail.com"
                 }
             ],
             "description": "An implementation of the control contracts",
             "support": {
                 "issues": "https://github.com/bristol-su/control/issues",
-                "source": "https://github.com/bristol-su/control/tree/develop"
+                "source": "https://github.com/bristol-su/control/tree/v3.0.1"
             },
-            "time": "2021-01-12T19:42:48+00:00"
+            "time": "2021-08-05T16:26:17+00:00"
         },
         {
             "name": "bristol-su/data-entry",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/data-entry.git",
-                "reference": "00e8f79dc351ce977d7aa3b108d40972eb650ed2"
+                "reference": "92844e614805f51dd90bb038b088e984c2e9710f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/00e8f79dc351ce977d7aa3b108d40972eb650ed2",
-                "reference": "00e8f79dc351ce977d7aa3b108d40972eb650ed2",
+                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/92844e614805f51dd90bb038b088e984c2e9710f",
+                "reference": "92844e614805f51dd90bb038b088e984c2e9710f",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "bristol-su/support": "^5.0.0",
                 "league/csv": "^9.6",
                 "php": "^8.0"
             },
@@ -431,27 +430,26 @@
             "description": "A module for the Bristol SU Portal Project to allow entering and management of data in a given data structure",
             "support": {
                 "issues": "https://github.com/bristol-su/data-entry/issues",
-                "source": "https://github.com/bristol-su/data-entry/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/data-entry/tree/v2.0.0"
             },
-            "time": "2021-07-27T16:15:32+00:00"
+            "time": "2021-08-12T16:17:15+00:00"
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-portal-v4",
+            "version": "v0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "172629274e5905acbbacdc597fc2181e3a6ba029"
+                "reference": "f44e65440c7d4ce19a6ad339ada64da9728dee7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/172629274e5905acbbacdc597fc2181e3a6ba029",
-                "reference": "172629274e5905acbbacdc597fc2181e3a6ba029",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/f44e65440c7d4ce19a6ad339ada64da9728dee7c",
+                "reference": "f44e65440c7d4ce19a6ad339ada64da9728dee7c",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/control": "dev-develop",
-                "bristol-su/support": "dev-portal-v4",
+                "bristol-su/support": "^5.0.0",
                 "doctrine/dbal": "^2.10",
                 "ext-json": "*",
                 "laravel/framework": "^8.0",
@@ -462,7 +460,6 @@
             },
             "require-dev": {
                 "brianium/paratest": "^6.0",
-                "laravel/legacy-factories": "^1.1",
                 "orchestra/testbench": "^6.0",
                 "orchestra/testbench-dusk": "^6.9",
                 "phpspec/prophecy-phpunit": "^2.0.1",
@@ -504,26 +501,26 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/portal-auth/issues",
-                "source": "https://github.com/bristol-su/portal-auth/tree/portal-v4"
+                "source": "https://github.com/bristol-su/portal-auth/tree/v0.0.1"
             },
-            "time": "2021-07-27T10:52:57+00:00"
+            "time": "2021-08-12T22:03:13+00:00"
         },
         {
             "name": "bristol-su/static-page",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "f1c9a0e755d6816ad46103f4190ec07d9ed53652"
+                "reference": "3a443c10a26cd42cbb8b1d8e8af62e062e4f2db7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/f1c9a0e755d6816ad46103f4190ec07d9ed53652",
-                "reference": "f1c9a0e755d6816ad46103f4190ec07d9ed53652",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/3a443c10a26cd42cbb8b1d8e8af62e062e4f2db7",
+                "reference": "3a443c10a26cd42cbb8b1d8e8af62e062e4f2db7",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "bristol-su/support": "^5.0.0",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -560,40 +557,40 @@
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
             "support": {
                 "issues": "https://github.com/bristol-su/static-page/issues",
-                "source": "https://github.com/bristol-su/static-page/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/static-page/tree/v2.0.0"
             },
-            "time": "2021-07-27T13:28:13+00:00"
+            "time": "2021-08-12T18:51:58+00:00"
         },
         {
             "name": "bristol-su/support",
-            "version": "dev-portal-v4",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "5c5c923cfd35885f88027625cc5671e3778f522a"
+                "reference": "ca53c53d7f89b7242b200b0a05dd3cc51b221ee1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/5c5c923cfd35885f88027625cc5671e3778f522a",
-                "reference": "5c5c923cfd35885f88027625cc5671e3778f522a",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/ca53c53d7f89b7242b200b0a05dd3cc51b221ee1",
+                "reference": "ca53c53d7f89b7242b200b0a05dd3cc51b221ee1",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.158",
-                "bristol-su/control": "dev-develop",
+                "bristol-su/control": "^3.0.1",
                 "doctrine/dbal": "^2.10",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.0.0",
                 "laracasts/utilities": "^3.0",
                 "laravel/framework": "^8.0",
                 "php": "^8.0",
-                "tobytwigger/form-schema-generator": "dev-develop",
+                "spatie/eloquent-sortable": "^3.11",
+                "tobytwigger/form-schema-generator": "^1.3",
                 "venturecraft/revisionable": "^1.33"
             },
             "require-dev": {
                 "brianium/paratest": "^6.0",
                 "bristol-su/portal-pipeline": "^1.0.0",
-                "laravel/legacy-factories": "^1.0",
                 "orchestra/testbench": "^6.0",
                 "phpspec/prophecy-phpunit": "^2.0.1"
             },
@@ -604,9 +601,7 @@
                         "BristolSU\\Support\\SupportServiceProvider"
                     ],
                     "dont-discover": [
-                        "laravel/passport",
-                        "venturecraft/revisionable",
-                        "twigger/blade-themes"
+                        "venturecraft/revisionable"
                     ]
                 }
             },
@@ -638,27 +633,27 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/support/issues",
-                "source": "https://github.com/bristol-su/support/tree/portal-v4"
+                "source": "https://github.com/bristol-su/support/tree/v5.0.0"
             },
-            "time": "2021-08-04T15:13:53+00:00"
+            "time": "2021-08-11T16:15:08+00:00"
         },
         {
             "name": "bristol-su/typeform",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "1cb5339b62c71fa81e314aecdc00c38c2ace232a"
+                "reference": "a6f275418712ec7ffd40481fb33f8fbc6bf8dc1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/1cb5339b62c71fa81e314aecdc00c38c2ace232a",
-                "reference": "1cb5339b62c71fa81e314aecdc00c38c2ace232a",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/a6f275418712ec7ffd40481fb33f8fbc6bf8dc1e",
+                "reference": "a6f275418712ec7ffd40481fb33f8fbc6bf8dc1e",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.0",
-                "bristol-su/typeform-service": "dev-feature/port-modules as 1.0.1",
+                "bristol-su/support": "^5.0.0",
+                "bristol-su/typeform-service": "^2.0.0",
                 "ext-json": "*",
                 "php": "^8.0",
                 "spatie/laravel-rate-limited-job-middleware": "^1.4",
@@ -694,26 +689,26 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/typeform/issues",
-                "source": "https://github.com/bristol-su/typeform/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/typeform/tree/v2.0.0"
             },
-            "time": "2021-07-28T11:45:02+00:00"
+            "time": "2021-08-12T16:10:16+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform-service.git",
-                "reference": "8636363c5c06e64c5afd15ed79d140388f9d9e99"
+                "reference": "23a58d125aa363465e712219146a90260d608c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform-service/zipball/8636363c5c06e64c5afd15ed79d140388f9d9e99",
-                "reference": "8636363c5c06e64c5afd15ed79d140388f9d9e99",
+                "url": "https://api.github.com/repos/bristol-su/typeform-service/zipball/23a58d125aa363465e712219146a90260d608c31",
+                "reference": "23a58d125aa363465e712219146a90260d608c31",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "bristol-su/support": "^5.0",
                 "ext-json": "*",
                 "php": "^8.0"
             },
@@ -748,28 +743,28 @@
             "description": "A third party service for typeform",
             "support": {
                 "issues": "https://github.com/bristol-su/typeform-service/issues",
-                "source": "https://github.com/bristol-su/typeform-service/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/typeform-service/tree/v2.0.0"
             },
-            "time": "2021-07-28T11:43:14+00:00"
+            "time": "2021-08-12T14:56:26+00:00"
         },
         {
             "name": "bristol-su/unioncloud-portal",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "12cc549565dbe260f23d56cc72a44990303bba56"
+                "reference": "2eac62b41e383ba764ee65db8d1eca8776a81917"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/12cc549565dbe260f23d56cc72a44990303bba56",
-                "reference": "12cc549565dbe260f23d56cc72a44990303bba56",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/2eac62b41e383ba764ee65db8d1eca8776a81917",
+                "reference": "2eac62b41e383ba764ee65db8d1eca8776a81917",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.2",
+                "bristol-su/support": "^5.0.0",
                 "php": "^8.0",
-                "twigger/unioncloud": "dev-develop as 1.0.8"
+                "twigger/unioncloud": "^1.0.9"
             },
             "type": "library",
             "extra": {
@@ -797,26 +792,26 @@
             "description": "An integration with unioncloud for use with the portal",
             "support": {
                 "issues": "https://github.com/bristol-su/unioncloud-portal/issues",
-                "source": "https://github.com/bristol-su/unioncloud-portal/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/unioncloud-portal/tree/v2.0.0"
             },
-            "time": "2021-07-28T11:44:25+00:00"
+            "time": "2021-08-12T20:49:52+00:00"
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "dev-feature/port-modules",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "76eb59b9c3ac5a948d2da58487aa98814026309c"
+                "reference": "89e20b1f5517a20c680779090f3fc472daab12c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/76eb59b9c3ac5a948d2da58487aa98814026309c",
-                "reference": "76eb59b9c3ac5a948d2da58487aa98814026309c",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/89e20b1f5517a20c680779090f3fc472daab12c8",
+                "reference": "89e20b1f5517a20c680779090f3fc472daab12c8",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "dev-portal-v4 as 4.0",
+                "bristol-su/support": "^5.0.0",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -849,9 +844,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/upload-file/issues",
-                "source": "https://github.com/bristol-su/upload-file/tree/feature/port-modules"
+                "source": "https://github.com/bristol-su/upload-file/tree/v2.0.0"
             },
-            "time": "2021-07-27T14:22:18+00:00"
+            "time": "2021-08-12T18:51:54+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -921,16 +916,16 @@
         },
         {
             "name": "dflydev/dot-access-data",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dflydev/dflydev-dot-access-data.git",
-                "reference": "e04ff030d24a33edc2421bef305e32919dd78fc3"
+                "reference": "0992cc19268b259a39e86f296da5f0677841f42c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-dot-access-data/zipball/e04ff030d24a33edc2421bef305e32919dd78fc3",
-                "reference": "e04ff030d24a33edc2421bef305e32919dd78fc3",
+                "url": "https://api.github.com/repos/dflydev/dflydev-dot-access-data/zipball/0992cc19268b259a39e86f296da5f0677841f42c",
+                "reference": "0992cc19268b259a39e86f296da5f0677841f42c",
                 "shasum": ""
             },
             "require": {
@@ -990,9 +985,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dflydev/dflydev-dot-access-data/issues",
-                "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.0"
+                "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.1"
             },
-            "time": "2021-01-01T22:08:42+00:00"
+            "time": "2021-08-13T13:06:58+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -1975,16 +1970,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.206.0",
+            "version": "v0.207.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "8ac3f4a7c201bbf794801b215e63f75f15cd0208"
+                "reference": "bd88717a5526f0db721e8f4309ef06d142894844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/8ac3f4a7c201bbf794801b215e63f75f15cd0208",
-                "reference": "8ac3f4a7c201bbf794801b215e63f75f15cd0208",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/bd88717a5526f0db721e8f4309ef06d142894844",
+                "reference": "bd88717a5526f0db721e8f4309ef06d142894844",
                 "shasum": ""
             },
             "require": {
@@ -2013,9 +2008,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.206.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.207.0"
             },
-            "time": "2021-07-31T11:20:25+00:00"
+            "time": "2021-08-08T11:20:24+00:00"
         },
         {
             "name": "google/auth",
@@ -2572,16 +2567,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.53.0",
+            "version": "v8.54.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4b2e3e7317da82dd9f5b88d477abd93444748b43"
+                "reference": "7b88554cd1aeb52b7f82689bf244182e7a81894b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4b2e3e7317da82dd9f5b88d477abd93444748b43",
-                "reference": "4b2e3e7317da82dd9f5b88d477abd93444748b43",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7b88554cd1aeb52b7f82689bf244182e7a81894b",
+                "reference": "7b88554cd1aeb52b7f82689bf244182e7a81894b",
                 "shasum": ""
             },
             "require": {
@@ -2736,7 +2731,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-08-03T14:36:33+00:00"
+            "time": "2021-08-10T14:25:51+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -2873,16 +2868,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v5.2.3",
+            "version": "v5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "1960802068f81e44b2ae9793932181cf1cb91b5c"
+                "reference": "59e2f8d9d9663029c7746a92d60bbb7697953bb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/1960802068f81e44b2ae9793932181cf1cb91b5c",
-                "reference": "1960802068f81e44b2ae9793932181cf1cb91b5c",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/59e2f8d9d9663029c7746a92d60bbb7697953bb9",
+                "reference": "59e2f8d9d9663029c7746a92d60bbb7697953bb9",
                 "shasum": ""
             },
             "require": {
@@ -2938,7 +2933,7 @@
                 "issues": "https://github.com/laravel/socialite/issues",
                 "source": "https://github.com/laravel/socialite"
             },
-            "time": "2021-04-06T14:38:16+00:00"
+            "time": "2021-08-10T17:44:52+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3339,21 +3334,21 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "0d57f20aa03129ee7ef5f690e634884315d4238c"
+                "reference": "2df87709f44b0dd733df86aef0830dce9b1f0f13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/0d57f20aa03129ee7ef5f690e634884315d4238c",
-                "reference": "0d57f20aa03129ee7ef5f690e634884315d4238c",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/2df87709f44b0dd733df86aef0830dce9b1f0f13",
+                "reference": "2df87709f44b0dd733df86aef0830dce9b1f0f13",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "league/config": "^1.1",
+                "league/config": "^1.1.1",
                 "php": "^7.4 || ^8.0",
                 "psr/event-dispatcher": "^1.0",
                 "symfony/polyfill-php80": "^1.15"
@@ -3446,24 +3441,24 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-31T19:15:22+00:00"
+            "time": "2021-08-14T14:06:04+00:00"
         },
         {
             "name": "league/config",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/config.git",
-                "reference": "20d42d88f12a76ff862e17af4f14a5a4bbfd0925"
+                "reference": "a9d39eeeb6cc49d10a6e6c36f22c4c1f4a767f3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/config/zipball/20d42d88f12a76ff862e17af4f14a5a4bbfd0925",
-                "reference": "20d42d88f12a76ff862e17af4f14a5a4bbfd0925",
+                "url": "https://api.github.com/repos/thephpleague/config/zipball/a9d39eeeb6cc49d10a6e6c36f22c4c1f4a767f3e",
+                "reference": "a9d39eeeb6cc49d10a6e6c36f22c4c1f4a767f3e",
                 "shasum": ""
             },
             "require": {
-                "dflydev/dot-access-data": "^3.0",
+                "dflydev/dot-access-data": "^3.0.1",
                 "nette/schema": "^1.2",
                 "php": "^7.4 || ^8.0"
             },
@@ -3528,7 +3523,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-19T15:52:37+00:00"
+            "time": "2021-08-14T12:15:32+00:00"
         },
         {
             "name": "league/csv",
@@ -6715,20 +6710,21 @@
         },
         {
             "name": "ramsey/collection",
-            "version": "1.1.4",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/collection.git",
-                "reference": "ab2237657ad99667a5143e32ba2683c8029563d4"
+                "reference": "eaca1dc1054ddd10cbd83c1461907bee6fb528fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/collection/zipball/ab2237657ad99667a5143e32ba2683c8029563d4",
-                "reference": "ab2237657ad99667a5143e32ba2683c8029563d4",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/eaca1dc1054ddd10cbd83c1461907bee6fb528fa",
+                "reference": "eaca1dc1054ddd10cbd83c1461907bee6fb528fa",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8"
+                "php": "^7.3 || ^8",
+                "symfony/polyfill-php81": "^1.23"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.3",
@@ -6738,6 +6734,7 @@
                 "hamcrest/hamcrest-php": "^2",
                 "jangregor/phpstan-prophecy": "^0.8",
                 "mockery/mockery": "^1.3",
+                "phpspec/prophecy-phpunit": "^2.0",
                 "phpstan/extension-installer": "^1",
                 "phpstan/phpstan": "^0.12.32",
                 "phpstan/phpstan-mockery": "^0.12.5",
@@ -6765,7 +6762,7 @@
                     "homepage": "https://benramsey.com"
                 }
             ],
-            "description": "A PHP 7.2+ library for representing and manipulating collections.",
+            "description": "A PHP library for representing and manipulating collections.",
             "keywords": [
                 "array",
                 "collection",
@@ -6776,7 +6773,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/collection/issues",
-                "source": "https://github.com/ramsey/collection/tree/1.1.4"
+                "source": "https://github.com/ramsey/collection/tree/1.2.1"
             },
             "funding": [
                 {
@@ -6788,20 +6785,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-30T00:58:27+00:00"
+            "time": "2021-08-06T03:41:06+00:00"
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.1.1",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "cd4032040a750077205918c86049aa0f43d22947"
+                "reference": "fe665a03df4f056aa65af552a96e1976df8c8dae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/cd4032040a750077205918c86049aa0f43d22947",
-                "reference": "cd4032040a750077205918c86049aa0f43d22947",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/fe665a03df4f056aa65af552a96e1976df8c8dae",
+                "reference": "fe665a03df4f056aa65af552a96e1976df8c8dae",
                 "shasum": ""
             },
             "require": {
@@ -6815,26 +6812,26 @@
                 "rhumsaa/uuid": "self.version"
             },
             "require-dev": {
-                "codeception/aspect-mock": "^3",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7.0",
+                "captainhook/captainhook": "^5.10",
+                "captainhook/plugin-composer": "^5.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "doctrine/annotations": "^1.8",
-                "goaop/framework": "^2",
+                "ergebnis/composer-normalize": "^2.15",
                 "mockery/mockery": "^1.3",
                 "moontoast/math": "^1.1",
                 "paragonie/random-lib": "^2",
+                "php-mock/php-mock": "^2.2",
                 "php-mock/php-mock-mockery": "^1.3",
-                "php-mock/php-mock-phpunit": "^2.5",
                 "php-parallel-lint/php-parallel-lint": "^1.1",
-                "phpbench/phpbench": "^0.17.1",
+                "phpbench/phpbench": "^1.0",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-mockery": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
-                "phpunit/phpunit": "^8.5",
-                "psy/psysh": "^0.10.0",
-                "slevomat/coding-standard": "^6.0",
+                "phpunit/phpunit": "^8.5 || ^9",
+                "slevomat/coding-standard": "^7.0",
                 "squizlabs/php_codesniffer": "^3.5",
-                "vimeo/psalm": "3.9.4"
+                "vimeo/psalm": "^4.9"
             },
             "suggest": {
                 "ext-bcmath": "Enables faster math with arbitrary-precision integers using BCMath.",
@@ -6847,7 +6844,10 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.x-dev"
+                    "dev-main": "4.x-dev"
+                },
+                "captainhook": {
+                    "force-install": true
                 }
             },
             "autoload": {
@@ -6863,7 +6863,6 @@
                 "MIT"
             ],
             "description": "A PHP library for generating and working with universally unique identifiers (UUIDs).",
-            "homepage": "https://github.com/ramsey/uuid",
             "keywords": [
                 "guid",
                 "identifier",
@@ -6871,16 +6870,19 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "rss": "https://github.com/ramsey/uuid/releases.atom",
-                "source": "https://github.com/ramsey/uuid"
+                "source": "https://github.com/ramsey/uuid/tree/4.2.1"
             },
             "funding": [
                 {
                     "url": "https://github.com/ramsey",
                     "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/ramsey/uuid",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2020-08-18T17:17:46+00:00"
+            "time": "2021-08-11T01:06:55+00:00"
         },
         {
             "name": "riverline/multipart-parser",
@@ -7903,6 +7905,74 @@
             "time": "2020-09-28T06:39:44+00:00"
         },
         {
+            "name": "spatie/eloquent-sortable",
+            "version": "3.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/eloquent-sortable.git",
+                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\EloquentSortable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be"
+                }
+            ],
+            "description": "Sortable behaviour for eloquent models",
+            "homepage": "https://github.com/spatie/eloquent-sortable",
+            "keywords": [
+                "behaviour",
+                "eloquent",
+                "laravel",
+                "model",
+                "sort",
+                "sortable"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/eloquent-sortable/issues",
+                "source": "https://github.com/spatie/eloquent-sortable/tree/3.11.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-18T00:32:12+00:00"
+        },
+        {
             "name": "spatie/laravel-rate-limited-job-middleware",
             "version": "1.5.0",
             "source": {
@@ -8066,16 +8136,16 @@
         },
         {
             "name": "stichoza/google-translate-php",
-            "version": "v4.1.4",
+            "version": "v4.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Stichoza/google-translate-php.git",
-                "reference": "9e4808cf6f3f1e89f06e2129c46f58eeca658428"
+                "reference": "85039e0af473e58cc9f42d58e36d9d534a6a6431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/9e4808cf6f3f1e89f06e2129c46f58eeca658428",
-                "reference": "9e4808cf6f3f1e89f06e2129c46f58eeca658428",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/85039e0af473e58cc9f42d58e36d9d534a6a6431",
+                "reference": "85039e0af473e58cc9f42d58e36d9d534a6a6431",
                 "shasum": ""
             },
             "require": {
@@ -8113,7 +8183,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Stichoza/google-translate-php/issues",
-                "source": "https://github.com/Stichoza/google-translate-php/tree/v4.1.4"
+                "source": "https://github.com/Stichoza/google-translate-php/tree/v4.1.5"
             },
             "funding": [
                 {
@@ -8125,7 +8195,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-01-26T22:19:49+00:00"
+            "time": "2021-08-05T11:03:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -9804,6 +9874,85 @@
             "time": "2021-07-28T13:41:28+00:00"
         },
         {
+            "name": "symfony/polyfill-php81",
+            "version": "v1.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php81.git",
+                "reference": "e66119f3de95efc359483f810c4c3e6436279436"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/e66119f3de95efc359483f810c4c3e6436279436",
+                "reference": "e66119f3de95efc359483f810c4c3e6436279436",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-21T13:25:03+00:00"
+        },
+        {
             "name": "symfony/process",
             "version": "v5.3.4",
             "source": {
@@ -10646,16 +10795,16 @@
         },
         {
             "name": "tobytwigger/form-schema-generator",
-            "version": "dev-develop",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobytwigger/form-schema-generator.git",
-                "reference": "497d96252af0dcfd9cefce95cce20d50d16af911"
+                "reference": "eea322fd11d50e156c6521b8c5212e987d43f759"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobytwigger/form-schema-generator/zipball/497d96252af0dcfd9cefce95cce20d50d16af911",
-                "reference": "497d96252af0dcfd9cefce95cce20d50d16af911",
+                "url": "https://api.github.com/repos/tobytwigger/form-schema-generator/zipball/eea322fd11d50e156c6521b8c5212e987d43f759",
+                "reference": "eea322fd11d50e156c6521b8c5212e987d43f759",
                 "shasum": ""
             },
             "require": {
@@ -10685,9 +10834,9 @@
             "description": "JSON schema generator in php, for vue-form-generator",
             "support": {
                 "issues": "https://github.com/tobytwigger/form-schema-generator/issues",
-                "source": "https://github.com/tobytwigger/form-schema-generator/tree/develop"
+                "source": "https://github.com/tobytwigger/form-schema-generator/tree/v1.3"
             },
-            "time": "2021-01-12T19:32:59+00:00"
+            "time": "2021-08-05T10:52:06+00:00"
         },
         {
             "name": "twigger/laravel-translate",
@@ -10775,16 +10924,16 @@
         },
         {
             "name": "twigger/unioncloud",
-            "version": "dev-develop",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/nus-unioncloud-api-wrapper.git",
-                "reference": "ed2d77a691476d90380a6a71e2e608b5d0e2bcc6"
+                "reference": "2cf01b72bf83d5730c82a962ab00edef9b6921df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/ed2d77a691476d90380a6a71e2e608b5d0e2bcc6",
-                "reference": "ed2d77a691476d90380a6a71e2e608b5d0e2bcc6",
+                "url": "https://api.github.com/repos/bristol-su/nus-unioncloud-api-wrapper/zipball/2cf01b72bf83d5730c82a962ab00edef9b6921df",
+                "reference": "2cf01b72bf83d5730c82a962ab00edef9b6921df",
                 "shasum": ""
             },
             "require": {
@@ -10823,9 +10972,9 @@
             "description": "An API Wrapper for the NUS UnionCloud platform",
             "support": {
                 "issues": "https://github.com/bristol-su/nus-unioncloud-api-wrapper/issues",
-                "source": "https://github.com/bristol-su/nus-unioncloud-api-wrapper/tree/develop"
+                "source": "https://github.com/bristol-su/nus-unioncloud-api-wrapper/tree/v1.0.9"
             },
-            "time": "2021-07-21T14:15:18+00:00"
+            "time": "2021-08-05T10:40:19+00:00"
         },
         {
             "name": "venturecraft/revisionable",
@@ -12356,16 +12505,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v5.0.8",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "01686ebbf75d8e121dfb1b60e52f334858793830"
+                "reference": "b963dee47429a49c9669981cfa9a8362ce209278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/01686ebbf75d8e121dfb1b60e52f334858793830",
-                "reference": "01686ebbf75d8e121dfb1b60e52f334858793830",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/b963dee47429a49c9669981cfa9a8362ce209278",
+                "reference": "b963dee47429a49c9669981cfa9a8362ce209278",
                 "shasum": ""
             },
             "require": {
@@ -12413,7 +12562,7 @@
             ],
             "support": {
                 "issues": "https://github.com/itsgoingd/clockwork/issues",
-                "source": "https://github.com/itsgoingd/clockwork/tree/v5.0.8"
+                "source": "https://github.com/itsgoingd/clockwork/tree/v5.1.0"
             },
             "funding": [
                 {
@@ -12421,7 +12570,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-27T22:00:25+00:00"
+            "time": "2021-08-07T23:04:17+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -12692,16 +12841,16 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v5.6.0",
+            "version": "v5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "0122ac6b03c75279ef78d1c0ad49725dfc52a8d2"
+                "reference": "0c3c393462eada1233513664e2d22bb9f69ca393"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/0122ac6b03c75279ef78d1c0ad49725dfc52a8d2",
-                "reference": "0122ac6b03c75279ef78d1c0ad49725dfc52a8d2",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/0c3c393462eada1233513664e2d22bb9f69ca393",
+                "reference": "0c3c393462eada1233513664e2d22bb9f69ca393",
                 "shasum": ""
             },
             "require": {
@@ -12713,7 +12862,7 @@
             "require-dev": {
                 "brianium/paratest": "^6.1",
                 "fideloper/proxy": "^4.4.1",
-                "friendsofphp/php-cs-fixer": "^2.17.3",
+                "friendsofphp/php-cs-fixer": "^3.0",
                 "fruitcake/laravel-cors": "^2.0.3",
                 "laravel/framework": "^8.0 || ^9.0",
                 "nunomaduro/larastan": "^0.6.2",
@@ -12776,7 +12925,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-07-26T20:39:06+00:00"
+            "time": "2021-08-13T14:23:01+00:00"
         },
         {
             "name": "seld/jsonlint",
@@ -13021,28 +13170,10 @@
             "time": "2021-07-21T12:40:44+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "bristol-su/control",
-            "version": "dev-develop",
-            "alias": "2.1.5",
-            "alias_normalized": "2.1.5.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bristol-su/support": 20,
-        "bristol-su/control": 20,
-        "twigger/laravel-translate": 20,
-        "bristol-su/portal-auth": 20,
-        "bristol-su/static-page": 20,
-        "bristol-su/upload-file": 20,
-        "bristol-su/data-entry": 20,
-        "bristol-su/airtable": 20,
-        "bristol-su/unioncloud-portal": 20,
-        "bristol-su/typeform-service": 20,
-        "bristol-su/typeform": 20,
-        "bristol-su/assign-roles": 20
+        "twigger/laravel-translate": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
