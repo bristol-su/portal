@@ -3,6 +3,8 @@
 @section('app-content')
     <div class="container-fluid" style="text-align: center">
 
+        <p-button id="my-id" title="My Button" help="Help" tooltip="tooltip"></p-button>
+
     <toggle-admin-or-participant
     :admin="{{($administrator?'true':'false')}}">
 

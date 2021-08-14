@@ -29,7 +29,7 @@
         "bristol-su/portal-auth": "^0.0.1",
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/static-page": "^2.0.0",
-        "bristol-su/upload-file": "^2.0.0",
+        "bristol-su/upload-file": "dev-PR-350/ui-kit as 2.0.0",
         "bristol-su/data-entry": "^2.0.0",
         "bristol-su/airtable": "^3.0.0",
         "bristol-su/unioncloud-portal": "^2.0.0",

@@ -6,6 +6,7 @@ import api from "./utilities/api/api";
 import control from '@bristol-su/control-js-api-client';
 import VueFormGenerator from 'vue-form-generator'
 import _ from 'lodash';
+require('./ui-kit');
 
 import ModuleInstances from './components/portal/module_instances/ModuleInstances';
 import ActivitySidebar from "./components/portal/activity/ActivitySidebar";

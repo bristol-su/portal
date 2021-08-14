@@ -8,11 +8,12 @@
 @push('styles')
     @include('templates.javascript_injection')
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{mix('css/ui-kit.css')}}" type="text/css">
 @endpush
 
 @prepend('scripts')
     <script src="{{mix('js/app.js')}}"></script>
-@endprepend('scripts)
+@endprepend('scripts')
 
 @push('meta-tags')
     <meta charset="utf-8">

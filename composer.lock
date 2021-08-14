@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc4f34405a81fb1f2d367fdc63b5fe1a",
+    "content-hash": "7dddd899242320251e51cbc39c9f80bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -798,16 +798,16 @@
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "v2.0.0",
+            "version": "dev-PR-350/ui-kit",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "89e20b1f5517a20c680779090f3fc472daab12c8"
+                "reference": "d41135a9fc45c2b20a25b70b733c28e179be569d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/89e20b1f5517a20c680779090f3fc472daab12c8",
-                "reference": "89e20b1f5517a20c680779090f3fc472daab12c8",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/d41135a9fc45c2b20a25b70b733c28e179be569d",
+                "reference": "d41135a9fc45c2b20a25b70b733c28e179be569d",
                 "shasum": ""
             },
             "require": {
@@ -844,9 +844,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/upload-file/issues",
-                "source": "https://github.com/bristol-su/upload-file/tree/v2.0.0"
+                "source": "https://github.com/bristol-su/upload-file/tree/PR-350/ui-kit"
             },
-            "time": "2021-08-12T18:51:54+00:00"
+            "time": "2021-08-14T22:10:59+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -13170,10 +13170,18 @@
             "time": "2021-07-21T12:40:44+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "bristol-su/upload-file",
+            "version": "dev-PR-350/ui-kit",
+            "alias": "2.0.0",
+            "alias_normalized": "2.0.0.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "twigger/laravel-translate": 20
+        "twigger/laravel-translate": 20,
+        "bristol-su/upload-file": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
