@@ -24,7 +24,7 @@ return [
             'portal-airtable' => [
                 'driver' => 'airtable',
                 'debug' => false,
-                'baseId' => 'applpYkQ4NQFAw2YK',
+                'baseId' => 'applFtfiF0wvjWsVr',
                 'tableName' => 'Progress',
                 'apiKey' => env('AIRTABLE_API_KEY')
             ]

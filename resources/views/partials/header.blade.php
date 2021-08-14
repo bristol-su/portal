@@ -8,6 +8,7 @@
                     <img style="max-height: 40px" src="{{asset('images/logo.jpg')}}"/>
                     &nbsp;&nbsp;
                     {{ config('app.name', 'Committee Portal') }}
+
                 </a>
             @else
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -40,8 +41,7 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                @inject('userAuthentication', 'BristolSU\Support\User\Contracts\UserAuthentication')
-                                {{ $userAuthentication->getUser()->controlUser()->data()->preferredName() }} <span
+                                {{ app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName() }} <span
                                     class="caret"></span>
                             </a>
 
@@ -61,6 +61,7 @@
                                 </a>
                                 <a class="dropdown-item" href="{{url('/')}}">Home</a>
                                 <!-- Settings -->
+
                                 @can('view-management')
                                     <a class="dropdown-item" href="{{ route('management') }}">Management</a>
                                 @endcan
