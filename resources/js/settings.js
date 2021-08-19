@@ -15,7 +15,9 @@ export default {
         "messaging": {
             "controluser-registration-not-allowed-message": "authentication.messaging.controluser-registration-not-allowed-message",
             "datauser-registration-not-allowed-message": "authentication.messaging.datauser-registration-not-allowed-message",
-            "already-registered": "authentication.messaging.already-registered"
+            "already-registered": "authentication.messaging.already-registered",
+            "login-subtitle": "authentication.messaging.login-subtitle",
+            "register-subtitle": "authentication.messaging.register-subtitle"
         }
     },
     "social-drivers": {

@@ -1,22 +1,20 @@
-@extends('bristolsu::base')
+@extends('layouts.app')
 
 @section('title', 'Welcome')
-@section('content')
-    <div class="text-center py-5">
-        <div class="container">
-            <div class="row my-5 justify-content-center">
-                <div class="col-md-9">
-                    <h1>Bristol SU Portal</h1>
-                    <p class="lead text-muted">
-                        {!! \App\Settings\Appearance\Messaging\LandingPageTitle::getValue() !!}
-                    </p>
-                    {{--                    <a href="{{url('/login')}}" class="btn btn-primary m-2">Login</a>--}}
-                    <a href="{{url('/register')}}" class="btn btn-lg btn-primary m-1">Register</a>
-                    <a href="{{url('/login')}}" class="btn btn-lg btn-outline-secondary m-1">Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
+@section('app-content')
+    <p-featured-card
+        title="Bristol SU Portal"
+        subtext="{{ \App\Settings\Appearance\Messaging\LandingPageTitle::getValue() }}"
+        bg="landing-page"
+    >
+        <p-button class="w-full px-16 py-2 my-2 text-base font-medium text-blueGray-600 transition duration-500 ease-in-out transform rounded-md border-blueGray-50 bg-blueGray-50 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blueGray-100" href="{{route('login')}}">
+            Login
+        </p-button>
+        <p-button class="w-full px-16 py-2 my-2 text-base font-medium text-white transition duration-500 ease-in-out transform border-black rounded-md bg-black focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 hover:bg-blueGray-900" href="{{route('register')}}">
+            Register
+        </p-button>
+    </p-featured-card>
 @endsection
 
 @push('scripts')

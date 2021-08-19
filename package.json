@@ -24,7 +24,7 @@
     "dependencies": {
         "@bristol-su/control-js-api-client": "^1.1.0",
         "@bristol-su/control-management": "^0.3.2",
-        "@bristol-su/portal-ui-kit": "github:bristol-su/portal-ui-kit#PR-350/make-plugin",
+        "@bristol-su/frontend-toolkit": "github:bristol-su/frontend-toolkit#PR-361",
         "@fortawesome/fontawesome-free": "^5.14.0",
         "@vue/web-component-wrapper": "^1.2.0",
         "awesome-notifications": "^2.2.9",

@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import UiKit from '@bristol-su/portal-ui-kit';
+import Toolkit from '@bristol-su/frontend-toolkit';
 
-global.UiKit = UiKit;
+global.Toolkit = Toolkit;
 
-Vue.use(UiKit);
+Vue.use(Toolkit);
