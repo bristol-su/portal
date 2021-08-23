@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', 'Permission Management')
+@section('title', 'Permission Management')
 
-@section('settings-content')
+@section('app-content')
 
     <site-permissions>
 

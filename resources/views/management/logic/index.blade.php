@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', 'All Logic')
+@section('title', 'All Logic')
 
-@section('settings-content')
+@section('app-content')
 
     <logic-index
     :logics="{{$logics}}">

@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', 'Settings')
+@section('title', 'Settings')
 
-@section('settings-content')
+@section('app-content')
 
     <ul class="nav nav-pills nav-fill">
         @foreach($categories as $category)

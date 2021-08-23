@@ -1,35 +1,8 @@
 <template>
     <div>
-            <b-form-group
-                description="Name"
-                id="name-group"
-                label="Name:"
-                label-for="name"
-            >
-                <b-form-input
-                    id="name"
-                    required
-                    type="text"
-                    v-model="name"
-                ></b-form-input>
-            </b-form-group>
-
-
-            <b-form-group
-                description="A description"
-                id="description-group"
-                label="Description:"
-                label-for="description"
-            >
-                <b-form-input
-                    id="description"
-                    required
-                    type="text"
-                    v-model="description"
-                ></b-form-input>
-            </b-form-group>
-
-            <b-button @click="createNewActivityInstance">Create new run through</b-button>
+            <p-api-form :schema="form" v-model="formData" @submit="createNewActivityInstance">
+                <template #buttonText>Create</template>
+            </p-api-form>
     </div>
 </template>
 
@@ -56,8 +29,10 @@
 
         data() {
             return {
-                name: '',
-                description: ''
+                formData: {
+                    name: '',
+                    description: ''
+                }
             }
         },
 
@@ -79,7 +54,25 @@
             }
         },
 
-        computed: {}
+        computed: {
+            form() {
+                return this.$tools.generator.form.newForm('New Activity Instance')
+                    .withGroup(this.$tools.generator.group.newGroup()
+                        .withField(this.$tools.generator.field.text('name')
+                            .label('Name')
+                            .hint('A name to identify the run through')
+                            .required(true)
+                        )
+                        .withField(this.$tools.generator.field.text('description')
+                            .label('Description')
+                            .hint('A description to identify the run through')
+                            .required(true)
+                        )
+                    )
+                    .generate()
+                    .asJson()
+            }
+        }
     }
 </script>
 

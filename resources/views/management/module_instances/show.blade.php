@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', $moduleInstance->name)
+@section('title', $moduleInstance->name)
 
-@section('settings-content')
+@section('app-content')
 
     <module-instance-show
         :module-instance="{{$moduleInstance}}">

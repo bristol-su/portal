@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\MarkAsManagement;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -51,7 +52,8 @@ class Kernel extends HttpKernel
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
         'signed' => ValidateSignature::class,
-        'throttle' => ThrottleRequests::class
+        'throttle' => ThrottleRequests::class,
+        'markAsManagement' => MarkAsManagement::class
     ];
 
     /**

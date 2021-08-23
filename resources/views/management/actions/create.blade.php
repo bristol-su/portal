@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', 'Add an Action')
+@section('title', 'Add an Action')
 
-@section('settings-content')
+@section('app-content')
 
     <action-create
         :module-instance="{{$moduleInstance}}">

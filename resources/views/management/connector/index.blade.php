@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', 'Connectors')
+@section('title', 'Connectors')
 
-@section('settings-content')
+@section('app-content')
     <connector-index>
 
     </connector-index>

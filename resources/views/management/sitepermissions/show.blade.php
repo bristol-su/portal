@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', 'Assign Permissions')
+@section('title', 'Assign Permissions')
 
-@section('settings-content')
+@section('app-content')
 
     <site-permission
         :permission="{{$permission}}">

@@ -4,19 +4,13 @@ namespace App\Providers;
 
 use App\Http\View\Header\CurrentAuthComposer;
 use App\Http\View\Portal\ActivitySidebarComposer;
+use App\Http\View\Sidebar\SidebarComposer;
 use App\Http\View\Utilities\JavascriptComposer;
 use BristolSU\Support\Activity\Activity;
-use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver;
-use BristolSU\Support\ActivityInstance\Exceptions\NotInActivityInstanceException;
-use BristolSU\Support\Authentication\Contracts\Authentication;
-use BristolSU\Support\Logic\Facade\LogicTester;
 use BristolSU\Support\Logic\Logic;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laracasts\Utilities\JavaScript\JavaScriptFacade;
-use PhpConsole\Auth;
-use Symfony\Component\Routing\Generator\UrlGenerator;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -35,6 +29,7 @@ class ViewServiceProvider extends ServiceProvider
         // TODO Replace with repositories
 
         View::composer(['portal.activity'], ActivitySidebarComposer::class);
+        View::composer(['partials.components.contentwrap'], SidebarComposer::class);
         View::composer(['bristolsu::base'], JavascriptComposer::class);
         View::composer(['partials.header'], CurrentAuthComposer::class);
 

@@ -17,16 +17,22 @@ class ActivityController extends Controller
 
     public function administrator(Activity $activity, Authentication $authentication)
     {
-        $evaluation = collect();
-        $activity->moduleInstances->each(function(ModuleInstance $moduleInstance) use (&$evaluation, $authentication) {
-            $evaluation->put($moduleInstance->id(), app(ModuleInstanceEvaluator::class)->evaluateAdministrator(
-                $moduleInstance, $authentication->getUser(), $authentication->getGroup(), $authentication->getRole()
-            ));
+        $moduleInstances = collect();
+        $activity->moduleInstances->each(function(ModuleInstance $moduleInstance) use (&$moduleInstances, $authentication) {
+            $moduleInstances->push([
+                'moduleInstance' => $moduleInstance,
+                'grouping' => optional($moduleInstance->grouping)->id ?? 0,
+                'header' => optional($moduleInstance->grouping)->header ?? '',
+                'evaluation' => app(ModuleInstanceEvaluator::class)->evaluateAdministrator(
+                    $moduleInstance, $authentication->getUser(), $authentication->getGroup(), $authentication->getRole()
+                )
+            ]);
+
         });
         return view('portal.activity')->with([
             'activity' => $activity->load('moduleInstances'),
             'admin' => true,
-            'evaluation' => $evaluation
+            'moduleInstances' => $moduleInstances
         ]);
     }
 
@@ -35,12 +41,25 @@ class ActivityController extends Controller
         $resourceType = $activity->activity_for;
         $resourceId = app(ResourceIdGenerator::class)->fromString($resourceType);
 
+
+        $moduleInstances = collect();
+        $activity->moduleInstances->each(function(ModuleInstance $moduleInstance) use (&$moduleInstances, $authentication, $activityInstance) {
+            $moduleInstances->push([
+                'moduleInstance' => $moduleInstance,
+                'grouping' => optional($moduleInstance->grouping)->id ?? 0,
+                'header' => optional($moduleInstance->grouping)->header ?? '',
+                'evaluation' => app(ModuleInstanceEvaluator::class)->evaluateParticipant(
+                    $activityInstance, $moduleInstance, $authentication->getUser(), $authentication->getGroup(), $authentication->getRole()
+                )
+            ]);
+
+        });
         return view('portal.activity')->with([
-            'activity' => $activity->load('moduleInstances'),
+            'activity' => $activity,
             'activityInstance' => $activityInstance,
             'activityInstances' => app(ActivityInstanceRepository::class)->allFor($activity->id, $resourceType, $resourceId),
             'admin' => false,
-            'evaluation' => collect(app(ActivityInstanceEvaluator::class)->evaluateParticipant($activityInstance, $authentication->getUser(), $authentication->getGroup(), $authentication->getRole()))
+            'moduleInstances' => $moduleInstances
         ]);
     }
 

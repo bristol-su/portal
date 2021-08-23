@@ -15,7 +15,7 @@ Route::middleware(['portal-auth'])->group(function () {
     Route::get('/login/participant/{activity_slug}', [\App\Http\Controllers\Auth\LogIntoParticipantController::class, 'show'])->name('login.participant');
     Route::get('/login/admin/{activity_slug}', [\App\Http\Controllers\Auth\LogIntoAdminController::class, 'show'])->name('login.admin');
 
-    Route::middleware(['can:view-management'])->group(function () {
+    Route::middleware(['can:view-management', 'markAsManagement'])->group(function () {
         // Settings Routes
         Route::get('/management', [\App\Http\Controllers\Management\ManagementController::class, 'index'])->name('management');
         Route::resource('activity', \App\Http\Controllers\Management\ActivityController::class)->only(['index', 'create', 'show']);
@@ -41,6 +41,14 @@ Route::middleware(['portal-auth'])->group(function () {
     Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
     Route::get('/p', [PortalController::class, 'participant'])->name('participant');
     Route::get('/activity/{activity}/progress', [\App\Http\Controllers\Pages\ActivityProgressController::class, 'index']);
+
+    Route::get('/a/summary/u', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'user'])->name('summary.a.user');
+    Route::get('/a/summary/g/{control_group}', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'group'])->name('summary.a.group');
+    Route::get('/a/summary/r/{control_role}', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'role'])->name('summary.a.role');
+
+    Route::get('/p/summary/u', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'user'])->name('summary.p.user');
+    Route::get('/p/summary/g/{control_group}', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'group'])->name('summary.p.group');
+    Route::get('/p/summary/r/{control_role}', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'role'])->name('summary.p.role');
 
     Route::middleware('activity')->group(function () {
         Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');

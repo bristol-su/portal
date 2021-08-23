@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'url' => env('APP_URL', 'http://localhost'),
+    'api_url' => env('API_URL', 'http://localhost/api'),
     'analytics' => [
         'enabled' => env('ANALYTICS_ENABLED', false)
     ],
@@ -12,7 +14,8 @@ return [
     ],
     'caching' => [
         'filters' => [
-            'enabled' => env('FILTER_CACHING_ENABLED', true)
+            'enabled' => env('FILTER_CACHING_ENABLED', true),
+            'duration' => env('FILTER_CACHING_DURATION', 900)
         ]
     ],
     'progress' => [
@@ -21,11 +24,10 @@ return [
             'database' => [
                 'driver' => 'database'
             ],
-            'portal-airtable' => [
+            'airtable' => [
                 'driver' => 'airtable',
-                'debug' => false,
-                'baseId' => 'applFtfiF0wvjWsVr',
-                'tableName' => 'Progress',
+                'baseId' => env('AIRTABLE_BASE_ID'),
+                'tableName' => env('AIRTABLE_TABLE_NAME'),
                 'apiKey' => env('AIRTABLE_API_KEY')
             ]
         ]

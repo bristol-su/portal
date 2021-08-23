@@ -30,3 +30,7 @@
 @push('scripts')
     <script src="{{ mix('js/header.js') }}"></script>
 @endpush
+
+{{--                            <h1 class="mx-auto mb-12 text-2xl font-semibold leading-none tracking-tighter text-black lg:text-3xl title-font" v-if="pageTitle" v-text="pageTitle"></h1>--}}
+{{--                            <h2 class="mx-auto mb-4 text-xl font-semibold leading-none tracking-tighter text-black title-font" v-if="pageSubtitle" v-text="pageSubtitle"></h2>--}}
+{{--                            <p class="mx-auto text-base font-medium leading-relaxed text-blueGray-700 " v-if="pageContent" v-text="pageContent"></p>--}}

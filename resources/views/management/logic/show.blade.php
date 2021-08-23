@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.app')
 
-@section('settings-title', $logic->name)
+@section('title', $logic->name)
 
-@section('settings-content')
+@section('app-content')
 
     <logic-show
         :logic="{{$logic}}">

@@ -1,30 +1,19 @@
 <template>
     <div>
-        <b-list-group>
-            <a :href="makeUrl(instance.id)"
-               :key="instance.id"
-               v-for="instance in activityInstances">
-                <b-list-group-item
-                    :variant="(instance.id === currentActivityInstance.id?'primary':'light')">
-                    {{instance.name}}
-                </b-list-group-item>
-            </a>
-            <b-list-group-item
-                @click="newActivityInstance"
-                variant="light">
-                New Run Through
-            </b-list-group-item>
-        </b-list-group>
+        <p-select
+            :selectOptions="selectOptions"
+            id="activity-instance-switcher"
+            v-model="selectedActivityInstance">
+        </p-select>
 
-
-        <b-modal id="new-activity-instance">
+        <p-modal title="New run through" :open="showNewActivityInstanceModal" v-if="showNewActivityInstanceModal" @close="showNewActivityInstanceModal = false">
             <NewActivityInstance
                 :activity-id="currentActivityInstance.activity_id"
                 :resource-id="currentActivityInstance.resource_id"
                 :resource-type="currentActivityInstance.resource_type">
 
             </NewActivityInstance>
-        </b-modal>
+        </p-modal>
     </div>
 </template>
 
@@ -49,10 +38,31 @@
             }
         },
 
+        data() {
+            return {
+                selectedActivityInstance: null,
+                showNewActivityInstanceModal: false
+            }
+        },
+
+        watch: {
+            selectedActivityInstance: function(newActivityInstance) {
+                if(newActivityInstance.hasOwnProperty('value')) {
+                    newActivityInstance = newActivityInstance.value;
+                }
+                if(newActivityInstance === 'add') {
+                    this.showNewActivityInstanceModal = true;
+                } else if(newActivityInstance !== this.currentActivityInstance.id) {
+                    window.location.href = this.makeUrl(newActivityInstance);
+                }
+            }
+        },
+
+        mounted() {
+            this.selectedActivityInstance = this.currentActivityInstance.id;
+        },
+
         methods: {
-            newActivityInstance() {
-                this.$bvModal.show('new-activity-instance');
-            },
             makeUrl(id) {
                 let u = new Url;
                 u.query.a = id;
@@ -60,7 +70,18 @@
             }
         },
 
-        computed: {}
+        computed: {
+            selectOptions() {
+                let options = this.activityInstances.map(activityInstance => {
+                    return {
+                        id: activityInstance.id,
+                        value: activityInstance.name
+                    }
+                })
+                options.push({id: 'add', value: 'Add a new run through'})
+                return options;
+            }
+        }
     }
 </script>
 
