@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80073393291364b79da2ed9f221aecb0",
+    "content-hash": "73549db0e08c5f49dca817825225c898",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.190.5",
+            "version": "3.191.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c2063c78310b45e378f1bdad9fe6e9191f36439c"
+                "reference": "6176504bc51ae5ac3a5276e05da0fa6abf71540b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c2063c78310b45e378f1bdad9fe6e9191f36439c",
-                "reference": "c2063c78310b45e378f1bdad9fe6e9191f36439c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6176504bc51ae5ac3a5276e05da0fa6abf71540b",
+                "reference": "6176504bc51ae5ac3a5276e05da0fa6abf71540b",
                 "shasum": ""
             },
             "require": {
@@ -148,9 +148,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.190.5"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.191.3"
             },
-            "time": "2021-08-18T18:24:08+00:00"
+            "time": "2021-08-24T18:18:22+00:00"
         },
         {
             "name": "brick/math",
@@ -420,16 +420,10 @@
         {
             "name": "bristol-su/upload-file",
             "version": "dev-PR-302",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "c164b7914cf70e5127d5ea27ff2cf2c5a1488d3e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/c164b7914cf70e5127d5ea27ff2cf2c5a1488d3e",
-                "reference": "c164b7914cf70e5127d5ea27ff2cf2c5a1488d3e",
-                "shasum": ""
+                "type": "path",
+                "url": "./repos/bristol-su/upload-file",
+                "reference": "c164b7914cf70e5127d5ea27ff2cf2c5a1488d3e"
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -453,7 +447,11 @@
                     "BristolSU\\Module\\UploadFile\\": "app/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Module\\Tests\\UploadFile\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -463,11 +461,9 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "support": {
-                "issues": "https://github.com/bristol-su/upload-file/issues",
-                "source": "https://github.com/bristol-su/upload-file/tree/PR-302"
-            },
-            "time": "2021-08-19T14:07:43+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "defuse/php-encryption",
@@ -1591,16 +1587,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.208.0",
+            "version": "v0.209.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "77fdacfc99f582970dcb3c41233158b02cc4ba5e"
+                "reference": "0c463d5f15e91feb8de4ffe199e5010cf3b563d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/77fdacfc99f582970dcb3c41233158b02cc4ba5e",
-                "reference": "77fdacfc99f582970dcb3c41233158b02cc4ba5e",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/0c463d5f15e91feb8de4ffe199e5010cf3b563d3",
+                "reference": "0c463d5f15e91feb8de4ffe199e5010cf3b563d3",
                 "shasum": ""
             },
             "require": {
@@ -1629,28 +1625,28 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.208.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.209.0"
             },
-            "time": "2021-08-15T11:18:25+00:00"
+            "time": "2021-08-22T11:18:24+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.17.0",
+            "version": "v1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "4da3a850e9d1045918099b6561165d829efbe2b7"
+                "reference": "21dd478e77b0634ed9e3a68613f74ed250ca9347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/4da3a850e9d1045918099b6561165d829efbe2b7",
-                "reference": "4da3a850e9d1045918099b6561165d829efbe2b7",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/21dd478e77b0634ed9e3a68613f74ed250ca9347",
+                "reference": "21dd478e77b0634ed9e3a68613f74ed250ca9347",
                 "shasum": ""
             },
             "require": {
                 "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
                 "guzzlehttp/guzzle": "^5.3.1|^6.2.1|^7.0",
-                "guzzlehttp/psr7": "^1.2",
+                "guzzlehttp/psr7": "^1.7|^2.0",
                 "php": ">=5.4",
                 "psr/cache": "^1.0|^2.0",
                 "psr/http-message": "^1.0"
@@ -1685,9 +1681,9 @@
             "support": {
                 "docs": "https://googleapis.github.io/google-auth-library-php/master/",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.17.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.18.0"
             },
-            "time": "2021-08-18T16:10:00+00:00"
+            "time": "2021-08-24T18:03:18+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2188,16 +2184,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.55.0",
+            "version": "v8.56.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "997e2aa23e9103137715018ae926c52f8a1703f2"
+                "reference": "d700f336dc672dcbfe46db05d4e5fe9347b3a5b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/997e2aa23e9103137715018ae926c52f8a1703f2",
-                "reference": "997e2aa23e9103137715018ae926c52f8a1703f2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d700f336dc672dcbfe46db05d4e5fe9347b3a5b6",
+                "reference": "d700f336dc672dcbfe46db05d4e5fe9347b3a5b6",
                 "shasum": ""
             },
             "require": {
@@ -2352,7 +2348,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-08-17T14:13:34+00:00"
+            "time": "2021-08-24T13:46:30+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -3617,16 +3613,16 @@
         },
         {
             "name": "linkeys/signed-url",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/linkeys-app/signed-url.git",
-                "reference": "a12063111d675c6aa031bbfaac1f3f71717d524c"
+                "reference": "d2a50b806dc7e1885f89568c3b61c405587bd5f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/linkeys-app/signed-url/zipball/a12063111d675c6aa031bbfaac1f3f71717d524c",
-                "reference": "a12063111d675c6aa031bbfaac1f3f71717d524c",
+                "url": "https://api.github.com/repos/linkeys-app/signed-url/zipball/d2a50b806dc7e1885f89568c3b61c405587bd5f1",
+                "reference": "d2a50b806dc7e1885f89568c3b61c405587bd5f1",
                 "shasum": ""
             },
             "require": {
@@ -3649,7 +3645,7 @@
                         "Linkeys\\UrlSigner\\Providers\\UrlSignerServiceProvider"
                     ],
                     "aliases": {
-                        "UrlSigner": "Linkeys\\UrlSigner\\Link"
+                        "UrlSigner": "Linkeys\\UrlSigner\\Facade\\UrlSigner"
                     }
                 }
             },
@@ -3681,9 +3677,9 @@
             ],
             "support": {
                 "issues": "https://github.com/linkeys-app/signed-url/issues",
-                "source": "https://github.com/linkeys-app/signed-url/tree/v3.0.1"
+                "source": "https://github.com/linkeys-app/signed-url/tree/v3.0.2"
             },
-            "time": "2021-01-12T22:14:47+00:00"
+            "time": "2021-08-23T21:29:07+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4000,16 +3996,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.51.1",
+            "version": "2.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922"
+                "reference": "369c0e2737c56a0f39c946dd261855255a6fccbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
-                "reference": "8619c299d1e0d4b344e1f98ca07a1ce2cfbf1922",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/369c0e2737c56a0f39c946dd261855255a6fccbe",
+                "reference": "369c0e2737c56a0f39c946dd261855255a6fccbe",
                 "shasum": ""
             },
             "require": {
@@ -4090,7 +4086,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-28T13:16:28+00:00"
+            "time": "2021-08-14T19:10:52+00:00"
         },
         {
             "name": "nette/schema",
@@ -11564,16 +11560,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.11.4",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "1b8d83c5dac7c5ee8429daf284ce3f19b1d17ea2"
+                "reference": "74dcc32a2895a126d1e5f2cd3bbab499cac66db1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/1b8d83c5dac7c5ee8429daf284ce3f19b1d17ea2",
-                "reference": "1b8d83c5dac7c5ee8429daf284ce3f19b1d17ea2",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/74dcc32a2895a126d1e5f2cd3bbab499cac66db1",
+                "reference": "74dcc32a2895a126d1e5f2cd3bbab499cac66db1",
                 "shasum": ""
             },
             "require": {
@@ -11636,7 +11632,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-08-17T11:45:33+00:00"
+            "time": "2021-08-24T09:53:54+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -12019,16 +12015,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.10.0",
+            "version": "v1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "05cf80b1365a0b556f6c21ed5c71a27971d06ec8"
+                "reference": "267fafeaf0e0311952316ae0f3c765abc7516469"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/05cf80b1365a0b556f6c21ed5c71a27971d06ec8",
-                "reference": "05cf80b1365a0b556f6c21ed5c71a27971d06ec8",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/267fafeaf0e0311952316ae0f3c765abc7516469",
+                "reference": "267fafeaf0e0311952316ae0f3c765abc7516469",
                 "shasum": ""
             },
             "require": {
@@ -12075,7 +12071,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2021-08-17T16:00:47+00:00"
+            "time": "2021-08-23T13:43:27+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -12367,16 +12363,16 @@
         },
         {
             "name": "seld/phar-utils",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/phar-utils.git",
-                "reference": "8674b1d84ffb47cc59a101f5d5a3b61e87d23796"
+                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/8674b1d84ffb47cc59a101f5d5a3b61e87d23796",
-                "reference": "8674b1d84ffb47cc59a101f5d5a3b61e87d23796",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
+                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
                 "shasum": ""
             },
             "require": {
@@ -12409,9 +12405,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/phar-utils/issues",
-                "source": "https://github.com/Seldaek/phar-utils/tree/master"
+                "source": "https://github.com/Seldaek/phar-utils/tree/1.1.2"
             },
-            "time": "2020-07-07T18:42:57+00:00"
+            "time": "2021-08-19T21:01:38+00:00"
         },
         {
             "name": "symfony/debug",
