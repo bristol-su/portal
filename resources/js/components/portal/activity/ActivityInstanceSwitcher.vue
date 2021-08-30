@@ -6,7 +6,7 @@
             v-model="selectedActivityInstance">
         </p-select>
 
-        <p-modal title="New run through" :open="showNewActivityInstanceModal" v-if="showNewActivityInstanceModal" @close="showNewActivityInstanceModal = false">
+        <p-modal title="New run through" id="new-activity-instance">
             <NewActivityInstance
                 :activity-id="currentActivityInstance.activity_id"
                 :resource-id="currentActivityInstance.resource_id"
@@ -40,8 +40,7 @@
 
         data() {
             return {
-                selectedActivityInstance: null,
-                showNewActivityInstanceModal: false
+                selectedActivityInstance: null
             }
         },
 
@@ -51,7 +50,7 @@
                     newActivityInstance = newActivityInstance.value;
                 }
                 if(newActivityInstance === 'add') {
-                    this.showNewActivityInstanceModal = true;
+                    this.$ui.modal.show('new-activity-instance');
                 } else if(newActivityInstance !== this.currentActivityInstance.id) {
                     window.location.href = this.makeUrl(newActivityInstance);
                 }

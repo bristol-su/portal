@@ -3,5 +3,7 @@
 @section('title', 'Portal')
 
 @section('content')
-    @yield('app-content')
+    <div id="vue-root">
+        @yield('app-content')
+    </div>
 @endsection

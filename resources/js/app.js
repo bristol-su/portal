@@ -35,14 +35,11 @@ import DynamicSettings from './management/settings/DynamicSettings';
 import SocialLogin from './components/login/social/SocialLogin';
 import Clipboard from 'v-clipboard'
 
-import ValidationErrors from './components/alerts/ValidationErrors';
-
 window.settingKeys = settingKeys;
 Vue.use(BootstrapVue);
 Vue.use(VueFormGenerator);
 Vue.use(Clipboard);
 
-Vue.prototype.$http = axios;
 Vue.prototype.$notify = new AWN({position: 'top-right'});
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

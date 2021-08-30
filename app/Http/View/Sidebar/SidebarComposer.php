@@ -59,7 +59,9 @@ class SidebarComposer
         $schema = [];
         $activity = $this->moduleInstance->activity;
         $activity->moduleInstances->each(function (ModuleInstance $moduleInstance) use (&$schema, $isAdmin, $activity) {
-            $evaluation = $this->evaluator->evaluateParticipant(
+            $evaluation = $isAdmin
+                ? $this->evaluator->evaluateAdministrator($moduleInstance, $this->authentication->getUser(), $this->authentication->getGroup(), $this->authentication->getRole())
+                : $this->evaluator->evaluateParticipant(
                 $this->activityInstanceResolver->getActivityInstance(),
                 $moduleInstance,
                 $this->authentication->getUser(),
@@ -69,7 +71,7 @@ class SidebarComposer
             if ($evaluation->visible()) {
                 $schema[] = [
                     'title' => $moduleInstance->name,
-                    'route' => sprintf('/%s/%s/%s/%s?%s', $isAdmin, $activity->slug, $moduleInstance->slug, $moduleInstance->alias(), url()->getAuthQueryString()),
+                    'route' => sprintf('/%s/%s/%s/%s?%s', $isAdmin ? 'a' : 'p', $activity->slug, $moduleInstance->slug, $moduleInstance->alias(), url()->getAuthQueryString()),
                     'complete' => $evaluation->complete(),
                     'mandatory' => $evaluation->mandatory(),
                     'active' => $evaluation->active()

@@ -9,7 +9,7 @@
                 title="{{$activity->name}}"
                 subtitle="{{$activity->description}}"
                 image-url="{{$activity->image_url}}"
-                url="{{route('participant.activity', ['activity_slug' => $activity->slug])}}"
+                url="{{route('administrator.activity', ['activity_slug' => $activity->slug])}}?{{$authQuery}}"
                 url-text="Continue"
             ></p-card>
         @endforeach

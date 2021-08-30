@@ -7,6 +7,7 @@ use BristolSU\ControlDB\Contracts\Models\Group;
 use BristolSU\ControlDB\Contracts\Models\Role;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\Activity\Contracts\Repository as ActivityRepository;
+use BristolSU\Support\Authentication\AuthQuery\AuthCredentials;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -20,6 +21,7 @@ class ActivityAdminSummaryController extends Controller
         return view('portal.admin-activity-summary')
             ->with('activities', $activities)
             ->with('title', 'Activities for you')
+            ->with('authQuery', (new AuthCredentials(null, null, null))->toQuery())
             ->with('subtitle', 'These are activities that pertain to you. You won\'t find your society activities here');
     }
 
@@ -34,6 +36,7 @@ class ActivityAdminSummaryController extends Controller
         return view('portal.admin-activity-summary')
             ->with('title', 'Activities for ' . $group->data()->name())
             ->with('subtitle', 'These are activities that you can admin through your membership to ' . $group->data()->name())
+            ->with('authQuery', (new AuthCredentials($group->id(), null, null))->toQuery())
             ->with('activities', $activities);
     }
 
@@ -47,6 +50,7 @@ class ActivityAdminSummaryController extends Controller
         return view('portal.admin-activity-summary')
             ->with('title', 'Activities for ' . $role->data()->roleName() . ' of ' . $role->group()->data()->name())
             ->with('subtitle', 'These are activities that you can admin through your position of ' . $role->data()->roleName() . ' in ' . $role->group()->data()->name())
+            ->with('authQuery', (new AuthCredentials($role->groupId(), $role->id(), null))->toQuery())
             ->with('activities', $activities);
     }
 

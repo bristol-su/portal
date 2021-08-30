@@ -42,11 +42,11 @@ Route::middleware(['portal-auth'])->group(function () {
     Route::get('/p', [PortalController::class, 'participant'])->name('participant');
     Route::get('/activity/{activity}/progress', [\App\Http\Controllers\Pages\ActivityProgressController::class, 'index']);
 
-    Route::get('/a/summary/u', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'user'])->name('summary.a.user');
+    Route::get('/a/summary/u/0', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'user'])->name('summary.a.user');
     Route::get('/a/summary/g/{control_group}', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'group'])->name('summary.a.group');
     Route::get('/a/summary/r/{control_role}', [\App\Http\Controllers\Pages\ActivityAdminSummaryController::class, 'role'])->name('summary.a.role');
 
-    Route::get('/p/summary/u', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'user'])->name('summary.p.user');
+    Route::get('/p/summary/u/0', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'user'])->name('summary.p.user');
     Route::get('/p/summary/g/{control_group}', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'group'])->name('summary.p.group');
     Route::get('/p/summary/r/{control_role}', [\App\Http\Controllers\Pages\ActivitySummaryController::class, 'role'])->name('summary.p.role');
 

@@ -1,10 +1,12 @@
-<div class="flex-col w-full md:flex md:flex-row md:min-h-screen bg-blueGray-50" id="vue-root">
+<div class="flex-col w-full md:flex md:flex-row md:min-h-screen bg-blueGray-50">
     @auth
-    <p-sidenav
-        user-name="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName()}}"
-        :nav-items="{{ json_encode($sidebarSchema) }}"
-    >
-    </p-sidenav>
+        <div id="sidebar-vue-root">
+            <p-sidenav
+                user-name="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName()}}"
+                :nav-items="{{ json_encode($sidebarSchema) }}"
+            >
+            </p-sidenav>
+        </div>
 
     <!-- Start Content -->
     <section class="w-full">

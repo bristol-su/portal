@@ -51,40 +51,40 @@ class SendToIntegromat extends Action
     public static function options(): Form
     {
         return \FormSchema\Generator\Form::make()->withField(
-            Field::input('webhook_url')->inputType('text')->label('Webhook URL')->featured(true)
-                ->required(true)->default('')->hint('This is the URL Integromat will give you.')
-                ->help('We need to know which Scenario to trigger. Start by setting up your scenario, and choose the Webhook trigger. This should give you a URL, which you should paste in here')
+            Field::textInput('webhook_url')->setLabel('Webhook URL')
+                ->setRequired(true)->setValue('')->setHint('This is the URL Integromat will give you.')
+                ->setTooltip('We need to know which Scenario to trigger. Start by setting up your scenario, and choose the Webhook trigger. This should give you a URL, which you should paste in here')
         )->withGroup(
             Group::make('Data')->withField(
-                Field::input('data_one')->inputType('text')->label('Data #1')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_one')->setLabel('Data #1')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_two')->inputType('text')->label('Data #2')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_two')->setLabel('Data #2')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_three')->inputType('text')->label('Data #3')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_three')->setLabel('Data #3')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_four')->inputType('text')->label('Data #4')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_four')->setLabel('Data #4')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_five')->inputType('text')->label('Data #5')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_five')->setLabel('Data #5')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_six')->inputType('text')->label('Data #6')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_six')->setLabel('Data #6')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_seven')->inputType('text')->label('Data #7')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_seven')->setLabel('Data #7')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_eight')->inputType('text')->label('Data #8')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_eight')->setLabel('Data #8')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_nine')->inputType('text')->label('Data #9')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_nine')->setLabel('Data #9')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_ten')->inputType('text')->label('Data #10')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_ten')->setLabel('Data #10')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_eleven')->inputType('text')->label('Data #11')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_eleven')->setLabel('Data #11')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_twelve')->inputType('text')->label('Data #12')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_twelve')->setLabel('Data #12')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_thirteen')->inputType('text')->label('Data #13')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_thirteen')->setLabel('Data #13')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_fourteen')->inputType('text')->label('Data #14')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_fourteen')->setLabel('Data #14')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )->withField(
-                Field::input('data_fifteen')->inputType('text')->label('Data #15')->required(false)->default(null)->hint('This data will be passed to Integromat')
+                Field::textInput('data_fifteen')->setLabel('Data #15')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )
         )->getSchema();
     }

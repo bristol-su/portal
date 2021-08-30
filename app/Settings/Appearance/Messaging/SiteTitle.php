@@ -51,13 +51,11 @@ class SiteTitle extends GlobalSetting
      */
     public function fieldOptions(): Field
     {
-        return \FormSchema\Generator\Field::input($this->inputName())
-            ->inputType('text')
-            ->label('Site Title')
-            ->default($this->defaultValue())
-            ->hint('The name of your site')
-            ->help('This will usually be your company name, and will appear in the header and as the page title.')
-            ->getSchema();
+        return \FormSchema\Generator\Field::textInput($this->inputName())
+            ->setLabel('Site Title')
+            ->setValue($this->defaultValue())
+            ->setHint('The name of your site')
+            ->setTooltip('This will usually be your company name, and will appear in the header and as the page title.');
 
     }
 }
