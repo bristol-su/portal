@@ -1,10 +1,14 @@
 <template>
-    <div>
-        <p-select
-            :selectOptions="selectOptions"
-            id="activity-instance-switcher"
-            v-model="selectedActivityInstance">
-        </p-select>
+    <div class="grid justify-items-end">
+        <div class="w-full md:w-1/2 pb-5">
+            <p-select
+                :selectOptions="selectOptions"
+                id="activity-instance-switcher"
+                label="Select Instance"
+                tooltip="Select a previously created instance, or create a new one"
+                v-model="selectedActivityInstance">
+            </p-select>
+        </div>
 
         <p-modal title="New run through" id="new-activity-instance">
             <NewActivityInstance
