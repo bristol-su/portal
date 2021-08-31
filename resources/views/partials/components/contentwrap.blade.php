@@ -28,16 +28,16 @@
 
     </section>
     @else
-        <div class="container items-center px-5 py-8 mx-auto lg:px-24 w-full">
-            <section class="text-blueGray-700 align-left">
-                <div class="container flex flex-col items-center px-5 py-8 mx-auto">
-                    <div class="flex flex-col w-full mb-12 text-left ">
-                        <div class="w-full mx-auto">
+        <div class="w-full">
+{{--            <section class="text-blueGray-700 align-left">--}}
+{{--                <div class="container flex flex-col items-center px-5 py-8 mx-auto">--}}
+{{--                    <div class="flex flex-col w-full mb-12 text-left ">--}}
+{{--                        <div class="w-full mx-auto">--}}
                             {{ $slot }}
-                        </div>
-                    </div>
-                </div>
-            </section>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </section>--}}
         </div>
     @endauth
 </div>
