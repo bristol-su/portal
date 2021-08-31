@@ -5,7 +5,12 @@
 @section('app-content')
 
     <p-page-content title="{{$activity->name}}  @if($admin)- Admin @endif"
-                    subtitle="Tasks to complete {{$activity->name}}">
+                    @if($activity->type === 'multi-completable' && ! $admin)
+                    subtitle="Tasks to complete {{$activityInstance->name}} ({{$activityInstance->created_at->format('d/m/y')}})"
+                    @else
+                    subtitle="Tasks to complete {{$activity->name}}"
+        @endif
+    >
         <template #actions>
             @if($activity->type === 'multi-completable' && ! $admin)
                 <activity-instance-switcher

@@ -4,6 +4,7 @@ namespace App\Http\View\Sidebar;
 
 use App\Http\Middleware\MarkAsManagement;
 use BristolSU\ControlDB\Models\Group;
+use BristolSU\Support\Activity\Contracts\Repository as ActivityRepository;
 use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\ModuleInstance\Contracts\Evaluator\ModuleInstanceEvaluator;
@@ -68,13 +69,12 @@ class SidebarComposer
                 $this->authentication->getGroup(),
                 $this->authentication->getRole()
             );
-            if ($evaluation->visible()) {
+            if ($evaluation->visible() && $evaluation->active()) {
                 $schema[] = [
                     'title' => $moduleInstance->name,
                     'route' => sprintf('/%s/%s/%s/%s?%s', $isAdmin ? 'a' : 'p', $activity->slug, $moduleInstance->slug, $moduleInstance->alias(), url()->getAuthQueryString()),
-                    'complete' => $evaluation->complete(),
-                    'mandatory' => $evaluation->mandatory(),
-                    'active' => $evaluation->active()
+                    'icon' => $evaluation->complete() ? 'fa fa-check' : null,
+                    'highlight' => $evaluation->mandatory()
                 ];
             }
         });
@@ -84,41 +84,53 @@ class SidebarComposer
     private function getBasicSidebar(bool $isAdmin): array
     {
         $schema = [];
-        $user = $this->authentication->getUser();
-        /** @var Group[] $groups */
-        $groups = $user->groups();
-        $roles = $user->roles();
 
-        $schema[] = ['title' => 'Personal', 'route' => route(sprintf('summary.%s.user', $isAdmin ? 'a' : 'p'))];
+        $schema[] = ['title' => 'Dashboard', 'route' => route($isAdmin ? 'administrator' : 'participant')];
 
-        $groupSchema = [];
-        foreach ($groups as $group) {
-            $groupSchema[] = ['title' => $group->data()->name(), 'route' => route(sprintf('summary.%s.group', $isAdmin ? 'a' : 'p'), ['control_group' => $group->id()])];
+        if($this->canBeAdmin()) {
+            $schema[] = ['title' => sprintf('Go to %s', ($isAdmin ? 'participant' : 'admin')), 'route' => sprintf('/%s', ($isAdmin ? 'p' : 'a'))];
         }
-        $schema[] = ['title' => 'Clubs & Societies', 'children' => $groupSchema];
 
-        $roleSchema = [];
-        foreach ($roles as $role) {
-            $roleSchema[] = ['title' => sprintf('%s (started %u)', $role->data()->roleName(), Carbon::make($role->created_at)->year), 'route' => route(sprintf('summary.%s.role', $isAdmin ? 'a' : 'p'), ['control_role' => $role->id()])];
-        }
-        $schema[] = ['title' => 'Committee Roles', 'children' => $roleSchema];
-        $schema[] = ['title' => sprintf('Go to %s', ($isAdmin ? 'participant' : 'admin')), 'route' => sprintf('/%s', ($isAdmin ? 'p' : 'a'))];
         return $schema;
     }
 
     private function getManagementSidebar()
     {
         return [
-            ['title' => 'Activities', 'children' => [
-                ['title' => 'View Activities', 'route' => route('activity.index')],
-                ['title' => 'Create Activity', 'route' => route('activity.create')],
-            ]],
-            ['title' => 'Logic', 'children' => [
-                ['title' => 'View Logic', 'route' => route('logic.index')],
-                ['title' => 'Create Logic', 'route' => route('logic.create')],
-            ]],
+            ['title' => 'View Activities', 'route' => route('activity.index')],
+            ['title' => 'Create Activity', 'route' => route('activity.create')],
+            ['title' => 'View Logic', 'route' => route('logic.index')],
+            ['title' => 'Create Logic', 'route' => route('logic.create')],
             ['title' => 'Connectors', 'route' => route('connector.index')],
             ['title' => 'Settings', 'route' => route('settings.index')],
         ];
+    }
+
+    private function canBeAdmin(): bool
+    {
+        /** @var Authentication $authentication */
+        $authentication = app(Authentication::class);
+
+        /** @var ActivityRepository $activityRepository */
+        $activityRepository = app(ActivityRepository::class);
+
+        $user = $authentication->getUser();
+        if($activityRepository->getForAdministrator($user)->count() > 0) {
+            return true;
+        }
+
+        foreach ($user->groups() as $group) {
+            if($activityRepository->getForAdministrator($user, $group)->count() > 0) {
+                return true;
+            }
+        }
+
+        foreach ($user->roles() as $role) {
+            if($activityRepository->getForAdministrator($user, $role->group(), $role)->count() > 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
