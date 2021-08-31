@@ -6,3 +6,7 @@
    From here, you can control the content on the portal.
 
 @endsection
+
+@push('styles')
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+@endpush

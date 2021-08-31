@@ -7,10 +7,6 @@
 
 @push('styles')
     @include('templates.javascript_injection')
-
-{{--    TEMP: Removed Bootstrap css as causing conflicts--}}
-{{--    <link href="{{ mix('css/app.css') }}" rel="stylesheet">--}}
-    
     <link rel="stylesheet" href="{{mix('css/ui-kit.css')}}" type="text/css">
 @endpush
 
