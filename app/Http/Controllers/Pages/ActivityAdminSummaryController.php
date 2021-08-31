@@ -20,9 +20,9 @@ class ActivityAdminSummaryController extends Controller
             ->filter(fn(Activity $activity) => $activity->activity_for !== 'group' && $activity->activity_for !== 'role');
         return view('portal.admin-activity-summary')
             ->with('activities', $activities)
-            ->with('title', 'Activities for you')
+            ->with('title', 'Your Activities')
             ->with('authQuery', (new AuthCredentials(null, null, null))->toQuery())
-            ->with('subtitle', 'These are activities that pertain to you. You won\'t find your society activities here');
+            ->with('subtitle', 'Here are your personal activities! To find activities for your society, go to dashboard and select the relevant card.');
     }
 
     public function group(Group $group, Authentication $authentication, ActivityRepository $activityRepository)
@@ -34,8 +34,8 @@ class ActivityAdminSummaryController extends Controller
         $activities = $activityRepository->getForAdministrator($authentication->getUser(), $group)
             ->filter(fn(Activity $activity) => $activity->activity_for !== 'role');
         return view('portal.admin-activity-summary')
-            ->with('title', 'Activities for ' . $group->data()->name())
-            ->with('subtitle', 'These are activities that you can admin through your membership to ' . $group->data()->name())
+            ->with('title', 'Your ' . $group->data()->name() . ' Activities')
+            ->with('subtitle', 'Here are your ' . $group->data()->name() . ' membership activities.')
             ->with('authQuery', (new AuthCredentials($group->id(), null, null))->toQuery())
             ->with('activities', $activities);
     }
@@ -48,8 +48,8 @@ class ActivityAdminSummaryController extends Controller
 
         $activities = $activityRepository->getForAdministrator($authentication->getUser(), $role->group(), $role);
         return view('portal.admin-activity-summary')
-            ->with('title', 'Activities for ' . $role->data()->roleName() . ' of ' . $role->group()->data()->name())
-            ->with('subtitle', 'These are activities that you can admin through your position of ' . $role->data()->roleName() . ' in ' . $role->group()->data()->name())
+            ->with('title', 'Activities for ' . ($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name()) . ' of ' . $role->group()->data()->name())
+            ->with('subtitle', 'Here are your activities for your Admin position of ' . $role->data()->roleName() . ' in ' . $role->group()->data()->name())
             ->with('authQuery', (new AuthCredentials($role->groupId(), $role->id(), null))->toQuery())
             ->with('activities', $activities);
     }

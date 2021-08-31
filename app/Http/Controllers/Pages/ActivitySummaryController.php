@@ -22,8 +22,8 @@ class ActivitySummaryController extends Controller
 
         return view('portal.activity-summary')
             ->with('activities', $activities)
-            ->with('title', 'Activities for you')
-            ->with('subtitle', 'These are activities that pertain to you. You won\'t find your society activities here')
+            ->with('title', 'Your Activities')
+            ->with('subtitle', 'Here are your personal activities! To find activities for your society, go to dashboard and select the relevant card.')
             ->with('authQuery', (new AuthCredentials(null, null, null))->toQuery())
             ->with('evaluations', app(ActivityEvaluator::class)->evaluateMany($activities));
     }
@@ -38,8 +38,8 @@ class ActivitySummaryController extends Controller
             ->filter(fn(Activity $activity) => $activity->activity_for !== 'role');
         return view('portal.activity-summary')
             ->with('activities', $activities)
-            ->with('title', 'Activities for ' . $group->data()->name())
-            ->with('subtitle', 'These are activities that pertain to your membership to ' . $group->data()->name())
+            ->with('title', 'Your ' . $group->data()->name() . ' Activities')
+            ->with('subtitle', 'Here are your ' . $group->data()->name() . ' membership activities.')
             ->with('authQuery', (new AuthCredentials($group->id(), null, null))->toQuery())
             ->with('evaluations', app(ActivityEvaluator::class)->evaluateMany($activities));
     }
@@ -53,8 +53,8 @@ class ActivitySummaryController extends Controller
         $activities = $activityRepository->getForParticipant($authentication->getUser(), $role->group(), $role);
         return view('portal.activity-summary')
             ->with('activities', $activities)
-            ->with('title', 'Activities for ' . $role->data()->roleName() . ' of ' . $role->group()->data()->name())
-            ->with('subtitle', 'These are activities that pertain to your position of ' . $role->data()->roleName() . ' in ' . $role->group()->data()->name())
+            ->with('title', 'Your activities for ' . ($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name()) . ' (' . $role->data()->roleName() . ')')
+            ->with('subtitle', 'Here are your activities for your position of ' . $role->data()->roleName() . ' in ' . $role->group()->data()->name())
             ->with('authQuery', (new AuthCredentials($role->groupId(), $role->id(), null))->toQuery())
             ->with('evaluations', app(ActivityEvaluator::class)->evaluateMany($activities));
     }
