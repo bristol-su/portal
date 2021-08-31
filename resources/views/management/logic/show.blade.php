@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.legacy')
 
 @section('title', $logic->name)
 
@@ -11,6 +11,4 @@
 
 @endsection
 
-@push('styles')
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-@endpush
+

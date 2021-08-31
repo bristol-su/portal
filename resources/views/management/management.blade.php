@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.legacy')
 
 @section('title', 'Site Management')
 
@@ -7,6 +7,4 @@
 
 @endsection
 
-@push('styles')
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-@endpush
+

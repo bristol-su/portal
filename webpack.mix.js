@@ -15,6 +15,7 @@ const webpack = require('webpack');
 mix.setPublicPath('./public');
 
 mix.js('resources/js/app.js', 'public/js').vue()
+    .js('resources/js/legacy.js', 'public/js').vue()
     .js('resources/js/header.js', 'public/js').vue()
     .js('resources/js/control.js', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
