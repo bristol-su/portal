@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.legacy')
 
 @section('title', 'All Activities')
 
@@ -9,6 +9,4 @@
     </activity-index>
 @endsection
 
-@push('styles')
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-@endpush
+
