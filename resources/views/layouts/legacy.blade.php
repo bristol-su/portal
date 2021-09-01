@@ -1,3 +1,4 @@
+@php $legacy = true @endphp
 @extends('bristolsu::base')
 
 @section('title', 'Portal')

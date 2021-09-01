@@ -11,7 +11,9 @@
 @endpush
 
 @prepend('scripts')
-    <script src="{{mix('js/app.js')}}"></script>
+    @if(!isset($legacy) || $legacy === false)
+        <script src="{{mix('js/app.js')}}"></script>
+    @endif
 @endprepend('scripts')
 
 @push('meta-tags')
