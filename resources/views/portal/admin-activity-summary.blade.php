@@ -4,6 +4,7 @@
 
 @section('app-content')
     <p-page-content title="{{$title}}" subtitle="{{$subtitle}}">
+        <div class="flex">
         @foreach($activities as $activity)
             <p-card
                 title="{{$activity->name}}"
@@ -13,6 +14,7 @@
                 url-text="Continue"
             ></p-card>
         @endforeach
+        </div>
     </p-page-content>
 {{--    <div id="portal">--}}
 {{--        <div class="py-5" id="vue-root">--}}
