@@ -2,7 +2,7 @@
 
     @auth
     <p-topbar
-        logo="{{ mix('/images/logo.png') }}"
+        logo="{{ asset('images/logo.png') }}"
         home-route="{{route('portal')}}"
         logout-route="{{route('logout')}}"
         control-route="{{route('control')}}"
