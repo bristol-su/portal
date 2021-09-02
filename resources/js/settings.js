@@ -1,7 +1,8 @@
 export default {
     "authentication": {
         "credentials": {
-            "identifier": "authentication.credentials.identifier"
+            "identifier": "authentication.credentials.identifier",
+            "identifier_validation": "authentication.credentials.identifier_validation"
         },
         "access": {
             "registration-enabled": "authentication.access.registration-enabled",
