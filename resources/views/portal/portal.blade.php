@@ -19,7 +19,7 @@
                 @if(isset($activities['group'][$group->id()]) && $activities['group'][$group->id()]->count() > 0)
                 <p-card
                     title="Membership to {{$group->data()->name()}}"
-                    url="{{route(sprintf('summary.%s.group', $administrator ? 'a' : 'p'), ['control_group' => $group->id()])}}"
+                    url="{{route(sprintf('summary.%s.group', $administrator ? 'a' : 'p'), ['control_group' => $group->id()])}}?g={{$group->id()}}"
                     url-text="View"
                 >
                 </p-card>
@@ -34,7 +34,7 @@
                 @if(isset($activities['role'][$role->id()]) && $activities['role'][$role->id()]->count() > 0)
                     <p-card
                         title="{{($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name())}} of {{$role->group()->data()->name()}}"
-                        url="{{route(sprintf('summary.%s.role', $administrator ? 'a' : 'p'), ['control_role' => $role->id()])}}"
+                        url="{{route(sprintf('summary.%s.role', $administrator ? 'a' : 'p'), ['control_role' => $role->id()])}}?r={{$role->id()}}&g={{$role->groupId()}}"
                         url-text="View"
                     >
                     </p-card>
