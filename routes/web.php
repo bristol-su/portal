@@ -35,7 +35,7 @@ Route::middleware(['portal-auth'])->group(function () {
 
 
     // Portal Routes
-    Route::get('/control', [\App\Http\Controllers\Pages\ControlController::class, 'index'])->name('control');
+    Route::middleware('can:access-control')->get('/control', [\App\Http\Controllers\Pages\ControlController::class, 'index'])->name('control');
 
     Route::get('/portal', [PortalController::class, 'portal'])->name('portal');
     Route::get('/a', [PortalController::class, 'administrator'])->name('administrator');
