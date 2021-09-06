@@ -4,7 +4,7 @@
 
 @section('app-content')
     <p-page-content title="{{$title}}" subtitle="{{$subtitle}}">
-        <div class="flex">
+        <div class="flex flex-wrap">
         @foreach($activities as $activity)
             <p-card
                 title="{{$activity->name}}"
