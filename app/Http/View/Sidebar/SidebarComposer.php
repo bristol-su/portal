@@ -43,7 +43,7 @@ class SidebarComposer
 
     public function compose(View $view)
     {
-        if ($this->authentication->hasUser()) {
+        if ($this->authentication->hasUser() && !app('router')->is(['verify.notice', 'password.confirmation.notice'])) {
             $isAdmin = $this->request->is(['a', 'a/*']);
             if(MarkAsManagement::$isManagement) {
                 $view->with('sidebarSchema', $this->getManagementSidebar());
