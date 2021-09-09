@@ -28,7 +28,7 @@
             ></b-form-textarea>
         </b-form-group>
 
-        <p-dynamic-form :schema="sconnector.settings" v-model="form.settings"></p-dynamic-form>
+        <p-dynamic-form :schema="connector.settings" v-model="form.settings"></p-dynamic-form>
 
         <b-button variant="info" size="lg" @click="updateConnection">Save Connection</b-button>
     </div>

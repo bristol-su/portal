@@ -1,7 +1,5 @@
 <?php
 
-use App\Settings\Appearance\Messaging\Footer;
-use App\Settings\Appearance\Messaging\LandingPageTitle;
 use BristolSU\Support\Settings\Saved\SavedSettingModel;
 use Illuminate\Database\Migrations\Migration;
 
@@ -15,8 +13,12 @@ class SerializeAllSettingValues extends Migration
     public function up()
     {
         foreach(SavedSettingModel::all() as $setting) {
-            $setting->value = serialize($setting->getSettingValue());
-            $setting->save();
+            try {
+                $setting->value = serialize($setting->getSettingValue());
+                $setting->save();
+            } catch (Exception $e) {
+                dd($setting);
+            }
         }
     }
 
