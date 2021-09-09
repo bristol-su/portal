@@ -4,6 +4,7 @@
 
 @section('app-content')
     <p-page-content title="{{$title}}" subtitle="{{$subtitle}}">
+        <div class="flex flex-wrap">
         @foreach($activities as $activity)
             <p-card
             title="{{$activity->name}}"
@@ -16,6 +17,7 @@
             :tasks-complete="{{$evaluations[$activity->id]['completeCount']}}"
             ></p-card>
         @endforeach
+        </div>
     </p-page-content>
 {{--    <div id="portal">--}}
 {{--        <div class="py-5" id="vue-root">--}}

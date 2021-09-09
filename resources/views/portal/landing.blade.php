@@ -4,6 +4,7 @@
 
 @section('app-content')
     <p-featured-card
+        logo="{{ asset('/images/logo.png') }}"
         title="Welcome to the Portal"
         subtext="{{ \App\Settings\Appearance\Messaging\LandingPageTitle::getValue() }}"
         bg="landing-page"
