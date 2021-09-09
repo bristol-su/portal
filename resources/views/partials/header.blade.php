@@ -1,6 +1,6 @@
 <div id="header-vue-root">
 
-    @auth
+    @if(isset($sidebarSchema))
     <p-topbar
         logo="{{ asset('images/logo.png') }}"
         home-route="{{route('portal')}}"
@@ -12,7 +12,7 @@
         site-name="{{config('app.name', 'Committee Portal')}}"
         >
     </p-topbar>
-    @endauth
+    @endif
 
 {{--    @auth--}}
 {{--        <div>--}}

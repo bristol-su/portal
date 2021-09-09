@@ -1,43 +1,48 @@
 <div class="flex-col w-full md:flex md:flex-row md:min-h-screen bg-blueGray-50">
-    @auth
+    @if(isset($sidebarSchema))
         <div id="sidebar-vue-root">
             <p-sidenav
                 user-name="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName()}}"
                 :nav-items="{{ json_encode($sidebarSchema) }}"
             >
             </p-sidenav>
+
+            @if(session()->has('messages'))
+                @foreach(session()->get('messages') as $message)
+                    <p-notification type="{{$message['type']}}" message="{{$message['message']}}" :show-on-start="true"></p-notification>
+                @endforeach
+            @endif
         </div>
 
-    <!-- Start Content -->
-    <section class="w-full">
-{{--        <p-breadcrumbs--}}
+        <!-- Start Content -->
+        <section class="w-full">
+            {{--        <p-breadcrumbs--}}
 
-{{--        ></p-breadcrumbs>--}}
+            {{--        ></p-breadcrumbs>--}}
 
-        <div class="container items-center px-5 py-8 mx-auto lg:px-24 w-full">
-            <section class="text-blueGray-700 align-left">
-                <div class="container flex flex-col items-center px-5 py-8 mx-auto">
-                    <div class="flex flex-col w-full mb-12 text-left ">
-                        <div class="w-full mx-auto">
-                            {{ $slot }}
+            <div class="container items-center px-5 py-8 mx-auto lg:px-24 w-full">
+                <section class="text-blueGray-700 align-left">
+                    <div class="container flex flex-col items-center px-5 py-8 mx-auto">
+                        <div class="flex flex-col w-full mb-12 text-left ">
+                            <div class="w-full mx-auto">
+                                {{ $slot }}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-    </section>
+        </section>
     @else
-        <div class="w-full">
-{{--            <section class="text-blueGray-700 align-left">--}}
-{{--                <div class="container flex flex-col items-center px-5 py-8 mx-auto">--}}
-{{--                    <div class="flex flex-col w-full mb-12 text-left ">--}}
-{{--                        <div class="w-full mx-auto">--}}
-                            {{ $slot }}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </section>--}}
+        <div id="sidebar-vue-root">
+            @if(session()->has('messages'))
+                @foreach(session()->get('messages') as $message)
+                    <p-notification type="{{$message['type']}}" message="{{$message['message']}}" :show-on-start="true"></p-notification>
+                @endforeach
+            @endif
         </div>
-    @endauth
+        <div class="w-full">
+            {{ $slot }}
+        </div>
+    @endif
 </div>
