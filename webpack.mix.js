@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const webpack = require('webpack');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -14,12 +15,13 @@ const webpack = require('webpack');
 
 mix.setPublicPath('./public');
 
-mix.js('resources/js/app.js', 'public/js').vue()
-    .js('resources/js/legacy.js', 'public/js').vue()
-    .js('resources/js/header.js', 'public/js').vue()
-    .js('resources/js/control.js', 'public/js').vue()
-    .sass('resources/sass/app.scss', 'public/css')
-    .postCss('./node_modules/@bristol-su/portal-ui-kit/src/install/ui-kit.css', 'public/css/ui-kit.css', [require('tailwindcss')])
+mix.js('resources/js/app.js', 'public/js/app.js').vue()
+    .js('resources/js/legacy.js', 'public/js/legacy.js').vue()
+    .js('resources/js/header.js', 'public/js/header.js').vue()
+    .js('resources/js/control.js', 'public/js/control.js').vue()
+    .sass('resources/sass/app.scss', 'public/css/app.css')
+    .sass('resources/sass/legacy.scss', 'public/css/legacy.css')
+    .postCss("resources/sass/ui-kit.css", "public/css/ui-kit.css", [require("tailwindcss")])
     .sourceMaps();
 
 if (mix.inProduction()) {
