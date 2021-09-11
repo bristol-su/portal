@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfbe13014b99e45206bab768d97e1d5b",
+    "content-hash": "70b90e1a37cd7e418fbb6f204477b1bb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -740,10 +740,16 @@
         {
             "name": "bristol-su/upload-file",
             "version": "dev-PR-302",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/upload-file.git",
+                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633"
+            },
             "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/upload-file",
-                "reference": "b21f834ad454d627683c148c6c9ed34a25afc8a6"
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8c958d97968a9a7ec08cef876860fe7d04587633",
+                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -767,11 +773,7 @@
                     "BristolSU\\Module\\UploadFile\\": "app/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Module\\Tests\\UploadFile\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -781,9 +783,11 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/upload-file/issues",
+                "source": "https://github.com/bristol-su/upload-file/tree/PR-302"
+            },
+            "time": "2021-09-06T08:20:09+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -13218,5 +13222,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
