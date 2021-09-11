@@ -28,7 +28,13 @@
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/portal-auth": "dev-pr-350/ui-kit as v0.0.1",
         "bristol-su/support": "dev-PR-350/ui-kit as v5.0.0",
-        "bristol-su/upload-file": "dev-PR-302 as v2.0.0"
+        "bristol-su/upload-file": "dev-PR-302 as v2.0.0",
+        "bristol-su/static-page": "dev-PR-19",
+        "bristol-su/typeform": "dev-PR-20",
+        "bristol-su/typeform-service": "dev-PR-20 as 2.0.0",
+        "bristol-su/data-entry": "dev-PR-205",
+        "bristol-su/unioncloud-portal": "^2.0.0",
+        "laravel/telescope": "^4.6"
     },
     "require-dev": {
         "tobytwigger/form-schema-generator": "dev-PR-361 as v1.3",
