@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70b90e1a37cd7e418fbb6f204477b1bb",
+    "content-hash": "ecc586ac497d1a813c1de60bc18b06d5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -262,6 +262,59 @@
                 }
             ],
             "time": "2021-08-15T20:50:18+00:00"
+        },
+        {
+            "name": "bristol-su/assign-roles",
+            "version": "dev-PR-23",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/assign-roles.git",
+                "reference": "03033e564e99c6469dceb663331d5afe1597172b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/03033e564e99c6469dceb663331d5afe1597172b",
+                "reference": "03033e564e99c6469dceb663331d5afe1597172b",
+                "shasum": ""
+            },
+            "require": {
+                "bristol-su/support": "^5.0.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/legacy-factories": "^1.1",
+                "orchestra/testbench": "^6.19",
+                "phpspec/prophecy-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BristolSU\\Module\\AssignRoles\\ModuleServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BristolSU\\Module\\AssignRoles\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toby Twigger",
+                    "email": "tobytwigger1@gmail.com"
+                }
+            ],
+            "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
+            "support": {
+                "issues": "https://github.com/bristol-su/assign-roles/issues",
+                "source": "https://github.com/bristol-su/assign-roles/tree/PR-23"
+            },
+            "time": "2021-09-06T11:01:57+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -13173,6 +13226,12 @@
     ],
     "aliases": [
         {
+            "package": "bristol-su/assign-roles",
+            "version": "dev-PR-23",
+            "alias": "v2.0.0",
+            "alias_normalized": "2.0.0.0"
+        },
+        {
             "package": "bristol-su/portal-auth",
             "version": "dev-pr-350/ui-kit",
             "alias": "v0.0.1",
@@ -13213,6 +13272,7 @@
         "bristol-su/typeform": 20,
         "bristol-su/typeform-service": 20,
         "bristol-su/data-entry": 20,
+        "bristol-su/assign-roles": 20,
         "tobytwigger/form-schema-generator": 20
     },
     "prefer-stable": true,

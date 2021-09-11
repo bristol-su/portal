@@ -34,7 +34,8 @@
         "bristol-su/typeform-service": "dev-PR-20 as 2.0.0",
         "bristol-su/data-entry": "dev-PR-205",
         "bristol-su/unioncloud-portal": "^2.0.0",
-        "laravel/telescope": "^4.6"
+        "laravel/telescope": "^4.6",
+        "bristol-su/assign-roles": "dev-PR-23 as v2.0.0"
     },
     "require-dev": {
         "tobytwigger/form-schema-generator": "dev-PR-361 as v1.3",
