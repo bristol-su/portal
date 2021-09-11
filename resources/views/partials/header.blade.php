@@ -1,6 +1,6 @@
 <div id="header-vue-root">
 
-    @if(isset($sidebarSchema))
+    @if(app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->hasUser() && !app('router')->is(['verify.notice', 'password.confirmation.notice']))
     <p-topbar
         logo="{{ asset('images/logo.png') }}"
         home-route="{{route('portal')}}"
@@ -10,6 +10,8 @@
         :can-access-control="{{(\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('access-control') ? 'true' : 'false' )}}"
         :can-access-settings="{{(\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('view-management') ? 'true' : 'false' )}}"
         site-name="{{config('app.name', 'Committee Portal')}}"
+        default-avatar-src="{{asset('images/smallLogo.jpeg')}}"
+        user-name="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName() ?? (app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->firstName() . ' ' . app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->lastName())}}"
         >
     </p-topbar>
     @endif
