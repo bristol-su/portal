@@ -9,7 +9,7 @@
             <p-card
             title="{{$activity->name}}"
             subtitle="{{$activity->description}}"
-            image-url="{{($activity->image_url ?? 'https://picsum.photos/720/400')}}"
+            image-url="{{$activity->image_url}}"
             url="{{route('participant.activity', ['activity_slug' => $activity->slug])}}?{{$authQuery}}"
             url-text="Continue Activity"
             :progress="{{$evaluations[$activity->id]['percentage']}}"
