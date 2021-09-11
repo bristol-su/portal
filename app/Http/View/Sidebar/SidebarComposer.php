@@ -6,6 +6,7 @@ use App\Http\Middleware\MarkAsManagement;
 use BristolSU\ControlDB\Models\Group;
 use BristolSU\Support\Activity\Contracts\Repository as ActivityRepository;
 use BristolSU\Support\ActivityInstance\Contracts\ActivityInstanceResolver;
+use BristolSU\Support\Authentication\AuthQuery\Generator;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\ModuleInstance\Contracts\Evaluator\ModuleInstanceEvaluator;
 use BristolSU\Support\ModuleInstance\ModuleInstance;
@@ -45,7 +46,7 @@ class SidebarComposer
     {
         if ($this->authentication->hasUser() && !app('router')->is(['verify.notice', 'password.confirmation.notice'])) {
             $isAdmin = $this->request->is(['a', 'a/*']);
-            if(MarkAsManagement::$isManagement) {
+            if (MarkAsManagement::$isManagement) {
                 $view->with('sidebarSchema', $this->getManagementSidebar());
             } elseif ($this->moduleInstance->exists) {
                 $view->with('sidebarSchema', $this->getModuleSidebar($isAdmin));
@@ -55,25 +56,42 @@ class SidebarComposer
         }
     }
 
+    private function getManagementSidebar()
+    {
+        return [
+            ['title' => 'View Activities', 'route' => route('activity.index'), 'icon' => 'fa fa-th-list'],
+            ['title' => 'Create Activity', 'route' => route('activity.create'), 'icon' => 'fa fa-plus'],
+            ['title' => 'View Logic', 'route' => route('logic.index'), 'icon' => 'fa fa-users'],
+            ['title' => 'Create Logic', 'route' => route('logic.create'), 'icon' => 'fa fa-user-plus'],
+            ['title' => 'Connectors', 'route' => route('connector.index'), 'icon' => 'fa fa-link'],
+            ['title' => 'Settings', 'route' => route('settings.index'), 'icon' => 'fa fa-cogs'],
+        ];
+    }
+
     private function getModuleSidebar(bool $isAdmin = false): array
     {
         $schema = [];
         $activity = $this->moduleInstance->activity;
+        $schema[] = [
+            'title' => 'Back to ' . $activity->name,
+            'route' => route('participant.activity', array_merge(['activity_slug' => $activity->slug], app(Generator::class)->getAuthCredentials()->toArray())),
+            'icon' => 'fa fa-arrow-left'
+        ];
         $activity->moduleInstances->each(function (ModuleInstance $moduleInstance) use (&$schema, $isAdmin, $activity) {
             $evaluation = $isAdmin
                 ? $this->evaluator->evaluateAdministrator($moduleInstance, $this->authentication->getUser(), $this->authentication->getGroup(), $this->authentication->getRole())
                 : $this->evaluator->evaluateParticipant(
-                $this->activityInstanceResolver->getActivityInstance(),
-                $moduleInstance,
-                $this->authentication->getUser(),
-                $this->authentication->getGroup(),
-                $this->authentication->getRole()
-            );
+                    $this->activityInstanceResolver->getActivityInstance(),
+                    $moduleInstance,
+                    $this->authentication->getUser(),
+                    $this->authentication->getGroup(),
+                    $this->authentication->getRole()
+                );
             if ($evaluation->visible() && $evaluation->active()) {
                 $schema[] = [
                     'title' => $moduleInstance->name,
                     'route' => sprintf('/%s/%s/%s/%s?%s', $isAdmin ? 'a' : 'p', $activity->slug, $moduleInstance->slug, $moduleInstance->alias(), url()->getAuthQueryString()),
-                    'icon' => $evaluation->complete() ? 'fa fa-check' : null,
+                    'icon' => $evaluation->complete() ? 'fa fa-check' : 'fa fa-arrow-right',
                     'highlight' => $evaluation->mandatory()
                 ];
             }
@@ -85,25 +103,17 @@ class SidebarComposer
     {
         $schema = [];
 
-        $schema[] = ['title' => 'Dashboard', 'route' => route($isAdmin ? 'administrator' : 'participant')];
+        $schema[] = ['title' => 'Dashboard', 'route' => route($isAdmin ? 'administrator' : 'participant'), 'icon' => 'fa fa-home'];
 
-        if($this->canBeAdmin()) {
-            $schema[] = ['title' => sprintf('Go to %s', ($isAdmin ? 'participant' : 'admin')), 'route' => sprintf('/%s', ($isAdmin ? 'p' : 'a'))];
+        if ($this->canBeAdmin()) {
+            $schema[] = [
+                'title' => sprintf('Go to %s', ($isAdmin ? 'participant' : 'admin')),
+                'route' => sprintf('/%s', ($isAdmin ? 'p' : 'a')),
+                'icon' => sprintf('fa fa-%s', $isAdmin ? 'user' : 'user-shield')
+            ];
         }
 
         return $schema;
-    }
-
-    private function getManagementSidebar()
-    {
-        return [
-            ['title' => 'View Activities', 'route' => route('activity.index')],
-            ['title' => 'Create Activity', 'route' => route('activity.create')],
-            ['title' => 'View Logic', 'route' => route('logic.index')],
-            ['title' => 'Create Logic', 'route' => route('logic.create')],
-            ['title' => 'Connectors', 'route' => route('connector.index')],
-            ['title' => 'Settings', 'route' => route('settings.index')],
-        ];
     }
 
     private function canBeAdmin(): bool
@@ -115,18 +125,18 @@ class SidebarComposer
         $activityRepository = app(ActivityRepository::class);
 
         $user = $authentication->getUser();
-        if($activityRepository->getForAdministrator($user)->count() > 0) {
+        if ($activityRepository->getForAdministrator($user)->count() > 0) {
             return true;
         }
 
         foreach ($user->groups() as $group) {
-            if($activityRepository->getForAdministrator($user, $group)->count() > 0) {
+            if ($activityRepository->getForAdministrator($user, $group)->count() > 0) {
                 return true;
             }
         }
 
         foreach ($user->roles() as $role) {
-            if($activityRepository->getForAdministrator($user, $role->group(), $role)->count() > 0) {
+            if ($activityRepository->getForAdministrator($user, $role->group(), $role)->count() > 0) {
                 return true;
             }
         }
