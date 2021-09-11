@@ -8,6 +8,11 @@
 @push('styles')
     @include('templates.javascript_injection')
     <link rel="stylesheet" href="{{mix('css/ui-kit.css')}}" type="text/css">
+    @if(!isset($legacy) || $legacy === false)
+        <link rel="stylesheet" href="{{mix('css/app.css')}}" type="text/css">
+    @else
+        <link rel="stylesheet" href="{{mix('css/legacy.css')}}" type="text/css">
+    @endif
 @endpush
 
 @prepend('scripts')
