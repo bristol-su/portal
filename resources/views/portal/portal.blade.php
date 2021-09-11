@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard')
+
 @section('app-content')
 
     @if($activities['user']->count() > 0)
