@@ -67,6 +67,28 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./repos/bristol-su/upload-file"
+        },
+        {
+            "type": "path",
+            "url": "./repos/bristol-su/support"
+        },
+        {
+            "type": "path",
+            "url": "./repos/bristol-su/static-page"
+        },
+        {
+            "type": "path",
+            "url": "./repos/bristol-su/typeform"
+        },
+        {
+            "type": "path",
+            "url": "./repos/bristol-su/portal-auth"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
@@ -75,7 +97,8 @@
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --force --tag=module",
             "@php artisan vapor-ui:publish --ansi",
-            "@php artisan settings:keys"
+            "@php artisan settings:keys",
+            "@php artisan telescope:publish --ansi"
         ]
     },
     "extra": {

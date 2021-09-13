@@ -19,6 +19,7 @@
     @if(!isset($legacy) || $legacy === false)
         <script src="{{mix('js/app.js')}}"></script>
     @endif
+    <script src="https://kit.fontawesome.com/1aebffb7ee.js" crossorigin="anonymous"></script>
 @endprepend('scripts')
 
 @push('meta-tags')

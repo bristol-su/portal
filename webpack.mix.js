@@ -21,6 +21,7 @@ mix.js('resources/js/app.js', 'public/js/app.js').vue()
     .js('resources/js/control.js', 'public/js/control.js').vue()
     .sass('resources/sass/app.scss', 'public/css/app.css')
     .sass('resources/sass/legacy.scss', 'public/css/legacy.css')
+    .copyDirectory('node_modules/@bristol-su/portal-ui-kit/src/assets', 'public', true)
     .postCss("resources/sass/ui-kit.css", "public/css/ui-kit.css", [require("tailwindcss")])
     .sourceMaps();
 
@@ -29,6 +30,9 @@ if (mix.inProduction()) {
 }
 
 mix.webpackConfig({
+    stats: {
+        children: true,
+    },
     plugins: [
         new webpack.ProvidePlugin({
             'ui-kit': '@bristol-su/frontend-toolkit'

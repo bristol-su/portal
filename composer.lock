@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecc586ac497d1a813c1de60bc18b06d5",
+    "content-hash": "6043a9edcba7541ba40a9384c34ff020",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -431,16 +431,10 @@
         {
             "name": "bristol-su/portal-auth",
             "version": "dev-pr-350/ui-kit",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "50a4862bb25bf423065303c7ba6a69a50f4f446f"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/50a4862bb25bf423065303c7ba6a69a50f4f446f",
-                "reference": "50a4862bb25bf423065303c7ba6a69a50f4f446f",
-                "shasum": ""
+                "type": "path",
+                "url": "./repos/bristol-su/portal-auth",
+                "reference": "74d3c5e0583bf2874dafecbbde8261a052b96e76"
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -475,7 +469,16 @@
                     "Database\\Auth\\Migrations\\": "database/migrations/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Auth\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit --colors=always --process-isolation --verbose --configuration phpunit.xml"
+                ]
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -493,25 +496,17 @@
                 "portal",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/bristol-su/portal-auth/issues",
-                "source": "https://github.com/bristol-su/portal-auth/tree/pr-350/ui-kit"
-            },
-            "time": "2021-09-09T15:21:11+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "bristol-su/static-page",
             "version": "dev-PR-19",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/0abfac5dff56ca87c3198a085b580f146ae6f59e",
-                "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e",
-                "shasum": ""
+                "type": "path",
+                "url": "./repos/bristol-su/static-page",
+                "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e"
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -538,7 +533,11 @@
                     "database/factories/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Module\\Tests\\StaticPage\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -549,25 +548,17 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "support": {
-                "issues": "https://github.com/bristol-su/static-page/issues",
-                "source": "https://github.com/bristol-su/static-page/tree/PR-19"
-            },
-            "time": "2021-09-10T14:53:27+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "bristol-su/support",
             "version": "dev-PR-350/ui-kit",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/support.git",
-                "reference": "47757475bf2194cdbd85fef16649fc193ac7200c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/47757475bf2194cdbd85fef16649fc193ac7200c",
-                "reference": "47757475bf2194cdbd85fef16649fc193ac7200c",
-                "shasum": ""
+                "type": "path",
+                "url": "./repos/bristol-su/support",
+                "reference": "47757475bf2194cdbd85fef16649fc193ac7200c"
             },
             "require": {
                 "aws/aws-sdk-php": "^3.158",
@@ -609,7 +600,30 @@
                     "Database\\Seeders\\": "database/seeders/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Support\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bristol-su/portal-code-style/src/PHPUnit/phpunit.sh"
+                ],
+                "code-style": [
+                    "vendor/bristol-su/portal-code-style/src/PhpCS/phpcs_fixer.sh",
+                    "vendor/bristol-su/portal-code-style/src/Rector/rector.sh",
+                    "vendor/bristol-su/portal-code-style/src/SecurityChecker/security.sh"
+                ],
+                "fix-code-style": [
+                    "vendor/bin/php-cs-fixer fix --config .php_cs --verbose --using-cache=no"
+                ],
+                "phpstan": [
+                    "vendor/bristol-su/portal-code-style/src/PHPStan/phpstan.sh"
+                ],
+                "coverage": [
+                    "vendor/bin/phpunit --colors=always --process-isolation --verbose --configuration phpunit.xml --coverage-html coverage"
+                ]
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -625,25 +639,17 @@
                 "portal",
                 "sdk"
             ],
-            "support": {
-                "issues": "https://github.com/bristol-su/support/issues",
-                "source": "https://github.com/bristol-su/support/tree/PR-350/ui-kit"
-            },
-            "time": "2021-09-09T17:07:49+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "bristol-su/typeform",
             "version": "dev-PR-20",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/8aeb802735ce38c74a0757db2fc6a30d97acfa7c",
-                "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c",
-                "shasum": ""
+                "type": "path",
+                "url": "./repos/bristol-su/typeform",
+                "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c"
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -671,7 +677,11 @@
                     "BristolSU\\Module\\Typeform\\": "app/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Module\\Tests\\Typeform\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -681,11 +691,9 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "support": {
-                "issues": "https://github.com/bristol-su/typeform/issues",
-                "source": "https://github.com/bristol-su/typeform/tree/PR-20"
-            },
-            "time": "2021-09-02T11:01:12+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "bristol-su/typeform-service",
@@ -793,16 +801,10 @@
         {
             "name": "bristol-su/upload-file",
             "version": "dev-PR-302",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8c958d97968a9a7ec08cef876860fe7d04587633",
-                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633",
-                "shasum": ""
+                "type": "path",
+                "url": "./repos/bristol-su/upload-file",
+                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633"
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -826,7 +828,11 @@
                     "BristolSU\\Module\\UploadFile\\": "app/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "BristolSU\\Module\\Tests\\UploadFile\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -836,11 +842,9 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "support": {
-                "issues": "https://github.com/bristol-su/upload-file/issues",
-                "source": "https://github.com/bristol-su/upload-file/tree/PR-302"
-            },
-            "time": "2021-09-06T08:20:09+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "defuse/php-encryption",
@@ -1084,16 +1088,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.13.2",
+            "version": "2.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "8dd39d2ead4409ce652fd4f02621060f009ea5e4"
+                "reference": "0d7adf4cadfee6f70850e5b163e6cdd706417838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/8dd39d2ead4409ce652fd4f02621060f009ea5e4",
-                "reference": "8dd39d2ead4409ce652fd4f02621060f009ea5e4",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d7adf4cadfee6f70850e5b163e6cdd706417838",
+                "reference": "0d7adf4cadfee6f70850e5b163e6cdd706417838",
                 "shasum": ""
             },
             "require": {
@@ -1105,13 +1109,14 @@
             },
             "require-dev": {
                 "doctrine/coding-standard": "9.0.0",
-                "jetbrains/phpstorm-stubs": "2020.2",
-                "phpstan/phpstan": "0.12.81",
+                "jetbrains/phpstorm-stubs": "2021.1",
+                "phpstan/phpstan": "0.12.96",
                 "phpunit/phpunit": "^7.5.20|^8.5|9.5.5",
+                "psalm/plugin-phpunit": "0.16.1",
                 "squizlabs/php_codesniffer": "3.6.0",
                 "symfony/cache": "^4.4",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
-                "vimeo/psalm": "4.6.4"
+                "vimeo/psalm": "4.10.0"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -1172,7 +1177,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/2.13.2"
+                "source": "https://github.com/doctrine/dbal/tree/2.13.3"
             },
             "funding": [
                 {
@@ -1188,7 +1193,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-18T21:48:39+00:00"
+            "time": "2021-09-12T19:11:48+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -1964,16 +1969,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.211.0",
+            "version": "v0.212.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "01b020d4d7f120a5ac3c12e1d7e3a6067bc93881"
+                "reference": "2c4bd512502ad9cdfec8ea711ea1592c79d345e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/01b020d4d7f120a5ac3c12e1d7e3a6067bc93881",
-                "reference": "01b020d4d7f120a5ac3c12e1d7e3a6067bc93881",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/2c4bd512502ad9cdfec8ea711ea1592c79d345e5",
+                "reference": "2c4bd512502ad9cdfec8ea711ea1592c79d345e5",
                 "shasum": ""
             },
             "require": {
@@ -2002,9 +2007,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.211.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.212.0"
             },
-            "time": "2021-09-03T11:20:26+00:00"
+            "time": "2021-09-12T11:18:27+00:00"
         },
         {
             "name": "google/auth",
@@ -11882,16 +11887,16 @@
         },
         {
             "name": "composer/package-versions-deprecated",
-            "version": "1.11.99.3",
+            "version": "1.11.99.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/package-versions-deprecated.git",
-                "reference": "fff576ac850c045158a250e7e27666e146e78d18"
+                "reference": "b174585d1fe49ceed21928a945138948cb394600"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/fff576ac850c045158a250e7e27666e146e78d18",
-                "reference": "fff576ac850c045158a250e7e27666e146e78d18",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b174585d1fe49ceed21928a945138948cb394600",
+                "reference": "b174585d1fe49ceed21928a945138948cb394600",
                 "shasum": ""
             },
             "require": {
@@ -11935,7 +11940,7 @@
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
             "support": {
                 "issues": "https://github.com/composer/package-versions-deprecated/issues",
-                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.3"
+                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.4"
             },
             "funding": [
                 {
@@ -11951,7 +11956,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-17T13:49:14+00:00"
+            "time": "2021-09-13T08:41:34+00:00"
         },
         {
             "name": "composer/semver",
@@ -12178,16 +12183,16 @@
         },
         {
             "name": "facade/flare-client-php",
-            "version": "1.8.1",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/flare-client-php.git",
-                "reference": "47b639dc02bcfdfc4ebb83de703856fa01e35f5f"
+                "reference": "b2adf1512755637d0cef4f7d1b54301325ac78ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/47b639dc02bcfdfc4ebb83de703856fa01e35f5f",
-                "reference": "47b639dc02bcfdfc4ebb83de703856fa01e35f5f",
+                "url": "https://api.github.com/repos/facade/flare-client-php/zipball/b2adf1512755637d0cef4f7d1b54301325ac78ed",
+                "reference": "b2adf1512755637d0cef4f7d1b54301325ac78ed",
                 "shasum": ""
             },
             "require": {
@@ -12231,7 +12236,7 @@
             ],
             "support": {
                 "issues": "https://github.com/facade/flare-client-php/issues",
-                "source": "https://github.com/facade/flare-client-php/tree/1.8.1"
+                "source": "https://github.com/facade/flare-client-php/tree/1.9.1"
             },
             "funding": [
                 {
@@ -12239,26 +12244,26 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-31T19:23:29+00:00"
+            "time": "2021-09-13T12:16:46+00:00"
         },
         {
             "name": "facade/ignition",
-            "version": "2.12.1",
+            "version": "2.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "567b0a4ab04367603e61729b0ca133fb7b4819db"
+                "reference": "e3f49bef7b4165fa4b8a9dc579e7b63fa06aef78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/567b0a4ab04367603e61729b0ca133fb7b4819db",
-                "reference": "567b0a4ab04367603e61729b0ca133fb7b4819db",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/e3f49bef7b4165fa4b8a9dc579e7b63fa06aef78",
+                "reference": "e3f49bef7b4165fa4b8a9dc579e7b63fa06aef78",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "facade/flare-client-php": "^1.6",
+                "facade/flare-client-php": "^1.9.1",
                 "facade/ignition-contracts": "^1.0.2",
                 "illuminate/support": "^7.0|^8.0",
                 "monolog/monolog": "^2.0",
@@ -12315,7 +12320,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2021-09-10T07:19:07+00:00"
+            "time": "2021-09-13T13:01:30+00:00"
         },
         {
             "name": "facade/ignition-contracts",
