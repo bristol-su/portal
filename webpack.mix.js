@@ -30,9 +30,6 @@ if (mix.inProduction()) {
 }
 
 mix.webpackConfig({
-    stats: {
-        children: true,
-    },
     plugins: [
         new webpack.ProvidePlugin({
             'ui-kit': '@bristol-su/frontend-toolkit'
