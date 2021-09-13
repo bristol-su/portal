@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6043a9edcba7541ba40a9384c34ff020",
+    "content-hash": "ecc586ac497d1a813c1de60bc18b06d5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -431,10 +431,16 @@
         {
             "name": "bristol-su/portal-auth",
             "version": "dev-pr-350/ui-kit",
-            "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/portal-auth",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/portal-auth.git",
                 "reference": "74d3c5e0583bf2874dafecbbde8261a052b96e76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/74d3c5e0583bf2874dafecbbde8261a052b96e76",
+                "reference": "74d3c5e0583bf2874dafecbbde8261a052b96e76",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -469,16 +475,7 @@
                     "Database\\Auth\\Migrations\\": "database/migrations/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Auth\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit --colors=always --process-isolation --verbose --configuration phpunit.xml"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -496,17 +493,25 @@
                 "portal",
                 "sdk"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/portal-auth/issues",
+                "source": "https://github.com/bristol-su/portal-auth/tree/pr-350/ui-kit"
+            },
+            "time": "2021-09-13T08:38:18+00:00"
         },
         {
             "name": "bristol-su/static-page",
             "version": "dev-PR-19",
-            "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/static-page",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/static-page.git",
                 "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/0abfac5dff56ca87c3198a085b580f146ae6f59e",
+                "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -533,11 +538,7 @@
                     "database/factories/"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Module\\Tests\\StaticPage\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -548,17 +549,25 @@
                 }
             ],
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/static-page/issues",
+                "source": "https://github.com/bristol-su/static-page/tree/PR-19"
+            },
+            "time": "2021-09-10T14:53:27+00:00"
         },
         {
             "name": "bristol-su/support",
             "version": "dev-PR-350/ui-kit",
-            "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/support",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/support.git",
                 "reference": "47757475bf2194cdbd85fef16649fc193ac7200c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/47757475bf2194cdbd85fef16649fc193ac7200c",
+                "reference": "47757475bf2194cdbd85fef16649fc193ac7200c",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.158",
@@ -600,30 +609,7 @@
                     "Database\\Seeders\\": "database/seeders/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Support\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bristol-su/portal-code-style/src/PHPUnit/phpunit.sh"
-                ],
-                "code-style": [
-                    "vendor/bristol-su/portal-code-style/src/PhpCS/phpcs_fixer.sh",
-                    "vendor/bristol-su/portal-code-style/src/Rector/rector.sh",
-                    "vendor/bristol-su/portal-code-style/src/SecurityChecker/security.sh"
-                ],
-                "fix-code-style": [
-                    "vendor/bin/php-cs-fixer fix --config .php_cs --verbose --using-cache=no"
-                ],
-                "phpstan": [
-                    "vendor/bristol-su/portal-code-style/src/PHPStan/phpstan.sh"
-                ],
-                "coverage": [
-                    "vendor/bin/phpunit --colors=always --process-isolation --verbose --configuration phpunit.xml --coverage-html coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -639,17 +625,25 @@
                 "portal",
                 "sdk"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/support/issues",
+                "source": "https://github.com/bristol-su/support/tree/PR-350/ui-kit"
+            },
+            "time": "2021-09-09T17:07:49+00:00"
         },
         {
             "name": "bristol-su/typeform",
             "version": "dev-PR-20",
-            "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/typeform",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/typeform.git",
                 "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/8aeb802735ce38c74a0757db2fc6a30d97acfa7c",
+                "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -677,11 +671,7 @@
                     "BristolSU\\Module\\Typeform\\": "app/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Module\\Tests\\Typeform\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -691,9 +681,11 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/typeform/issues",
+                "source": "https://github.com/bristol-su/typeform/tree/PR-20"
+            },
+            "time": "2021-09-02T11:01:12+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -801,10 +793,16 @@
         {
             "name": "bristol-su/upload-file",
             "version": "dev-PR-302",
-            "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/upload-file",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/upload-file.git",
                 "reference": "8c958d97968a9a7ec08cef876860fe7d04587633"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8c958d97968a9a7ec08cef876860fe7d04587633",
+                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633",
+                "shasum": ""
             },
             "require": {
                 "bristol-su/support": "^5.0.0",
@@ -828,11 +826,7 @@
                     "BristolSU\\Module\\UploadFile\\": "app/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Module\\Tests\\UploadFile\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -842,9 +836,11 @@
                     "email": "toby.twigger@bristol.ac.uk"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/upload-file/issues",
+                "source": "https://github.com/bristol-su/upload-file/tree/PR-302"
+            },
+            "time": "2021-09-06T08:20:09+00:00"
         },
         {
             "name": "defuse/php-encryption",
