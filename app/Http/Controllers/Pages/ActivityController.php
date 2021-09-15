@@ -22,7 +22,7 @@ class ActivityController extends Controller
             $moduleInstances->push([
                 'moduleInstance' => $moduleInstance,
                 'grouping' => optional($moduleInstance->grouping)->id ?? 0,
-                'header' => optional($moduleInstance->grouping)->header ?? '',
+                'header' => optional($moduleInstance->grouping)->heading ?? '',
                 'evaluation' => app(ModuleInstanceEvaluator::class)->evaluateAdministrator(
                     $moduleInstance, $authentication->getUser(), $authentication->getGroup(), $authentication->getRole()
                 )
@@ -47,7 +47,7 @@ class ActivityController extends Controller
             $moduleInstances->push([
                 'moduleInstance' => $moduleInstance,
                 'grouping' => optional($moduleInstance->grouping)->id ?? 0,
-                'header' => optional($moduleInstance->grouping)->header ?? '',
+                'header' => optional($moduleInstance->grouping)->heading ?? '',
                 'evaluation' => app(ModuleInstanceEvaluator::class)->evaluateParticipant(
                     $activityInstance, $moduleInstance, $authentication->getUser(), $authentication->getGroup(), $authentication->getRole()
                 )
