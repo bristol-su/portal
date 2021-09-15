@@ -5,8 +5,7 @@
                 <a :href="'/activity/' + data.item.id">
                     <b-button variant="secondary">View</b-button>
                 </a>
-
-                <b-button @click.prevent="processDelete(data)" variant="danger">Delete</b-button>
+                <b-button @click.prevent="processDelete(data)" variant="danger" v-if="canDelete">Delete</b-button>
             </template>
         </b-table>
     </div>
@@ -22,6 +21,13 @@
                 type: Array,
                 default: function() {
                     return [];
+                }
+            },
+            canDelete: {
+                required: false,
+                type: Boolean,
+                default: function() {
+                    return false;
                 }
             }
         },
