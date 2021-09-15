@@ -32,6 +32,7 @@
                                 </b-td>
                                 <b-td>
                                     <a :href="'/activity/' + activity.id + '/module-instance/' + module.id"><b-button variant="primary">View</b-button></a>
+                                    <a @click.prevent="processDelete(module.id)"><b-button variant="danger" v-if="canDelete">Delete</b-button></a>
                                 </b-td>
                             </b-tr>
                         </b-tbody>
@@ -62,6 +63,13 @@
             activity: {
                 required: true,
                 type: Object
+            },
+            canDelete: {
+                required: false,
+                type: Boolean,
+                default: function() {
+                    return false;
+                }
             }
         },
 
@@ -142,6 +150,27 @@
                 })
                 .catch(error => this.$notify.alert('There was an error updating the module instance: ' + error.message))
                 .then(this.updatingModuleInstancePosition = false)
+            },
+            processDelete(data) {
+                this.$bvModal.msgBoxConfirm('Are you sure you want to delete this Module?', {
+                    title: 'Deleting Activity',
+                    size: 'sm',
+                    buttonSize: 'sm',
+                    okVariant: 'danger',
+                    okTitle: 'Delete',
+                    cancelTitle: 'Cancel',
+                    footerClass: 'p-2',
+                    hideHeaderClose: true,
+                    centered: true
+                })
+                    .then(confirmed => {
+                        if (confirmed) {
+                            alert('Processing Module Deletion.');
+                        } else {
+                            this.$notify.info('No Module deleted');
+                        }
+                    })
+                    .catch(error => this.$notify.alert('Could not delete the Module: ' + error.message));
             }
         },
 
