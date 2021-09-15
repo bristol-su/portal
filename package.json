@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "laravel-mix": "^6.0.27",
+        "laravel-mix-tailwind": "^0.1.2",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.41.0",
         "sass-loader": "^12.1.0",
