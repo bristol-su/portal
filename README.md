@@ -159,7 +159,7 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Toby Twigger - [toby.twigger@bristol.ac.uk](mailto:toby.twigger@bristol.ac.uk)
+Toby Twigger - [toby.twigger@bristol.ac.uk](mailto:toby.twigger@bristol.ac.uk) 
 
 Project Link: [https://github.com/bristol-su/portal](https://github.com/bristol-su/portal)
 
