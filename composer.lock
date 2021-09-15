@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.193.2",
+            "version": "3.193.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d5080f7a1bb63569c19b8de06f787808eca70cc6"
+                "reference": "758c2225c484088b2118c4e3ff5b37ccfea3948f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d5080f7a1bb63569c19b8de06f787808eca70cc6",
-                "reference": "d5080f7a1bb63569c19b8de06f787808eca70cc6",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/758c2225c484088b2118c4e3ff5b37ccfea3948f",
+                "reference": "758c2225c484088b2118c4e3ff5b37ccfea3948f",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.193.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.193.4"
             },
-            "time": "2021-09-10T18:21:27+00:00"
+            "time": "2021-09-14T18:19:00+00:00"
         },
         {
             "name": "brick/math",
@@ -380,12 +380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/data-entry.git",
-                "reference": "80a844ede7064f958389a533ac9b2520a46c896b"
+                "reference": "3a8202aa10022b32ed9d43d4235261c4b2c4d07d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/80a844ede7064f958389a533ac9b2520a46c896b",
-                "reference": "80a844ede7064f958389a533ac9b2520a46c896b",
+                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/3a8202aa10022b32ed9d43d4235261c4b2c4d07d",
+                "reference": "3a8202aa10022b32ed9d43d4235261c4b2c4d07d",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,7 @@
                 "issues": "https://github.com/bristol-su/data-entry/issues",
                 "source": "https://github.com/bristol-su/data-entry/tree/PR-205"
             },
-            "time": "2021-09-09T12:21:48+00:00"
+            "time": "2021-09-15T16:14:31+00:00"
         },
         {
             "name": "bristol-su/portal-auth",
@@ -505,12 +505,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e"
+                "reference": "a9d2a3cca18e0fa2a347d26785d1ab679202e55f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/0abfac5dff56ca87c3198a085b580f146ae6f59e",
-                "reference": "0abfac5dff56ca87c3198a085b580f146ae6f59e",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/a9d2a3cca18e0fa2a347d26785d1ab679202e55f",
+                "reference": "a9d2a3cca18e0fa2a347d26785d1ab679202e55f",
                 "shasum": ""
             },
             "require": {
@@ -553,7 +553,7 @@
                 "issues": "https://github.com/bristol-su/static-page/issues",
                 "source": "https://github.com/bristol-su/static-page/tree/PR-19"
             },
-            "time": "2021-09-10T14:53:27+00:00"
+            "time": "2021-09-14T15:09:15+00:00"
         },
         {
             "name": "bristol-su/support",
@@ -637,12 +637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c"
+                "reference": "7ca15f4b96ed0af4e9de4efcf1d0c2979c7355cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/8aeb802735ce38c74a0757db2fc6a30d97acfa7c",
-                "reference": "8aeb802735ce38c74a0757db2fc6a30d97acfa7c",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/7ca15f4b96ed0af4e9de4efcf1d0c2979c7355cc",
+                "reference": "7ca15f4b96ed0af4e9de4efcf1d0c2979c7355cc",
                 "shasum": ""
             },
             "require": {
@@ -685,7 +685,7 @@
                 "issues": "https://github.com/bristol-su/typeform/issues",
                 "source": "https://github.com/bristol-su/typeform/tree/PR-20"
             },
-            "time": "2021-09-02T11:01:12+00:00"
+            "time": "2021-09-15T12:59:23+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -796,12 +796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633"
+                "reference": "8a46a01179ee1a88aa55634634c3538c0f9e4260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8c958d97968a9a7ec08cef876860fe7d04587633",
-                "reference": "8c958d97968a9a7ec08cef876860fe7d04587633",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8a46a01179ee1a88aa55634634c3538c0f9e4260",
+                "reference": "8a46a01179ee1a88aa55634634c3538c0f9e4260",
                 "shasum": ""
             },
             "require": {
@@ -840,7 +840,7 @@
                 "issues": "https://github.com/bristol-su/upload-file/issues",
                 "source": "https://github.com/bristol-su/upload-file/tree/PR-302"
             },
-            "time": "2021-09-06T08:20:09+00:00"
+            "time": "2021-09-15T16:09:14+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2557,16 +2557,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.60.0",
+            "version": "v8.61.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "44f16a31a1d4ac8a51605550d7796e2273984a48"
+                "reference": "3d528d3d3c8ecb444b50a266c212a52973a6669b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/44f16a31a1d4ac8a51605550d7796e2273984a48",
-                "reference": "44f16a31a1d4ac8a51605550d7796e2273984a48",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3d528d3d3c8ecb444b50a266c212a52973a6669b",
+                "reference": "3d528d3d3c8ecb444b50a266c212a52973a6669b",
                 "shasum": ""
             },
             "require": {
@@ -2603,7 +2603,8 @@
                 "tightenco/collect": "<5.5.33"
             },
             "provide": {
-                "psr/container-implementation": "1.0"
+                "psr/container-implementation": "1.0",
+                "psr/simple-cache-implementation": "1.0"
             },
             "replace": {
                 "illuminate/auth": "self.version",
@@ -2721,7 +2722,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-09-08T13:37:21+00:00"
+            "time": "2021-09-14T13:31:32+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -2927,16 +2928,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.6.2",
+            "version": "v4.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "e82daf606bf4ac64c445b5bd58f80784dd16f97a"
+                "reference": "e867543ee251d4da288d63575bfae0be5e99707b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/e82daf606bf4ac64c445b5bd58f80784dd16f97a",
-                "reference": "e82daf606bf4ac64c445b5bd58f80784dd16f97a",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/e867543ee251d4da288d63575bfae0be5e99707b",
+                "reference": "e867543ee251d4da288d63575bfae0be5e99707b",
                 "shasum": ""
             },
             "require": {
@@ -2985,9 +2986,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.6.2"
+                "source": "https://github.com/laravel/telescope/tree/v4.6.3"
             },
-            "time": "2021-08-17T16:10:10+00:00"
+            "time": "2021-09-14T16:29:51+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4204,24 +4205,24 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.3.2",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "71312564759a7db5b789296369c1a264efc43aad"
+                "reference": "437e7a1c50044b92773b361af77620efb76fff59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/71312564759a7db5b789296369c1a264efc43aad",
-                "reference": "71312564759a7db5b789296369c1a264efc43aad",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/437e7a1c50044b92773b361af77620efb76fff59",
+                "reference": "437e7a1c50044b92773b361af77620efb76fff59",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2",
-                "psr/log": "^1.0.1"
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
             },
             "provide": {
-                "psr/log-implementation": "1.0.0"
+                "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
@@ -4236,7 +4237,7 @@
                 "phpunit/phpunit": "^8.5",
                 "predis/predis": "^1.1",
                 "rollbar/rollbar": "^1.3",
-                "ruflin/elastica": ">=0.90 <7.0.1",
+                "ruflin/elastica": ">=0.90@dev",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
@@ -4244,8 +4245,11 @@
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
                 "ext-mbstring": "Allow to work properly with unicode symbols",
                 "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "ext-openssl": "Required to send log messages using SSL",
+                "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
                 "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
@@ -4284,7 +4288,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.2"
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.4"
             },
             "funding": [
                 {
@@ -4296,7 +4300,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-23T07:42:52+00:00"
+            "time": "2021-09-15T11:27:21+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -12824,16 +12828,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.4.3",
+            "version": "1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "d1339f64479af1bee0e82a0413813fe5345a54ea"
+                "reference": "e01123a0e847d52d186c5eb4b9bf58b0c6d00346"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/d1339f64479af1bee0e82a0413813fe5345a54ea",
-                "reference": "d1339f64479af1bee0e82a0413813fe5345a54ea",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/e01123a0e847d52d186c5eb4b9bf58b0c6d00346",
+                "reference": "e01123a0e847d52d186c5eb4b9bf58b0c6d00346",
                 "shasum": ""
             },
             "require": {
@@ -12890,9 +12894,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mockery/mockery/issues",
-                "source": "https://github.com/mockery/mockery/tree/1.4.3"
+                "source": "https://github.com/mockery/mockery/tree/1.4.4"
             },
-            "time": "2021-02-24T09:51:49+00:00"
+            "time": "2021-09-13T15:28:59+00:00"
         },
         {
             "name": "nunomaduro/collision",
