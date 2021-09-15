@@ -5,6 +5,8 @@
                 <a :href="'/activity/' + data.item.id">
                     <b-button variant="secondary">View</b-button>
                 </a>
+
+                <b-button @click.prevent="processDelete(data)" variant="danger">Delete</b-button>
             </template>
         </b-table>
     </div>
@@ -30,6 +32,30 @@
                     'name',
                     'actions'
                 ]
+            }
+        },
+
+        methods: {
+            processDelete(data) {
+                this.$bvModal.msgBoxConfirm('Are you sure you want to delete this Activity?', {
+                    title: 'Deleting Activity',
+                    size: 'sm',
+                    buttonSize: 'sm',
+                    okVariant: 'danger',
+                    okTitle: 'Delete',
+                    cancelTitle: 'Cancel',
+                    footerClass: 'p-2',
+                    hideHeaderClose: true,
+                    centered: true
+                })
+                    .then(confirmed => {
+                        if (confirmed) {
+                            alert('Processing Activity Deletion.');
+                        } else {
+                            this.$notify.info('No Activities deleted');
+                        }
+                    })
+                    .catch(error => this.$notify.alert('Could not delete the Activity: ' + error.message));
             }
         }
     }
