@@ -1,0 +1,22 @@
+id: 8499
+name: portal
+separate-vendor: true
+environments:
+    staging:
+        memory: 512
+        cli-memory: 512
+        runtime: docker
+        database: staging
+        storage: bristol-su-portal-staging
+        cache: portal
+        timeout: 100
+        queue-concurrency: 40
+        queue-timeout: 50
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
+            - 'php artisan event:cache'
+            - 'npm ci && npm run prod && rm -rf node_modules'
+            - 'php artisan config:cache'
+            - 'php artisan view:clear'
+        deploy:
+            - 'php artisan migrate --force'
