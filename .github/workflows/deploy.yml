@@ -21,6 +21,8 @@ jobs:
         run: >
           git config --global url."https://github.com/".insteadOf
           ssh://git@github.com/
+      - name: Update package lock with Https
+        run: sed -i 's/ssh:/https:/g' ./package-lock.json
       - name: Require Vapor CLI
         run: composer global require laravel/vapor-cli
       - name: Deploy Environment
