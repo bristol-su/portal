@@ -11,8 +11,7 @@
 </template>
 
 <script>
-    import moduleInstanceSettings from '../../../../utilities/api/resources/moduleInstanceSettings';
-    import VueFormGenerator from 'vue-form-generator';
+
     import axios from 'axios';
 
     export default {
