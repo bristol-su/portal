@@ -16,7 +16,7 @@ environments:
             - 'composer update'
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
             - 'php artisan event:cache'
-            - 'npm i && npm run prod && rm -rf node_modules'
+            - 'npm update && npm run prod && rm -rf node_modules'
             - 'php artisan config:cache'
             - 'php artisan view:clear'
         deploy:
