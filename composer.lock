@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecc586ac497d1a813c1de60bc18b06d5",
+    "content-hash": "4f67c5c365bbec30833d005ccd169c15",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.193.4",
+            "version": "3.194.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "758c2225c484088b2118c4e3ff5b37ccfea3948f"
+                "reference": "67bdee05acef9e8ad60098090996690b49babd09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/758c2225c484088b2118c4e3ff5b37ccfea3948f",
-                "reference": "758c2225c484088b2118c4e3ff5b37ccfea3948f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/67bdee05acef9e8ad60098090996690b49babd09",
+                "reference": "67bdee05acef9e8ad60098090996690b49babd09",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.193.4"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.194.1"
             },
-            "time": "2021-09-14T18:19:00+00:00"
+            "time": "2021-09-17T18:15:42+00:00"
         },
         {
             "name": "brick/math",
@@ -269,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "4744ffb220cc5eb3efcba414e54d9675bb2fe269"
+                "reference": "a9259f6a668a5e8a2294688c28a6561669d0dc9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/4744ffb220cc5eb3efcba414e54d9675bb2fe269",
-                "reference": "4744ffb220cc5eb3efcba414e54d9675bb2fe269",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/a9259f6a668a5e8a2294688c28a6561669d0dc9e",
+                "reference": "a9259f6a668a5e8a2294688c28a6561669d0dc9e",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +314,7 @@
                 "issues": "https://github.com/bristol-su/assign-roles/issues",
                 "source": "https://github.com/bristol-su/assign-roles/tree/PR-23"
             },
-            "time": "2021-09-15T20:50:30+00:00"
+            "time": "2021-09-17T15:24:10+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -380,12 +380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/data-entry.git",
-                "reference": "a54be7d93d8452cb33467637e27adeed7bfe7809"
+                "reference": "b76e9b90b4c3b7e4d35f944d34092f986fed3a82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/a54be7d93d8452cb33467637e27adeed7bfe7809",
-                "reference": "a54be7d93d8452cb33467637e27adeed7bfe7809",
+                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/b76e9b90b4c3b7e4d35f944d34092f986fed3a82",
+                "reference": "b76e9b90b4c3b7e4d35f944d34092f986fed3a82",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,7 @@
                 "issues": "https://github.com/bristol-su/data-entry/issues",
                 "source": "https://github.com/bristol-su/data-entry/tree/PR-205"
             },
-            "time": "2021-09-15T20:55:30+00:00"
+            "time": "2021-09-18T01:00:52+00:00"
         },
         {
             "name": "bristol-su/portal-auth",
@@ -505,12 +505,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "9294b12bb82a4759bb134335381f4aebbbadf73b"
+                "reference": "e71aee3cb4cd8a58cfb20e1d172c0009f5775c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/9294b12bb82a4759bb134335381f4aebbbadf73b",
-                "reference": "9294b12bb82a4759bb134335381f4aebbbadf73b",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/e71aee3cb4cd8a58cfb20e1d172c0009f5775c7d",
+                "reference": "e71aee3cb4cd8a58cfb20e1d172c0009f5775c7d",
                 "shasum": ""
             },
             "require": {
@@ -553,7 +553,7 @@
                 "issues": "https://github.com/bristol-su/static-page/issues",
                 "source": "https://github.com/bristol-su/static-page/tree/PR-19"
             },
-            "time": "2021-09-15T20:55:01+00:00"
+            "time": "2021-09-17T15:45:20+00:00"
         },
         {
             "name": "bristol-su/support",
@@ -561,12 +561,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "47757475bf2194cdbd85fef16649fc193ac7200c"
+                "reference": "55f7af1991c82a2fdfc6edf3f55e3c651eb3e1df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/47757475bf2194cdbd85fef16649fc193ac7200c",
-                "reference": "47757475bf2194cdbd85fef16649fc193ac7200c",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/55f7af1991c82a2fdfc6edf3f55e3c651eb3e1df",
+                "reference": "55f7af1991c82a2fdfc6edf3f55e3c651eb3e1df",
                 "shasum": ""
             },
             "require": {
@@ -579,7 +579,7 @@
                 "laravel/framework": "^8.0",
                 "php": "^8.0",
                 "spatie/eloquent-sortable": "^3.11",
-                "tobytwigger/form-schema-generator": "^1.3",
+                "tobytwigger/form-schema-generator": "dev-PR-361",
                 "venturecraft/revisionable": "^1.33"
             },
             "require-dev": {
@@ -629,7 +629,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/PR-350/ui-kit"
             },
-            "time": "2021-09-09T17:07:49+00:00"
+            "time": "2021-09-17T20:54:04+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -637,12 +637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "18271387cfbbbf39112f89dc35a23ed1cd54cee0"
+                "reference": "51209854eb4cfbc09036417cea8cc20a6a7a067f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/18271387cfbbbf39112f89dc35a23ed1cd54cee0",
-                "reference": "18271387cfbbbf39112f89dc35a23ed1cd54cee0",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/51209854eb4cfbc09036417cea8cc20a6a7a067f",
+                "reference": "51209854eb4cfbc09036417cea8cc20a6a7a067f",
                 "shasum": ""
             },
             "require": {
@@ -685,7 +685,7 @@
                 "issues": "https://github.com/bristol-su/typeform/issues",
                 "source": "https://github.com/bristol-su/typeform/tree/PR-20"
             },
-            "time": "2021-09-15T20:54:34+00:00"
+            "time": "2021-09-17T23:42:52+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -796,16 +796,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "d5a064c27120d59a4cef7703df73cb3f7424fd21"
+                "reference": "469ca56d5834ac423d6f1ac2ba3c8df3e75bf615"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/d5a064c27120d59a4cef7703df73cb3f7424fd21",
-                "reference": "d5a064c27120d59a4cef7703df73cb3f7424fd21",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/469ca56d5834ac423d6f1ac2ba3c8df3e75bf615",
+                "reference": "469ca56d5834ac423d6f1ac2ba3c8df3e75bf615",
                 "shasum": ""
             },
             "require": {
-                "bristol-su/support": "^5.0.0",
+                "bristol-su/support": "dev-PR-350/ui-kit",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -840,7 +840,7 @@
                 "issues": "https://github.com/bristol-su/upload-file/issues",
                 "source": "https://github.com/bristol-su/upload-file/tree/PR-302"
             },
-            "time": "2021-09-15T20:53:50+00:00"
+            "time": "2021-09-17T23:20:45+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2928,16 +2928,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.6.3",
+            "version": "v4.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "e867543ee251d4da288d63575bfae0be5e99707b"
+                "reference": "e39423d3ee18898eeb1e0adf2fbe7b74a4cc4996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/e867543ee251d4da288d63575bfae0be5e99707b",
-                "reference": "e867543ee251d4da288d63575bfae0be5e99707b",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/e39423d3ee18898eeb1e0adf2fbe7b74a4cc4996",
+                "reference": "e39423d3ee18898eeb1e0adf2fbe7b74a4cc4996",
                 "shasum": ""
             },
             "require": {
@@ -2986,9 +2986,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.6.3"
+                "source": "https://github.com/laravel/telescope/tree/v4.6.4"
             },
-            "time": "2021-09-14T16:29:51+00:00"
+            "time": "2021-09-16T17:44:49+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -5406,16 +5406,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0"
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
                 "shasum": ""
             },
             "require": {
@@ -5423,7 +5423,8 @@
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "*"
+                "ext-tokenizer": "*",
+                "psalm/phar": "^4.8"
             },
             "type": "library",
             "extra": {
@@ -5449,9 +5450,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.4.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
             },
-            "time": "2020-09-17T18:55:26+00:00"
+            "time": "2021-09-17T15:28:14+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5754,23 +5755,23 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.6",
+            "version": "9.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f6293e1b30a2354e8428e004689671b83871edde"
+                "reference": "d4c798ed8d51506800b441f7a13ecb0f76f12218"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f6293e1b30a2354e8428e004689671b83871edde",
-                "reference": "f6293e1b30a2354e8428e004689671b83871edde",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d4c798ed8d51506800b441f7a13ecb0f76f12218",
+                "reference": "d4c798ed8d51506800b441f7a13ecb0f76f12218",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.10.2",
+                "nikic/php-parser": "^4.12.0",
                 "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -5819,7 +5820,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.6"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.7"
             },
             "funding": [
                 {
@@ -5827,7 +5828,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-28T07:26:59+00:00"
+            "time": "2021-09-17T05:39:03+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -7851,7 +7852,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -13259,12 +13259,6 @@
             "version": "dev-PR-302",
             "alias": "v2.0.0",
             "alias_normalized": "2.0.0.0"
-        },
-        {
-            "package": "tobytwigger/form-schema-generator",
-            "version": "dev-PR-361",
-            "alias": "v1.3",
-            "alias_normalized": "1.3.0.0"
         }
     ],
     "minimum-stability": "dev",
@@ -13277,8 +13271,7 @@
         "bristol-su/typeform": 20,
         "bristol-su/typeform-service": 20,
         "bristol-su/data-entry": 20,
-        "bristol-su/assign-roles": 20,
-        "tobytwigger/form-schema-generator": 20
+        "bristol-su/assign-roles": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

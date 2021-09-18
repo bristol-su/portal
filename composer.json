@@ -38,7 +38,6 @@
         "bristol-su/assign-roles": "dev-PR-23 as v2.0.0"
     },
     "require-dev": {
-        "tobytwigger/form-schema-generator": "dev-PR-361 as v1.3",
         "itsgoingd/clockwork": "^5.0.3",
         "beyondcode/laravel-dump-server": "^1.0",
         "bmitch/churn-php": "^1.0",
