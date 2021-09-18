@@ -10,6 +10,7 @@ use BristolSU\Support\Authentication\AuthQuery\Generator;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\ModuleInstance\Contracts\Evaluator\ModuleInstanceEvaluator;
 use BristolSU\Support\ModuleInstance\ModuleInstance;
+use BristolSU\Support\Permissions\Facade\PermissionTester;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -96,6 +97,14 @@ class SidebarComposer
                 ];
             }
         });
+
+        if(PermissionTester::evaluate('view-management')) {
+            $schema[] = [
+                'title' => 'Edit Page',
+                'route' => route('management.module-instance.show', ['activity' => $activity, 'module_instance' => $this->moduleInstance]),
+                'icon' => 'fa fa-pencil'
+            ];
+        }
         return $schema;
     }
 
