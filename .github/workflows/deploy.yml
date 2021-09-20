@@ -17,6 +17,11 @@ jobs:
           php-version: 8.0
           tools: composer:v2
           coverage: none
+      - name: Create .npmrc
+        uses: 'finnp/create-file-action@master'
+        env:
+          FILE_NAME: ".npmrc"
+          FILE_DATA: "@bristol-su:registry=https://npm.pkg.github.com"
       - name: Reconfigure git to use HTTP authentication
         run: >
           git config --global url."https://github.com/".insteadOf
