@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b838e63174a21872126fdbcd97a55c2d",
+    "content-hash": "7c94b076b055ec81c6a0d243f06b7be0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -558,10 +558,16 @@
         {
             "name": "bristol-su/support",
             "version": "dev-feature/pr-257",
-            "dist": {
-                "type": "path",
-                "url": "./repos/bristol-su/support",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bristol-su/support.git",
                 "reference": "f335f98d054fd6e0a3f9aab546b5bedb1223c5c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/f335f98d054fd6e0a3f9aab546b5bedb1223c5c2",
+                "reference": "f335f98d054fd6e0a3f9aab546b5bedb1223c5c2",
+                "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.158",
@@ -604,30 +610,7 @@
                     "Database\\Seeders\\": "database/seeders/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "BristolSU\\Support\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bristol-su/portal-code-style/src/PHPUnit/phpunit.sh"
-                ],
-                "code-style": [
-                    "vendor/bristol-su/portal-code-style/src/PhpCS/phpcs_fixer.sh",
-                    "vendor/bristol-su/portal-code-style/src/Rector/rector.sh",
-                    "vendor/bristol-su/portal-code-style/src/SecurityChecker/security.sh"
-                ],
-                "fix-code-style": [
-                    "vendor/bin/php-cs-fixer fix --config .php_cs --verbose --using-cache=no"
-                ],
-                "phpstan": [
-                    "vendor/bristol-su/portal-code-style/src/PHPStan/phpstan.sh"
-                ],
-                "coverage": [
-                    "vendor/bin/phpunit --colors=always --process-isolation --verbose --configuration phpunit.xml --coverage-html coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -643,10 +626,11 @@
                 "portal",
                 "sdk"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/bristol-su/support/issues",
+                "source": "https://github.com/bristol-su/support/tree/feature/pr-257"
+            },
+            "time": "2021-09-20T18:58:08+00:00"
         },
         {
             "name": "bristol-su/typeform",

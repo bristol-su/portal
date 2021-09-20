@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Ability to delete and restore activities & module instances
+
 ## [3.2.1] - 2021-08-15
 
 ### Updated
