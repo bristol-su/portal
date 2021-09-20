@@ -78,6 +78,7 @@
             "@php artisan telescope:publish --ansi"
         ]
     },
+    "repositories": [{"type": "path", "url": "./repos/bristol-su/support"}],
     "extra": {
         "laravel": {
             "dont-discover": [
