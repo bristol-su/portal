@@ -30,4 +30,16 @@ class ModuleInstanceController extends Controller
         ]));
     }
 
+    /**
+     * @param ModuleInstance $moduleInstance
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(ModuleInstance $moduleInstance)
+    {
+        $this->authorize('view-management');
+        $moduleInstance->delete();
+        return response($moduleInstance);
+    }
+
 }

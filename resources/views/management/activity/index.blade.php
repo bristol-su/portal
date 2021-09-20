@@ -4,7 +4,7 @@
 
 @section('app-content')
     <activity-index
-        @can('delete-activities')
+        @can('view-management')
             :can-delete=true
         @endcan
         :activities="{{$activities}}">

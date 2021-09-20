@@ -79,4 +79,16 @@ class ActivityController extends Controller
             'name', 'description', 'enabled', 'start_date', 'end_date', 'admin_logic', 'for_logic'
         ]));
     }
+
+    /**
+     * @param Activity $activity
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(Activity $activity)
+    {
+        $this->authorize('view-management');
+        $activity->delete();
+        return response($activity);
+    }
 }

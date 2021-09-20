@@ -27,7 +27,7 @@
         "stichoza/google-translate-php": "^4.1",
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/portal-auth": "dev-pr-350/ui-kit as v0.0.1",
-        "bristol-su/support": "dev-PR-350/ui-kit as v5.0.0",
+        "bristol-su/support": "dev-feature/pr-257 as 5.0.0",
         "bristol-su/upload-file": "dev-PR-302 as v2.0.0",
         "bristol-su/static-page": "dev-PR-19",
         "bristol-su/typeform": "dev-PR-20",
@@ -51,7 +51,8 @@
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3",
-        "laravel/sail": "^1.2"
+        "laravel/sail": "^1.2",
+        "orchestra/testbench": "^6.21"
     },
     "autoload": {
         "psr-4": {
@@ -69,6 +70,15 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./repos/bristol-su/support",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
