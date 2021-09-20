@@ -23,7 +23,9 @@ Route::middleware(['portal-auth'])->group(function () {
         Route::resource('site-permission', \App\Http\Controllers\Management\SitePermissionController::class)->only(['index', 'show']);
         Route::resource('connector', \App\Http\Controllers\Management\ConnectorController::class)->only(['index']);
         Route::prefix('/activity/{activity}')->group(function () {
-            Route::resource('module-instance', \App\Http\Controllers\Management\ModuleInstanceController::class)->only(['show', 'create']);
+            Route::resource('module-instance', \App\Http\Controllers\Management\ModuleInstanceController::class)->only(['show', 'create'])->names([
+                'show' => 'management.module-instance.show'
+            ]);
             Route::prefix('/module-instance/{module_instance}')->group(function () {
                 Route::resource('action', \App\Http\Controllers\Management\ActionController::class)->only(['create']);
             });
@@ -52,12 +54,7 @@ Route::middleware(['portal-auth'])->group(function () {
 
     Route::middleware('activity')->group(function () {
         Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
-        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
-    });
-
-    Route::middleware('activity')->group(function () {
-        Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
-        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
+        Route::middleware(['participant', 'participant-activity'])->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
     });
 
 });

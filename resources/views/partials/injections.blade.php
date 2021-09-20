@@ -13,14 +13,19 @@
     @else
         <link rel="stylesheet" href="{{mix('css/legacy.css')}}" type="text/css">
     @endif
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 @endpush
 
 @prepend('scripts')
     @if(!isset($legacy) || $legacy === false)
         <script src="{{mix('js/app.js')}}"></script>
     @endif
-    <script src="https://kit.fontawesome.com/1aebffb7ee.js" crossorigin="anonymous"></script>
 @endprepend('scripts')
+
+@push('scripts')
+    <script src="https://kit.fontawesome.com/1aebffb7ee.js" crossorigin="anonymous"></script>
+    @include('templates.cookies')
+@endpush
 
 @push('meta-tags')
     <meta charset="utf-8">

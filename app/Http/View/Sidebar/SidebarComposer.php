@@ -10,6 +10,7 @@ use BristolSU\Support\Authentication\AuthQuery\Generator;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\ModuleInstance\Contracts\Evaluator\ModuleInstanceEvaluator;
 use BristolSU\Support\ModuleInstance\ModuleInstance;
+use BristolSU\Support\Permissions\Facade\PermissionTester;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -53,6 +54,18 @@ class SidebarComposer
             } else {
                 $view->with('sidebarSchema', $this->getBasicSidebar($isAdmin));
             }
+
+            $subtitle = '';
+            if($this->authentication->hasRole()) {
+                $subtitle = sprintf('%s for %s', $this->authentication->getRole()->data()->roleName(), $this->authentication->getRole()->group()->data()->name());
+            }
+            elseif($this->authentication->hasGroup()) {
+                $subtitle = sprintf('Membership to %s', $this->authentication->getGroup()->data()->name());
+            }
+//            elseif($this->authentication->hasUser()) {
+//                $subtitle = sprintf('Personal');
+//            }
+            $view->with('subtitle', $subtitle);
         }
     }
 
@@ -96,6 +109,14 @@ class SidebarComposer
                 ];
             }
         });
+
+        if(PermissionTester::evaluate('view-management')) {
+            $schema[] = [
+                'title' => 'Edit Page',
+                'route' => route('management.module-instance.show', ['activity' => $activity, 'module_instance' => $this->moduleInstance]),
+                'icon' => 'fa fa-pencil'
+            ];
+        }
         return $schema;
     }
 

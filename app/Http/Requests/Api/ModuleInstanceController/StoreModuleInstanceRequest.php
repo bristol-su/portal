@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests\Api\ModuleInstanceController;
 
-use App\Rules\ModuleAlias;
 use BristolSU\Support\Activity\Contracts\Repository;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreModuleInstanceRequest extends FormRequest
 {
@@ -28,7 +26,7 @@ class StoreModuleInstanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'alias' => [app(ModuleAlias::class), 'required'],
+            'alias' => ['modulealias', 'required'],
             'activity_id' => ['exists:activities,id'],
             'name' => 'required|string',
             'description' => 'required|string',

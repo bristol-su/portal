@@ -11,6 +11,7 @@ use App\Filters\Group\PredefinedFilter as PredefinedGroupFilter;
 use App\Filters\Role\PredefinedFilter as PredefinedRoleFilter;
 use App\Filters\User\PredefinedFilter as PredefinedUserFilter;
 use App\Rules\CustomValidator;
+use App\Rules\ModuleAlias;
 use BristolSU\Support\Action\Facade\ActionManager;
 use BristolSU\Support\Filters\Contracts\FilterManager as FilterManagerContract;
 use Illuminate\Support\Facades\Validator;
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         {
             return new CustomValidator($translator, $data, $rules, $messages, $attributes);
         });
+
+        Validator::extend('modulealias', fn ($attribute, $value, $parameters, $validator) => app(ModuleAlias::class)->passes($attribute, $value), app(ModuleAlias::class)->message());
 
     }
 

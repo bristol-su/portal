@@ -6,24 +6,17 @@
     <p-page-content title="{{settings('title')}}" subtitle="{{settings('description')}}">
         <p-tabs>
             <p-tab title="New Submission">
-                <p-card-group title="{{ settings('title') }}">
+                <p-card-group>
                     <div class="w-full">
                         @if(strlen(settings('form_url', '')) > 0 && \BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('typeform.view-form'))
-                            @if(settings('embed_type', 'widget') === 'widget')
+{{--                            @if(settings('embed_type', 'widget') === 'widget')--}}
                                 <typeform-embed-widget
-                                    form-url="{{settings('form_url')}}"
+                                    form-id="{{settings('form_id')}}"
                                     :hide-headers="{{(settings('hide_headers', true)?'true':'false')}}"
                                     :hide-footer="{{(settings('hide_footer', true)?'true':'false')}}">
 
                                 </typeform-embed-widget>
-                            @else
-                                <typeform-embed-popup
-                                    form-url="{{settings('form_url')}}"
-                                    :hide-headers="{{(settings('hide_headers', true)?'true':'false')}}"
-                                    :hide-footer="{{(settings('hide_footer', true)?'true':'false')}}"
-                                    mode="{{settings('embed_type')}}">
-                                </typeform-embed-popup>
-                            @endif
+{{--                            @endif--}}
                         @elseif(!\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('typeform.view-form'))
                             You don't have permission to submit the form
                         @else
