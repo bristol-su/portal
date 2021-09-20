@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Http\View\Header\CurrentAuthComposer;
 use App\Http\View\Portal\ActivitySidebarComposer;
 use App\Http\View\Sidebar\SidebarComposer;
 use App\Http\View\Utilities\JavascriptComposer;
@@ -31,7 +30,6 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['portal.activity'], ActivitySidebarComposer::class);
         View::composer(['partials.components.contentwrap'], SidebarComposer::class);
         View::composer(['bristolsu::base'], JavascriptComposer::class);
-        View::composer(['partials.header'], CurrentAuthComposer::class);
 
         View::composer(['admin.settings.activities.sidebar'], function ($view) {
             $view->with('events', Activity::all());

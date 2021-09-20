@@ -54,6 +54,18 @@ class SidebarComposer
             } else {
                 $view->with('sidebarSchema', $this->getBasicSidebar($isAdmin));
             }
+
+            $subtitle = '';
+            if($this->authentication->hasRole()) {
+                $subtitle = sprintf('%s for %s', $this->authentication->getRole()->data()->roleName(), $this->authentication->getRole()->group()->data()->name());
+            }
+            elseif($this->authentication->hasGroup()) {
+                $subtitle = sprintf('Membership to %s', $this->authentication->getGroup()->data()->name());
+            }
+            elseif($this->authentication->hasUser()) {
+                $subtitle = sprintf('Personal');
+            }
+            $view->with('subtitle', $subtitle);
         }
     }
 

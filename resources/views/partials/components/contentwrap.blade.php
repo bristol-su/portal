@@ -1,9 +1,10 @@
 <div class="flex-col w-full md:flex md:flex-row md:min-h-screen bg-blueGray-50">
-    @if(isset($sidebarSchema))
+    @if(isset($sidebarSchema) && !isset($exception))
         <div id="sidebar-vue-root">
             <p-sidenav
                 user-name="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName()}}"
                 :nav-items="{{ json_encode($sidebarSchema) }}"
+                subtitle="{{ $subtitle }}"
             >
             </p-sidenav>
 
