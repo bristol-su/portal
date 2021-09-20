@@ -7,9 +7,9 @@
 
   <p align="center">
     A customisable self-service portal for automating and delivering services online.
-    <br />
+<!--    <br />
         <a href="https://portal-demo.bristolsustaging.co.uk"><strong>Demo Site »</strong></a>
-    <br />
+    <br /> -->
     <a href="https://docs.bristolsustaging.co.uk"><strong>Explore the docs »</strong></a>
 <br />
 <br />
@@ -159,7 +159,11 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Toby Twigger - [toby.twigger@bristol.ac.uk](mailto:toby.twigger@bristol.ac.uk) 
+Interested in using the Portal in your Organisation? [Submit Interest](https://bristolstudentsunion.typeform.com/to/ciZXx7)
+
+The portal is currently maintained by [ElbowSpace Ltd](https://elbowspace.co.uk) in partnership with [Bristol Students' Union](https://www.bristolsu.org.uk/).
+
+To get in touch please reach out to us via [portal@elbowspace.co.uk](mailto:portal@elbowspace.co.uk).
 
 Project Link: [https://github.com/bristol-su/portal](https://github.com/bristol-su/portal)
 
