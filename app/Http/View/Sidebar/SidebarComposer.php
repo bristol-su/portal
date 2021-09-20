@@ -62,9 +62,9 @@ class SidebarComposer
             elseif($this->authentication->hasGroup()) {
                 $subtitle = sprintf('Membership to %s', $this->authentication->getGroup()->data()->name());
             }
-            elseif($this->authentication->hasUser()) {
-                $subtitle = sprintf('Personal');
-            }
+//            elseif($this->authentication->hasUser()) {
+//                $subtitle = sprintf('Personal');
+//            }
             $view->with('subtitle', $subtitle);
         }
     }
