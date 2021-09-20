@@ -25,7 +25,7 @@
                         <p-card
                             title="{{$moduleInstance['moduleInstance']->name}}"
                             subtitle="{{$moduleInstance['moduleInstance']->description}}"
-                            url="{{sprintf('/%s/%s/%s/%s?%s', $admin ? 'a' : 'p', $activity->slug, $moduleInstance['moduleInstance']->slug, $moduleInstance['moduleInstance']->alias, url()->getAuthQueryString())}}"
+                            url="{{route(sprintf('module.%s', $admin ? 'admin' : 'participant'), ['activity_slug' => $activity->slug, 'module_instance_slug' => $moduleInstance['moduleInstance']->slug, url()->getAuthQueryString()])}}"
                             url-text="Continue Task"
                             :progress="{{$moduleInstance['evaluation']->percentage()}}"
                             :mandatory="{{($moduleInstance['evaluation']->mandatory() ? 'true' : 'false')}}"
