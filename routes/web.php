@@ -54,12 +54,7 @@ Route::middleware(['portal-auth'])->group(function () {
 
     Route::middleware('activity')->group(function () {
         Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
-        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
-    });
-
-    Route::middleware('activity')->group(function () {
-        Route::middleware('administrator')->get('/a/{activity_slug}', [ActivityController::class, 'administrator'])->name('administrator.activity');
-        Route::middleware('participant')->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
+        Route::middleware(['participant', 'participant-activity'])->get('/p/{activity_slug}', [ActivityController::class, 'participant'])->name('participant.activity');
     });
 
 });
