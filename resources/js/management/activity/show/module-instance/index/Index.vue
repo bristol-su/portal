@@ -168,9 +168,7 @@
                             this.$api.moduleInstances().delete(data)
                                 .then(
                                     this.$notify.success('Module successfully deleted.'),
-                                    window.setTimeout(function() {
-                                        location.reload();
-                                    }, 3000)
+                                    setTimeout(() => window.location.reload(), 3000)
                                 )
                                 .catch(error => this.$notify.alert('Could not delete the Module: ' + error.message));
                         } else {

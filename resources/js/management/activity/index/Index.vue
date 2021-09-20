@@ -59,9 +59,7 @@
                             this.$api.activity().delete(data.item.id)
                             .then(
                                 this.$notify.success('Activity successfully deleted.'),
-                                window.setTimeout(function() {
-                                    window.reload();
-                                }, 3000)
+                                setTimeout(() => window.location.reload(), 3000)
                             )
                             .catch(error => this.$notify.alert('Could not delete the Activity: ' + error.message));
                         } else {
