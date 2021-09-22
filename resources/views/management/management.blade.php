@@ -1,8 +1,10 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Site Management')
+@section('title', 'Site Management')
 
-@section('settings-content')
+@section('app-content')
    From here, you can control the content on the portal.
 
 @endsection
+
+

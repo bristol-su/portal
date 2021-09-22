@@ -1,7 +1,8 @@
 export default {
     "authentication": {
         "credentials": {
-            "identifier": "authentication.credentials.identifier"
+            "identifier": "authentication.credentials.identifier",
+            "identifier_validation": "authentication.credentials.identifier_validation"
         },
         "access": {
             "registration-enabled": "authentication.access.registration-enabled",
@@ -15,7 +16,9 @@ export default {
         "messaging": {
             "controluser-registration-not-allowed-message": "authentication.messaging.controluser-registration-not-allowed-message",
             "datauser-registration-not-allowed-message": "authentication.messaging.datauser-registration-not-allowed-message",
-            "already-registered": "authentication.messaging.already-registered"
+            "already-registered": "authentication.messaging.already-registered",
+            "login-subtitle": "authentication.messaging.login-subtitle",
+            "register-subtitle": "authentication.messaging.register-subtitle"
         }
     },
     "social-drivers": {

@@ -19,22 +19,23 @@
         "laravel/vapor-core": "^2.5",
         "predis/predis": "^1.1",
         "larabug/larabug": "^2.3",
-        "bristol-su/support": "^5.0.0",
         "bristol-su/control": "^3.0.1",
         "laravel/vapor-ui": "^1.0",
         "laravel/ui": "^3.0",
         "linkeys/signed-url": "^3.0.1",
         "twigger/laravel-translate": "dev-develop",
         "stichoza/google-translate-php": "^4.1",
-        "bristol-su/portal-auth": "^0.0.1",
         "laravel/legacy-factories": "^v1.1.0",
-        "bristol-su/static-page": "^2.0.0",
-        "bristol-su/upload-file": "^2.0.0",
-        "bristol-su/data-entry": "^2.0.0",
-        "bristol-su/airtable": "^3.0.0",
+        "bristol-su/portal-auth": "dev-develop as v0.0.1",
+        "bristol-su/support": "^5.0.0",
+        "bristol-su/upload-file": "dev-develop as 2.0.0",
+        "bristol-su/static-page": "dev-develop as 2.0.0",
+        "bristol-su/typeform": "dev-develop as 2.0.0",
+        "bristol-su/data-entry": "dev-develop as 2.0.0",
         "bristol-su/unioncloud-portal": "^2.0.0",
-        "bristol-su/typeform": "^2.0.0",
-        "bristol-su/assign-roles": "^2.0.0"
+        "laravel/telescope": "^4.6",
+        "bristol-su/assign-roles": "dev-develop",
+        "bristol-su/airtable": "^3.0.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",
@@ -49,7 +50,8 @@
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3",
-        "laravel/sail": "^1.2"
+        "laravel/sail": "^1.2",
+        "orchestra/testbench": "^6.21"
     },
     "autoload": {
         "psr-4": {
@@ -73,7 +75,8 @@
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --force --tag=module",
             "@php artisan vapor-ui:publish --ansi",
-            "@php artisan settings:keys"
+            "@php artisan settings:keys",
+            "@php artisan telescope:publish --ansi"
         ]
     },
     "extra": {

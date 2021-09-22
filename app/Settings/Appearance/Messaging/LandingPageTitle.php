@@ -51,13 +51,11 @@ class LandingPageTitle extends GlobalSetting
      */
     public function fieldOptions(): Field
     {
-        return \FormSchema\Generator\Field::input($this->inputName())
-            ->inputType('text')
-            ->label('Landing Page Title')
-            ->default($this->defaultValue())
-            ->hint('The title of the landing page')
-            ->help('This will be shown on the landing page of the portal, and should explain what the portal is.')
-            ->getSchema();
+        return \FormSchema\Generator\Field::textInput($this->inputName())
+            ->setLabel('Landing Page Title')
+            ->setValue($this->defaultValue())
+            ->setHint('The title of the landing page')
+            ->setTooltip('This will be shown on the landing page of the portal, and should explain what the portal is.');
 
     }
 }
