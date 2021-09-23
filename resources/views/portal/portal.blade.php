@@ -45,4 +45,9 @@
         </p-card-group>
     @endif
 
+    @if($activities['user']->count() === 0 && $groups->count() === 0 && $roles->count() === 0)
+        <div class="text-center">
+            If you've been asked to complete an activity on the portal but can't see anything below, please contact us for help.
+        </div>
+    @endif
 @endsection
