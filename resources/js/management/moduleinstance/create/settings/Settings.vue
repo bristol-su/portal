@@ -2,8 +2,8 @@
     <div style="text-align: left;">
         <div v-if="loading">Loading...</div>
         <div v-else>
-            <vue-form-generator :schema="settingsSchema.schema" :model="model" :options="settingsSchema.options">
-            </vue-form-generator>
+            <p-dynamic-form :schema="settingsSchema" v-model="model">
+            </p-dynamic-form>
         </div>
         <b-button @click="saveSettings">Save Settings</b-button>
 
@@ -11,8 +11,7 @@
 </template>
 
 <script>
-    import moduleInstanceSettings from '../../../../utilities/api/resources/moduleInstanceSettings';
-    import VueFormGenerator from 'vue-form-generator';
+
     import axios from 'axios';
 
     export default {
@@ -63,7 +62,7 @@
                                 this.$set(model, setting.key, setting.value)
                             }
                         });
-                        this.model = VueFormGenerator.schema.createDefaultObject(this.settingsSchema.schema, model);
+                        this.model = model;
                     })
                     .catch(error => this.$notify.alert('Could not load settings: ' + error.message))
                     .then(() => this.settingsLoading = false);

@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Assign Permissions')
+@section('title', 'Assign Permissions')
 
-@section('settings-content')
+@section('app-content')
 
     <site-permission
         :permission="{{$permission}}">
@@ -10,3 +10,5 @@
     </site-permission>
 
 @endsection
+
+

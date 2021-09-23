@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\Authentication\Contracts\Authentication;
+use BristolSU\Support\Authorization\Exception\ActivityRequiresParticipant;
 use BristolSU\Support\Logic\Contracts\Audience\AudienceMemberFactory;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class LogIntoParticipantController extends Controller
 {
@@ -21,13 +23,11 @@ class LogIntoParticipantController extends Controller
         $groups = ($activity->activity_for !== 'role' ? $audienceMember->groups() : collect());
 
         if(!$canBeUser && $groups->isEmpty() && $audienceMember->roles()->isEmpty()) {
-            return view('errors.no_activity_access')->with([
-                'admin' => false,
-                'activity' => $activity
-            ]);
+            $exception = new HttpException(403, 'You must be in a role to access this page');
+            return view('errors.error')->with('exception', $exception);
         }
 
-        return view('auth.login.resource')->with([
+        return view('auth.resource-login')->with([
             'admin' => false,
             'user' => $user,
             'canBeUser' => $canBeUser,

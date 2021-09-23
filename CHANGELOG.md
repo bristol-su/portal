@@ -7,11 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Redesign of the public-facing site using a UI kit
+
+### Fixed
+- When a resource is deleted, you can't then access any pages with that resource on
+
+## [3.2.1] - 2021-08-15
+
 ### Updated
-- portal-294: Move Laravel version 8
+- Update composer dependencies to stable versions
+
+## [3.2.0] - 2021-08-14
+
+### Updated
+- portal-294: Update to Laravel version 8
 
 ### Added
 - portal-224: Support for Laravel Sail
+- Support for SDK 5
 
 ### Removed
 - portal-157: Removed config/portal.php
@@ -68,7 +82,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - AirTable integration updated to v2.0.0, changed control configuration to match new schema.
 
-[Unreleased]: https://github.com/bristol-su/portal/compare/v3.1.6...HEAD
+[Unreleased]: https://github.com/bristol-su/portal/compare/v3.2.1...HEAD
+[3.2.1]: https://github.com/bristol-su/portal/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/bristol-su/portal/compare/v3.1.6...v3.2.0
 [3.1.6]: https://github.com/bristol-su/portal/compare/v3.1.5...v3.1.6
 [3.1.5]: https://github.com/bristol-su/portal/compare/v3.1.4...v3.1.5
 [3.1.4]: https://github.com/bristol-su/portal/compare/v3.1.3...v3.1.4

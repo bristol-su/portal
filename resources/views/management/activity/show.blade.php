@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', $activity->name)
+@section('title', $activity->name)
 
-@section('settings-content')
+@section('app-content')
 
     <activity-show
         :activity="{{$activity}}">
@@ -10,3 +10,5 @@
     </activity-show>
 
 @endsection
+
+

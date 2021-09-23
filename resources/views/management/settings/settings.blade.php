@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Settings')
+@section('title', 'Settings')
 
-@section('settings-content')
+@section('app-content')
 
     <ul class="nav nav-pills nav-fill">
         @foreach($categories as $category)
@@ -19,3 +19,5 @@
     </div>
 
 @endsection
+
+

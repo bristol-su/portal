@@ -11,9 +11,7 @@
             <b-input type="text" v-model="name" placeholder="Name of the condition"></b-input>
             <b-input type="text" v-model="description" placeholder="Description of the condition"></b-input>
 
-            <vue-form-generator :schema="selectedCondition.options.schema" :model="settings" :options="selectedCondition.options.options">
-
-            </vue-form-generator>
+            <p-dynamic-form :schema="selectedCondition.options" v-model="settings"></p-dynamic-form>
 
             <div style="text-align: right;">
 
@@ -24,7 +22,6 @@
 </template>
 
 <script>
-    import VueFormGenerator from 'vue-form-generator';
     export default {
         name: "CompletionCondition",
 
@@ -49,7 +46,7 @@
         watch: {
             alias(val) {
                 if(val !== null) {
-                    this.settings = VueFormGenerator.schema.createDefaultObject(this.selectedCondition.options.schema);
+                    this.settings = {};
                 }
             }
         },

@@ -51,13 +51,11 @@ class Footer extends GlobalSetting
      */
     public function fieldOptions(): Field
     {
-        return \FormSchema\Generator\Field::input($this->inputName())
-            ->inputType('text')
-            ->label('Footer Text')
-            ->default($this->defaultValue())
-            ->hint('The text to show in the footer')
-            ->help('You can use the decimal reference to render symbols.')
-            ->getSchema();
+        return \FormSchema\Generator\Field::textInput($this->inputName())
+            ->setLabel('Footer Text')
+            ->setValue($this->defaultValue())
+            ->setHint('The text to show in the footer')
+            ->setTooltip('You can use the decimal reference to render symbols.');
 
     }
 }

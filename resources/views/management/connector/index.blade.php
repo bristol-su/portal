@@ -1,10 +1,12 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Connectors')
+@section('title', 'Connectors')
 
-@section('settings-content')
+@section('app-content')
     <connector-index>
 
     </connector-index>
 
 @endsection
+
+

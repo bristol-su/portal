@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Create Module Instance')
+@section('title', 'Create Module Instance')
 
-@section('settings-content')
+@section('app-content')
 
     <module-instance-create
         :activity="{{$activity}}"
@@ -11,3 +11,5 @@
     </module-instance-create>
 
 @endsection
+
+

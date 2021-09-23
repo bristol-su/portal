@@ -1,11 +1,13 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Create Activity')
+@section('title', 'Create Activity')
 
-@section('settings-content')
+@section('app-content')
 
     <activity-create>
 
     </activity-create>
 
 @endsection
+
+

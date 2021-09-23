@@ -1,22 +1,53 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard')
+
 @section('app-content')
-    <div class="container-fluid" style="text-align: center">
 
-    <toggle-admin-or-participant
-    :admin="{{($administrator?'true':'false')}}">
+    @if($activities['user']->count() > 0)
+        <p-card-group title="Personal">
+            <p-card
+                title="Personal Activities"
+                url="{{route(sprintf('summary.%s.user', $administrator ? 'a' : 'p')) }}"
+                url-text="View"
+            >
+            </p-card>
+        </p-card-group>
+    @endif
 
-    </toggle-admin-or-participant>
+    @if($groups->count() > 0)
+        <p-card-group title="Student Group Memberships">
+            @foreach($groups as $group)
+                @if(isset($activities['group'][$group->id()]) && $activities['group'][$group->id()]->count() > 0)
+                <p-card
+                    title="Membership to {{$group->data()->name()}}"
+                    url="{{route(sprintf('summary.%s.group', $administrator ? 'a' : 'p'), ['control_group' => $group->id()])}}?g={{$group->id()}}"
+                    url-text="View"
+                >
+                </p-card>
+                @endif
+            @endforeach
+        </p-card-group>
+    @endif
 
-    <activities
-        :activities="{{json_encode($activities)}}"
-        :admin="{{($administrator?'true':'false')}}"
-        :role-group="{{json_encode($roleGroupRelations)}}"
-        :user-id="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->id()}}"
-        :roles="{{$roles->toJson()}}"
-        :groups="{{$groups->toJson()}}">
-    </activities>
+    @if($roles->count() > 0)
+        <p-card-group title="Student Group Committee Roles">
+            @foreach($roles as $role)
+                @if(isset($activities['role'][$role->id()]) && $activities['role'][$role->id()]->count() > 0)
+                    <p-card
+                        title="{{($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name())}} of {{$role->group()->data()->name()}}"
+                        url="{{route(sprintf('summary.%s.role', $administrator ? 'a' : 'p'), ['control_role' => $role->id()])}}?r={{$role->id()}}&g={{$role->groupId()}}"
+                        url-text="View"
+                    >
+                    </p-card>
+                @endif
+            @endforeach
+        </p-card-group>
+    @endif
 
-    </div>
-
+    @if($activities['user']->count() === 0 && $groups->count() === 0 && $roles->count() === 0)
+        <div class="text-center">
+            If you've been asked to complete an activity on the portal but can't see anything below, please contact us for help.
+        </div>
+    @endif
 @endsection

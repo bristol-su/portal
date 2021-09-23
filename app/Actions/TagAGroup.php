@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use BristolSU\ControlDB\Contracts\Models\Tags\GroupTag;
 use BristolSU\ControlDB\Contracts\Repositories\Group as GroupRepository;
 use BristolSU\ControlDB\Contracts\Repositories\Tags\GroupTag as GroupTagRepository;
 use BristolSU\Support\Action\ActionResponse;
@@ -17,21 +18,12 @@ class TagAGroup extends Action
      */
     public static function options(): Form
     {
-        $tags = app(GroupTagRepository::class)->all();
-        $values = [];
-        foreach ($tags as $tag) {
-            $values[] = [
-                'id' => $tag->id(),
-                'name' => sprintf('%s (%s)', $tag->name(), $tag->fullReference()),
-                'group' => $tag->category()->name()
-            ];
-        }
+        $selectField = \FormSchema\Generator\Field::select('tag_id')->setLabel('Tag')->setRequired(true);
+        app(GroupTagRepository::class)->all()->each(fn(GroupTag $groupTag) => $selectField->withOption($groupTag->fullReference(), sprintf('%s (%s)', $groupTag->name(), $groupTag->fullReference()), $groupTag->category()->name()));
 
         return \FormSchema\Generator\Form::make()->withField(
             Field::input('group_id')->inputType('text')->label('Group ID')->required(true)->default(null)->hint('The ID of the group to tag')
-        )->withField(
-            \FormSchema\Generator\Field::select('tag_id')->values($values)->label('Tag')->required(true)
-        )->getSchema();
+        )->withField($selectField)->getSchema();
     }
 
     /**

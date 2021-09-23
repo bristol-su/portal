@@ -1,101 +1,39 @@
 <div id="header-vue-root">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-        <div class="container">
 
-            <!-- Left side of the navbar -->
-            @auth
-                <a class="navbar-brand" href="{{url('/')}}">
-                    <img style="max-height: 40px" src="{{asset('images/logo.jpg')}}"/>
-                    &nbsp;&nbsp;
-                    {{ config('app.name', 'Committee Portal') }}
+    @if(app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->hasUser() && !app('router')->is(['verify.notice', 'password.confirmation.notice']))
+    <p-topbar
+        logo="{{ asset('images/logo.png') }}"
+        home-route="{{route('portal')}}"
+        logout-route="{{route('logout')}}"
+        control-route="{{route('control')}}"
+        settings-route="{{route('management')}}"
+        :can-access-control="{{(\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('access-control') ? 'true' : 'false' )}}"
+        :can-access-settings="{{(\BristolSU\Support\Permissions\Facade\PermissionTester::evaluate('view-management') ? 'true' : 'false' )}}"
+        site-name="{{config('app.name', 'Committee Portal')}}"
+        default-avatar-src="{{asset('images/smallLogo.jpeg')}}"
+        user-name="{{app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName() ?? (app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->firstName() . ' ' . app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->lastName())}}"
+        >
+    </p-topbar>
+    @endif
 
-                </a>
-            @else
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Committee Portal') }}
-                </a>
-        @endauth
-
-        <!-- Navigation toggle for smaller screens -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Right side of NavBar -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                @guest
-                    <!-- Login and register links for non logged in users -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                @else
-
-
-                    <!-- Account Management -->
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ app(\BristolSU\Support\Authentication\Contracts\Authentication::class)->getUser()->data()->preferredName() }} <span
-                                    class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <!-- Home -->
-                                <a class="dropdown-item" href="#">
-                                    @if($currentRole !== null)
-                                        Acting as {{$currentRole->data()->roleName()}}
-                                        of {{$currentRole->group()->data()->name()}}
-                                    @elseif($currentGroup !== null)
-                                        Acting in your membership to {{$currentGroup->data()->name()}}
-                                    @elseif($currentUser !== null)
-                                        Acting as yourself
-                                    @else
-                                        Not acting as anything
-                                    @endif
-                                </a>
-                                <a class="dropdown-item" href="{{url('/')}}">Home</a>
-                                <!-- Settings -->
-
-                                @can('view-management')
-                                    <a class="dropdown-item" href="{{ route('management') }}">Management</a>
-                                @endcan
-                                @can('access-control')
-                                    <a class="dropdown-item" href="{{ route('control') }}">Control</a>
-                            @endcan
-                            <!-- Logout -->
-                                <a class="dropdown-item" href="#"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">@csrf</form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
-        </div>
-    </nav>
-    @auth
-        <div>
-            <validation-errors></validation-errors>
-        </div>
-        <div>
-            <breadcrumbs
-                query-string="{{\Illuminate\Routing\UrlGenerator::getAuthQueryString()}}"
-                :admin="{{(request()->is('a/*') ? 'true' : 'false')}}"
-                previous="{{url()->previous()}}"
-                :hide-back="{{(request()->is('p', 'a') ? 'true' : 'false')}}"></breadcrumbs>
-        </div>
-    @endauth
+{{--    @auth--}}
+{{--        <div>--}}
+{{--            <validation-errors></validation-errors>--}}
+{{--        </div>--}}
+{{--        <div>--}}
+{{--            <breadcrumbs--}}
+{{--                query-string="{{\Illuminate\Routing\UrlGenerator::getAuthQueryString()}}"--}}
+{{--                :admin="{{(request()->is('a/*') ? 'true' : 'false')}}"--}}
+{{--                previous="{{url()->previous()}}"--}}
+{{--                :hide-back="{{(request()->is('p', 'a') ? 'true' : 'false')}}"></breadcrumbs>--}}
+{{--        </div>--}}
+{{--    @endauth--}}
 </div>
 
 @push('scripts')
     <script src="{{ mix('js/header.js') }}"></script>
 @endpush
+
+{{--                            <h1 class="mx-auto mb-12 text-2xl font-semibold leading-none tracking-tighter text-black lg:text-3xl title-font" v-if="pageTitle" v-text="pageTitle"></h1>--}}
+{{--                            <h2 class="mx-auto mb-4 text-xl font-semibold leading-none tracking-tighter text-black title-font" v-if="pageSubtitle" v-text="pageSubtitle"></h2>--}}
+{{--                            <p class="mx-auto text-base font-medium leading-relaxed text-blueGray-700 " v-if="pageContent" v-text="pageContent"></p>--}}

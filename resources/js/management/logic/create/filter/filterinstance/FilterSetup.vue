@@ -17,12 +17,7 @@
                     ></b-form-input>
                 </b-form-group>
 
-
-                <vue-form-generator :schema="filter.options.schema" :model="settings" :options="filter.options.options">
-
-                </vue-form-generator>
-
-
+                <p-dynamic-form :schema="filter.options" v-model="settings"></p-dynamic-form>
 
                 <b-button variant="primary" @click="addFilter">Submit</b-button>
             </b-form>
@@ -31,8 +26,6 @@
 </template>
 
 <script>
-
-    import VueFormGenerator from 'vue-form-generator';
 
     export default {
         name: "FilterSetup",
@@ -49,10 +42,6 @@
                 name: '',
                 settings: {}
             }
-        },
-
-        created() {
-            this.settings = VueFormGenerator.schema.createDefaultObject(this.filter.options.schema);
         },
 
         methods: {

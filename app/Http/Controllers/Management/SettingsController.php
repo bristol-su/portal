@@ -8,7 +8,7 @@ use BristolSU\Support\Settings\Definition\SettingStore;
 use FormSchema\Generator\Field;
 use FormSchema\Generator\Form;
 use FormSchema\Generator\Group;
-use FormSchema\Transformers\VFGTransformer;
+use FormSchema\Transformers\Transformer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SettingsController extends Controller
@@ -36,7 +36,7 @@ class SettingsController extends Controller
             foreach($group->globalSettings($categoryModel) as $setting) {
                 $settingKeys[$setting->inputName()] = $setting->key();
                 $field = $setting->fieldOptions();
-                $field->default($setting->value());
+                $field->setValue($setting->value());
                 $groupSchema->addField($field);
             }
             $formSchema->addGroup($groupSchema);
@@ -48,7 +48,7 @@ class SettingsController extends Controller
                     ->filter(fn(Category $category) => count($category->groupsWithGlobalSettings()) > 0)
             )
             ->with('active', $category)
-            ->with('form', (new VFGTransformer())->transformToArray($formSchema))
+            ->with('form', app(Transformer::class)->transformToArray($formSchema))
             ->with('settingKeys', $settingKeys);
     }
 
