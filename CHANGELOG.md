@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Redesign of the public-facing site using a UI kit
 
+### Fixed
+- When a resource is deleted, you can't then access any pages with that resource on
+
 ## [3.2.1] - 2021-08-15
 
 ### Updated

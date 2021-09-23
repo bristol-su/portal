@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "459449173e74a7aeff482d65b57652f7",
+    "content-hash": "d1fac1cfc2d9ad51b311301bd6d5ffac",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -379,16 +379,16 @@
         },
         {
             "name": "bristol-su/control",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "c01b10bbbd3ec21ad1ab87c8b119ceb382137405"
+                "reference": "378a041b36e9f288961551573fffc26a485620e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/c01b10bbbd3ec21ad1ab87c8b119ceb382137405",
-                "reference": "c01b10bbbd3ec21ad1ab87c8b119ceb382137405",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/378a041b36e9f288961551573fffc26a485620e4",
+                "reference": "378a041b36e9f288961551573fffc26a485620e4",
                 "shasum": ""
             },
             "require": {
@@ -431,9 +431,9 @@
             "description": "An implementation of the control contracts",
             "support": {
                 "issues": "https://github.com/bristol-su/control/issues",
-                "source": "https://github.com/bristol-su/control/tree/v3.0.1"
+                "source": "https://github.com/bristol-su/control/tree/v3.0.2"
             },
-            "time": "2021-08-05T16:26:17+00:00"
+            "time": "2021-09-23T12:11:31+00:00"
         },
         {
             "name": "bristol-su/data-entry",
@@ -613,21 +613,21 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v5.0.1",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "3658ea004d955f9a19fddcbef3d8a7b052f5369e"
+                "reference": "1fc66bf92038dafcbc04eed388afff89384191c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/3658ea004d955f9a19fddcbef3d8a7b052f5369e",
-                "reference": "3658ea004d955f9a19fddcbef3d8a7b052f5369e",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/1fc66bf92038dafcbc04eed388afff89384191c1",
+                "reference": "1fc66bf92038dafcbc04eed388afff89384191c1",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.158",
-                "bristol-su/control": "^3.0.1",
+                "bristol-su/control": "^3.0.2",
                 "doctrine/dbal": "^2.10",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^7.0.0",
@@ -683,9 +683,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/support/issues",
-                "source": "https://github.com/bristol-su/support/tree/v5.0.1"
+                "source": "https://github.com/bristol-su/support/tree/v5.0.2"
             },
-            "time": "2021-09-22T11:03:16+00:00"
+            "time": "2021-09-23T12:16:17+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -851,12 +851,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "f68d0c750599ea4f9e897b83c0582ab130d1c8b9"
+                "reference": "b889f0a962d1d13c658b28d8d204f4c437de8455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/f68d0c750599ea4f9e897b83c0582ab130d1c8b9",
-                "reference": "f68d0c750599ea4f9e897b83c0582ab130d1c8b9",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/b889f0a962d1d13c658b28d8d204f4c437de8455",
+                "reference": "b889f0a962d1d13c658b28d8d204f4c437de8455",
                 "shasum": ""
             },
             "require": {
@@ -895,7 +895,7 @@
                 "issues": "https://github.com/bristol-su/upload-file/issues",
                 "source": "https://github.com/bristol-su/upload-file/tree/develop"
             },
-            "time": "2021-09-22T12:03:16+00:00"
+            "time": "2021-09-23T11:12:59+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2416,16 +2416,16 @@
         },
         {
             "name": "hollodotme/fast-cgi-client",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hollodotme/fast-cgi-client.git",
-                "reference": "8a9b2bd38ccfd8fc6905a6b1acfbb9f84ed700dd"
+                "reference": "c8c79696cbe1f474c814b99bf48f54a85ad9f6f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/8a9b2bd38ccfd8fc6905a6b1acfbb9f84ed700dd",
-                "reference": "8a9b2bd38ccfd8fc6905a6b1acfbb9f84ed700dd",
+                "url": "https://api.github.com/repos/hollodotme/fast-cgi-client/zipball/c8c79696cbe1f474c814b99bf48f54a85ad9f6f6",
+                "reference": "c8c79696cbe1f474c814b99bf48f54a85ad9f6f6",
                 "shasum": ""
             },
             "require": {
@@ -2433,29 +2433,9 @@
                 "php": ">=7.1"
             },
             "require-dev": {
-                "ext-xdebug": ">=2.6.0",
-                "tm/tooly-composer-script": "^1.4.1"
+                "ext-xdebug": ">=2.6.0"
             },
             "type": "library",
-            "extra": {
-                "tools": {
-                    "phpunit7": {
-                        "url": "https://phar.phpunit.de/phpunit-7.phar",
-                        "replace": true,
-                        "only-dev": true
-                    },
-                    "phpunit8": {
-                        "url": "https://phar.phpunit.de/phpunit-8.phar",
-                        "replace": true,
-                        "only-dev": true
-                    },
-                    "phpunit9": {
-                        "url": "https://phar.phpunit.de/phpunit-9.phar",
-                        "replace": true,
-                        "only-dev": true
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "hollodotme\\FastCGI\\": "src/"
@@ -2480,9 +2460,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hollodotme/fast-cgi-client/issues",
-                "source": "https://github.com/hollodotme/fast-cgi-client/tree/v3.1.5"
+                "source": "https://github.com/hollodotme/fast-cgi-client/tree/v3.1.6"
             },
-            "time": "2020-12-10T10:15:06+00:00"
+            "time": "2021-09-23T10:05:19+00:00"
         },
         {
             "name": "larabug/larabug",
