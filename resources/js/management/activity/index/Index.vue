@@ -26,9 +26,7 @@
             canDelete: {
                 required: false,
                 type: Boolean,
-                default: function() {
-                    return false;
-                }
+                default: false
             }
         },
 
