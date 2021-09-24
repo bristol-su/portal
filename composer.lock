@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1fac1cfc2d9ad51b311301bd6d5ffac",
+    "content-hash": "9a24f09c9fb330cd233a357fe7c32a21",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -613,7 +613,7 @@
         },
         {
             "name": "bristol-su/support",
-            "version": "v5.0.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
@@ -644,6 +644,7 @@
                 "orchestra/testbench": "^6.0",
                 "phpspec/prophecy-phpunit": "^2.0.1"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -13975,6 +13976,12 @@
             "alias_normalized": "2.0.0.0"
         },
         {
+            "package": "bristol-su/support",
+            "version": "dev-develop",
+            "alias": "5.0.2",
+            "alias_normalized": "5.0.2.0"
+        },
+        {
             "package": "bristol-su/typeform",
             "version": "dev-develop",
             "alias": "2.0.0",
@@ -13991,6 +13998,7 @@
     "stability-flags": {
         "twigger/laravel-translate": 20,
         "bristol-su/portal-auth": 20,
+        "bristol-su/support": 20,
         "bristol-su/upload-file": 20,
         "bristol-su/static-page": 20,
         "bristol-su/typeform": 20,
@@ -14004,5 +14012,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
