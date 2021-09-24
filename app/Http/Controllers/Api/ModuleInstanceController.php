@@ -39,7 +39,7 @@ class ModuleInstanceController extends Controller
     {
         $this->authorize('view-management');
         $moduleInstance->delete();
-        return response($moduleInstance)->json();
+        return response()->json($moduleInstance);
     }
 
 }

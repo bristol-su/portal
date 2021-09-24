@@ -89,6 +89,6 @@ class ActivityController extends Controller
     {
         $this->authorize('view-management');
         $activity->delete();
-        return response($activity)->json();
+        return response()->json($activity);
     }
 }
