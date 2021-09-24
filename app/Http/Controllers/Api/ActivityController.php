@@ -82,13 +82,13 @@ class ActivityController extends Controller
 
     /**
      * @param Activity $activity
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Activity $activity)
     {
         $this->authorize('view-management');
         $activity->delete();
-        return response($activity);
+        return response($activity)->json();
     }
 }
