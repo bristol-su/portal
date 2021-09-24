@@ -2,10 +2,9 @@
 
 namespace App\Jobs;
 
-use App\Support\Progress\Progress;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\ActivityInstance\Contracts\DefaultActivityInstanceGenerator;
-use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
+use BristolSU\Support\Logic\Audience\Audience;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -31,21 +30,21 @@ class CreateMissingActivityInstances implements ShouldQueue
      *
      * @return void
      */
-    public function handle(LogicAudience $logicAudience, DefaultActivityInstanceGenerator $generator)
+    public function handle(DefaultActivityInstanceGenerator $generator)
     {
-        foreach($this->audience($logicAudience) as $audience) {
+        foreach($this->audience() as $audience) {
             $generator->generate($this->activity, $this->activity->activity_for, $audience->id());
         }
     }
 
-    private function audience(LogicAudience $logicAudience)
+    private function audience()
     {
         if ($this->activity->activity_for === 'user') {
-            return $logicAudience->userAudience($this->activity->forLogic);
+            return Audience::getUsersInLogicGroup($this->activity->forLogic);
         } elseif ($this->activity->activity_for === 'group') {
-            return $logicAudience->groupAudience($this->activity->forLogic);
+            return Audience::getGroupsInLogicGroup($this->activity->forLogic);
         } elseif ($this->activity->activity_for === 'role') {
-            return $logicAudience->roleAudience($this->activity->forLogic);
+            return Audience::getRolesInLogicGroup($this->activity->forLogic);
         }
     }
 
