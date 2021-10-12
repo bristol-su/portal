@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Contracts\Repository as ActivityRepositoryContract;
 use BristolSU\ControlDB\Contracts\Repositories\User as UserRepository;
 use BristolSU\Support\Authentication\Contracts\Authentication;
+use BristolSU\Support\Logic\Contracts\Audience\AudienceMemberFactory;
 use Illuminate\Support\Facades\Response;
 
 class PortalController extends Controller

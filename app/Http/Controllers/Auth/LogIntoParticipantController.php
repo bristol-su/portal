@@ -5,19 +5,21 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Activity\Activity;
 use BristolSU\Support\Authentication\Contracts\Authentication;
-use BristolSU\Support\Authorization\Exception\ActivityRequiresParticipant;
-use BristolSU\Support\Logic\Contracts\Audience\AudienceMemberFactory;
+use BristolSU\Support\Logic\Audience\Audience;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class LogIntoParticipantController extends Controller
 {
 
-    public function show(Request $request, Activity $activity, AudienceMemberFactory $factory, Authentication $authentication)
+    public function show(Request $request, Activity $activity, Authentication $authentication)
     {
         $user = $authentication->getUser();
-        $audienceMember = $factory->fromUser($user);
-        $audienceMember->filterForLogic($activity->forLogic);
+        $audienceMember = Audience::audience($activity->forLogic, $user)->first();
+
+        if($audienceMember === null) {
+            return redirect()->to('portal');
+        }
 
         $canBeUser = ($activity->activity_for === 'user' && $audienceMember->canBeUser());
         $groups = ($activity->activity_for !== 'role' ? $audienceMember->groups() : collect());

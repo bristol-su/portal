@@ -5,30 +5,30 @@ namespace App\Http\Controllers\Api\Relationships;
 
 
 use App\Http\Controllers\Controller;
-use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
+use BristolSU\Support\Logic\Audience\Audience;
 use BristolSU\Support\Logic\Logic;
 
 class LogicAudienceController extends Controller
 {
 
-    public function index(Logic $logic, LogicAudience $audience)
+    public function index(Logic $logic)
     {
-        return collect($audience->audience($logic));
+        return collect(Audience::audience($logic));
     }
 
-    public function user(Logic $logic, LogicAudience $audience)
+    public function user(Logic $logic)
     {
-        return $audience->userAudience($logic);
+        return Audience::getUsersInLogicGroup($logic);
     }
 
-    public function group(Logic $logic, LogicAudience $audience)
+    public function group(Logic $logic)
     {
-        return $audience->groupAudience($logic);
+        return Audience::getGroupsInLogicGroup($logic);
     }
 
-    public function role(Logic $logic, LogicAudience $audience)
+    public function role(Logic $logic)
     {
-        return $audience->roleAudience($logic);
+        return Audience::getRolesInLogicGroup($logic);
     }
 
 }

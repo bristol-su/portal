@@ -135,6 +135,9 @@ class Kernel extends HttpKernel
         // Check an activity is enabled
         \BristolSU\Support\Authorization\Middleware\CheckActivityEnabled::class,
 
+        // Check the user is in the activity for logic group
+        \BristolSU\Support\Authorization\Middleware\CheckActivityFor::class,
+
         // Ensure an activity instance has been set
         \BristolSU\Support\ActivityInstance\Middleware\CheckLoggedIntoActivityInstance::class,
 
@@ -146,9 +149,6 @@ class Kernel extends HttpKernel
 
         // Check the user is logged into the correct model to use the activity
         \BristolSU\Support\Authorization\Middleware\CheckLoggedIntoActivityForType::class,
-
-        // Check the user is in the activity for logic group
-        \BristolSU\Support\Authorization\Middleware\CheckActivityFor::class,
 
         // Authorization middleware for use with can:
         Authorize::class,

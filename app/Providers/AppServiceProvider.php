@@ -52,9 +52,6 @@ class AppServiceProvider extends ServiceProvider
         ActionManager::registerAction(TagARole::class, 'Tag a Role', 'Tag a Role with a Tag');
         ActionManager::registerAction(TagAGroup::class, 'Tag a Group', 'Tag a Group with a Tag');
 
-        //$this->app->extend(LogicAudience::class, function($service, $app) {
-       //     return new LogicAudienceCacher($service, $app->make(Repository::class));
-       // });
     }
 
     /**
