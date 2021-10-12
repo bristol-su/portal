@@ -21,6 +21,7 @@
                     </b-tab>
                     <b-tab title="Modules">
                         <module-index
+                            :can-delete="canDelete"
                             :activity="activity">
 
                         </module-index>
@@ -44,6 +45,13 @@
             activity: {
                 required: true,
                 type: Object
+            },
+            canDelete: {
+                required: false,
+                type: Boolean,
+                default: function() {
+                    return false;
+                }
             }
         },
 
