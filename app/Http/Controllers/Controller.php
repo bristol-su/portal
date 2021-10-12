@@ -20,12 +20,17 @@ class Controller extends BaseController
      */
     public function paginate($items)
     {
+        $paginationItems = $this->getItemsToPaginate($items);
+
+        return $this->paginationResponse($paginationItems, count($items));
+    }
+
+    public function getItemsToPaginate($items)
+    {
         $perPage = request()->input('per_page', 10);
         $page = request()->input('page', 1);
 
-        $slicedItems = collect($items)->forPage($page, $perPage)->values();
-
-        return $this->paginationResponse($slicedItems, count($items));
+        return collect($items)->forPage($page, $perPage)->values();
     }
 
     public function paginationResponse($items, $count)

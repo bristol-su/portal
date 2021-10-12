@@ -14,10 +14,6 @@ export default class extends BaseResource{
         return this.request('post',  '/logic', attributes);
     }
 
-    audience(logicId) {
-        return this.request('get', '/logic/' + logicId + '/audience');
-    }
-
     update(id, attributes) {
         return this.request('patch', '/logic/' + id, attributes);
     }
@@ -30,15 +26,19 @@ export default class extends BaseResource{
         return this.request('delete', '/logic/' + logicId + '/filter-instance/' + filterId);
     }
 
-    userAudience(logicId) {
-        return this.request('get', '/logic/' + logicId + '/audience/user');
+    audience(logicId, perPage = 10, page = 1) {
+        return this.request('get', '/logic/' + logicId + '/audience', null, {per_page: perPage, page: page});
     }
 
-    groupAudience(logicId) {
-        return this.request('get', '/logic/' + logicId + '/audience/group');
+    userAudience(logicId, perPage = 10, page = 1) {
+        return this.request('get', '/logic/' + logicId + '/audience/user', null, {per_page: perPage, page: page});
     }
 
-    roleAudience(logicId) {
-        return this.request('get', '/logic/' + logicId + '/audience/role');
+    groupAudience(logicId, perPage = 10, page = 1) {
+        return this.request('get', '/logic/' + logicId + '/audience/group', null, {per_page: perPage, page: page});
+    }
+
+    roleAudience(logicId, perPage = 10, page = 1) {
+        return this.request('get', '/logic/' + logicId + '/audience/role', null, {per_page: perPage, page: page});
     }
 }
