@@ -13,22 +13,22 @@ class LogicAudienceController extends Controller
 
     public function index(Logic $logic)
     {
-        return collect(Audience::audience($logic));
+        return $this->paginate(Audience::audience($logic));
     }
 
     public function user(Logic $logic)
     {
-        return Audience::getUsersInLogicGroup($logic);
+        return $this->paginate(Audience::getUsersInLogicGroup($logic));
     }
 
     public function group(Logic $logic)
     {
-        return Audience::getGroupsInLogicGroup($logic);
+        return $this->paginate(Audience::getGroupsInLogicGroup($logic));
     }
 
     public function role(Logic $logic)
     {
-        return Audience::getRolesInLogicGroup($logic);
+        return $this->paginate(Audience::getRolesInLogicGroup($logic));
     }
 
 }
