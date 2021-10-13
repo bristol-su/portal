@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use BristolSU\Support\Filters\FilterInstance;
 use BristolSU\Support\Logic\Logic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class LogicFilterInstanceController extends Controller
 {
@@ -27,10 +28,8 @@ class LogicFilterInstanceController extends Controller
 
     public function destroy(Logic $logic, FilterInstance $filterInstance)
     {
-        $filterInstance->logic_id = null;
-        $filterInstance->logic_type = null;
-        $filterInstance->save();
-        return $filterInstance;
+        $filterInstance->delete();
+        return Response::make(null, 204);
     }
 
 }
