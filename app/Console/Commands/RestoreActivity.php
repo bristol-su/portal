@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use BristolSU\Support\Activity\Activity;
-use BristolSU\Support\Activity\Contracts\Repository as ActivityRepository;
 use Illuminate\Console\Command;
 
 class RestoreActivity extends Command
