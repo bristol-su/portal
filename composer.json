@@ -27,7 +27,7 @@
         "stichoza/google-translate-php": "^4.1",
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/portal-auth": "dev-develop as v0.0.1",
-        "bristol-su/support": "^5.0.2",
+        "bristol-su/support": "dev-develop as 5.0.2",
         "bristol-su/upload-file": "dev-develop as 2.0.0",
         "bristol-su/static-page": "dev-develop as 2.0.0",
         "bristol-su/typeform": "dev-develop as 2.0.0",

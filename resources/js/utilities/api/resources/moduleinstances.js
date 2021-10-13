@@ -18,4 +18,7 @@ export default class extends BaseResource{
         return this.request('post', '/module-instance/' + moduleId + '/order/down');
     }
 
+    delete(id) {
+        return this.request('delete', 'module-instance/' + id);
+    }
 }
