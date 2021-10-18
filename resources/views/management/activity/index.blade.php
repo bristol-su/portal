@@ -1,10 +1,15 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'All Activities')
+@section('title', 'All Activities')
 
-@section('settings-content')
+@section('app-content')
     <activity-index
+        @can('view-management')
+            :can-delete=true
+        @endcan
         :activities="{{$activities}}">
 
     </activity-index>
 @endsection
+
+

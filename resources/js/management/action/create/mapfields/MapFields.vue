@@ -4,8 +4,7 @@
             Loading...
         </div>
         <div v-else>
-            <vue-form-generator :schema="actionInstance.action_schema.schema" :model="model" :options="actionInstance.action_schema.options">
-            </vue-form-generator>
+            <p-dynamic-form :schema="actionInstance.action_schema" v-model="model"></p-dynamic-form>
 
             <b-button variant="success" @click="saveActionInstanceFields">Save Action</b-button>
         </div>
@@ -14,7 +13,6 @@
 </template>
 
 <script>
-    import VueFormGenerator from 'vue-form-generator'
     import axios from 'axios';
 
     export default {
@@ -43,7 +41,7 @@
                     this.actionInstanceFields.forEach(field => {
                         currentData[field.action_field] = field.action_value;
                     });
-                    this.model = VueFormGenerator.schema.createDefaultObject(this.actionInstance.action_schema.schema, currentData);
+                    this.model = currentData;
                     this.loading = false;
                 })
                 .catch(error => this.$notify.alert('Could not load action instances'));

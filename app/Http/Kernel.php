@@ -4,9 +4,11 @@ namespace App\Http;
 
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\MarkAsManagement;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
+use BristolSU\Support\Authentication\Middleware\IsAuthenticated;
 use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -51,7 +53,8 @@ class Kernel extends HttpKernel
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
         'signed' => ValidateSignature::class,
-        'throttle' => ThrottleRequests::class
+        'throttle' => ThrottleRequests::class,
+        'markAsManagement' => MarkAsManagement::class
     ];
 
     /**
@@ -111,6 +114,8 @@ class Kernel extends HttpKernel
 
         // Throttle requests if needed
         ThrottleRequests::class,
+
+        IsAuthenticated::class,
 
         // Inject the module instance into the container
         \BristolSU\Support\ModuleInstance\Middleware\InjectModuleInstance::class,

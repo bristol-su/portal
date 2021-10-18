@@ -1,8 +1,8 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'All Logic')
+@section('title', 'All Logic')
 
-@section('settings-content')
+@section('app-content')
 
     <logic-index
     :logics="{{$logics}}">
@@ -10,3 +10,5 @@
     </logic-index>
 
 @endsection
+
+

@@ -28,9 +28,7 @@
             ></b-form-textarea>
         </b-form-group>
 
-        <vue-form-generator :schema="connector.settings.schema" :model="form.settings" :options="connector.settings.options">
-
-        </vue-form-generator>
+        <p-dynamic-form :schema="connector.settings" v-model="form.settings"></p-dynamic-form>
 
         <b-button variant="info" size="lg" @click="updateConnection">Save Connection</b-button>
     </div>

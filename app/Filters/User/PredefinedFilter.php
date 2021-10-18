@@ -16,9 +16,9 @@ class PredefinedFilter extends UserFilter
     public function options(): FormSchema
     {
         return Form::make()->withField(
-            Field::checkBox('result')->label('Result')->required(true)->default(false)
-                ->hint('Should users be allowed through?')
-                ->help('If ticked, all users will pass this filter. If not ticked, no users will.')
+            Field::checkBox('result')->setLabel('Result')->setRequired(true)->setValue(false)
+                ->setHint('Should users be allowed through?')
+                ->setTooltip('If ticked, all users will pass this filter. If not ticked, no users will.')
         )->getSchema();
     }
 

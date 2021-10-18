@@ -1,5 +1,7 @@
 @extends('bristolsu::base')
 
+@section('title-prefix'){{config('app.name')}} :: @endsection
+
 @section('title', 'Portal')
 
 @section('content')

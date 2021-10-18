@@ -16,9 +16,9 @@ class PredefinedFilter extends RoleFilter
     public function options(): FormSchema
     {
         return Form::make()->withField(
-            Field::checkBox('result')->label('Result')->required(true)->default(false)
-                ->hint('Should roles be allowed through?')
-                ->help('If ticked, all roles will pass this filter. If not ticked, no roles will.')
+            Field::checkBox('result')->setLabel('Result')->setRequired(true)->setValue(false)
+                ->setHint('Should roles be allowed through?')
+                ->setTooltip('If ticked, all roles will pass this filter. If not ticked, no roles will.')
         )->getSchema();
     }
 

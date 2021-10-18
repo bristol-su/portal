@@ -2,9 +2,9 @@
     <div>
         <div v-if="editSettings">
             <div v-if="rawCompletionCondition !== null">
-                <vue-form-generator :schema="rawCompletionCondition.options.schema" :model="settings" :options="rawCompletionCondition.options.options">
+                <p-dynamic-form :schema="rawCompletionCondition.options" v-model="settings">
 
-                </vue-form-generator>
+                </p-dynamic-form>
 
                 <b-button variant="secondary" @click="saveSettings">Save</b-button>
             </div>
@@ -19,7 +19,6 @@
 </template>
 
 <script>
-    import VueFormGenerator from 'vue-form-generator';
     import DataItem from '../../../../../utilities/DataItem';
 
     export default {
@@ -64,7 +63,7 @@
                 this.$api.completionConditions().getByAlias(this.moduleAlias, this.completionCondition.alias)
                     .then(response => {
                         this.rawCompletionCondition = response.data;
-                        this.settings = VueFormGenerator.schema.createDefaultObject(this.rawCompletionCondition.options.schema, this.completionCondition.settings);
+                        this.settings = this.completionCondition.settings;
                     })
                     .catch(error => this.$notify.alert('Could not load completion condition: ' + error.message));
             }

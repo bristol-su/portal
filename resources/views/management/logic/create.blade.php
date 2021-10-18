@@ -1,11 +1,13 @@
-@extends('layouts.settings')
+@extends('layouts.legacy')
 
-@section('settings-title', 'Create Logic')
+@section('title', 'Create Logic')
 
-@section('settings-content')
+@section('app-content')
 
     <logic-create>
 
     </logic-create>
 
 @endsection
+
+

@@ -41,6 +41,12 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'staging' => [
+            'driver' => 'stack',
+            'channels' => ['stderr', 'verbose-slack'],
+            'ignore_exceptions' => false,
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['daily'],

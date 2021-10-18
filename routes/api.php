@@ -42,22 +42,22 @@ Route::middleware(['portal-auth'])->group(function () {
 
 
     Route::middleware(['can:view-management'])->group(function () {
-        Route::apiResource('activity', \App\Http\Controllers\Api\ActivityController::class)->only(['store', 'update']);
+        Route::apiResource('activity', \App\Http\Controllers\Api\ActivityController::class)->only(['store', 'update', 'destroy']);
         Route::apiResource('filter', \App\Http\Controllers\Api\FilterController::class)->only(['index']);
         Route::apiResource('filter-instances', \App\Http\Controllers\Api\FilterInstanceController::class)->only(['store']);
-        Route::apiResource('logic', \App\Http\Controllers\Api\LogicController::class)->only(['index', 'show', 'store', 'update']);
+        Route::apiResource('logic', \App\Http\Controllers\Api\LogicController::class, ['as' => 'logic'])->only(['index', 'show', 'store', 'update']);
         Route::apiResource('module', \App\Http\Controllers\Api\ModuleController::class)->only(['index', 'show']);
         Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\ModuleInstancePermissionController::class)->only(['show', 'store', 'update', 'destroy']);
-        Route::apiResource('module-instance-service', \App\Http\Controllers\Api\ModuleInstanceServiceController::class)->only(['show', 'store', 'update', 'index']);
+        Route::apiResource('module-instance-service', \App\Http\Controllers\Api\ModuleInstanceServiceController::class, ['as' => 'service'])->only(['show', 'store', 'update', 'index']);
         Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\ModuleInstanceSettingController::class)->only(['show', 'store', 'update']);
-        Route::apiResource('module-instance', \App\Http\Controllers\Api\ModuleInstanceController::class)->only(['store', 'update']);
+        Route::apiResource('module-instance', \App\Http\Controllers\Api\ModuleInstanceController::class)->only(['store', 'update', 'destroy']);
         Route::get('module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'index']);
         Route::post('module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'store']);
         Route::apiResource('action', \App\Http\Controllers\Api\ActionController::class)->only(['index']);
         Route::apiResource('action-instance', \App\Http\Controllers\Api\ActionInstanceController::class)->only(['store', 'update']);
         Route::apiResource('action-instance-field', \App\Http\Controllers\Api\ActionInstanceFieldController::class)->only(['store', 'update']);
-        Route::apiResource('site-permission', \App\Http\Controllers\Api\SitePermissionController::class)->only('index', 'show');
-        Route::apiResource('connector', \App\Http\Controllers\Api\ConnectorController::class)->only('index', 'show');
+        Route::apiResource('site-permission', \App\Http\Controllers\Api\SitePermissionController::class, ['as' => 'site-permission'])->only('index', 'show');
+        Route::apiResource('connector', \App\Http\Controllers\Api\ConnectorController::class, ['as' => 'connector'])->only('index', 'show');
         Route::apiResource('connection', \App\Http\Controllers\Api\ConnectionController::class)->only('index', 'destroy', 'update', 'store');
         Route::get('connection/{connection_id}/test', [\App\Http\Controllers\Api\ConnectionController::class, 'test']);
         Route::apiResource('completion-condition-instance', \App\Http\Controllers\Api\CompletionConditionInstanceController::class)->only(['store', 'update']);
