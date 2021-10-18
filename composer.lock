@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a24f09c9fb330cd233a357fe7c32a21",
+    "content-hash": "f298a4d4c749b492c938fe8131e99eff",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.198.2",
+            "version": "3.198.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "991117f98cedd7939e84d594577ac8aa85a4ebaf"
+                "reference": "821b8db50dd39be8ec94f286050a500b5f8a0142"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/991117f98cedd7939e84d594577ac8aa85a4ebaf",
-                "reference": "991117f98cedd7939e84d594577ac8aa85a4ebaf",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/821b8db50dd39be8ec94f286050a500b5f8a0142",
+                "reference": "821b8db50dd39be8ec94f286050a500b5f8a0142",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.6"
             },
-            "time": "2021-10-11T18:13:37+00:00"
+            "time": "2021-10-15T18:38:53+00:00"
         },
         {
             "name": "brick/math",
@@ -326,16 +326,16 @@
         },
         {
             "name": "bristol-su/assign-roles",
-            "version": "dev-develop",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "129fd1db75f5f88931519ee5df8cecc07068bbbc"
+                "reference": "e141ebc34a2de84c7ba727fc58e80a23fc6bf5d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/129fd1db75f5f88931519ee5df8cecc07068bbbc",
-                "reference": "129fd1db75f5f88931519ee5df8cecc07068bbbc",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/e141ebc34a2de84c7ba727fc58e80a23fc6bf5d4",
+                "reference": "e141ebc34a2de84c7ba727fc58e80a23fc6bf5d4",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +346,6 @@
                 "orchestra/testbench": "^6.19",
                 "phpspec/prophecy-phpunit": "^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -373,9 +372,9 @@
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
             "support": {
                 "issues": "https://github.com/bristol-su/assign-roles/issues",
-                "source": "https://github.com/bristol-su/assign-roles/tree/develop"
+                "source": "https://github.com/bristol-su/assign-roles/tree/v3.0.0"
             },
-            "time": "2021-09-22T12:52:41+00:00"
+            "time": "2021-10-18T11:09:24+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -437,16 +436,16 @@
         },
         {
             "name": "bristol-su/data-entry",
-            "version": "dev-develop",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/data-entry.git",
-                "reference": "41dafafecd66f5c06d527000532a91e84d19f60a"
+                "reference": "da906e1bc1aaa4ff6c055e9f7971022ba5dbbe83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/41dafafecd66f5c06d527000532a91e84d19f60a",
-                "reference": "41dafafecd66f5c06d527000532a91e84d19f60a",
+                "url": "https://api.github.com/repos/bristol-su/data-entry/zipball/da906e1bc1aaa4ff6c055e9f7971022ba5dbbe83",
+                "reference": "da906e1bc1aaa4ff6c055e9f7971022ba5dbbe83",
                 "shasum": ""
             },
             "require": {
@@ -484,22 +483,22 @@
             "description": "A module for the Bristol SU Portal Project to allow entering and management of data in a given data structure",
             "support": {
                 "issues": "https://github.com/bristol-su/data-entry/issues",
-                "source": "https://github.com/bristol-su/data-entry/tree/develop"
+                "source": "https://github.com/bristol-su/data-entry/tree/v3.0.0"
             },
-            "time": "2021-09-22T12:07:11+00:00"
+            "time": "2021-10-18T11:28:27+00:00"
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "dev-develop",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "330ffca65280f0021054a75f73e3261b71a46940"
+                "reference": "c1dbe0aeb006b93cb9ac3edba15c0bba2f7b4245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/330ffca65280f0021054a75f73e3261b71a46940",
-                "reference": "330ffca65280f0021054a75f73e3261b71a46940",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/c1dbe0aeb006b93cb9ac3edba15c0bba2f7b4245",
+                "reference": "c1dbe0aeb006b93cb9ac3edba15c0bba2f7b4245",
                 "shasum": ""
             },
             "require": {
@@ -555,22 +554,22 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/portal-auth/issues",
-                "source": "https://github.com/bristol-su/portal-auth/tree/develop"
+                "source": "https://github.com/bristol-su/portal-auth/tree/v1.0.0"
             },
-            "time": "2021-09-22T23:45:36+00:00"
+            "time": "2021-10-18T11:43:34+00:00"
         },
         {
             "name": "bristol-su/static-page",
-            "version": "dev-develop",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/static-page.git",
-                "reference": "935dc298507a4639919699a6e612bcc56888f475"
+                "reference": "0c9571f5dd45b43c35dcfdaf2adc6475e7f10a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/935dc298507a4639919699a6e612bcc56888f475",
-                "reference": "935dc298507a4639919699a6e612bcc56888f475",
+                "url": "https://api.github.com/repos/bristol-su/static-page/zipball/0c9571f5dd45b43c35dcfdaf2adc6475e7f10a71",
+                "reference": "0c9571f5dd45b43c35dcfdaf2adc6475e7f10a71",
                 "shasum": ""
             },
             "require": {
@@ -607,22 +606,22 @@
             "description": "A static page module for the Bristol SU Portal Project, to display text or HTML",
             "support": {
                 "issues": "https://github.com/bristol-su/static-page/issues",
-                "source": "https://github.com/bristol-su/static-page/tree/develop"
+                "source": "https://github.com/bristol-su/static-page/tree/v3.0.0"
             },
-            "time": "2021-09-22T12:09:57+00:00"
+            "time": "2021-10-18T11:35:40+00:00"
         },
         {
             "name": "bristol-su/support",
-            "version": "dev-develop",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "4fc4ee73bb0a85cca44f7870ecea905e351706b3"
+                "reference": "b1d6118a1d8c3800b320639af2522a258163578b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/4fc4ee73bb0a85cca44f7870ecea905e351706b3",
-                "reference": "4fc4ee73bb0a85cca44f7870ecea905e351706b3",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/b1d6118a1d8c3800b320639af2522a258163578b",
+                "reference": "b1d6118a1d8c3800b320639af2522a258163578b",
                 "shasum": ""
             },
             "require": {
@@ -645,7 +644,6 @@
                 "orchestra/testbench": "^6.0",
                 "phpspec/prophecy-phpunit": "^2.0.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -685,22 +683,22 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/support/issues",
-                "source": "https://github.com/bristol-su/support/tree/develop"
+                "source": "https://github.com/bristol-su/support/tree/v5.1.0"
             },
-            "time": "2021-09-24T11:04:47+00:00"
+            "time": "2021-10-18T11:16:26+00:00"
         },
         {
             "name": "bristol-su/typeform",
-            "version": "dev-develop",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "a9e22374ff333c3d5732fe9301ef9750f748b8a3"
+                "reference": "6bf3ad5216a41e4f0fc68bfff8f711c2b35e931d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/a9e22374ff333c3d5732fe9301ef9750f748b8a3",
-                "reference": "a9e22374ff333c3d5732fe9301ef9750f748b8a3",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/6bf3ad5216a41e4f0fc68bfff8f711c2b35e931d",
+                "reference": "6bf3ad5216a41e4f0fc68bfff8f711c2b35e931d",
                 "shasum": ""
             },
             "require": {
@@ -715,7 +713,6 @@
                 "orchestra/testbench": "^6.19",
                 "phpspec/prophecy-phpunit": "^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -741,9 +738,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/typeform/issues",
-                "source": "https://github.com/bristol-su/typeform/tree/develop"
+                "source": "https://github.com/bristol-su/typeform/tree/v3.0.0"
             },
-            "time": "2021-09-22T23:22:16+00:00"
+            "time": "2021-10-18T11:46:39+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -849,16 +846,16 @@
         },
         {
             "name": "bristol-su/upload-file",
-            "version": "dev-develop",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "b889f0a962d1d13c658b28d8d204f4c437de8455"
+                "reference": "e7ee5113aea1212a3c35b86ca36cc3476b86b6b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/b889f0a962d1d13c658b28d8d204f4c437de8455",
-                "reference": "b889f0a962d1d13c658b28d8d204f4c437de8455",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/e7ee5113aea1212a3c35b86ca36cc3476b86b6b5",
+                "reference": "e7ee5113aea1212a3c35b86ca36cc3476b86b6b5",
                 "shasum": ""
             },
             "require": {
@@ -895,9 +892,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/upload-file/issues",
-                "source": "https://github.com/bristol-su/upload-file/tree/develop"
+                "source": "https://github.com/bristol-su/upload-file/tree/v3.0.0"
             },
-            "time": "2021-09-23T11:12:59+00:00"
+            "time": "2021-10-18T11:39:53+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2070,7 +2067,7 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.216.0",
+            "version": "v0.217.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
@@ -2108,7 +2105,7 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.216.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.217.0"
             },
             "time": "2021-10-06T11:20:29+00:00"
         },
@@ -2170,16 +2167,16 @@
         },
         {
             "name": "graham-campbell/result-type",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Result-Type.git",
-                "reference": "84afea85c6841deeea872f36249a206e878a5de0"
+                "reference": "296c015dc30ec4322168c5ad3ee5cc11dae827ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/84afea85c6841deeea872f36249a206e878a5de0",
-                "reference": "84afea85c6841deeea872f36249a206e878a5de0",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/296c015dc30ec4322168c5ad3ee5cc11dae827ac",
+                "reference": "296c015dc30ec4322168c5ad3ee5cc11dae827ac",
                 "shasum": ""
             },
             "require": {
@@ -2215,7 +2212,7 @@
             ],
             "support": {
                 "issues": "https://github.com/GrahamCampbell/Result-Type/issues",
-                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.0.2"
+                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.0.3"
             },
             "funding": [
                 {
@@ -2227,28 +2224,29 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-28T21:34:50+00:00"
+            "time": "2021-10-17T19:48:54+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.3.0",
+            "version": "7.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7008573787b430c1c1f650e3722d9bba59967628"
+                "reference": "868b3571a039f0ebc11ac8f344f4080babe2cb94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7008573787b430c1c1f650e3722d9bba59967628",
-                "reference": "7008573787b430c1c1f650e3722d9bba59967628",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/868b3571a039f0ebc11ac8f344f4080babe2cb94",
+                "reference": "868b3571a039f0ebc11ac8f344f4080babe2cb94",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.4",
-                "guzzlehttp/psr7": "^1.7 || ^2.0",
+                "guzzlehttp/promises": "^1.5",
+                "guzzlehttp/psr7": "^1.8.3 || ^2.1",
                 "php": "^7.2.5 || ^8.0",
-                "psr/http-client": "^1.0"
+                "psr/http-client": "^1.0",
+                "symfony/deprecation-contracts": "^2.2"
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
@@ -2258,7 +2256,7 @@
                 "ext-curl": "*",
                 "php-http/client-integration-tests": "^3.0",
                 "phpunit/phpunit": "^8.5.5 || ^9.3.5",
-                "psr/log": "^1.1"
+                "psr/log": "^1.1 || ^2.0 || ^3.0"
             },
             "suggest": {
                 "ext-curl": "Required for CURL handler support",
@@ -2268,7 +2266,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.3-dev"
+                    "dev-master": "7.4-dev"
                 }
             },
             "autoload": {
@@ -2285,18 +2283,42 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
                     "name": "Márk Sági-Kazár",
                     "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://sagikazarmark.hu"
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
-            "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
                 "curl",
@@ -2310,7 +2332,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.3.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.0"
             },
             "funding": [
                 {
@@ -2322,15 +2344,11 @@
                     "type": "github"
                 },
                 {
-                    "url": "https://github.com/alexeyshockov",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/gmponos",
-                    "type": "github"
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2021-03-23T11:33:13+00:00"
+            "time": "2021-10-18T09:52:00+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2578,16 +2596,16 @@
         },
         {
             "name": "larabug/larabug",
-            "version": "2.4.3",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaraBug/LaraBug.git",
-                "reference": "23f98035d058117d3141594a0b44e492fd8d0293"
+                "reference": "44b62bd85f76245e2502332971c9914cddf5e08b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaraBug/LaraBug/zipball/23f98035d058117d3141594a0b44e492fd8d0293",
-                "reference": "23f98035d058117d3141594a0b44e492fd8d0293",
+                "url": "https://api.github.com/repos/LaraBug/LaraBug/zipball/44b62bd85f76245e2502332971c9914cddf5e08b",
+                "reference": "44b62bd85f76245e2502332971c9914cddf5e08b",
                 "shasum": ""
             },
             "require": {
@@ -2633,7 +2651,7 @@
             ],
             "support": {
                 "issues": "https://github.com/LaraBug/LaraBug/issues",
-                "source": "https://github.com/LaraBug/LaraBug/tree/2.4.3"
+                "source": "https://github.com/LaraBug/LaraBug/tree/2.4.4"
             },
             "funding": [
                 {
@@ -2641,7 +2659,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-19T12:40:59+00:00"
+            "time": "2021-10-14T14:01:26+00:00"
         },
         {
             "name": "laracasts/utilities",
@@ -2706,16 +2724,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.63.0",
+            "version": "v8.64.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8f3d280f36a427730c8c8fa34316c79eed38781e"
+                "reference": "3337c029e1bb31d9712d27437cc27010ba302c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8f3d280f36a427730c8c8fa34316c79eed38781e",
-                "reference": "8f3d280f36a427730c8c8fa34316c79eed38781e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3337c029e1bb31d9712d27437cc27010ba302c9e",
+                "reference": "3337c029e1bb31d9712d27437cc27010ba302c9e",
                 "shasum": ""
             },
             "require": {
@@ -2873,7 +2891,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-10-05T14:04:25+00:00"
+            "time": "2021-10-12T13:43:13+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -3328,16 +3346,16 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.14.3",
+            "version": "v2.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "27711d8077be6d042b9bbee5270723105c678eac"
+                "reference": "e6982c378c4ae64d288acdedfd8b8e43ce91dbf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/27711d8077be6d042b9bbee5270723105c678eac",
-                "reference": "27711d8077be6d042b9bbee5270723105c678eac",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/e6982c378c4ae64d288acdedfd8b8e43ce91dbf0",
+                "reference": "e6982c378c4ae64d288acdedfd8b8e43ce91dbf0",
                 "shasum": ""
             },
             "require": {
@@ -3351,7 +3369,6 @@
                 "monolog/monolog": "^1.12|^2.0",
                 "nyholm/psr7": "^1.0",
                 "php": "^7.2|^8.0",
-                "riverline/multipart-parser": "^2.0",
                 "symfony/process": "^4.3|^5.0",
                 "symfony/psr-http-message-bridge": "^1.0|^2.0"
             },
@@ -3393,22 +3410,22 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-core/tree/v2.14.3"
+                "source": "https://github.com/laravel/vapor-core/tree/v2.15.1"
             },
-            "time": "2021-10-05T13:44:42+00:00"
+            "time": "2021-10-14T15:01:21+00:00"
         },
         {
             "name": "laravel/vapor-ui",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-ui.git",
-                "reference": "b72d1ea02a8fac02bfa8528540555c556d6c10bb"
+                "reference": "de7a3cd2df334088c581997c3c5c865bf9600167"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-ui/zipball/b72d1ea02a8fac02bfa8528540555c556d6c10bb",
-                "reference": "b72d1ea02a8fac02bfa8528540555c556d6c10bb",
+                "url": "https://api.github.com/repos/laravel/vapor-ui/zipball/de7a3cd2df334088c581997c3c5c865bf9600167",
+                "reference": "de7a3cd2df334088c581997c3c5c865bf9600167",
                 "shasum": ""
             },
             "require": {
@@ -3460,7 +3477,7 @@
                 "issues": "https://github.com/laravel/vapor-ui/issues",
                 "source": "https://github.com/laravel/vapor-ui"
             },
-            "time": "2021-07-06T17:11:19+00:00"
+            "time": "2021-10-13T15:54:26+00:00"
         },
         {
             "name": "lcobucci/clock",
@@ -4825,21 +4842,21 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "f5ed39fc96358f922cedfd1e516f0dadf5d2be0d"
+                "reference": "9a39cef03a5b34c7de64f551538cbba05c2be5df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/f5ed39fc96358f922cedfd1e516f0dadf5d2be0d",
-                "reference": "f5ed39fc96358f922cedfd1e516f0dadf5d2be0d",
+                "url": "https://api.github.com/repos/nette/schema/zipball/9a39cef03a5b34c7de64f551538cbba05c2be5df",
+                "reference": "9a39cef03a5b34c7de64f551538cbba05c2be5df",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^3.1.4 || ^4.0",
-                "php": ">=7.1 <8.1"
+                "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
+                "php": ">=7.1 <8.2"
             },
             "require-dev": {
                 "nette/tester": "^2.3 || ^2.4",
@@ -4881,9 +4898,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2.1"
+                "source": "https://github.com/nette/schema/tree/v1.2.2"
             },
-            "time": "2021-03-04T17:51:11+00:00"
+            "time": "2021-10-15T11:40:02+00:00"
         },
         {
             "name": "nette/utils",
@@ -7155,62 +7172,6 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
-            "name": "riverline/multipart-parser",
-            "version": "2.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Riverline/multipart-parser.git",
-                "reference": "2fe9026789754c1ff07c06047f0acc113e90933a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Riverline/multipart-parser/zipball/2fe9026789754c1ff07c06047f0acc113e90933a",
-                "reference": "2fe9026789754c1ff07c06047f0acc113e90933a",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "laminas/laminas-diactoros": "^1.8.7",
-                "phpunit/phpunit": "^5.2 || ^6.0 || ^7.0",
-                "psr/http-message": "^1.0",
-                "symfony/psr-http-message-bridge": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Riverline\\MultiPartParser\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Romain Cambien",
-                    "email": "romain@cambien.net"
-                },
-                {
-                    "name": "Riverline",
-                    "homepage": "http://www.riverline.fr"
-                }
-            ],
-            "description": "One class library to parse multipart content with encoding and charset support.",
-            "keywords": [
-                "http",
-                "multipart",
-                "parser"
-            ],
-            "support": {
-                "issues": "https://github.com/Riverline/multipart-parser/issues",
-                "source": "https://github.com/Riverline/multipart-parser/tree/2.0.8"
-            },
-            "time": "2020-01-24T09:39:24+00:00"
-        },
-        {
             "name": "sebastian/cli-parser",
             "version": "1.0.1",
             "source": {
@@ -8063,6 +8024,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -11710,16 +11672,16 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.6.2",
+            "version": "v3.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "70b89754913fd89fef16d0170a91dbc2a5cd633a"
+                "reference": "fc69fd6293e4e9d0f0181bb56219e9b3b3c4dd1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/70b89754913fd89fef16d0170a91dbc2a5cd633a",
-                "reference": "70b89754913fd89fef16d0170a91dbc2a5cd633a",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/fc69fd6293e4e9d0f0181bb56219e9b3b3c4dd1f",
+                "reference": "fc69fd6293e4e9d0f0181bb56219e9b3b3c4dd1f",
                 "shasum": ""
             },
             "require": {
@@ -11779,7 +11741,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.6.2"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.6.3"
             },
             "funding": [
                 {
@@ -11791,7 +11753,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-14T14:29:26+00:00"
+            "time": "2021-09-22T12:28:00+00:00"
         },
         {
             "name": "beyondcode/laravel-dump-server",
@@ -12913,16 +12875,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "5c91d33949e43500dc1d49abc5d7c2ffb6c96f44"
+                "reference": "80f6cd93844e87ebc2e7310f9a9b9917473f5eb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/5c91d33949e43500dc1d49abc5d7c2ffb6c96f44",
-                "reference": "5c91d33949e43500dc1d49abc5d7c2ffb6c96f44",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/80f6cd93844e87ebc2e7310f9a9b9917473f5eb0",
+                "reference": "80f6cd93844e87ebc2e7310f9a9b9917473f5eb0",
                 "shasum": ""
             },
             "require": {
@@ -12969,25 +12931,25 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2021-10-01T13:32:17+00:00"
+            "time": "2021-10-12T15:38:11+00:00"
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.17.1",
+            "version": "v1.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "0a3532556be0145603f8a9de23e76dc28eed7054"
+                "reference": "3541f09f09c003c4a9ff7ddb0eb3361a7f14d418"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/0a3532556be0145603f8a9de23e76dc28eed7054",
-                "reference": "0a3532556be0145603f8a9de23e76dc28eed7054",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/3541f09f09c003c4a9ff7ddb0eb3361a7f14d418",
+                "reference": "3541f09f09c003c4a9ff7ddb0eb3361a7f14d418",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1|^8",
-                "psr/log": "^1.0",
+                "psr/log": "^1|^2|^3",
                 "symfony/var-dumper": "^2.6|^3|^4|^5"
             },
             "require-dev": {
@@ -13032,9 +12994,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.17.1"
+                "source": "https://github.com/maximebf/php-debugbar/tree/v1.17.2"
             },
-            "time": "2021-08-01T09:19:02+00:00"
+            "time": "2021-10-18T09:39:00+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -14128,54 +14090,10 @@
             "time": "2021-07-08T19:01:59+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "bristol-su/data-entry",
-            "version": "dev-develop",
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0"
-        },
-        {
-            "package": "bristol-su/portal-auth",
-            "version": "dev-develop",
-            "alias": "v0.0.1",
-            "alias_normalized": "0.0.1.0"
-        },
-        {
-            "package": "bristol-su/static-page",
-            "version": "dev-develop",
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0"
-        },
-        {
-            "package": "bristol-su/support",
-            "version": "dev-develop",
-            "alias": "5.0.2",
-            "alias_normalized": "5.0.2.0"
-        },
-        {
-            "package": "bristol-su/typeform",
-            "version": "dev-develop",
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0"
-        },
-        {
-            "package": "bristol-su/upload-file",
-            "version": "dev-develop",
-            "alias": "2.0.0",
-            "alias_normalized": "2.0.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "twigger/laravel-translate": 20,
-        "bristol-su/portal-auth": 20,
-        "bristol-su/support": 20,
-        "bristol-su/upload-file": 20,
-        "bristol-su/static-page": 20,
-        "bristol-su/typeform": 20,
-        "bristol-su/data-entry": 20,
-        "bristol-su/assign-roles": 20
+        "twigger/laravel-translate": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -14184,5 +14102,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
