@@ -20,3 +20,26 @@ environments:
             - 'php artisan view:clear'
         deploy:
             - 'php artisan migrate --force'
+    production:
+        memory: 1024
+        cli-memory: 512
+        runtime: docker
+        database: portal
+        storage: bristol-su-portal
+        domain: portal.bristolsu.org.uk
+        cache: portalproduction
+        timeout: 859
+        queue-concurrency: 40
+        queue-timeout: 900
+        warm: 1
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
+            - 'php artisan event:cache'
+            - 'npm ci && npm run prod && rm -rf node_modules'
+            - 'php artisan config:cache'
+            - 'php artisan route:cache'
+            - 'php artisan optimize'
+            - 'php artisan view:clear'
+        deploy:
+            - 'php artisan migrate --force'
+
