@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Error page does not show for admins
+- 
+
+## [3.3.0] - 2021-10-18
+
 ### Added
 - Ability to delete and restore activities & module instances
 
