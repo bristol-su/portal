@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f298a4d4c749b492c938fe8131e99eff",
+    "content-hash": "5ffae3afa37eb92565fc3d23b19c64cb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.198.6",
+            "version": "3.198.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "821b8db50dd39be8ec94f286050a500b5f8a0142"
+                "reference": "40197a954c9f49557a1b0d49e2a9bd6f7bf6adfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/821b8db50dd39be8ec94f286050a500b5f8a0142",
-                "reference": "821b8db50dd39be8ec94f286050a500b5f8a0142",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/40197a954c9f49557a1b0d49e2a9bd6f7bf6adfc",
+                "reference": "40197a954c9f49557a1b0d49e2a9bd6f7bf6adfc",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.6"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.198.7"
             },
-            "time": "2021-10-15T18:38:53+00:00"
+            "time": "2021-10-18T18:17:12+00:00"
         },
         {
             "name": "brick/math",
@@ -489,16 +489,16 @@
         },
         {
             "name": "bristol-su/portal-auth",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-auth.git",
-                "reference": "c1dbe0aeb006b93cb9ac3edba15c0bba2f7b4245"
+                "reference": "47aa89216e279a9140f5efa91670936a0ad0af0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/c1dbe0aeb006b93cb9ac3edba15c0bba2f7b4245",
-                "reference": "c1dbe0aeb006b93cb9ac3edba15c0bba2f7b4245",
+                "url": "https://api.github.com/repos/bristol-su/portal-auth/zipball/47aa89216e279a9140f5efa91670936a0ad0af0c",
+                "reference": "47aa89216e279a9140f5efa91670936a0ad0af0c",
                 "shasum": ""
             },
             "require": {
@@ -554,9 +554,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/portal-auth/issues",
-                "source": "https://github.com/bristol-su/portal-auth/tree/v1.0.0"
+                "source": "https://github.com/bristol-su/portal-auth/tree/v1.0.1"
             },
-            "time": "2021-10-18T11:43:34+00:00"
+            "time": "2021-10-19T11:35:55+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -8431,16 +8431,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.7",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "15f7faf8508e04471f666633addacf54c0ab5933"
+                "reference": "8a5d5072dca8f48460fce2f4131fcc495eec654c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/15f7faf8508e04471f666633addacf54c0ab5933",
-                "reference": "15f7faf8508e04471f666633addacf54c0ab5933",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8a5d5072dca8f48460fce2f4131fcc495eec654c",
+                "reference": "8a5d5072dca8f48460fce2f4131fcc495eec654c",
                 "shasum": ""
             },
             "require": {
@@ -8452,7 +8452,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
-                "symfony/phpunit-bridge": "^4.4|^5.0"
+                "symfony/phpunit-bridge": "^4.4|^5.4"
             },
             "suggest": {
                 "ext-intl": "Needed to support internationalized email addresses"
@@ -8490,7 +8490,7 @@
             ],
             "support": {
                 "issues": "https://github.com/swiftmailer/swiftmailer/issues",
-                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.7"
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.3.0"
             },
             "funding": [
                 {
@@ -8502,7 +8502,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-09T12:30:35+00:00"
+            "time": "2021-10-18T15:26:12+00:00"
         },
         {
             "name": "symfony/console",
@@ -11076,12 +11076,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobytwigger/laravel-translate.git",
-                "reference": "e90bf07995d07930c127930a3d45fd7414b15bde"
+                "reference": "c7f2c11fb878e2f6ebd19ba05ce3a23abae5f36b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobytwigger/laravel-translate/zipball/e90bf07995d07930c127930a3d45fd7414b15bde",
-                "reference": "e90bf07995d07930c127930a3d45fd7414b15bde",
+                "url": "https://api.github.com/repos/tobytwigger/laravel-translate/zipball/c7f2c11fb878e2f6ebd19ba05ce3a23abae5f36b",
+                "reference": "c7f2c11fb878e2f6ebd19ba05ce3a23abae5f36b",
                 "shasum": ""
             },
             "require": {
@@ -11152,7 +11152,7 @@
                     "type": "buymeacoffee"
                 }
             ],
-            "time": "2021-01-12T22:54:04+00:00"
+            "time": "2021-10-18T21:34:35+00:00"
         },
         {
             "name": "twigger/unioncloud",
@@ -14102,5 +14102,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

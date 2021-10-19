@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Error page does not show for admins
-- 
+- Updated first party packages to fix UI and other errors
 
 ## [3.3.0] - 2021-10-18
 
