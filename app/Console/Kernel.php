@@ -57,7 +57,9 @@ class Kernel extends ConsoleKernel
             }
         }
 
-        $schedule->command('telescope:prune')->daily();
+        if(config('telescope.enabled', false)) {
+            $schedule->command('telescope:prune')->daily();
+        }
     }
 
     /**
