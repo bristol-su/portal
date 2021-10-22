@@ -22,8 +22,8 @@ class TagAGroup extends Action
         app(GroupTagRepository::class)->all()->each(fn(GroupTag $groupTag) => $selectField->withOption($groupTag->fullReference(), sprintf('%s (%s)', $groupTag->name(), $groupTag->fullReference()), $groupTag->category()->name()));
 
         return \FormSchema\Generator\Form::make()->withField(
-            Field::input('group_id')->inputType('text')->label('Group ID')->required(true)->default(null)->hint('The ID of the group to tag')
-        )->withField($selectField)->getSchema();
+            Field::number('group_id')->setLabel('Group ID')->setRequired(true)->setValue(null)->setHint('The ID of the group to tag')
+        )->withField($selectField)->form();
     }
 
     /**
