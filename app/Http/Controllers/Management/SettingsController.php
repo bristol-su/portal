@@ -29,7 +29,7 @@ class SettingsController extends Controller
     {
         $categoryModel = $settingStore->getCategory($category);
 
-        $formSchema = Form::make()->getSchema();
+        $formSchema = Form::make()->form();
         $settingKeys = [];
         foreach($categoryModel->groupsWithGlobalSettings() as $group) {
             $groupSchema = Group::make($group->name())->getSchema();

@@ -16,8 +16,8 @@ class ActivityAdminSummaryController extends Controller
 
     public function user(Authentication $authentication, ActivityRepository $activityRepository)
     {
-        $activities = $activityRepository->getForAdministrator($authentication->getUser())
-            ->filter(fn(Activity $activity) => $activity->activity_for !== 'group' && $activity->activity_for !== 'role');
+        $activities = $activityRepository->getForAdministrator($authentication->getUser());
+
         return view('portal.admin-activity-summary')
             ->with('activities', $activities)
             ->with('title', 'Your Activities')
@@ -31,8 +31,8 @@ class ActivityAdminSummaryController extends Controller
             throw new ModelNotFoundException(sprintf('Group with an ID of %s was not found or you are not in the group', $group->id()));
         }
 
-        $activities = $activityRepository->getForAdministrator($authentication->getUser(), $group)
-            ->filter(fn(Activity $activity) => $activity->activity_for !== 'role');
+        $activities = $activityRepository->getForAdministrator($authentication->getUser(), $group);
+
         return view('portal.admin-activity-summary')
             ->with('title', 'Your ' . $group->data()->name() . ' Activities')
             ->with('subtitle', 'Here are your ' . $group->data()->name() . ' membership activities.')
@@ -47,6 +47,7 @@ class ActivityAdminSummaryController extends Controller
         }
 
         $activities = $activityRepository->getForAdministrator($authentication->getUser(), $role->group(), $role);
+
         return view('portal.admin-activity-summary')
             ->with('title', 'Activities for ' . ($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name()) . ' of ' . $role->group()->data()->name())
             ->with('subtitle', 'Here are your activities for your Admin position of ' . $role->data()->roleName() . ' in ' . $role->group()->data()->name())

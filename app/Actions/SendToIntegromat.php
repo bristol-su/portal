@@ -86,6 +86,6 @@ class SendToIntegromat extends Action
             )->withField(
                 Field::textInput('data_fifteen')->setLabel('Data #15')->setRequired(false)->setValue(null)->setHint('This data will be passed to Integromat')
             )
-        )->getSchema();
+        )->form();
     }
 }

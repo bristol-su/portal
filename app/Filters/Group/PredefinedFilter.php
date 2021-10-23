@@ -19,7 +19,7 @@ class PredefinedFilter extends GroupFilter
             Field::checkBox('result')->setLabel('Result')->setRequired(true)->setValue(false)
                 ->setHint('Should groups be allowed through?')
                 ->setTooltip('If ticked, all groups will pass this filter. If not ticked, no groups will.')
-        )->getSchema();
+        )->form();
     }
 
     /**

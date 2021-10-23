@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.3] - 2021-10-22
+
+### Fixed
+- Javascript dependency update for several UI kit fixes
+- Only prune telescope if telescope in use
+
+## [3.3.2] - 2021-10-19
+
+### Fixed
+- Activities on admin side obeying activity for
+
+## [3.3.1] - 2021-10-19
+
+### Fixed
+- Error page does not show for admins
+- Updated first party packages to fix UI and other errors
+
+## [3.3.0] - 2021-10-18
+
+### Added
+- Ability to delete and restore activities & module instances
+
 ### Changed
 - Redesign of the public-facing site using a UI kit
 

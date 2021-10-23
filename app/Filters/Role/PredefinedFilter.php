@@ -19,7 +19,7 @@ class PredefinedFilter extends RoleFilter
             Field::checkBox('result')->setLabel('Result')->setRequired(true)->setValue(false)
                 ->setHint('Should roles be allowed through?')
                 ->setTooltip('If ticked, all roles will pass this filter. If not ticked, no roles will.')
-        )->getSchema();
+        )->form();
     }
 
     /**

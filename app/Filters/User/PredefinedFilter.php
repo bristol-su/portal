@@ -19,7 +19,7 @@ class PredefinedFilter extends UserFilter
             Field::checkBox('result')->setLabel('Result')->setRequired(true)->setValue(false)
                 ->setHint('Should users be allowed through?')
                 ->setTooltip('If ticked, all users will pass this filter. If not ticked, no users will.')
-        )->getSchema();
+        )->form();
     }
 
     /**
