@@ -56,4 +56,14 @@ class PredefinedFilter extends UserFilter
     {
         return 'predefined_user';
     }
+
+    /**
+     * This filter doesn't listen to anything, since it doesn't depend on any data.
+     *
+     * @return array
+     */
+    public static function clearOn(): array
+    {
+        return [];
+    }
 }

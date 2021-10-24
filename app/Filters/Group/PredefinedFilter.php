@@ -56,4 +56,14 @@ class PredefinedFilter extends GroupFilter
     {
         return 'predefined_group';
     }
+
+    /**
+     * This filter doesn't listen to anything, since it doesn't depend on any data.
+     *
+     * @return array
+     */
+    public static function clearOn(): array
+    {
+        return [];
+    }
 }
