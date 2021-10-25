@@ -46,6 +46,7 @@ Route::middleware(['portal-auth'])->group(function () {
         Route::apiResource('filter', \App\Http\Controllers\Api\FilterController::class)->only(['index']);
         Route::apiResource('filter-instances', \App\Http\Controllers\Api\FilterInstanceController::class)->only(['store']);
         Route::apiResource('logic', \App\Http\Controllers\Api\LogicController::class, ['as' => 'logic'])->only(['index', 'show', 'store', 'update']);
+        Route::post('logic/{logic}/refresh', [\App\Http\Controllers\Api\LogicController::class, 'refresh']);
         Route::apiResource('module', \App\Http\Controllers\Api\ModuleController::class)->only(['index', 'show']);
         Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\ModuleInstancePermissionController::class)->only(['show', 'store', 'update', 'destroy']);
         Route::apiResource('module-instance-service', \App\Http\Controllers\Api\ModuleInstanceServiceController::class, ['as' => 'service'])->only(['show', 'store', 'update', 'index']);
