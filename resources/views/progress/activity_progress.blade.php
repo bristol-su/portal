@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.legacy')
+
+@section('title', 'Progress of ' . $activity->name)
 
 @section('app-content')
     <div class="container-fluid" style="text-align: center">
