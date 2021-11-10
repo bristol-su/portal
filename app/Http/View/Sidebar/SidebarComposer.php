@@ -76,6 +76,8 @@ class SidebarComposer
             ['title' => 'Create Activity', 'route' => route('activity.create'), 'icon' => 'fa fa-plus'],
             ['title' => 'View Logic', 'route' => route('logic.index'), 'icon' => 'fa fa-users'],
             ['title' => 'Create Logic', 'route' => route('logic.create'), 'icon' => 'fa fa-user-plus'],
+            ['title' => 'Mail', 'route' => route('portal-mail.mail'), 'icon' => 'fa fa-envelope-open'],
+            ['title' => 'Mail Settings', 'route' => route('portal-mail.settings'), 'icon' => 'fa fa-cogs'],
             ['title' => 'Connectors', 'route' => route('connector.index'), 'icon' => 'fa fa-link'],
             ['title' => 'Settings', 'route' => route('settings.index'), 'icon' => 'fa fa-cogs'],
         ];

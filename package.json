@@ -22,7 +22,8 @@
     "dependencies": {
         "@bristol-su/control-js-api-client": "^1.1.2",
         "@bristol-su/control-management": "^0.3.3",
-        "@bristol-su/frontend-toolkit": "^1.0.0",
+        "@bristol-su/frontend-toolkit": "bristol-su/frontend-toolkit#develop",
+        "@bristol-su/portal-ui-kit": "bristol-su/portal-ui-kit#email-sender",
         "bootstrap": "^4.5.2",
         "bootstrap-vue": "^2.21.2",
         "domurl": "2.3.4",
