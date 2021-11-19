@@ -27,7 +27,7 @@
         "stichoza/google-translate-php": "^4.1",
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/portal-auth": "^1.0.1",
-        "bristol-su/support": "^5.1.0",
+        "bristol-su/support": "dev-portal-mail as 5.1.0",
         "bristol-su/upload-file": "^3.0.3",
         "bristol-su/static-page": "^3.0.0",
         "bristol-su/typeform": "^3.0.1",
@@ -35,7 +35,8 @@
         "bristol-su/unioncloud-portal": "^2.0.0",
         "laravel/telescope": "^4.6",
         "bristol-su/assign-roles": "^3.0.0",
-        "bristol-su/airtable": "^3.0.0"
+        "bristol-su/airtable": "^3.0.0",
+        "bristol-su/portal-mail": "dev-develop"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",
