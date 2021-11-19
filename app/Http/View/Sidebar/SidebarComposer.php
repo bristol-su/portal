@@ -71,16 +71,21 @@ class SidebarComposer
 
     private function getManagementSidebar()
     {
-        return [
+        $settings = [
             ['title' => 'View Activities', 'route' => route('activity.index'), 'icon' => 'fa fa-th-list'],
             ['title' => 'Create Activity', 'route' => route('activity.create'), 'icon' => 'fa fa-plus'],
             ['title' => 'View Logic', 'route' => route('logic.index'), 'icon' => 'fa fa-users'],
             ['title' => 'Create Logic', 'route' => route('logic.create'), 'icon' => 'fa fa-user-plus'],
             ['title' => 'Mail', 'route' => route('portal-mail.mail'), 'icon' => 'fa fa-envelope-open'],
-            ['title' => 'Mail Settings', 'route' => route('portal-mail.settings'), 'icon' => 'fa fa-cogs'],
+        ];
+        if(PermissionTester::evaluate('manage-mail')) {
+            $settings[] = ['title' => 'Mail Settings', 'route' => route('portal-mail.settings'), 'icon' => 'fa fa-cogs'];
+        }
+        $settings = array_merge($settings, [
             ['title' => 'Connectors', 'route' => route('connector.index'), 'icon' => 'fa fa-link'],
             ['title' => 'Settings', 'route' => route('settings.index'), 'icon' => 'fa fa-cogs'],
-        ];
+        ]);
+        return $settings;
     }
 
     private function getModuleSidebar(bool $isAdmin = false): array
