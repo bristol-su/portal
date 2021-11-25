@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aee9c3faefd53a3809188af7f946ecbf",
+    "content-hash": "d00ef35d9a68efbd39ae56bdc31fc432",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -265,16 +265,16 @@
         },
         {
             "name": "bristol-su/airtable",
-            "version": "v3.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/airtable.git",
-                "reference": "87829459c39015cfb4f61bca553204ba3a118d11"
+                "reference": "a873b9703e0a3e8ba3d7c47f7ce6d48a98d95eec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/87829459c39015cfb4f61bca553204ba3a118d11",
-                "reference": "87829459c39015cfb4f61bca553204ba3a118d11",
+                "url": "https://api.github.com/repos/bristol-su/airtable/zipball/a873b9703e0a3e8ba3d7c47f7ce6d48a98d95eec",
+                "reference": "a873b9703e0a3e8ba3d7c47f7ce6d48a98d95eec",
                 "shasum": ""
             },
             "require": {
@@ -293,6 +293,7 @@
                 "phpspec/prophecy-phpunit": "^2.0.0",
                 "phpstan/phpstan": "^0.12.8"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -320,9 +321,9 @@
             "description": "An integration with AirTable for the Portal",
             "support": {
                 "issues": "https://github.com/bristol-su/airtable/issues",
-                "source": "https://github.com/bristol-su/airtable/tree/v3.0.0"
+                "source": "https://github.com/bristol-su/airtable/tree/master"
             },
-            "time": "2021-08-12T20:49:57+00:00"
+            "time": "2021-11-25T17:35:59+00:00"
         },
         {
             "name": "bristol-su/assign-roles",
@@ -804,12 +805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "6ee4b86acde2368fc680aede6b5dfca572c01965"
+                "reference": "dcda2ad52dafaab521bc96cbee7172bc9e497472"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/6ee4b86acde2368fc680aede6b5dfca572c01965",
-                "reference": "6ee4b86acde2368fc680aede6b5dfca572c01965",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/dcda2ad52dafaab521bc96cbee7172bc9e497472",
+                "reference": "dcda2ad52dafaab521bc96cbee7172bc9e497472",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +847,7 @@
                 "issues": "https://github.com/bristol-su/unioncloud-portal/issues",
                 "source": "https://github.com/bristol-su/unioncloud-portal/tree/develop"
             },
-            "time": "2021-11-25T15:21:36+00:00"
+            "time": "2021-11-25T17:43:33+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -14172,6 +14173,12 @@
     ],
     "aliases": [
         {
+            "package": "bristol-su/airtable",
+            "version": "9999999-dev",
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0"
+        },
+        {
             "package": "bristol-su/assign-roles",
             "version": "dev-develop",
             "alias": "3.0.0",
@@ -14209,7 +14216,8 @@
         "bristol-su/support": 20,
         "bristol-su/typeform": 20,
         "bristol-su/unioncloud-portal": 20,
-        "bristol-su/assign-roles": 20
+        "bristol-su/assign-roles": 20,
+        "bristol-su/airtable": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

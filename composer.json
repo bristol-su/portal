@@ -35,7 +35,7 @@
         "bristol-su/unioncloud-portal": "dev-develop as 2.0.0",
         "laravel/telescope": "^4.6",
         "bristol-su/assign-roles": "dev-develop as 3.0.0",
-        "bristol-su/airtable": "^3.0.0"
+        "bristol-su/airtable": "dev-master as 3.0.0"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",
