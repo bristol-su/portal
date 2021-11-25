@@ -383,12 +383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "68ef6aae408edf91359ab568799eaef7b79dff29"
+                "reference": "5d39650190ba637e984914e03f170ed4bc3af24d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/68ef6aae408edf91359ab568799eaef7b79dff29",
-                "reference": "68ef6aae408edf91359ab568799eaef7b79dff29",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/5d39650190ba637e984914e03f170ed4bc3af24d",
+                "reference": "5d39650190ba637e984914e03f170ed4bc3af24d",
                 "shasum": ""
             },
             "require": {
@@ -433,7 +433,7 @@
                 "issues": "https://github.com/bristol-su/control/issues",
                 "source": "https://github.com/bristol-su/control/tree/develop"
             },
-            "time": "2021-11-25T15:13:41+00:00"
+            "time": "2021-11-25T16:52:42+00:00"
         },
         {
             "name": "bristol-su/data-entry",
