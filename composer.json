@@ -88,11 +88,5 @@
             ]
         }
     },
-    "abandoned": false,
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./repos/bristol-su/portal-mail"
-        }
-    ]
+    "abandoned": false
 }
