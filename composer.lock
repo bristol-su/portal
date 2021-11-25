@@ -383,12 +383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "0869dd5e55f6fd5d9ee519b74d7cb91b588b9770"
+                "reference": "68ef6aae408edf91359ab568799eaef7b79dff29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/0869dd5e55f6fd5d9ee519b74d7cb91b588b9770",
-                "reference": "0869dd5e55f6fd5d9ee519b74d7cb91b588b9770",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/68ef6aae408edf91359ab568799eaef7b79dff29",
+                "reference": "68ef6aae408edf91359ab568799eaef7b79dff29",
                 "shasum": ""
             },
             "require": {
@@ -433,7 +433,7 @@
                 "issues": "https://github.com/bristol-su/control/issues",
                 "source": "https://github.com/bristol-su/control/tree/develop"
             },
-            "time": "2021-11-25T13:47:08+00:00"
+            "time": "2021-11-25T15:13:41+00:00"
         },
         {
             "name": "bristol-su/data-entry",
@@ -617,12 +617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "e7272d3cf72eb3433e3529988e2bbc5614e3ff7c"
+                "reference": "e69181284c7b02b12ab28d4661cc4dbbd2c8d546"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/e7272d3cf72eb3433e3529988e2bbc5614e3ff7c",
-                "reference": "e7272d3cf72eb3433e3529988e2bbc5614e3ff7c",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/e69181284c7b02b12ab28d4661cc4dbbd2c8d546",
+                "reference": "e69181284c7b02b12ab28d4661cc4dbbd2c8d546",
                 "shasum": ""
             },
             "require": {
@@ -687,7 +687,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/develop"
             },
-            "time": "2021-11-25T15:00:12+00:00"
+            "time": "2021-11-25T15:45:13+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -804,12 +804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "2ecbfa25caff7c0e34b1ca1ef8005a432b69ef1c"
+                "reference": "6ee4b86acde2368fc680aede6b5dfca572c01965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/2ecbfa25caff7c0e34b1ca1ef8005a432b69ef1c",
-                "reference": "2ecbfa25caff7c0e34b1ca1ef8005a432b69ef1c",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/6ee4b86acde2368fc680aede6b5dfca572c01965",
+                "reference": "6ee4b86acde2368fc680aede6b5dfca572c01965",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +846,7 @@
                 "issues": "https://github.com/bristol-su/unioncloud-portal/issues",
                 "source": "https://github.com/bristol-su/unioncloud-portal/tree/develop"
             },
-            "time": "2021-11-25T14:09:13+00:00"
+            "time": "2021-11-25T15:21:36+00:00"
         },
         {
             "name": "bristol-su/upload-file",
