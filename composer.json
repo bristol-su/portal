@@ -30,7 +30,7 @@
         "bristol-su/support": "dev-develop as 5.1.0",
         "bristol-su/upload-file": "^3.0.3",
         "bristol-su/static-page": "^3.0.0",
-        "bristol-su/typeform": "^3.0.1",
+        "bristol-su/typeform": "dev-develop as 3.0.1",
         "bristol-su/data-entry": "^3.0.0",
         "bristol-su/unioncloud-portal": "dev-develop as 2.0.0",
         "laravel/telescope": "^4.6",
