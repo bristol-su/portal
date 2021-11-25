@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db80019fd5bf8d9e70789e3281f89fef",
+    "content-hash": "aee9c3faefd53a3809188af7f946ecbf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -326,16 +326,16 @@
         },
         {
             "name": "bristol-su/assign-roles",
-            "version": "v3.0.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "7be5596d48476ae069885621729b9b7cec30bd34"
+                "reference": "0d5a1de465f9a32f343115bd4c6570ac84e9052a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/7be5596d48476ae069885621729b9b7cec30bd34",
-                "reference": "7be5596d48476ae069885621729b9b7cec30bd34",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/0d5a1de465f9a32f343115bd4c6570ac84e9052a",
+                "reference": "0d5a1de465f9a32f343115bd4c6570ac84e9052a",
                 "shasum": ""
             },
             "require": {
@@ -346,6 +346,7 @@
                 "orchestra/testbench": "^6.19",
                 "phpspec/prophecy-phpunit": "^2.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -372,9 +373,9 @@
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
             "support": {
                 "issues": "https://github.com/bristol-su/assign-roles/issues",
-                "source": "https://github.com/bristol-su/assign-roles/tree/v3.0.1"
+                "source": "https://github.com/bristol-su/assign-roles/tree/develop"
             },
-            "time": "2021-10-24T00:09:26+00:00"
+            "time": "2021-11-25T14:59:23+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -616,12 +617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "b5cd36bc4a11fb738a30a35f5798e1c9a42a64f1"
+                "reference": "e7272d3cf72eb3433e3529988e2bbc5614e3ff7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/b5cd36bc4a11fb738a30a35f5798e1c9a42a64f1",
-                "reference": "b5cd36bc4a11fb738a30a35f5798e1c9a42a64f1",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/e7272d3cf72eb3433e3529988e2bbc5614e3ff7c",
+                "reference": "e7272d3cf72eb3433e3529988e2bbc5614e3ff7c",
                 "shasum": ""
             },
             "require": {
@@ -686,7 +687,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/develop"
             },
-            "time": "2021-11-25T14:26:07+00:00"
+            "time": "2021-11-25T15:00:12+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -14171,6 +14172,12 @@
     ],
     "aliases": [
         {
+            "package": "bristol-su/assign-roles",
+            "version": "dev-develop",
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0"
+        },
+        {
             "package": "bristol-su/control",
             "version": "dev-develop",
             "alias": "3.1.0",
@@ -14201,7 +14208,8 @@
         "twigger/laravel-translate": 20,
         "bristol-su/support": 20,
         "bristol-su/typeform": 20,
-        "bristol-su/unioncloud-portal": 20
+        "bristol-su/unioncloud-portal": 20,
+        "bristol-su/assign-roles": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
