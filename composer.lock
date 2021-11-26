@@ -383,12 +383,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "68ef6aae408edf91359ab568799eaef7b79dff29"
+                "reference": "5d39650190ba637e984914e03f170ed4bc3af24d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/68ef6aae408edf91359ab568799eaef7b79dff29",
-                "reference": "68ef6aae408edf91359ab568799eaef7b79dff29",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/5d39650190ba637e984914e03f170ed4bc3af24d",
+                "reference": "5d39650190ba637e984914e03f170ed4bc3af24d",
                 "shasum": ""
             },
             "require": {
@@ -433,7 +433,7 @@
                 "issues": "https://github.com/bristol-su/control/issues",
                 "source": "https://github.com/bristol-su/control/tree/develop"
             },
-            "time": "2021-11-25T15:13:41+00:00"
+            "time": "2021-11-25T16:52:42+00:00"
         },
         {
             "name": "bristol-su/data-entry",
@@ -617,12 +617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "e69181284c7b02b12ab28d4661cc4dbbd2c8d546"
+                "reference": "440680fd1c83bb6d164a4d3156194ba0685fd607"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/e69181284c7b02b12ab28d4661cc4dbbd2c8d546",
-                "reference": "e69181284c7b02b12ab28d4661cc4dbbd2c8d546",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/440680fd1c83bb6d164a4d3156194ba0685fd607",
+                "reference": "440680fd1c83bb6d164a4d3156194ba0685fd607",
                 "shasum": ""
             },
             "require": {
@@ -687,7 +687,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/develop"
             },
-            "time": "2021-11-25T15:45:13+00:00"
+            "time": "2021-11-26T12:07:11+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -804,12 +804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/unioncloud-portal.git",
-                "reference": "6ee4b86acde2368fc680aede6b5dfca572c01965"
+                "reference": "ec299e4f1d0a000677664457aac1f78064188431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/6ee4b86acde2368fc680aede6b5dfca572c01965",
-                "reference": "6ee4b86acde2368fc680aede6b5dfca572c01965",
+                "url": "https://api.github.com/repos/bristol-su/unioncloud-portal/zipball/ec299e4f1d0a000677664457aac1f78064188431",
+                "reference": "ec299e4f1d0a000677664457aac1f78064188431",
                 "shasum": ""
             },
             "require": {
@@ -846,7 +846,7 @@
                 "issues": "https://github.com/bristol-su/unioncloud-portal/issues",
                 "source": "https://github.com/bristol-su/unioncloud-portal/tree/develop"
             },
-            "time": "2021-11-25T15:21:36+00:00"
+            "time": "2021-11-26T12:09:48+00:00"
         },
         {
             "name": "bristol-su/upload-file",
@@ -3954,16 +3954,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "627be7fcde84c71aa0f15097fcf48fd5f2be5287"
+                "reference": "3ca8f158ee21efa4bbd4f74bea5730c9b9261e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/627be7fcde84c71aa0f15097fcf48fd5f2be5287",
-                "reference": "627be7fcde84c71aa0f15097fcf48fd5f2be5287",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3ca8f158ee21efa4bbd4f74bea5730c9b9261e2d",
+                "reference": "3ca8f158ee21efa4bbd4f74bea5730c9b9261e2d",
                 "shasum": ""
             },
             "require": {
@@ -4036,7 +4036,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/1.1.6"
+                "source": "https://github.com/thephpleague/flysystem/tree/1.1.7"
             },
             "funding": [
                 {
@@ -4044,7 +4044,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-11-21T11:04:36+00:00"
+            "time": "2021-11-25T19:40:58+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -13702,16 +13702,16 @@
         },
         {
             "name": "spatie/ray",
-            "version": "1.31.0",
+            "version": "1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ray.git",
-                "reference": "e5374378f00ee2419dae70f95bb640d1782e3c03"
+                "reference": "e144fa04fdd737c54fc98c32c4b897df1b622d3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ray/zipball/e5374378f00ee2419dae70f95bb640d1782e3c03",
-                "reference": "e5374378f00ee2419dae70f95bb640d1782e3c03",
+                "url": "https://api.github.com/repos/spatie/ray/zipball/e144fa04fdd737c54fc98c32c4b897df1b622d3b",
+                "reference": "e144fa04fdd737c54fc98c32c4b897df1b622d3b",
                 "shasum": ""
             },
             "require": {
@@ -13761,7 +13761,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/ray/issues",
-                "source": "https://github.com/spatie/ray/tree/1.31.0"
+                "source": "https://github.com/spatie/ray/tree/1.32.0"
             },
             "funding": [
                 {
@@ -13773,7 +13773,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-11-17T11:59:32+00:00"
+            "time": "2021-11-24T15:02:10+00:00"
         },
         {
             "name": "symfony/debug",

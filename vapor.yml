@@ -29,8 +29,13 @@ environments:
         domain: portal.bristolsu.org.uk
         cache: portalproduction
         timeout: 859
-        queue-concurrency: 40
+        queue-concurrency: 30
         queue-timeout: 900
+        queues:
+            - portal-production
+            - logic
+            - airtable
+            - unioncloud
         warm: 1
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
