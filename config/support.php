@@ -29,7 +29,7 @@ return [
                 'baseId' => env('AIRTABLE_BASE_ID'),
                 'tableName' => env('AIRTABLE_TABLE_NAME'),
                 'apiKey' => env('AIRTABLE_API_KEY'),
-                'debug' => true
+                'debug' => false
             ]
         ]
     ]
