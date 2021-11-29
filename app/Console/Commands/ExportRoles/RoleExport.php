@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\ExportRoles;
 
 use App\Jobs\ExportRoles;
 use BristolSU\ControlDB\Contracts\Repositories\Group;
