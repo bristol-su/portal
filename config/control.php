@@ -7,6 +7,10 @@ return [
         'can:access-control'
     ],
 
+    'baseId' => env('AIRTABLE_CONTROL_BASE_ID'),
+
+    'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID'),
+
     'export' => [
 
         /*
@@ -184,7 +188,7 @@ return [
 
         'bristol-control-roles' => [
             'driver' => 'airtable',
-            'debug' => false,
+            'debug' => true,
             'formatters' => [
                 \App\Exports\FilterRoleByLogicGroupFormatter::class => [
                     'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID')
