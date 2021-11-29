@@ -4,7 +4,7 @@ namespace App\Console\Commands\ExportRoles;
 
 use App\Jobs\ExportRoles;
 use BristolSU\ControlDB\Export\Exporter;
-use BristolSU\ControlDB\Models\Role;
+use BristolSU\ControlDB\Contracts\Models\Role;
 use BristolSU\Support\Logic\Audience\Audience;
 use BristolSU\Support\Logic\Contracts\LogicRepository;
 use Illuminate\Console\Command;
