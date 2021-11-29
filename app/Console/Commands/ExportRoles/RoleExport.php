@@ -39,10 +39,6 @@ class RoleExport extends Command
             $this->error('No roles were found');
         }
 
-        $this->line(sprintf(
-            'Found %u roles with IDs %s', $roles->count(), $roles->map(fn(Role $role) => $role->id())->join(',')
-        ));
-
         foreach($roles->chunk(10) as $processingRoles) {
             ExportRoles::dispatch($processingRoles);
         }

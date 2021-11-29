@@ -186,11 +186,8 @@ return [
 
         'bristol-control-roles' => [
             'driver' => 'airtable',
-            'debug' => true,
+            'debug' => false,
             'formatters' => [
-//                \App\Exports\FilterRoleByLogicGroupFormatter::class => [
-//                    'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID')
-//                ],
                 \BristolSU\ControlDB\Export\Formatter\Role\SimpleRoleFormatter::class => [],
                 \App\Exports\LinkRolesToUsers::class => [],
                 \App\Exports\LinkRolesToPosition::class => [],

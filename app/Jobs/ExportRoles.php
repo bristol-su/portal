@@ -35,7 +35,6 @@ class ExportRoles implements ShouldQueue
      */
     public function handle()
     {
-        Log::info(sprintf('Exporting %u roles', $this->processingRoles->count()));
         Exporter::driver('bristol-control-roles')->export($this->processingRoles);
     }
 }

@@ -39,7 +39,7 @@ class Kernel extends ConsoleKernel
             $schedule->command('control:export user --exporter=bristol-control-users')->dailyAt('22:00')->runInBackground();
             $schedule->command('control:export group --exporter=bristol-control-groups')->dailyAt('22:00')->runInBackground();
             $schedule->command('control:export position --exporter=bristol-control-positions')->dailyAt('22:00')->runInBackground();
-            $schedule->command('control:export role --exporter=bristol-control-roles')->dailyAt('02:00')->runInBackground();
+            $schedule->command('role:export')->dailyAt('02:00')->runInBackground();
 
             if (config('app.cache-unioncloud', false) && config('unioncloud-portal.enabled.memberships', false)) {
                 $schedule->command(CacheUnionCloudUserGroupMemberships::class)->cron('*/2 * * * *');
