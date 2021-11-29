@@ -43,7 +43,7 @@ class RoleExport extends Command
             'Found %u roles with IDs %s', $roles->count(), $roles->map(fn(Role $role) => $role->id())->join(',')
         ));
 
-        foreach($roles->chunk(200) as $processingRoles) {
+        foreach($roles->chunk(10) as $processingRoles) {
             ExportRoles::dispatch($processingRoles);
         }
         $this->info('Export complete');
