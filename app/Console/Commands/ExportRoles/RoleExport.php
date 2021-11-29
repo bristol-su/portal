@@ -3,14 +3,7 @@
 namespace App\Console\Commands\ExportRoles;
 
 use App\Jobs\ExportRoles;
-use BristolSU\ControlDB\Contracts\Repositories\Group;
-use BristolSU\ControlDB\Contracts\Repositories\Role;
-use BristolSU\ControlDB\Contracts\Repositories\User;
 use BristolSU\ControlDB\Export\Exporter;
-use BristolSU\ControlDB\Export\RunExport;
-use BristolSU\Support\Filters\Contracts\FilterInstance;
-use BristolSU\Support\Filters\Contracts\FilterInstanceRepository;
-use BristolSU\Support\Filters\Contracts\FilterTester;
 use BristolSU\Support\Logic\Audience\Audience;
 use BristolSU\Support\Logic\Contracts\LogicRepository;
 use Illuminate\Console\Command;
@@ -47,7 +40,7 @@ class RoleExport extends Command
 
         foreach($roles->chunk(200) as $processingRoles) {
             ExportRoles::dispatch($processingRoles);
-            Exporter::driver('airtable')->export($processingRoles);
+            Exporter::driver('bristol-control-roles')->export($processingRoles);
         }
         $this->info('Export complete');
 
