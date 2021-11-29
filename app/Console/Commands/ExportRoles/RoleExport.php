@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\ExportRoles;
 use BristolSU\ControlDB\Contracts\Repositories\Group;
 use BristolSU\ControlDB\Contracts\Repositories\Role;
 use BristolSU\ControlDB\Contracts\Repositories\User;
@@ -45,6 +46,7 @@ class RoleExport extends Command
         }
 
         foreach($roles->chunk(200) as $processingRoles) {
+            ExportRoles::dispatch($processingRoles);
             Exporter::driver('airtable')->export($processingRoles);
         }
         $this->info('Export complete');

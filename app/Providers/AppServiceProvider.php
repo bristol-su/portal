@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\Actions\SendToIntegromat;
 use App\Actions\TagARole;
 use App\Actions\TagAGroup;
+use App\Console\Commands\RoleExport;
 use App\Filters\Group\PredefinedFilter as PredefinedGroupFilter;
 use App\Filters\Role\PredefinedFilter as PredefinedRoleFilter;
 use App\Filters\User\PredefinedFilter as PredefinedUserFilter;
@@ -27,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->call([$this, 'registerFilters']);
+
+        $this->commands([
+            RoleExport::class
+        ]);
 
         Validator::resolver(function($translator, $data, $rules, $messages, $attributes)
         {
