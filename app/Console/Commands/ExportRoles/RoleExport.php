@@ -4,6 +4,7 @@ namespace App\Console\Commands\ExportRoles;
 
 use App\Jobs\ExportRoles;
 use BristolSU\ControlDB\Export\Exporter;
+use BristolSU\ControlDB\Models\Role;
 use BristolSU\Support\Logic\Audience\Audience;
 use BristolSU\Support\Logic\Contracts\LogicRepository;
 use Illuminate\Console\Command;
@@ -38,9 +39,12 @@ class RoleExport extends Command
             $this->error('No roles were found');
         }
 
+        $this->line(sprintf(
+            'Found %u roles with IDs %s', $roles->count(), $roles->map(fn(Role $role) => $role->id())->join(',')
+        ));
+
         foreach($roles->chunk(200) as $processingRoles) {
             ExportRoles::dispatch($processingRoles);
-            Exporter::driver('bristol-control-roles')->export($processingRoles);
         }
         $this->info('Export complete');
 
