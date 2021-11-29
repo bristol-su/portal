@@ -39,7 +39,7 @@ class RoleExport extends Command
      */
     public function handle(LogicRepository $logicRepository)
     {
-        $roles = Audience::getRolesInLogicGroup($logicRepository->getById(config('control.logic_id')));
+        $roles = Audience::getRolesInLogicGroup($logicRepository->getById(config('control.logicId')));
 
         if($roles->count() === 0) {
             $this->error('No roles were found');
