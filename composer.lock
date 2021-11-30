@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9797060a4325a95572f0426cb59d603e",
+    "content-hash": "4ccfeedc2c2047772405ac5bc21edd89",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -378,16 +378,16 @@
         },
         {
             "name": "bristol-su/control",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/control.git",
-                "reference": "8f5d6a0abf82eab74259c58618291736d4d4ebe1"
+                "reference": "d7f436c3dc63e0d72decb99d9e1359a52babb243"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/control/zipball/8f5d6a0abf82eab74259c58618291736d4d4ebe1",
-                "reference": "8f5d6a0abf82eab74259c58618291736d4d4ebe1",
+                "url": "https://api.github.com/repos/bristol-su/control/zipball/d7f436c3dc63e0d72decb99d9e1359a52babb243",
+                "reference": "d7f436c3dc63e0d72decb99d9e1359a52babb243",
                 "shasum": ""
             },
             "require": {
@@ -430,9 +430,9 @@
             "description": "An implementation of the control contracts",
             "support": {
                 "issues": "https://github.com/bristol-su/control/issues",
-                "source": "https://github.com/bristol-su/control/tree/v3.1.1"
+                "source": "https://github.com/bristol-su/control/tree/v3.1.2"
             },
-            "time": "2021-10-24T17:45:36+00:00"
+            "time": "2021-11-30T15:14:52+00:00"
         },
         {
             "name": "bristol-su/data-entry",
