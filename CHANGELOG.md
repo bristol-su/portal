@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.5] - 2021-11-30
+
+### Fixed
+- Improved efficiency of airtable exports
+
+## [3.3.4] - 2021-10-23
+
+### Updated
+- Several module dependencies with bug fixes
+
+### Changed
+- Support form schema version 3
+
 ## [3.3.3] - 2021-10-22
 
 ### Fixed

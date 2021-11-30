@@ -5,30 +5,39 @@ namespace App\Http\Controllers\Api\Relationships;
 
 
 use App\Http\Controllers\Controller;
-use BristolSU\Support\Logic\Contracts\Audience\LogicAudience;
+use BristolSU\ControlDB\Contracts\Models\Role;
+use BristolSU\Support\Logic\Audience\Audience;
+use BristolSU\Support\Logic\Audience\AudienceMember;
 use BristolSU\Support\Logic\Logic;
 
 class LogicAudienceController extends Controller
 {
 
-    public function index(Logic $logic, LogicAudience $audience)
+    public function index(Logic $logic)
     {
-        return collect($audience->audience($logic));
+        return collect(Audience::audience($logic))
+            ->map(function(AudienceMember $audienceMember) {
+                $array = $audienceMember->toArray();
+                $array['roles'] = $audienceMember->roles()->map(
+                    fn(Role $role) => array_merge($role->toArray(), ['position' => $role->position(), 'group' => $role->group()])
+                );
+                return $array;
+            });
     }
 
-    public function user(Logic $logic, LogicAudience $audience)
+    public function user(Logic $logic)
     {
-        return $audience->userAudience($logic);
+        return Audience::getUsersInLogicGroup($logic);
     }
 
-    public function group(Logic $logic, LogicAudience $audience)
+    public function group(Logic $logic)
     {
-        return $audience->groupAudience($logic);
+        return Audience::getGroupsInLogicGroup($logic);
     }
 
-    public function role(Logic $logic, LogicAudience $audience)
+    public function role(Logic $logic)
     {
-        return $audience->roleAudience($logic);
+        return Audience::getRolesInLogicGroup($logic);
     }
 
 }

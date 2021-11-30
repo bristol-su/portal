@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\Filters\FilterInstance;
 use BristolSU\Support\Logic\Contracts\LogicRepository;
+use BristolSU\Support\Logic\Jobs\CacheLogic;
 use BristolSU\Support\Logic\Logic;
 use Illuminate\Http\Request;
 
@@ -69,6 +70,12 @@ class LogicController extends Controller
     public function update(Logic $logic, Request $request, LogicRepository $repository)
     {
         return $repository->update($logic->id, $request->only(['name', 'description']));
+    }
+
+    public function refresh(Logic $logic)
+    {
+        dispatch(new CacheLogic($logic));
+        return response('', 201);
     }
 
 }

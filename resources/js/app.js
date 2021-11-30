@@ -3,6 +3,7 @@ import Vue from 'vue';
 import api from "./utilities/api/api";
 import Control from '@bristol-su/control-js-api-client';
 import _ from 'lodash';
+import ActivityProgress from './management/progress/ActivityProgress.vue';
 require('./ui-kit');
 
 import settingKeys from './settings';
@@ -18,6 +19,7 @@ window.vueEvents = new Vue({});
 
 new Vue({
     el: '#vue-root',
+    components: {ActivityProgress}
 });
 
 window.Vue = Vue;

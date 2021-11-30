@@ -27,9 +27,7 @@ class LogicFilterInstanceController extends Controller
 
     public function destroy(Logic $logic, FilterInstance $filterInstance)
     {
-        $filterInstance->logic_id = null;
-        $filterInstance->logic_type = null;
-        $filterInstance->save();
+        $filterInstance->delete();
         return $filterInstance;
     }
 

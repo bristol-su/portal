@@ -7,6 +7,8 @@ return [
         'can:access-control'
     ],
 
+    'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID'),
+
     'export' => [
 
         /*
@@ -146,7 +148,7 @@ return [
                     'column' => 'User Last Name'
                 ],
             ],
-            'baseId' => 'appTjlOrph4ESz2tw',
+            'baseId' => env('AIRTABLE_CONTROL_BASE_ID'),
             'tableName' => 'Users',
             'apiKey' => env('AIRTABLE_API_KEY'),
             'uniqueIdColumnName' => ['User ID']
@@ -161,7 +163,7 @@ return [
                     'column' => 'Position Name'
                 ],
             ],
-            'baseId' => 'appTjlOrph4ESz2tw',
+            'baseId' => env('AIRTABLE_CONTROL_BASE_ID'),
             'tableName' => 'Positions',
             'apiKey' => env('AIRTABLE_API_KEY'),
             'uniqueIdColumnName' => ['Position ID']
@@ -176,7 +178,7 @@ return [
                     'column' => 'Group Name'
                 ],
             ],
-            'baseId' => 'appTjlOrph4ESz2tw',
+            'baseId' => env('AIRTABLE_CONTROL_BASE_ID'),
             'tableName' => 'Groups',
             'apiKey' => env('AIRTABLE_API_KEY'),
             'uniqueIdColumnName' => ['Group ID']
@@ -186,9 +188,6 @@ return [
             'driver' => 'airtable',
             'debug' => false,
             'formatters' => [
-                \App\Exports\FilterRoleByLogicGroupFormatter::class => [
-                    'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID')
-                ],
                 \BristolSU\ControlDB\Export\Formatter\Role\SimpleRoleFormatter::class => [],
                 \App\Exports\LinkRolesToUsers::class => [],
                 \App\Exports\LinkRolesToPosition::class => [],
@@ -200,7 +199,7 @@ return [
                     'field' => ['Group', 'Position']
                 ]
             ],
-            'baseId' => 'appTjlOrph4ESz2tw',
+            'baseId' => env('AIRTABLE_CONTROL_BASE_ID'),
             'tableName' => 'Roles',
             'apiKey' => env('AIRTABLE_API_KEY'),
             'uniqueIdColumnName' => ['Role ID']

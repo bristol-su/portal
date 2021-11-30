@@ -41,4 +41,8 @@ export default class extends BaseResource{
     roleAudience(logicId) {
         return this.request('get', '/logic/' + logicId + '/audience/role');
     }
+
+    refresh(logicId) {
+        return this.request('post', '/logic/' + logicId + '/refresh');
+    }
 }
