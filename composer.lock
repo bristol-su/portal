@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "478f0829c0641a2d5c8fcde5f71366ca",
+    "content-hash": "afc62e112379d866373e2e3ca917e97d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -612,12 +612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-mail.git",
-                "reference": "6db16d7a750451d34cd4b49c2436b3492c7a039b"
+                "reference": "3b6640f564b556396e76cf85afed98004e65365d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-mail/zipball/6db16d7a750451d34cd4b49c2436b3492c7a039b",
-                "reference": "6db16d7a750451d34cd4b49c2436b3492c7a039b",
+                "url": "https://api.github.com/repos/bristol-su/portal-mail/zipball/3b6640f564b556396e76cf85afed98004e65365d",
+                "reference": "3b6640f564b556396e76cf85afed98004e65365d",
                 "shasum": ""
             },
             "require": {
@@ -665,7 +665,7 @@
                 "issues": "https://github.com/bristol-su/portal-mail/issues",
                 "source": "https://github.com/bristol-su/portal-mail/tree/develop"
             },
-            "time": "2021-11-30T15:06:20+00:00"
+            "time": "2021-12-06T16:26:13+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -725,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "d64ee765b210b258a6a163c9d57d62ca9caad5e1"
+                "reference": "fadc8b7dea698b0dd63b85580fe8b95ae849772a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/d64ee765b210b258a6a163c9d57d62ca9caad5e1",
-                "reference": "d64ee765b210b258a6a163c9d57d62ca9caad5e1",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/fadc8b7dea698b0dd63b85580fe8b95ae849772a",
+                "reference": "fadc8b7dea698b0dd63b85580fe8b95ae849772a",
                 "shasum": ""
             },
             "require": {
@@ -794,7 +794,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/portal-mail"
             },
-            "time": "2021-11-30T15:05:28+00:00"
+            "time": "2021-12-06T16:11:31+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -3268,16 +3268,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.6.8",
+            "version": "4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "85cf170f90f32656cdde6f4ce1a96514e7edbdbe"
+                "reference": "793c3e3b94b2b35c4429c3f409c95092b1b87f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/85cf170f90f32656cdde6f4ce1a96514e7edbdbe",
-                "reference": "85cf170f90f32656cdde6f4ce1a96514e7edbdbe",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/793c3e3b94b2b35c4429c3f409c95092b1b87f7d",
+                "reference": "793c3e3b94b2b35c4429c3f409c95092b1b87f7d",
                 "shasum": ""
             },
             "require": {
@@ -3290,6 +3290,7 @@
                 "ext-gd": "*",
                 "orchestra/testbench": "^6.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3329,9 +3330,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.6.8"
+                "source": "https://github.com/laravel/telescope/tree/4.x"
             },
-            "time": "2021-11-30T16:09:16+00:00"
+            "time": "2021-12-06T15:40:10+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -14217,6 +14218,7 @@
     "stability-flags": {
         "twigger/laravel-translate": 20,
         "bristol-su/support": 20,
+        "laravel/telescope": 20,
         "bristol-su/portal-mail": 20
     },
     "prefer-stable": true,
