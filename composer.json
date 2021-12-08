@@ -33,7 +33,7 @@
         "bristol-su/typeform": "^3.0.2",
         "bristol-su/data-entry": "^3.0.0",
         "bristol-su/unioncloud-portal": "^2.0.1",
-        "laravel/telescope": "4.x-dev",
+        "laravel/telescope": "^4.6.9",
         "bristol-su/portal-mail": "dev-develop",
         "bristol-su/assign-roles": "^3.0.2",
         "bristol-su/airtable": "^3.1.0"
