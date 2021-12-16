@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.4.0] - 2021-12-16
+
+### Added
+- Ability to duplicate an activity
+
 ## [3.3.5] - 2021-11-30
 
 ### Fixed
