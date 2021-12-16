@@ -124,7 +124,6 @@ class DuplicateActivity extends Command
 
         $this->line('Created activity ' . $newActivity->id);
 
-        dd($newActivity);
         return Command::SUCCESS;
     }
 
