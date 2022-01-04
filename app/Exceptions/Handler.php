@@ -17,6 +17,7 @@ use BristolSU\Support\Authorization\Exception\IncorrectLogin;
 use BristolSU\Support\Authorization\Exception\ModuleInactive;
 use BristolSU\Support\Authorization\Exception\ModuleInstanceDisabled;
 use Exception;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -138,7 +139,12 @@ class Handler extends ExceptionHandler
     protected function context()
     {
         $context = [];
-        $auth = app(Authentication::class);
+        try {
+            $auth = app(Authentication::class);
+        } catch (BindingResolutionException $e) {
+            // Exception occured before auth could be registered, so ignore the context.
+            return parent::context();
+        }
         if($auth->hasUser()) {
             $context['control_user_id'] = $auth->getUser()->id();
         }
