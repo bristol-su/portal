@@ -28,3 +28,4 @@ yalc.lock
 repos/
 .npmrc
 .env.staging
+.rnd
