@@ -4,7 +4,7 @@
             Loading...
         </div>
         <div v-if="editing">
-            <logic-select :value="logicId" @input="updateLogic"></logic-select>
+            <v-logic :value="logicId" @input="updateLogic"></v-logic>
         </div>
         <div v-else>
             <data-item title="Name">
@@ -25,10 +25,9 @@
 
 <script>
     import DataItem from "../../../../utilities/DataItem";
-    import LogicSelect from '../../../activity/create/LogicSelect';
     export default {
         name: "Logic",
-        components: {LogicSelect, DataItem},
+        components: {DataItem},
         props: {
             logicId: {
                 required: true,

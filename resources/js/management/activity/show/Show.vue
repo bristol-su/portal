@@ -2,32 +2,23 @@
     <div style="text-align: left;">
 
         <div>
-            <b-card no-body>
-                <b-tabs card pills vertical>
-                    <b-tab active title="Activity Information">
-                        <activity :activity="activity">
 
-                        </activity>
-                    </b-tab>
-                    <b-tab title="Participants">
-                        <logic :logic-id="activity.for_logic" :activity-id="activity.id" attribute="for_logic"></logic>
+            <p-tabs>
+                <p-tab title="Activity Info">
+                    <activity-form :old-activity="activity" @submit="updateActivity" :busy="$isLoading('updating-activity')">
 
+                    </activity-form>
+                </p-tab>
 
-                    </b-tab>
-                    <b-tab title="Admins">
-                        <logic :logic-id="activity.admin_logic" :activity-id="activity.id" attribute="admin_logic"></logic>
+                <p-tab title="Modules">
+                    <module-index
+                        :can-delete="canDelete"
+                        :activity="activity">
 
-                        </logic>
-                    </b-tab>
-                    <b-tab title="Modules">
-                        <module-index
-                            :can-delete="canDelete"
-                            :activity="activity">
+                    </module-index>
+                </p-tab>
+            </p-tabs>
 
-                        </module-index>
-                    </b-tab>
-                </b-tabs>
-            </b-card>
         </div>
 
 
@@ -36,8 +27,7 @@
 
 <script>
     import ModuleIndex from './module-instance/index/Index';
-    import Activity from './activity/Activity';
-    import Logic from "./activity/Logic";
+    import ActivityForm from '../ActivityForm';
 
     export default {
         name: "Show",
@@ -56,10 +46,29 @@
         },
 
         components: {
+            ActivityForm,
             ModuleIndex,
-            Activity,
-            Logic
         },
+
+        methods: {
+            updateActivity(data) {
+                this.$api.activity().update(this.activity.id, {
+                    name: data.name,
+                    description: data.description,
+                    slug: data.slug,
+                    for_logic: data.for_logic,
+                    admin_logic: data.admin_logic,
+                    start_date: data.range?.lower,
+                    end_date: data.range?.upper,
+                    enabled: data.active
+                }, 'updating-activity')
+                    .then(response => {
+                        this.$notify.success('Activity updated');
+                        window.location.href = '/activity/' + response.data.id;
+                    })
+                    .catch(error => this.$notify.alert('Could not update activity: ' + error.message))
+            }
+        }
 
     }
 </script>

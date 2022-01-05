@@ -1,4 +1,4 @@
-@extends('layouts.legacy')
+@extends('layouts.app')
 
 @section('title', 'Site Management')
 

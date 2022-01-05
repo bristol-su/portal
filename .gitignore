@@ -23,3 +23,8 @@ report.*
 /storage/clockwork
 bootstrap/cache/*
 /public/vendor
+.yalc
+yalc.lock
+repos/
+.npmrc
+.env.staging

@@ -88,5 +88,10 @@
             ]
         }
     },
-    "abandoned": false
+    "abandoned": false,
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    }
 }

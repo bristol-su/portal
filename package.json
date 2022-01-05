@@ -22,7 +22,8 @@
     "dependencies": {
         "@bristol-su/control-js-api-client": "^1.1.2",
         "@bristol-su/control-management": "^0.3.3",
-        "@bristol-su/frontend-toolkit": "^1.0.0",
+        "@bristol-su/frontend-toolkit": "file:.yalc/@bristol-su/frontend-toolkit",
+        "@bristol-su/portal-ui-kit": "file:.yalc/@bristol-su/portal-ui-kit",
         "acorn": "^8.6.0",
         "bootstrap": "^4.5.2",
         "bootstrap-vue": "^2.21.2",

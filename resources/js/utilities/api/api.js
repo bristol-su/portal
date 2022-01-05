@@ -26,24 +26,10 @@ import OwnedResource from './resources/owned-resource';
 import Activities from './resources/activities';
 import ActivityEvaluation from './resources/activity-evaluation';
 
-import axios from 'axios';
-
 // TODO Implement Cache
 export default class {
-    constructor(baseUrl, axios) {
-        this._http = axios.create({
-            baseURL: baseUrl,
-            withCredentials: true,
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-            },
-        });
-        this._http.interceptors.response.use(function (response) {
-            return response;
-        }, function (error) {
-            window.processErrorsFromAxios(error);
-            return Promise.reject(error);
-        });
+    constructor(http) {
+        this._http = http;
     }
 
     // TODO Does this always work?

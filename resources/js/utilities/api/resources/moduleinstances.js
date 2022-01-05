@@ -10,7 +10,7 @@ export default class extends BaseResource{
         return this.request('patch', '/module-instance/' + id, attributes);
     }
 
-    delete(id) {
-        return this.request('delete', 'module-instance/' + id);
+    delete(id, name) {
+        return this.request('delete', 'module-instance/' + id, {}, {}, name);
     }
 }

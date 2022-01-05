@@ -1,13 +1,25 @@
 <template>
     <div>
-        <b-table :fields="fields" :items="activities">
-            <template v-slot:cell(actions)="data">
-                <a :href="'/activity/' + data.item.id">
-                    <b-button variant="secondary">View</b-button>
-                </a>
-                <b-button @click.prevent="processDelete(data)" variant="danger" v-if="canDelete">Delete</b-button>
-            </template>
-        </b-table>
+        <div class="flex justify-end gap-2 self-end mb-2">
+            <span>Actions: </span>
+            <a :href="$tools.routes.basic.baseWebUrl() + '/activity/create'" class="text-primary hover:text-primary-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     content="Add Activity"
+                     v-tippy="{ arrow: true, animation: 'fade', placement: 'top-start', arrow: true, interactive: true}">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="sr-only">Add Activity</span>
+            </a>
+        </div>
+
+        <p-table
+            :columns="fields"
+            :items="processedActivities"
+            :viewable="true"
+            :deletable="true"
+            @view="viewActivity"
+            @delete="deleteActivity">
+        </p-table>
     </div>
 </template>
 
@@ -33,38 +45,36 @@
         data() {
             return {
                 fields: [
-                    'name',
-                    'actions'
+                    {label: 'Name', key: 'name'}
                 ]
             }
         },
 
         methods: {
-            processDelete(data) {
-                this.$bvModal.msgBoxConfirm('Are you sure you want to delete this Activity?', {
-                    title: 'Deleting Activity',
-                    size: 'sm',
-                    buttonSize: 'sm',
-                    okVariant: 'danger',
-                    okTitle: 'Delete',
-                    cancelTitle: 'Cancel',
-                    footerClass: 'p-2',
-                    hideHeaderClose: true,
-                    centered: true
-                })
-                    .then(confirmed => {
-                        if (confirmed) {
-                            this.$api.activity().delete(data.item.id)
-                            .then(
-                                this.$notify.success('Activity successfully deleted.'),
-                                setTimeout(() => window.location.reload(), 3000)
-                            )
-                            .catch(error => this.$notify.alert('Could not delete the Activity: ' + error.message));
-                        } else {
-                            this.$notify.info('No Activities deleted');
-                        }
+            viewActivity(activity) {
+                window.location.href = '/activity/' + activity.id;
+            },
+            deleteActivity(activity) {
+                this.$ui.confirm.delete('Deleting activity', 'Are you sure you want to delete the activity ' + activity.name + '?')
+                    .then(() => {
+                        this.$api.activity().delete(activity.id, 'deleting-activity-' + activity.id)
+                            .then(response => {
+                                this.$notify.success('Activity successfully deleted.');
+                                window.location.reload();
+                            })
+                            .catch(error => this.$notify.alert('Could not delete the activity: ' + error.message))
                     })
-                    .catch(error => this.$notify.alert('Could not delete the Activity: ' + error.message));
+            }
+        },
+        computed: {
+            processedActivities() {
+                return this.activities.map(activity => {
+                    if(!activity.hasOwnProperty('_table')) {
+                        activity._table = {}
+                    }
+                    activity._table.isDeleting = this.$isLoading('deleting-activity-' + activity.id);
+                    return activity;
+                })
             }
         }
     }

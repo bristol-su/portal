@@ -40,7 +40,7 @@ if (token) {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 }
 
-Vue.prototype.$api = new api(portal.API_URL, axios);
+Vue.prototype.$api = new api(Vue.prototype.$httpBasic);
 Vue.prototype.$control = new control(portal.API_URL + '/control', axios);
 Vue.prototype.$csrf = token.content;
 

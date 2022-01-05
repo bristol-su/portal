@@ -1,15 +1,17 @@
-@extends('layouts.legacy')
+@extends('layouts.app')
 
 @section('title', 'All Activities')
 
 @section('app-content')
-    <activity-index
-        @can('view-management')
+    <p-page-content title="Activities" subtitle="See all activities set up on the portal">
+        <activity-index
+            @can('view-management')
             :can-delete=true
-        @endcan
-        :activities="{{$activities}}">
+            @endcan
+            :activities="{{$activities}}">
 
-    </activity-index>
+        </activity-index>
+    </p-page-content>
 @endsection
 
 

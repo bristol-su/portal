@@ -42,8 +42,8 @@ class ActivityController extends Controller
             'activity_for' => 'required',
             'for_logic' => 'required',
             'admin_logic' => 'required',
-            'start_date' => 'sometimes|nullable|date_format:Y-m-d H:i:s',
-            'end_date' => 'sometimes|nullable|date_format:Y-m-d H:i:s'
+            'start_date' => 'sometimes|nullable|required_with:end_date|date_format:Y-m-d H:i:s',
+            'end_date' => 'sometimes|nullable|required_with:start_date|date_format:Y-m-d H:i:s'
         ]);
 
         return $repository->create([
@@ -56,7 +56,8 @@ class ActivityController extends Controller
             'admin_logic' => $request->input('admin_logic'),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
-            'user_id' => app(Authentication::class)->getUser()->id()
+            'user_id' => app(Authentication::class)->getUser()->id(),
+            'enabled' => false
         ]);
     }
 
@@ -76,7 +77,7 @@ class ActivityController extends Controller
     public function update(Activity $activity, Request $request, Repository $repository)
     {
         return $repository->update($activity->id, $request->only([
-            'name', 'description', 'enabled', 'start_date', 'end_date', 'admin_logic', 'for_logic'
+            'name', 'description', 'enabled', 'start_date', 'end_date', 'admin_logic', 'for_logic', 'enabled'
         ]));
     }
 

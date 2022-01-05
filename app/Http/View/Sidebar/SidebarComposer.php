@@ -72,8 +72,7 @@ class SidebarComposer
     private function getManagementSidebar()
     {
         return [
-            ['title' => 'View Activities', 'route' => route('activity.index'), 'icon' => 'fa fa-th-list'],
-            ['title' => 'Create Activity', 'route' => route('activity.create'), 'icon' => 'fa fa-plus'],
+            ['title' => 'Manage Activities', 'route' => route('activity.index'), 'icon' => 'fa fa-th-list'],
             ['title' => 'View Logic', 'route' => route('logic.index'), 'icon' => 'fa fa-users'],
             ['title' => 'Create Logic', 'route' => route('logic.create'), 'icon' => 'fa fa-user-plus'],
             ['title' => 'Connectors', 'route' => route('connector.index'), 'icon' => 'fa fa-link'],

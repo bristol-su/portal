@@ -2,8 +2,8 @@ import BaseResource from './../baseresource';
 
 export default class extends BaseResource{
 
-    create(attributes) {
-        return this.request('post', '/activity', attributes);
+    create(attributes, name) {
+        return this.request('post', '/activity', attributes, {}, name);
     }
 
     update(id, attributes) {
@@ -14,7 +14,7 @@ export default class extends BaseResource{
         return this.request('get', '/activity/' + activityId + '/progress', {}, {page: page, per_page: perPage});
     }
 
-    delete(activityId) {
-        return this.request('delete', '/activity/' + activityId);
+    delete(activityId, name) {
+        return this.request('delete', '/activity/' + activityId, {}, {}, name);
     }
 }
