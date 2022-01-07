@@ -52,8 +52,13 @@ Route::middleware(['portal-auth'])->group(function () {
         Route::apiResource('module-instance-service', \App\Http\Controllers\Api\ModuleInstanceServiceController::class, ['as' => 'service'])->only(['show', 'store', 'update', 'index']);
         Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\ModuleInstanceSettingController::class)->only(['show', 'store', 'update']);
         Route::apiResource('module-instance', \App\Http\Controllers\Api\ModuleInstanceController::class)->only(['store', 'update', 'destroy']);
-        Route::get('module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'index']);
-        Route::post('module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'store']);
+        Route::post('module-instance/{moduleInstance}/up', [\App\Http\Controllers\Api\ModuleInstanceOrderController::class, 'up']);
+        Route::post('module-instance/{moduleInstance}/down', [\App\Http\Controllers\Api\ModuleInstanceOrderController::class, 'down']);
+        Route::post('activity/{activity}/module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'store']);
+        Route::get('activity/{activity}/module-instance-grouping', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'index']);
+        Route::post('grouping/{grouping}/up', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'up']);
+        Route::post('grouping/{grouping}/down', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'down']);
+        Route::resource('grouping', \App\Http\Controllers\Api\ModuleInstanceGroupingController::class)->only(['index', 'update', 'store', 'destroy']);
         Route::apiResource('action', \App\Http\Controllers\Api\ActionController::class)->only(['index']);
         Route::apiResource('action-instance', \App\Http\Controllers\Api\ActionInstanceController::class)->only(['store', 'update']);
         Route::apiResource('action-instance-field', \App\Http\Controllers\Api\ActionInstanceFieldController::class)->only(['store', 'update']);

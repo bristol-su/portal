@@ -183,46 +183,6 @@ export default {
                 )
             }
             return form.generate().asJson();
-
-        //     <b-form-group
-        //         label="What kind of activity is this?"
-        //         description="What kind of activity is this?"
-        //     >
-        //         <b-form-radio v-model="type" name="type" value="open">Cannot be completed</b-form-radio>
-        //         <b-form-radio v-model="type" name="type" value="completable">Can be completed once</b-form-radio>
-        //         <b-form-radio v-model="type" name="type" value="multi-completable">Can be completed multiple times</b-form-radio>
-        //     </b-form-group>
-        //
-        //     <b-form-group
-        //         label="Which type of resource is this activity for?"
-        //         description="Do groups of people need to complete this activity together, or do individuals complete it for themselves?"
-        //     >
-        //         <b-form-radio v-model="activity_for" name="activity-for" value="user">User</b-form-radio>
-        //         <b-form-radio v-model="activity_for" name="activity-for" value="group">Group</b-form-radio>
-        //         <b-form-radio v-model="activity_for" name="activity-for" value="role">Role</b-form-radio>
-        //     </b-form-group>
-        //
-        //     <b-form-group label="Who is this activity for?">
-        //         <logic-select v-model="for_logic" :activity-for="activity_for">
-        //
-        //     </logic-select>
-        // </b-form-group>
-        //
-        //     <b-form-group label="Who are the administrators of this activity?">
-        //         <logic-select v-model="admin_logic">
-        //
-        //         </logic-select>
-        //     </b-form-group>
-        //
-        //     <active-range
-        //         @startDateUpdated="start_date = $event"
-        // @endDateUpdated="end_date = $event"
-        //         >
-        //
-        //         </active-range>
-        //
-        //
-        //     <b-button type="submit" :disabled="loading" variant="primary">Create</b-button>
         }
     }
 }

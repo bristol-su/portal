@@ -2,8 +2,8 @@ import BaseResource from './../baseresource';
 
 export default class extends BaseResource{
 
-    getBelongingToActivity(id) {
-        return this.request('get', '/activity/' + id + '/module-instance');
+    getBelongingToActivity(id, name) {
+        return this.request('get', '/activity/' + id + '/module-instance', {}, {}, name);
     }
 
     all() {
@@ -14,13 +14,39 @@ export default class extends BaseResource{
         return this.request('get', '/module/' + alias);
     }
 
-    getGroupings() {
-        return this.request('get', '/module-instance-grouping');
+    getGroupings(activityId, name) {
+        return this.request('get', '/activity/' + activityId + '/module-instance-grouping', {}, {}, name);
     }
 
-    addGrouping(heading) {
-        return this.request('post', '/module-instance-grouping', {
+    addGrouping(heading, activityId) {
+        return this.request('post', '/activity/' + activityId + '/module-instance-grouping', {
             heading: heading
         })
+    }
+
+    deleteGrouping(groupingId, name) {
+        return this.request('delete', '/grouping/' + groupingId, {}, {}, name);
+    }
+
+    updateGrouping(groupingId, heading) {
+        return this.request('patch', '/grouping/' + groupingId, {
+            heading: heading
+        })
+    }
+
+    moveGroupingUp(id, name) {
+        return this.request('post', '/grouping/' + id + '/up', {}, {}, name);
+    }
+
+    moveGroupingDown(id, name) {
+        return this.request('post', '/grouping/' + id + '/down', {}, {}, name);
+    }
+
+    moveUp(id, name) {
+        return this.request('post', '/module-instance/' + id + '/up', {}, {}, name);
+    }
+
+    moveDown(id, name) {
+        return this.request('post', '/module-instance/' + id + '/down', {}, {}, name);
     }
 }

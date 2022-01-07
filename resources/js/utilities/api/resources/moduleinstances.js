@@ -6,8 +6,8 @@ export default class extends BaseResource{
         return this.request('post', '/module-instance', attributes);
     }
 
-    update(id, attributes) {
-        return this.request('patch', '/module-instance/' + id, attributes);
+    update(id, attributes, name) {
+        return this.request('patch', '/module-instance/' + id, attributes, {}, name);
     }
 
     delete(id, name) {

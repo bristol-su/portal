@@ -74,7 +74,7 @@
                     }
                     activity._table.isDeleting = this.$isLoading('deleting-activity-' + activity.id);
                     return activity;
-                })
+                });
             }
         }
     }
