@@ -15,7 +15,7 @@
                 </svg>
                 <span class="sr-only">Add Module</span>
             </a>
-            <a class="text-primary hover:text-primary-dark" @click.prevent="$ui.modal.show('new-grouping')">
+            <a class="text-primary hover:text-primary-dark cursor-pointer" @click.prevent="$ui.modal.show('new-grouping')">
                 <svg v-tippy="{ arrow: true, animation: 'fade', placement: 'top-start', arrow: true, interactive: true}"
                      class="h-6 w-6" content="Add Section" fill="none"
                      stroke="currentColor"
@@ -276,13 +276,11 @@
 </template>
 
 <script>
-import ModuleInstanceGroupSelect from "./ModuleInstanceGroupSelect";
-import ModuleInstanceOrderChanger from "./ModuleInstanceOrderChanger";
 import CreateGrouping from './CreateGrouping';
 
 export default {
     name: "Index",
-    components: {CreateGrouping, ModuleInstanceOrderChanger, ModuleInstanceGroupSelect},
+    components: {CreateGrouping},
     props: {
         activity: {
             required: true,
@@ -428,28 +426,6 @@ export default {
                 groupings.unshift({id: 0, modules: this.modules.filter(m => m.grouping_id === null)});
             }
             return groupings;
-            // return this.modules.map(module => {
-            //     if (!module.hasOwnProperty('_table')) {
-            //         module._table = {}
-            //     }
-            //     module._table.isDeleting = this.$isLoading('deleting-module-' + module.id);
-            //     return module;
-            // }).reduce((objectsByKeyValue, obj) => {
-            //     const value = obj['grouping_id'] ?? 0;
-            //     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
-            //     return objectsByKeyValue;
-            // }, {}).sort((a, b) => {
-            //     if (a.order === null && b.order === null) {
-            //         return 0;
-            //     }
-            //     if (a.order === null) {
-            //         return 1;
-            //     }
-            //     if (b.order === null) {
-            //         return -1;
-            //     }
-            //     return (a.order > b.order ? 1 : -1);
-            // });
         },
         tableModules() {
             let groupsWithModules = this.groupedModules;

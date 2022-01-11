@@ -51,6 +51,7 @@ Route::middleware(['portal-auth'])->group(function () {
         Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\ModuleInstancePermissionController::class)->only(['show', 'store', 'update', 'destroy']);
         Route::apiResource('module-instance-service', \App\Http\Controllers\Api\ModuleInstanceServiceController::class, ['as' => 'service'])->only(['show', 'store', 'update', 'index']);
         Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\ModuleInstanceSettingController::class)->only(['show', 'store', 'update']);
+        Route::post('module-instance-setting/many', [\App\Http\Controllers\Api\ModuleInstanceSettingController::class, 'updateMany']);
         Route::apiResource('module-instance', \App\Http\Controllers\Api\ModuleInstanceController::class)->only(['store', 'update', 'destroy']);
         Route::post('module-instance/{moduleInstance}/up', [\App\Http\Controllers\Api\ModuleInstanceOrderController::class, 'up']);
         Route::post('module-instance/{moduleInstance}/down', [\App\Http\Controllers\Api\ModuleInstanceOrderController::class, 'down']);

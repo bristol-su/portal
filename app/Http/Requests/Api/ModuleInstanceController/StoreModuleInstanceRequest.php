@@ -3,8 +3,12 @@
 namespace App\Http\Requests\Api\ModuleInstanceController;
 
 use BristolSU\Support\Activity\Contracts\Repository;
+use BristolSU\Support\Completion\CompletionConditionInstance;
+use BristolSU\Support\Completion\Contracts\CompletionCondition;
+use BristolSU\Support\Completion\Contracts\CompletionConditionRepository;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreModuleInstanceRequest extends FormRequest
 {
@@ -39,8 +43,17 @@ class StoreModuleInstanceRequest extends FormRequest
 
     public function withValidator(Validator $validator)
     {
-        $validator->sometimes('completion_condition_instance_id', 'required|exists:completion_condition_instances,id', function($input) {
+        $validator->sometimes('mandatory', 'required|exists:logics,id', function($input) {
             return app(Repository::class)->getById($input->activity_id)->isCompletable();
         });
+        $validator->sometimes(
+            'completion_condition_alias',
+            ['required', Rule::in(
+                collect(app(CompletionConditionRepository::class)->getAllForModule($this->alias))->map(fn(CompletionCondition $completionCondition) => $completionCondition->alias())->toArray()
+            )],
+            function($input) {
+                return app(Repository::class)->getById($input->activity_id)->isCompletable();
+            }
+        );
     }
 }

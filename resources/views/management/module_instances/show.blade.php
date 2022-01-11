@@ -1,13 +1,22 @@
-@extends('layouts.legacy')
+@extends('layouts.app')
 
 @section('title', $moduleInstance->name)
 
 @section('app-content')
 
-    <module-instance-show
-        :module-instance="{{$moduleInstance}}">
+    <p-page-content
+        title="{{$moduleInstance->activity->name}} - {{$moduleInstance->name}}"
+        subtitle="Update and see your module"
+    >
 
-    </module-instance-show>
+        <module-show
+            :module-instance="{{$moduleInstance}}"
+            :module="{{$module}}"
+            :activity="{{$activity}}">
+
+        </module-show>
+
+    </p-page-content>
 
 @endsection
 

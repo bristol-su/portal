@@ -7,6 +7,8 @@ import ActivityProgress from './management/progress/ActivityProgress.vue';
 import ActivityIndex from './management/activity/index/Index';
 import ActivityShow from './management/activity/show/Show';
 import ActivityCreate from './management/activity/create/Create';
+import ModuleCreate from './management/moduleinstance/create/Create';
+import ModuleShow from './management/moduleinstance/show/Show';
 
 require('./ui-kit');
 
@@ -28,7 +30,10 @@ new Vue({
 
         ActivityIndex,
         ActivityShow,
-        ActivityCreate
+        ActivityCreate,
+
+        ModuleCreate,
+        ModuleShow
     }
 });
 

@@ -27,6 +27,16 @@ class ModuleInstanceSettingController extends Controller
         return $moduleInstanceSetting;
     }
 
+    public function updateMany(Request $request)
+    {
+        foreach($request->all() as $key => $value) {
+            ModuleInstanceSetting::updateOrCreate(
+                ['key' => $key, 'module_instance_id' => $request->input('module_instance_id')],
+                ['value' => $value]
+            );
+        }
+    }
+
     public function update(ModuleInstanceSetting $setting, Request $request)
     {
         $setting->value = $request->input('value', $setting->value);

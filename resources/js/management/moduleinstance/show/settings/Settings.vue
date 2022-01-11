@@ -1,11 +1,14 @@
 <template>
     <div>
-        <div v-if="loading">Loading...</div>
-        <div v-else>
-            <data-item v-for="(value, setting) in settings.settings" :key="setting" :title="setting">
-                {{value}}
-            </data-item>
-        </div>
+        <p-api-form
+            :schema="module.settings"
+            button-text="Update"
+            :busy="$isLoading('updating-settings')"
+            busy-text="Saving settings"
+            @submit="updateSettings"
+            :initial-data="initialData"
+        ></p-api-form>
+        <!--                    :initial-data="moduleInstance.module_instance_settings"-->
     </div>
 </template>
 
@@ -15,29 +18,30 @@
         name: "Settings",
         components: {DataItem},
         props: {
-            settingId: {
+            module: {
                 required: true,
-                type: Number
-            }
+                type: Object
+            },
+            moduleInstance: {
+                required: true,
+                type: Object
+            },
         },
 
-        data() {
-            return {
-                settings: {},
-                loading: true
+        computed: {
+            initialData() {
+                let data = {};
+                this.moduleInstance.module_instance_settings.forEach(s => data[s.key] = s.value);
+                return data;
             }
-        },
-
-        created() {
-            this.loadSettings();
         },
 
         methods: {
-            loadSettings() {
-                this.$api.settings().get(this.settingId)
-                    .then(response => this.settings = response.data)
-                    .catch(error => this.$notify.alert('Something went wrong getting settings information: ' + error.message))
-                    .then(() => this.loading = false);
+            updateSettings(data) {
+                data.module_instance_id = this.moduleInstance.id;
+                this.$httpBasic.post('/module-instance-setting/many', data, {name: 'updating-settings'})
+                    .then(response => this.$notify.success('Updated settings'))
+                    .catch(error => this.$notify.alert('Something went wrong getting settings information: ' + error.message));
             }
         }
     }
