@@ -8,15 +8,12 @@
             @submit="updateSettings"
             :initial-data="initialData"
         ></p-api-form>
-        <!--                    :initial-data="moduleInstance.module_instance_settings"-->
     </div>
 </template>
 
 <script>
-    import DataItem from "../../../../utilities/DataItem";
     export default {
         name: "Settings",
-        components: {DataItem},
         props: {
             module: {
                 required: true,

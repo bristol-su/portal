@@ -18,7 +18,7 @@ class ModuleInstanceController extends Controller
             abort(404, 'The module instance does not belong to the activity');
         }
         return view('management.module_instances.show')
-            ->with('moduleInstance', $moduleInstance->load(['actionInstances', 'completionConditionInstance', 'moduleInstanceSettings']))
+            ->with('moduleInstance', $moduleInstance->load(['actionInstances', 'completionConditionInstance', 'moduleInstanceSettings', 'moduleInstancePermissions', 'moduleInstanceServices']))
             ->with('module', app(ModuleRepository::class)->findByAlias($moduleInstance->alias))
             ->with('activity', $moduleInstance->activity);
     }

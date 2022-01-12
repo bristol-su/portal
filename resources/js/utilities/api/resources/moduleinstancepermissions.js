@@ -16,6 +16,9 @@ export default class extends BaseResource{
         return this.request('put', '/module-instance-permission/' + id, {logic_id: logicId});
     }
 
+    updateMany(moduleInstanceId, data, name) {
+        return this.request('put', '/module-instance/' + moduleInstanceId + '/module-instance-permission/many', {permissions: data}, {}, name)
+    }
 
     forModuleInstance(moduleInstanceId) {
         return this.request('get', '/module-instance/' + moduleInstanceId + '/module-instance-permission')

@@ -13,58 +13,26 @@
             </p-tab>
 
             <p-tab title="Permissions">
+                <permissions :module-instance="moduleInstance" :module="module"></permissions>
             </p-tab>
 
             <p-tab title="Services">
+                <services :module-instance="moduleInstance" :module="module"></services>
             </p-tab>
         </p-tabs>
-
-
-<!--        <div>-->
-<!--            <b-card no-body>-->
-<!--                <b-tabs card pills vertical>-->
-<!--                    <b-tab active title="Module Information">-->
-<!--                        <module-instance-->
-<!--                            :module-instance="moduleInstance">-->
-
-<!--                        </module-instance>-->
-<!--                    </b-tab>-->
-<!--                    <b-tab title="Behaviour">-->
-<!--                        <behaviour-->
-<!--                            :module-instance="moduleInstance">-->
-<!--                        </behaviour>-->
-<!--                    </b-tab>-->
-<!--                    <b-tab title="Settings">-->
-<!--                        <settings :module-instance="moduleInstance"></settings>-->
-<!--                    </b-tab>-->
-<!--                    <b-tab title="Permissions">-->
-<!--                        <permissions :module-instance="moduleInstance"></permissions>-->
-
-<!--                    </b-tab>-->
-<!--                    <b-tab title="Services">-->
-<!--                        <services :module-instance="moduleInstance"></services>-->
-
-<!--                    </b-tab>-->
-<!--                    <b-tab title="Actions">-->
-<!--                        <actions :module-instance="moduleInstance">-->
-
-<!--                        </actions>-->
-<!--                    </b-tab>-->
-<!--                </b-tabs>-->
-<!--            </b-card>-->
-<!--        </div>-->
-
 
     </div>
 </template>
 
 <script>
     import ModuleForm from '../ModuleForm';
-    import Settings from './settings/Settings';
+    import Settings from './Settings';
+    import Permissions from './Permissions';
+    import Services from '../create/services/Services';
 
     export default {
         name: "Show",
-        components: {Settings, ModuleForm},
+        components: {Services, Permissions, Settings, ModuleForm},
         props: {
             moduleInstance: {
                 required: true,
@@ -81,15 +49,14 @@
         },
         methods: {
             updateModule(data) {
+                data.activity_id = this.activity.id;
+                data.alias = this.moduleInstance.alias;
                 this.$api.moduleInstances().update(this.moduleInstance.id, data)
                     .then(response => {
-                        this.$notify.success('Module Instance ' + this.form.name + ' updated!');
+                        this.$notify.success('Module ' + this.moduleInstance.name + ' updated!');
                     })
                     .catch(error => this.$notify.alert('Something went wrong: ' + error.message));
             },
-            updateModuleSettings(data) {
-                console.log(data);
-            }
         }
     }
 </script>

@@ -105,7 +105,9 @@ Route::middleware(['portal-auth'])->group(function () {
 
         Route::prefix('/module-instance/{module_instance_id}')->group(function () {
             Route::apiResource('module-instance-setting', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceSettingController::class)->only(['index']);
+            Route::put('module-instance-permission/many', [\App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstancePermissionController::class, 'updateMany']);
             Route::apiResource('module-instance-permission', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstancePermissionController::class)->only(['index']);
+            Route::put('module-instance-service/many', [\App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceServiceController::class, 'updateMany']);
             Route::apiResource('module-instance-service', \App\Http\Controllers\Api\Relationships\ModuleInstanceModuleInstanceServiceController::class)->only(['index']);
         });
 

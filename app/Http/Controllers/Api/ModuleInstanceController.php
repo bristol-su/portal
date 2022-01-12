@@ -33,7 +33,7 @@ class ModuleInstanceController extends Controller
         ]), ['user_id' => app(Authentication::class)->getUser()->id(), 'completion_condition_instance_id' => $completionConditionInstance?->id]));
     }
 
-    public function update(StoreModuleInstanceRequest $moduleInstance, Request $request, ModuleInstanceRepository $repository, CompletionConditionInstanceRepository $cc)
+    public function update(StoreModuleInstanceRequest $request, ModuleInstance $moduleInstance, ModuleInstanceRepository $repository, CompletionConditionInstanceRepository $cc)
     {
         if(app(Repository::class)->getById($request->input('activity_id'))->isCompletable()) {
             $cc->update($moduleInstance->completionConditionInstance->id, [
