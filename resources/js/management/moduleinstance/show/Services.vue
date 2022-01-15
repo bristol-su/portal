@@ -29,11 +29,20 @@
 
         data() {
             return {
-                loading: true
+                connections: []
             }
         },
 
+        mounted() {
+            this.loadConnections();
+        },
+
         methods: {
+            loadConnections() {
+                this.$api.connection().index('loading-connections')
+                    .then(response => this.connections = response.data)
+                    .catch(error => this.$notify.alert('Could not load connections'));
+            },
             updateServices(data) {
                 this.$api.moduleInstanceServices().updateMany(this.moduleInstance.id, data, 'updating-services')
                     .then(response => this.$notify.success('Services updated'))
@@ -53,16 +62,22 @@
 
                 this.module.services.optional.forEach(service => {
                     optionalGroup.withField(
-                        this.$tools.generator.field.logic(service.ability)
+                        this.$tools.generator.field.select(service.ability)
                             .label(service.name)
                             .hint(service.description)
+                            .setOptions(this.connections.filter(c => c.connector.service === this.service).map(c => {
+                                return {id: c.id, name: c.name}
+                            }))
                     )
                 });
                 this.module.services.required.forEach(service => {
                     requiredGroup.withField(
-                        this.$tools.generator.field.logic(service.ability)
+                        this.$tools.generator.field.select(service.ability)
                             .label(service.name)
                             .hint(service.description)
+                            .setOptions(this.connections.filter(c => c.connector.service === this.service).map(c => {
+                                return {id: c.id, name: c.name}
+                            }))
                     )
                 });
 

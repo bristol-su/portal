@@ -28,7 +28,7 @@
     import ModuleForm from '../ModuleForm';
     import Settings from './Settings';
     import Permissions from './Permissions';
-    import Services from '../create/services/Services';
+    import Services from './Services';
 
     export default {
         name: "Show",

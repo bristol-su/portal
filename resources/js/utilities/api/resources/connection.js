@@ -2,8 +2,8 @@ import BaseResource from './../baseresource';
 
 export default class extends BaseResource{
 
-    index() {
-        return this.request('get', '/connection');
+    index(name) {
+        return this.request('get', '/connection', {}, {}, name);
     }
 
     test(id) {
