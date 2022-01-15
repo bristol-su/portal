@@ -1,16 +1,17 @@
 <template>
     <div>
-        <b-form-group
-            :id="'group-' + service"
-            :label="service"
-            :label-for="service"
-            description="Select a connection or create a new one"
-            v-if="!loading"
-            >
-
-            <b-form-select :options="connectionOptions" @input="saveService" :value="value" :disabled="doesActiveConnectionBelongToUser"></b-form-select>
-            <p class="text-danger" v-if="doesActiveConnectionBelongToUser">No access to connection</p>
-        </b-form-group>
+        <p-select
+            :select-options="connectionOptions"
+            null-label="-- No connection --"
+            :show-null-option="true"
+            :id="service + '-select'"
+            :label="'Connection for ' + service"
+            :value="currentConnection"
+            :required="true"
+            tooltip="Choose a connection or create a new one."
+            v-if="connectionsLoading"
+        >
+        </p-select>
         <div v-else>Loading...</div>
     </div>
 </template>
@@ -40,7 +41,7 @@
         data() {
             return {
                 connections: [],
-                connectionsLoading: true
+                connectionsLoading: false
             }
         },
 
@@ -87,7 +88,7 @@
         computed: {
             connectionOptions() {
                 return this.connections.map(connection => {
-                    return {text: connection.name, value: connection.id}
+                    return {id: connection.name, value: connection.id}
                 })
             },
             currentConnection() {

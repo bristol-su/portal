@@ -66,6 +66,21 @@
                 this.assignedServices.push(service);
             }
         },
+
+        computed: {
+            serviceForm() {
+                let requiredGroup = this.$tools.generator.group.newGroup('Required');
+                let optionalGroup = this.$tools.generator.group.newGroup('Optional');
+
+                this.services.required.forEach(service => {
+                    this.requiredGroup.withField(this.$tools.generator.field.select())
+                })
+
+                let form = this.$tools.generator.form.newForm('Services')
+                    .withGroup(requiredGroup)
+                    .withGroup(optionalGroup);
+            }
+        }
     }
 </script>
 
