@@ -8,6 +8,7 @@
                 busy-text="Saving services"
                 @submit="updateServices"
                 :initial-data="initialData"
+                v-if="!$isLoading('loading-connections')"
             ></p-api-form>
         </div>
     </div>
@@ -29,7 +30,7 @@
 
         data() {
             return {
-                connections: []
+                connections: [],
             }
         },
 
@@ -53,7 +54,7 @@
         computed: {
             initialData() {
                 let initialData = {};
-                this.moduleInstance.module_instance_services.forEach(service => initialData[service.ability] = service.logic_id);
+                this.moduleInstance.module_instance_services.forEach(service => initialData[service.service] = service.connection_id);
                 return initialData;
             },
             servicesSchema() {
@@ -62,28 +63,26 @@
 
                 this.module.services.optional.forEach(service => {
                     optionalGroup.withField(
-                        this.$tools.generator.field.select(service.ability)
-                            .label(service.name)
-                            .hint(service.description)
-                            .setOptions(this.connections.filter(c => c.connector.service === this.service).map(c => {
+                        this.$tools.generator.field.select(service)
+                            .label(service)
+                            .setOptions(this.connections.filter(c => this.module.services.optional.indexOf(c.connector.service) > -1).map(c => {
                                 return {id: c.id, name: c.name}
                             }))
                     )
                 });
                 this.module.services.required.forEach(service => {
                     requiredGroup.withField(
-                        this.$tools.generator.field.select(service.ability)
-                            .label(service.name)
-                            .hint(service.description)
-                            .setOptions(this.connections.filter(c => c.connector.service === this.service).map(c => {
-                                return {id: c.id, name: c.name}
+                        this.$tools.generator.field.select(service)
+                            .label(service)
+                            .setOptions(this.connections.filter(c => this.module.services.required.indexOf(c.connector.service) > -1).map(c => {
+                                return {id: c.id, value: c.name}
                             }))
                     )
                 });
 
                 return this.$tools.generator.form.newForm('Services')
-                    .withGroup(optionalGroup)
                     .withGroup(requiredGroup)
+                    .withGroup(optionalGroup)
                     .generate()
                     .asJson();
             }

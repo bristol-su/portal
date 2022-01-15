@@ -17,7 +17,7 @@ export default class extends BaseResource{
     }
 
     updateMany(moduleInstanceId, data, name) {
-        return this.request('put', '/module-instance/' + moduleInstanceId + '/module-instance-services/many', {permissions: data}, {}, name)
+        return this.request('put', '/module-instance/' + moduleInstanceId + '/module-instance-services/many', {services: data}, {}, name)
     }
 
     forModuleInstance(moduleInstanceId) {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use BristolSU\Support\ModuleInstance\Connection\ModuleInstanceService;
 use BristolSU\Support\ModuleInstance\Contracts\ModuleInstanceRepository;
 use BristolSU\Support\Permissions\Models\ModuleInstancePermission;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ModuleInstanceModuleInstanceServiceController extends Controller
@@ -22,10 +23,14 @@ class ModuleInstanceModuleInstanceServiceController extends Controller
             if($connectionId === null) {
                 ModuleInstanceService::where(['service' => $service, 'module_instance_id' => $moduleInstanceId])->delete();
             } else {
-                ModuleInstanceService::updateOrCreate(
-                    ['service' => $service, 'module_instance_id' => $moduleInstanceId],
-                    ['connection_id' => $connectionId]
-                );
+                try {
+                    $moduleInstanceService = ModuleInstanceService::where(['service' => $service, 'module_instance_id' => $moduleInstanceId])->firstOrFail();
+                } catch (ModelNotFoundException $e) {
+                    $moduleInstanceService = ModuleInstanceService::make(['service' => $service]);
+                    $moduleInstanceService->module_instance_id = $moduleInstanceId;
+                }
+                $moduleInstanceService->connection_id = $connectionId;
+                $moduleInstanceService->save();
             }
         }
     }
