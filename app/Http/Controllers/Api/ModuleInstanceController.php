@@ -35,7 +35,7 @@ class ModuleInstanceController extends Controller
 
     public function update(StoreModuleInstanceRequest $request, ModuleInstance $moduleInstance, ModuleInstanceRepository $repository, CompletionConditionInstanceRepository $cc)
     {
-        if(app(Repository::class)->getById($request->input('activity_id'))->isCompletable()) {
+        if($moduleInstance->activity->isCompletable()) {
             $cc->update($moduleInstance->completionConditionInstance->id, [
                 'name' => $request->input('completion_condition_name', $moduleInstance->completionConditionInstance->name),
                 'alias' => $request->input('completion_condition_alias', $moduleInstance->completionConditionInstance->alias),
