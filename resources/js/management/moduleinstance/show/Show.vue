@@ -16,7 +16,7 @@
                 <permissions :module-instance="moduleInstance" :module="module"></permissions>
             </p-tab>
 
-            <p-tab title="Services">
+            <p-tab title="Services" v-if="module.services.optional.length > 0 || module.services.required.length > 0">
                 <services :module-instance="moduleInstance" :module="module"></services>
             </p-tab>
         </p-tabs>
