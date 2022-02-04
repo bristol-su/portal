@@ -63,9 +63,9 @@
             @view="viewModule">
 
             <template #fullRow="{row}">
-                <div class="text-semibold">
+                <h3 class="font-semibold">
                     {{ row.group }}
-                </div>
+                </h3>
             </template>
             <template #fullRowActions="{row}">
                 <span v-if="row.group_id !== 0 && row.group_id !== '0'" class="flex justify-between">
@@ -299,7 +299,7 @@ export default {
         return {
             fields: [
                 {label: 'Name', key: 'name'},
-                {label: 'Description', key: 'description'},
+                {label: 'Description', key: 'description', truncateCell: 30},
                 {label: 'Type', key: 'alias'},
                 {label: 'Status', key: 'enabled'},
             ],
@@ -411,7 +411,7 @@ export default {
             let options = this.groupings.map(g => {
                 return {id: g.id, value: g.heading};
             })
-            options.unshift({id: null, value: 'No Group'});
+            options.unshift({id: null, value: '-- No Group --'});
             return options;
         },
         emptyGroups() {
@@ -423,7 +423,7 @@ export default {
                 groupings.push({id: grouping.id, modules: this.modules.filter(m => m.grouping_id === grouping.id)});
             })
             if(this.modules.filter(m => m.grouping_id === null).length > 0) {
-                groupings.unshift({id: 0, modules: this.modules.filter(m => m.grouping_id === null)});
+                groupings.push({id: 0, modules: this.modules.filter(m => m.grouping_id === null)});
             }
             return groupings;
         },
