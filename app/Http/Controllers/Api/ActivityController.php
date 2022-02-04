@@ -42,8 +42,8 @@ class ActivityController extends Controller
             'activity_for' => 'required',
             'for_logic' => 'required',
             'admin_logic' => 'required',
-            'start_date' => 'sometimes|nullable|required_with:end_date|date_format:Y-m-d H:i:s',
-            'end_date' => 'sometimes|nullable|required_with:start_date|date_format:Y-m-d H:i:s'
+            'start_date' => 'sometimes|nullable|required_with:end_date|date_format:Y-m-d',
+            'end_date' => 'sometimes|nullable|required_with:start_date|date_format:Y-m-d'
         ]);
 
         return $repository->create([

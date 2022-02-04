@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ModuleInstanceController\StoreModuleInstanceRequest;
+use App\Http\Requests\Api\ModuleInstanceController\UpdateModuleInstanceRequest;
 use BristolSU\Support\Activity\Contracts\Repository;
 use BristolSU\Support\Authentication\Contracts\Authentication;
 use BristolSU\Support\Completion\Contracts\CompletionConditionInstanceRepository;
@@ -33,7 +34,7 @@ class ModuleInstanceController extends Controller
         ]), ['user_id' => app(Authentication::class)->getUser()->id(), 'completion_condition_instance_id' => $completionConditionInstance?->id]));
     }
 
-    public function update(StoreModuleInstanceRequest $request, ModuleInstance $moduleInstance, ModuleInstanceRepository $repository, CompletionConditionInstanceRepository $cc)
+    public function update(UpdateModuleInstanceRequest $request, ModuleInstance $moduleInstance, ModuleInstanceRepository $repository, CompletionConditionInstanceRepository $cc)
     {
         if($moduleInstance->activity->isCompletable()) {
             $cc->update($moduleInstance->completionConditionInstance->id, [
