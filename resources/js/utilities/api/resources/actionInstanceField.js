@@ -14,4 +14,8 @@ export default class extends BaseResource{
         return this.request('get', '/action-instance/' + actionInstanceId + '/action-instance-field');
     }
 
+    setMany(actionInstanceId, data, name) {
+        return this.request('post', 'action-instance/' + actionInstanceId + '/action-instance-fields', {data: data}, {}, name);
+    }
+
 }

@@ -68,7 +68,7 @@
                 </h3>
             </template>
             <template #fullRowActions="{row}">
-                <span v-if="row.group_id !== 0 && row.group_id !== '0'" class="flex justify-between">
+                <span v-if="row.group_id !== 0 && row.group_id !== '0'" class="flex justify-center space-x-4">
                     <a class="text-primary hover:text-primary-dark" href="#"
                        role="button"
                        @click.prevent="editGrouping(row.group_id)"

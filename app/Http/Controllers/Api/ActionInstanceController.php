@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use BristolSU\Support\Action\ActionInstance;
+use BristolSU\Support\Action\ActionInstanceField;
 use BristolSU\Support\Authentication\Contracts\Authentication;
+use BristolSU\Support\Module\Contracts\ModuleRepository;
+use BristolSU\Support\ModuleInstance\ModuleInstance;
 use Illuminate\Http\Request;
 
 /**
@@ -70,4 +73,34 @@ class ActionInstanceController extends Controller
     {
         return $actionInstance;
     }
+
+    public function destroy(ActionInstance $actionInstance)
+    {
+        $actionInstance->delete();
+
+        return response('', 204);
+    }
+
+    public function setMany(ActionInstance $actionInstance, Request $request)
+    {
+        $request->validate([
+            'data' => 'required|array'
+        ]);
+
+        foreach($request->input('data') as $key => $value) {
+            if($value === null) {
+                ActionInstanceField::where(
+                    ['action_instance_id' => $actionInstance->id, 'action_field' => $key],
+                )->delete();
+            } else {
+                ActionInstanceField::updateOrCreate(
+                    ['action_instance_id' => $actionInstance->id, 'action_field' => $key],
+                    ['action_value' => $value]
+                );
+            }
+        }
+
+        return response('', 204);
+    }
+
 }

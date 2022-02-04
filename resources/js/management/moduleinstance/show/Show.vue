@@ -19,6 +19,10 @@
             <p-tab title="Services" v-if="module.services.optional.length > 0 || module.services.required.length > 0">
                 <services :module-instance="moduleInstance" :module="module"></services>
             </p-tab>
+
+            <p-tab title="Actions">
+                <actions :module-instance="moduleInstance" :module="module"></actions>
+            </p-tab>
         </p-tabs>
 
     </div>
@@ -29,10 +33,11 @@
     import Settings from './Settings';
     import Permissions from './Permissions';
     import Services from './Services';
+    import Actions from './Actions';
 
     export default {
         name: "Show",
-        components: {Services, Permissions, Settings, ModuleForm},
+        components: {Actions, Services, Permissions, Settings, ModuleForm},
         props: {
             moduleInstance: {
                 required: true,

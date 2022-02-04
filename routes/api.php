@@ -61,7 +61,8 @@ Route::middleware(['portal-auth'])->group(function () {
         Route::post('grouping/{grouping}/down', [\App\Http\Controllers\Api\ModuleInstanceGroupingController::class, 'down']);
         Route::resource('grouping', \App\Http\Controllers\Api\ModuleInstanceGroupingController::class)->only(['index', 'update', 'store', 'destroy']);
         Route::apiResource('action', \App\Http\Controllers\Api\ActionController::class)->only(['index']);
-        Route::apiResource('action-instance', \App\Http\Controllers\Api\ActionInstanceController::class)->only(['store', 'update']);
+        Route::apiResource('action-instance', \App\Http\Controllers\Api\ActionInstanceController::class)->only(['store', 'update', 'destroy']);
+        Route::post('action-instance/{actionInstance}/action-instance-fields', [\App\Http\Controllers\Api\ActionInstanceController::class, 'setMany']);
         Route::apiResource('action-instance-field', \App\Http\Controllers\Api\ActionInstanceFieldController::class)->only(['store', 'update']);
         Route::apiResource('site-permission', \App\Http\Controllers\Api\SitePermissionController::class, ['as' => 'site-permission'])->only('index', 'show');
         Route::apiResource('connector', \App\Http\Controllers\Api\ConnectorController::class, ['as' => 'connector'])->only('index', 'show');

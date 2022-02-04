@@ -1,13 +1,23 @@
-@extends('layouts.legacy')
+@extends('layouts.app')
 
 @section('title', 'Add an Action')
 
 @section('app-content')
 
-    <action-create
-        :module-instance="{{$moduleInstance}}">
+    <p-page-content
+        title="Actions for {{$moduleInstance->name}}"
+        subtitle="Add and update actions for your module."
+    >
 
-    </action-create>
+        <action-create
+            :module-instance="{{$moduleInstance}}"
+            :module="{{$module}}">
+
+        </action-create>
+
+    </p-page-content>
+
+
 
 @endsection
 

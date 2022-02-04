@@ -6,5 +6,8 @@ export default class extends BaseResource{
         return this.request('get', '/action');
     }
 
+    delete(actionId, name) {
+        return this.request('delete', '/action-instance/' + actionId, {}, {}, name);
+    }
 
 }

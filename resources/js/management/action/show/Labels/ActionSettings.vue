@@ -26,12 +26,12 @@
 
 <script>
     import AvailableEventFields from '../../create/mapfields/AvailableEventFields';
-    import MapFields from '../../create/mapfields/MapFields';
+    // import MapFields from '../../create/mapfields/MapFields';
     import DataItem from '../../../../utilities/DataItem';
 
     export default {
         name: "ActionSettings",
-        components: {MapFields, AvailableEventFields, DataItem},
+        components: {AvailableEventFields, DataItem},
         props: {
             action: {
                 required: true,

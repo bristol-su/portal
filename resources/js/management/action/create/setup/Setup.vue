@@ -107,6 +107,33 @@
                         value: action.class
                     };
                 });
+            },
+
+            formSchema() {
+
+            //         <b-form-checkbox
+            //             id="queueable"
+            //         :checked="shouldQueue"
+            //         @input="$emit('shouldqueue', $event)"
+            //         >
+            //         The action can run in the background
+            //     </b-form-checkbox>
+            // </b-form-group>
+            //     <b-form-group description="Choose something to trigger on" label="What should happen in the module...">
+            //         <b-form-select :options="triggerOptions" :value="trigger" @input="$emit('trigger', $event)" class="mb-3">
+            //         <template v-slot:cell(first)="data">
+            //         <option :value="null" disabled>-- Please select an option --</option>
+            // </template>
+            // </b-form-select>
+            // </b-form-group>
+            //
+            //     <b-form-group description="Choose an action to do" label="...to carry out the action?">
+            //         <b-form-select :options="actionOptions" :value="action" @input="$emit('action', $event)" class="mb-3">
+            //         <template v-slot:cell(first)="data">
+            //         <option :value="null" disabled>-- Please select an option --</option>
+            // </template>
+            // </b-form-select>
+            // </b-form-group>
             }
         }
     }

@@ -9,6 +9,7 @@ import ActivityShow from './management/activity/show/Show';
 import ActivityCreate from './management/activity/create/Create';
 import ModuleCreate from './management/moduleinstance/create/Create';
 import ModuleShow from './management/moduleinstance/show/Show';
+import ActionCreate from './management/action/create/Create';
 
 require('./ui-kit');
 
@@ -33,7 +34,9 @@ new Vue({
         ActivityCreate,
 
         ModuleCreate,
-        ModuleShow
+        ModuleShow,
+
+        ActionCreate
     }
 });
 
