@@ -5,7 +5,7 @@
             <a :href="$tools.routes.basic.baseWebUrl() + '/activity/' + moduleInstance.activity_id + '/module-instance/' + moduleInstance.id + '/action/create'"
                class="text-primary hover:text-primary-dark">
                 <svg v-tippy="{ arrow: true, animation: 'fade', placement: 'top-start', arrow: true, interactive: true}"
-                     class="h-6 w-6" content="Add Module" fill="none"
+                     class="h-6 w-6" content="Add Action" fill="none"
                      stroke="currentColor"
                      viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">

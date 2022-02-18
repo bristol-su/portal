@@ -1,6 +1,9 @@
 <template>
     <div>
         <p-modal id="mapfields" title="Map Fields">
+
+            <available-event-fields :action-instance="actionInstance"></available-event-fields>
+
             <p-api-form :schema="actionInstance.action_schema" @submit="mapFields" :initial-data="model" button-text="Save fields" :busy="$isLoading('mapping-fields')"></p-api-form>
 
         </p-modal>
@@ -17,9 +20,10 @@
 </template>
 
 <script>
+    import AvailableEventFields from './mapfields/AvailableEventFields';
     export default {
         name: "MapFields",
-
+        components: {AvailableEventFields},
         props: {
             actionInstance: {
                 required: true,
