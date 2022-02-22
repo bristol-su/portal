@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.209.26",
+            "version": "3.209.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "bf29058fc637e4949ec42281e9572b9c968b38cc"
+                "reference": "dfc4fdee991cdf764241125490a0b22875af6afe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bf29058fc637e4949ec42281e9572b9c968b38cc",
-                "reference": "bf29058fc637e4949ec42281e9572b9c968b38cc",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dfc4fdee991cdf764241125490a0b22875af6afe",
+                "reference": "dfc4fdee991cdf764241125490a0b22875af6afe",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.26"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.28"
             },
-            "time": "2022-02-17T19:15:52+00:00"
+            "time": "2022-02-21T19:14:33+00:00"
         },
         {
             "name": "binarybuilds/laravel-mail-manager",
@@ -577,8 +577,8 @@
             "autoload": {
                 "psr-4": {
                     "BristolSU\\Auth\\": "src/",
-                    "Database\\Auth\\Factories\\": "database/factories/",
                     "Database\\Auth\\Seeders\\": "database/seeders/",
+                    "Database\\Auth\\Factories\\": "database/factories/",
                     "Database\\Auth\\Migrations\\": "database/migrations/"
                 }
             },
@@ -612,12 +612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/portal-mail.git",
-                "reference": "3b6640f564b556396e76cf85afed98004e65365d"
+                "reference": "36e96b7590c686aa7c9bf70754ab574cad23309a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/portal-mail/zipball/3b6640f564b556396e76cf85afed98004e65365d",
-                "reference": "3b6640f564b556396e76cf85afed98004e65365d",
+                "url": "https://api.github.com/repos/bristol-su/portal-mail/zipball/36e96b7590c686aa7c9bf70754ab574cad23309a",
+                "reference": "36e96b7590c686aa7c9bf70754ab574cad23309a",
                 "shasum": ""
             },
             "require": {
@@ -665,7 +665,7 @@
                 "issues": "https://github.com/bristol-su/portal-mail/issues",
                 "source": "https://github.com/bristol-su/portal-mail/tree/develop"
             },
-            "time": "2021-12-06T16:26:13+00:00"
+            "time": "2022-02-22T16:48:50+00:00"
         },
         {
             "name": "bristol-su/static-page",
@@ -725,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "fadc8b7dea698b0dd63b85580fe8b95ae849772a"
+                "reference": "8be849ee9df7cac499bd2a9c42d0e844205a0088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/fadc8b7dea698b0dd63b85580fe8b95ae849772a",
-                "reference": "fadc8b7dea698b0dd63b85580fe8b95ae849772a",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/8be849ee9df7cac499bd2a9c42d0e844205a0088",
+                "reference": "8be849ee9df7cac499bd2a9c42d0e844205a0088",
                 "shasum": ""
             },
             "require": {
@@ -794,7 +794,7 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/portal-mail"
             },
-            "time": "2021-12-06T16:11:31+00:00"
+            "time": "2022-02-22T16:42:11+00:00"
         },
         {
             "name": "bristol-su/typeform",
@@ -2168,7 +2168,7 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.235.0",
+            "version": "v0.236.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
@@ -2206,7 +2206,7 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.235.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.236.0"
             },
             "time": "2022-02-07T14:04:26+00:00"
         },
@@ -2832,16 +2832,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.83.1",
+            "version": "v8.83.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "bddba117f8bce2f3c9875ca1ca375a96350d0f4d"
+                "reference": "b91b3b5b39fbbdc763746f5714e08d50a4dd7857"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/bddba117f8bce2f3c9875ca1ca375a96350d0f4d",
-                "reference": "bddba117f8bce2f3c9875ca1ca375a96350d0f4d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b91b3b5b39fbbdc763746f5714e08d50a4dd7857",
+                "reference": "b91b3b5b39fbbdc763746f5714e08d50a4dd7857",
                 "shasum": ""
             },
             "require": {
@@ -3001,7 +3001,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-02-15T15:05:20+00:00"
+            "time": "2022-02-22T15:10:17+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -3061,16 +3061,16 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v10.3.1",
+            "version": "v10.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "779e34f0152f42fb76b258d814956313fa38857c"
+                "reference": "c56207e9a37c849da0164842a609a9f38747e95b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/779e34f0152f42fb76b258d814956313fa38857c",
-                "reference": "779e34f0152f42fb76b258d814956313fa38857c",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/c56207e9a37c849da0164842a609a9f38747e95b",
+                "reference": "c56207e9a37c849da0164842a609a9f38747e95b",
                 "shasum": ""
             },
             "require": {
@@ -3134,7 +3134,7 @@
                 "issues": "https://github.com/laravel/passport/issues",
                 "source": "https://github.com/laravel/passport"
             },
-            "time": "2022-01-25T20:06:06+00:00"
+            "time": "2022-02-15T21:44:15+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -3402,16 +3402,16 @@
         },
         {
             "name": "laravel/ui",
-            "version": "v3.4.4",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/ui.git",
-                "reference": "1596de849ecafc0bcc891389da939012b67f9d5c"
+                "reference": "f11d295de1508c5bb56206a620b00b6616de414c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/1596de849ecafc0bcc891389da939012b67f9d5c",
-                "reference": "1596de849ecafc0bcc891389da939012b67f9d5c",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/f11d295de1508c5bb56206a620b00b6616de414c",
+                "reference": "f11d295de1508c5bb56206a620b00b6616de414c",
                 "shasum": ""
             },
             "require": {
@@ -3457,9 +3457,9 @@
                 "ui"
             ],
             "support": {
-                "source": "https://github.com/laravel/ui/tree/v3.4.4"
+                "source": "https://github.com/laravel/ui/tree/v3.4.5"
             },
-            "time": "2022-02-10T22:38:33+00:00"
+            "time": "2022-02-21T14:59:16+00:00"
         },
         {
             "name": "laravel/vapor-core",
@@ -5473,16 +5473,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.1.1",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a"
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/15a90844ad40f127afd244c0cad228de2a80052a",
-                "reference": "15a90844ad40f127afd244c0cad228de2a80052a",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "shasum": ""
             },
             "require": {
@@ -5518,9 +5518,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.1.1"
+                "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
-            "time": "2022-02-07T21:56:48+00:00"
+            "time": "2022-02-21T01:04:05+00:00"
         },
         {
             "name": "php-console/php-console",
@@ -11371,12 +11371,12 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "src/migrations"
-                ],
                 "psr-0": {
                     "Venturecraft\\Revisionable": "src/"
-                }
+                },
+                "classmap": [
+                    "src/migrations"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -11582,12 +11582,12 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "psr-4": {
                     "WATR\\": "src/"
-                }
+                },
+                "classmap": [
+                    "src/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -12944,16 +12944,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.13.4",
+            "version": "v1.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "57d2942d5edd89b2018d0a3447da321fa35baac7"
+                "reference": "aeb6eeb55b22c328d2f301145b97288127691d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/57d2942d5edd89b2018d0a3447da321fa35baac7",
-                "reference": "57d2942d5edd89b2018d0a3447da321fa35baac7",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/aeb6eeb55b22c328d2f301145b97288127691d48",
+                "reference": "aeb6eeb55b22c328d2f301145b97288127691d48",
                 "shasum": ""
             },
             "require": {
@@ -13000,7 +13000,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-02-17T19:55:30+00:00"
+            "time": "2022-02-17T19:59:03+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -13610,16 +13610,16 @@
         },
         {
             "name": "spatie/laravel-ray",
-            "version": "1.29.3",
+            "version": "1.29.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ray.git",
-                "reference": "440cda76812a7770e6684d19683444c608e135e4"
+                "reference": "3cace74c812469e6e569dacffc46653457f9c2cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ray/zipball/440cda76812a7770e6684d19683444c608e135e4",
-                "reference": "440cda76812a7770e6684d19683444c608e135e4",
+                "url": "https://api.github.com/repos/spatie/laravel-ray/zipball/3cace74c812469e6e569dacffc46653457f9c2cc",
+                "reference": "3cace74c812469e6e569dacffc46653457f9c2cc",
                 "shasum": ""
             },
             "require": {
@@ -13678,7 +13678,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-ray/issues",
-                "source": "https://github.com/spatie/laravel-ray/tree/1.29.3"
+                "source": "https://github.com/spatie/laravel-ray/tree/1.29.4"
             },
             "funding": [
                 {
@@ -13690,7 +13690,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2022-02-15T14:52:59+00:00"
+            "time": "2022-02-22T15:18:57+00:00"
         },
         {
             "name": "spatie/ray",
