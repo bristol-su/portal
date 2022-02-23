@@ -15,7 +15,7 @@
         </p-card-group>
     @endif
 
-    @if($groups->count() > 0)
+    @if($groups->filter(fn($group) => $activities['group'][$group->id()] ?? false)->count() > 0)
         <p-card-group title="Student Group Memberships">
             @foreach($groups as $group)
                 @if(isset($activities['group'][$group->id()]) && $activities['group'][$group->id()]->count() > 0)
@@ -35,7 +35,7 @@
             @foreach($roles as $role)
                 @if(isset($activities['role'][$role->id()]) && $activities['role'][$role->id()]->count() > 0)
                     <p-card
-                        title="{{($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name())}} of {{$role->group()->data()->name()}}"
+                        title="{{($role->data()->roleName() ? $role->data()->roleName() : $role->position()->data()->name())}} of {{$role->group()->data()->name()}} ({{ $role->tags()->filter(fn(\BristolSU\ControlDB\Contracts\Models\Tags\RoleTag $tag) => $tag->category()->reference() === 'committee_year')->first()?->name() ?? 'No Date' }})"
                         url="{{route(sprintf('summary.%s.role', $administrator ? 'a' : 'p'), ['control_role' => $role->id()])}}?r={{$role->id()}}&g={{$role->groupId()}}"
                         url-text="View"
                     >
