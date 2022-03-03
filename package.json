@@ -22,7 +22,7 @@
     "dependencies": {
         "@bristol-su/control-js-api-client": "^1.1.2",
         "@bristol-su/control-management": "^0.3.3",
-        "@bristol-su/frontend-toolkit": "1.0.3",
+        "@bristol-su/frontend-toolkit": "1.0.4",
         "@bristol-su/portal-ui-kit": "^0.0.12",
         "acorn": "^8.6.0",
         "bootstrap": "^4.5.2",
