@@ -113,4 +113,8 @@ return [
         'redirect' => env('GOOGLE_CLIENT_REDIRECT'),
     ],
 
+    'tiny_mce' => [
+        'api_key' => env('TINY_MCE_API_KEY', '')
+    ]
+
 ];
