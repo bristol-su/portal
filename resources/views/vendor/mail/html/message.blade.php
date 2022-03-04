@@ -10,7 +10,7 @@
 {{-- Body --}}
 {{ $slot }}
 
-<img src="{{asset('/images/logo.png')}}" style="max-width: 150px;" alt="Bristol SU Logo">
+<img src="{{asset('/images/logo.png')}}" style="width: 100vw; max-width: 150px;" alt="Bristol SU Logo">
 
 <p style="font-size: 14px;">
 University of Bristol Students' Union,
