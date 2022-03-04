@@ -105,6 +105,13 @@ class MakeAdmin extends Command
             'ability' => 'access-control'
         ], ['result' => true]);
 
+       ModelPermission::updateOrCreate([
+            'model' => 'user',
+            'model_id' => $user->id(),
+            'ability' => 'manage-mail'
+        ], ['result' => true]);
+
+
         $this->info('Permissions updated!');
 
     }
