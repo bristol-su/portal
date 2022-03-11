@@ -174,6 +174,9 @@ return [
             'debug' => false,
             'formatters' => [
                 \BristolSU\ControlDB\Export\Formatter\Group\SimpleGroupFormatter::class => [],
+                \App\Exports\IsGroupDisaffiliated::class => [
+                    'disaffiliatingTagId' => env('DISAFFILIATING_TAG_ID')
+                ],
                 \BristolSU\ControlDB\Export\Formatter\Shared\SortByColumn::class => [
                     'column' => 'Group Name'
                 ],
