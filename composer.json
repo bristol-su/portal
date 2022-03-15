@@ -28,7 +28,7 @@
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/portal-auth": "^1.0.1",
         "bristol-su/support": "dev-portal-mail as 5.1.0",
-        "bristol-su/upload-file": "^3.0.3",
+        "bristol-su/upload-file": "^3.1.0",
         "bristol-su/static-page": "^3.0.0",
         "bristol-su/typeform": "^3.0.2",
         "bristol-su/data-entry": "^3.0.0",
