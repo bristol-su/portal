@@ -46,7 +46,7 @@ class ModuleInstanceController extends Controller
 
         return $repository->update($moduleInstance->id(), $request->only([
             'name', 'description', 'enabled', 'active', 'visible', 'mandatory',
-            'order', 'grouping_id'
+            'order', 'grouping_id', 'slug'
         ]));
     }
 
