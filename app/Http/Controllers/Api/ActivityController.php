@@ -77,7 +77,7 @@ class ActivityController extends Controller
     public function update(Activity $activity, Request $request, Repository $repository)
     {
         return $repository->update($activity->id, $request->only([
-            'name', 'description', 'enabled', 'start_date', 'end_date', 'admin_logic', 'for_logic', 'enabled'
+            'name', 'description', 'enabled', 'start_date', 'end_date', 'admin_logic', 'for_logic', 'enabled', 'slug'
         ]));
     }
 
