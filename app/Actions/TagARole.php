@@ -22,7 +22,7 @@ class TagARole extends Action
         app(RoleTagRepository::class)->all()->each(fn(RoleTag $roleTag) => $selectField->withOption($roleTag->fullReference(), sprintf('%s (%s)', $roleTag->name(), $roleTag->fullReference()), $roleTag->category()->name()));
 
         return \FormSchema\Generator\Form::make()->withField(
-            Field::number('role_id')->setLabel('Role ID')->setRequired(true)->setValue(null)->setHint('The ID of the role to tag')
+            Field::textInput('role_id')->setLabel('Role ID')->setRequired(true)->setValue(null)->setHint('The ID of the role to tag')
         )->withField($selectField)->form();
     }
 
