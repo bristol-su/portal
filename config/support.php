@@ -30,6 +30,13 @@ return [
                 'tableName' => env('AIRTABLE_TABLE_NAME'),
                 'apiKey' => env('AIRTABLE_API_KEY'),
                 'debug' => false
+            ],
+            'airtable2022' => [
+                'driver' => 'airtable',
+                'baseId' => env('AIRTABLE_BASE_ID_2022'),
+                'tableName' => env('AIRTABLE_TABLE_NAME'),
+                'apiKey' => env('AIRTABLE_API_KEY'),
+                'debug' => false
             ]
         ]
     ]
