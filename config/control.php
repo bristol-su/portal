@@ -180,6 +180,11 @@ return [
                 \BristolSU\ControlDB\Export\Formatter\Shared\SortByColumn::class => [
                     'column' => 'Group Name'
                 ],
+                \App\Exports\AddGroupExecCommittee::class => [
+                    'president_positions' => [23,5,22],
+                    'treasurer_positions' => [6],
+                    'secretary_positions' => [7]
+                ],
             ],
             'baseId' => env('AIRTABLE_CONTROL_BASE_ID'),
             'tableName' => 'Groups',
