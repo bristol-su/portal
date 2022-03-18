@@ -30,7 +30,7 @@ class ClearGroupMembershipCache extends Command
      * @var UserGroup
      */
     private UserGroup $repository;
-    
+
     /**
      * Create a new command instance.
      *
@@ -57,7 +57,7 @@ class ClearGroupMembershipCache extends Command
         try {
             $controlGroup = app(Group::class)->getById($controlGroupId);
             $users = $this->repository->getUsersThroughGroup($controlGroup);
-
+            $this->line('Found ' . count($users) . ' users.');
             UsersWithMembershipToGroupRetrieved::dispatch($controlGroup, $users);
         } catch (\Exception $e) {
             $this->error('Failed caching memberships for group #' . $controlGroupId);
