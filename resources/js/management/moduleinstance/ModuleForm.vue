@@ -113,7 +113,7 @@ export default {
             return true;
         },
         currentModuleUrl() {
-            return this.$tools.routes.basic.baseWebUrl() + '/' + this.activity.slug + '/' + (this.formData.slug ?? '...')
+            return this.$tools.routes.basic.baseWebUrl() + '/p/' + this.activity.slug + '/' + (this.formData.slug ?? '...')
         },
         formSchema() {
             let form = this.$tools.generator.form.newForm()
