@@ -40,7 +40,7 @@ class ActivityEvaluator
                 if(!$evaluation->complete()) {
                     $complete = false;
                 } else {
-                    $complete++;
+                    $completeCount++;
                 }
             }
         }
