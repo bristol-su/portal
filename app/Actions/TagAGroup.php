@@ -19,7 +19,7 @@ class TagAGroup extends Action
     public static function options(): Form
     {
         $selectField = \FormSchema\Generator\Field::select('tag_id')->setLabel('Tag')->setRequired(true);
-        app(GroupTagRepository::class)->all()->each(fn(GroupTag $groupTag) => $selectField->withOption($groupTag->fullReference(), sprintf('%s (%s)', $groupTag->name(), $groupTag->fullReference()), $groupTag->category()->name()));
+        app(GroupTagRepository::class)->all()->each(fn(GroupTag $groupTag) => $selectField->withOption($groupTag->id(), sprintf('%s (%s)', $groupTag->name(), $groupTag->fullReference()), $groupTag->category()->name()));
 
         return \FormSchema\Generator\Form::make()->withField(
             Field::text('group_id')->setLabel('Group ID')->setRequired(true)->setValue(null)->setHint('The ID of the group to tag')
