@@ -42,6 +42,17 @@ class RoleExport extends Command
         foreach($roles->chunk(10) as $processingRoles) {
             ExportRoles::dispatch($processingRoles);
         }
+
+        $rolesTwo = Audience::getRolesInLogicGroup($logicRepository->getById(config('control.logicIdTwo')));
+
+        if($rolesTwo->count() === 0) {
+            $this->error('No roles were found');
+        }
+
+        foreach($rolesTwo->chunk(10) as $processingRoles) {
+            ExportRoles::dispatch($processingRoles);
+        }
+
         $this->info('Export complete');
 
     }
