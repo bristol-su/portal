@@ -31,14 +31,14 @@ class HardRefreshLogicGroups extends Command
      */
     public function handle()
     {
-        $logics = Logic::where('id', '>=', 57)->get();
+        $logics = Logic::where('id', '>=', 69)->get();
         $this->line(sprintf('Dispatching %u logics', $logics->count()));
 
         foreach($logics as $logic) {
             $this->line(sprintf('Handling logic #%u with %u current results', $logic->id, LogicResult::where('logic_id', $logic->id)->count()));
             LogicResult::where('logic_id', $logic->id)->delete();
             $this->line(sprintf('Deleted results for #%u with %u current results', $logic->id, LogicResult::where('logic_id', $logic->id)->count()));
-            CacheLogic::dispatch($logic);
+            CacheLogic::dispatch($logic)->delay(100);
         }
 
         return static::SUCCESS;
