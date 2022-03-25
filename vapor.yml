@@ -41,9 +41,9 @@ environments:
         queue-timeout: 900
         queues:
             - portal-production
-            - logic_production
             - airtable_production
             - progress_production
+            - logic_production
             - unioncloud_production
         warm: 1
         build:
