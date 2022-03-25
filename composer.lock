@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.213.1",
+            "version": "3.216.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7d361a532ccb7c6a640fdfd4be23980c0fa60fd1"
+                "reference": "00176c97319448c9520176d7c7d107b04b35406d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7d361a532ccb7c6a640fdfd4be23980c0fa60fd1",
-                "reference": "7d361a532ccb7c6a640fdfd4be23980c0fa60fd1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/00176c97319448c9520176d7c7d107b04b35406d",
+                "reference": "00176c97319448c9520176d7c7d107b04b35406d",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.213.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.216.1"
             },
-            "time": "2022-03-15T20:28:59+00:00"
+            "time": "2022-03-24T18:15:20+00:00"
         },
         {
             "name": "binarybuilds/laravel-mail-manager",
@@ -374,16 +374,16 @@
         },
         {
             "name": "bristol-su/assign-roles",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/assign-roles.git",
-                "reference": "775264a39f05423673151601a4853c2ca71d8f9b"
+                "reference": "0017ac11d442f9c82a2930d69cdf690c7e067ffc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/775264a39f05423673151601a4853c2ca71d8f9b",
-                "reference": "775264a39f05423673151601a4853c2ca71d8f9b",
+                "url": "https://api.github.com/repos/bristol-su/assign-roles/zipball/0017ac11d442f9c82a2930d69cdf690c7e067ffc",
+                "reference": "0017ac11d442f9c82a2930d69cdf690c7e067ffc",
                 "shasum": ""
             },
             "require": {
@@ -420,9 +420,9 @@
             "description": "A module for the Bristol SU Portal Project to assign roles to members of groups",
             "support": {
                 "issues": "https://github.com/bristol-su/assign-roles/issues",
-                "source": "https://github.com/bristol-su/assign-roles/tree/v3.0.2"
+                "source": "https://github.com/bristol-su/assign-roles/tree/v3.0.3"
             },
-            "time": "2021-11-30T14:45:14+00:00"
+            "time": "2022-03-21T12:07:11+00:00"
         },
         {
             "name": "bristol-su/control",
@@ -725,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/support.git",
-                "reference": "bc4d5ca6c895d0684a8e0c1b8dcc8f0624a063fd"
+                "reference": "e66c615ade12afd3efb29b0c103a8b07c38c6a7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/support/zipball/bc4d5ca6c895d0684a8e0c1b8dcc8f0624a063fd",
-                "reference": "bc4d5ca6c895d0684a8e0c1b8dcc8f0624a063fd",
+                "url": "https://api.github.com/repos/bristol-su/support/zipball/e66c615ade12afd3efb29b0c103a8b07c38c6a7e",
+                "reference": "e66c615ade12afd3efb29b0c103a8b07c38c6a7e",
                 "shasum": ""
             },
             "require": {
@@ -794,20 +794,20 @@
                 "issues": "https://github.com/bristol-su/support/issues",
                 "source": "https://github.com/bristol-su/support/tree/portal-mail"
             },
-            "time": "2022-02-28T09:30:50+00:00"
+            "time": "2022-03-25T09:32:57+00:00"
         },
         {
             "name": "bristol-su/typeform",
-            "version": "v3.0.2",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/typeform.git",
-                "reference": "4400d0a4d402fe33b458be95f5a37861776bf21e"
+                "reference": "de5394eff69b10db4c739c9959716df671fc1eed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/4400d0a4d402fe33b458be95f5a37861776bf21e",
-                "reference": "4400d0a4d402fe33b458be95f5a37861776bf21e",
+                "url": "https://api.github.com/repos/bristol-su/typeform/zipball/de5394eff69b10db4c739c9959716df671fc1eed",
+                "reference": "de5394eff69b10db4c739c9959716df671fc1eed",
                 "shasum": ""
             },
             "require": {
@@ -847,9 +847,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bristol-su/typeform/issues",
-                "source": "https://github.com/bristol-su/typeform/tree/v3.0.2"
+                "source": "https://github.com/bristol-su/typeform/tree/v3.0.5"
             },
-            "time": "2021-11-30T14:53:16+00:00"
+            "time": "2022-03-21T13:29:11+00:00"
         },
         {
             "name": "bristol-su/typeform-service",
@@ -2169,16 +2169,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.239.0",
+            "version": "v0.240.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "ce8e34d618bdef9e824fd1728d505a468818712c"
+                "reference": "c6d39cda24d7ada02ecf8c464a1c8adb02607ba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/ce8e34d618bdef9e824fd1728d505a468818712c",
-                "reference": "ce8e34d618bdef9e824fd1728d505a468818712c",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/c6d39cda24d7ada02ecf8c464a1c8adb02607ba7",
+                "reference": "c6d39cda24d7ada02ecf8c464a1c8adb02607ba7",
                 "shasum": ""
             },
             "require": {
@@ -2207,29 +2207,29 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.239.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.240.0"
             },
-            "time": "2022-03-13T01:20:35+00:00"
+            "time": "2022-03-21T01:20:11+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.18.0",
+            "version": "v1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "21dd478e77b0634ed9e3a68613f74ed250ca9347"
+                "reference": "31e5d24d5fa0eaf6adc7e596292dc4732f4b60c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/21dd478e77b0634ed9e3a68613f74ed250ca9347",
-                "reference": "21dd478e77b0634ed9e3a68613f74ed250ca9347",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/31e5d24d5fa0eaf6adc7e596292dc4732f4b60c5",
+                "reference": "31e5d24d5fa0eaf6adc7e596292dc4732f4b60c5",
                 "shasum": ""
             },
             "require": {
-                "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
-                "guzzlehttp/guzzle": "^5.3.1|^6.2.1|^7.0",
+                "firebase/php-jwt": "~5.0",
+                "guzzlehttp/guzzle": "^6.2.1|^7.0",
                 "guzzlehttp/psr7": "^1.7|^2.0",
-                "php": ">=5.4",
+                "php": ">=5.6",
                 "psr/cache": "^1.0|^2.0",
                 "psr/http-message": "^1.0"
             },
@@ -2237,8 +2237,10 @@
                 "guzzlehttp/promises": "0.1.1|^1.3",
                 "kelvinmo/simplejwt": "^0.2.5|^0.5.1",
                 "phpseclib/phpseclib": "^2.0.31",
-                "phpunit/phpunit": "^4.8.36|^5.7",
-                "sebastian/comparator": ">=1.2.3"
+                "phpspec/prophecy-phpunit": "^1.1",
+                "phpunit/phpunit": "^5.7||^8.5.13",
+                "sebastian/comparator": ">=1.2.3",
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "suggest": {
                 "phpseclib/phpseclib": "May be used in place of OpenSSL for signing strings or for token management. Please require version ^2."
@@ -2261,11 +2263,11 @@
                 "oauth2"
             ],
             "support": {
-                "docs": "https://googleapis.github.io/google-auth-library-php/master/",
+                "docs": "https://googleapis.github.io/google-auth-library-php/main/",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.18.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.19.0"
             },
-            "time": "2021-08-24T18:03:18+00:00"
+            "time": "2022-03-24T21:22:45+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2331,16 +2333,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.4.1",
+            "version": "7.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79"
+                "reference": "ac1ec1cd9b5624694c3a40be801d94137afb12b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
-                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ac1ec1cd9b5624694c3a40be801d94137afb12b4",
+                "reference": "ac1ec1cd9b5624694c3a40be801d94137afb12b4",
                 "shasum": ""
             },
             "require": {
@@ -2435,7 +2437,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.1"
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.2"
             },
             "funding": [
                 {
@@ -2451,7 +2453,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-06T18:43:05+00:00"
+            "time": "2022-03-20T14:16:28+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2539,16 +2541,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.1.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "089edd38f5b8abba6cb01567c2a8aaa47cec4c72"
+                "reference": "c94a94f120803a18554c1805ef2e539f8285f9a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/089edd38f5b8abba6cb01567c2a8aaa47cec4c72",
-                "reference": "089edd38f5b8abba6cb01567c2a8aaa47cec4c72",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c94a94f120803a18554c1805ef2e539f8285f9a2",
+                "reference": "c94a94f120803a18554c1805ef2e539f8285f9a2",
                 "shasum": ""
             },
             "require": {
@@ -2572,7 +2574,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
@@ -2634,7 +2636,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.1.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.2.1"
             },
             "funding": [
                 {
@@ -2650,7 +2652,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-06T17:43:30+00:00"
+            "time": "2022-03-20T21:55:58+00:00"
         },
         {
             "name": "hollodotme/fast-cgi-client",
@@ -3464,16 +3466,16 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.21.0",
+            "version": "v2.21.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "9cf2d32fcb2cb34ea18f509ad2f2bda11b9dd348"
+                "reference": "e35ab60adfdc3f53220db38cc8c829ebdc67f00a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/9cf2d32fcb2cb34ea18f509ad2f2bda11b9dd348",
-                "reference": "9cf2d32fcb2cb34ea18f509ad2f2bda11b9dd348",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/e35ab60adfdc3f53220db38cc8c829ebdc67f00a",
+                "reference": "e35ab60adfdc3f53220db38cc8c829ebdc67f00a",
                 "shasum": ""
             },
             "require": {
@@ -3529,9 +3531,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-core/tree/v2.21.0"
+                "source": "https://github.com/laravel/vapor-core/tree/v2.21.1"
             },
-            "time": "2022-02-23T20:13:26+00:00"
+            "time": "2022-03-19T19:37:26+00:00"
         },
         {
             "name": "laravel/vapor-ui",
@@ -11216,21 +11218,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobytwigger/laravel-translate.git",
-                "reference": "21a92c1f14ab27d76f92e9f5ca68bf0dd0831379"
+                "reference": "2727d7f35bef31ac7d5e4039f0218d303ff07389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobytwigger/laravel-translate/zipball/21a92c1f14ab27d76f92e9f5ca68bf0dd0831379",
-                "reference": "21a92c1f14ab27d76f92e9f5ca68bf0dd0831379",
+                "url": "https://api.github.com/repos/tobytwigger/laravel-translate/zipball/2727d7f35bef31ac7d5e4039f0218d303ff07389",
+                "reference": "2727d7f35bef31ac7d5e4039f0218d303ff07389",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^8.0",
-                "php": "^7.3|^8.0"
+                "laravel/framework": "^8.0|^9.0",
+                "php": "^7.4|^8.0"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^3.158",
-                "orchestra/testbench": "^6.2",
+                "orchestra/testbench": "^6.2|^7.2",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.4",
                 "stichoza/google-translate-php": "^4.1.0"
@@ -11284,7 +11286,7 @@
                 "docs": "https://tobytwigger.github.io/laravel-translate/",
                 "email": "tobytwigger1@gmail.com",
                 "issues": "https://github.com/tobytwigger/laravel-translate/issues",
-                "source": "https://github.com/tobytwigger/laravel-translate/tree/develop"
+                "source": "https://github.com/tobytwigger/laravel-translate/tree/v0.3"
             },
             "funding": [
                 {
@@ -11292,7 +11294,7 @@
                     "type": "buymeacoffee"
                 }
             ],
-            "time": "2021-12-15T16:14:21+00:00"
+            "time": "2022-03-21T20:39:32+00:00"
         },
         {
             "name": "twigger/unioncloud",
