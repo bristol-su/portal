@@ -6,12 +6,18 @@ environments:
         memory: 512
         cli-memory: 512
         runtime: docker
-        database: staging
+        database: portal-staging-logic-groups
         storage: bristol-su-portal-staging
         cache: portal
         timeout: 100
-        queue-concurrency: 100
         queue-timeout: 300
+        queue-concurrency: 40
+        queues:
+            - portal-staging
+            - airtable_staging
+            - progress_staging
+            - logic_staging
+            - unioncloud_staging
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
             - 'php artisan event:cache'
