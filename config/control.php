@@ -9,6 +9,8 @@ return [
 
     'logicId' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID'),
 
+    'logicIdTwo' => env('COMMITTEE_CONTACT_DETAILS_LOGIC_ID_TWO'),
+
     'export' => [
 
         /*
