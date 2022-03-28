@@ -32,15 +32,15 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         if(app()->environment('production')) {
-            $schedule->command('progress:snapshot -E database')->dailyAt('07:00')->runInBackground();
-            $schedule->command('progress:snapshot 8 -E airtable')->weekly()->runInBackground();
-            $schedule->command('progress:snapshot 9 -E airtable2022')->dailyAt('06:00')->runInBackground();
+//            $schedule->command('progress:snapshot -E database')->dailyAt('07:00')->runInBackground();
+//            $schedule->command('progress:snapshot 8 -E airtable')->weekly()->runInBackground();
+//            $schedule->command('progress:snapshot 9 -E airtable2022')->dailyAt('06:00')->runInBackground();
 
-            $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
-            $schedule->command('control:export user --exporter=bristol-control-users')->dailyAt('22:00')->runInBackground();
-            $schedule->command('control:export group --exporter=bristol-control-groups')->dailyAt('22:00')->runInBackground();
-            $schedule->command('control:export position --exporter=bristol-control-positions')->dailyAt('22:00')->runInBackground();
-            $schedule->command('role:export')->dailyAt('02:00')->runInBackground();
+//            $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
+//            $schedule->command('control:export user --exporter=bristol-control-users')->dailyAt('22:00')->runInBackground();
+//            $schedule->command('control:export group --exporter=bristol-control-groups')->dailyAt('22:00')->runInBackground();
+//            $schedule->command('control:export position --exporter=bristol-control-positions')->dailyAt('22:00')->runInBackground();
+//            $schedule->command('role:export')->dailyAt('02:00')->runInBackground();
 
             if (config('app.cache-unioncloud', false) && config('unioncloud-portal.enabled.memberships', false)) {
                 $schedule->command(CacheUnionCloudUserGroupMemberships::class)->cron('*/2 * * * *');
