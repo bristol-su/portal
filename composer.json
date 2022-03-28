@@ -28,15 +28,15 @@
         "laravel/legacy-factories": "^v1.1.0",
         "bristol-su/portal-auth": "^1.0.1",
         "bristol-su/support": "dev-portal-mail as 5.1.0",
-        "bristol-su/upload-file": "^3.1.0",
+        "bristol-su/upload-file": "dev-develop",
         "bristol-su/static-page": "^3.0.0",
-        "bristol-su/typeform": "^3.0.2",
+        "bristol-su/typeform": "dev-develop",
         "bristol-su/data-entry": "^3.0.0",
-        "bristol-su/unioncloud-portal": "^2.0.1",
+        "bristol-su/unioncloud-portal": "dev-develop",
         "laravel/telescope": "^4.6.9",
         "bristol-su/portal-mail": "dev-develop",
         "bristol-su/assign-roles": "^3.0.2",
-        "bristol-su/airtable": "^3.1.0"
+        "bristol-su/airtable": "dev-master"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",

@@ -6,12 +6,18 @@ environments:
         memory: 512
         cli-memory: 512
         runtime: docker
-        database: staging
+        database: portal-staging-logic-groups
         storage: bristol-su-portal-staging
         cache: portal
         timeout: 100
+        queue-timeout: 300
         queue-concurrency: 40
-        queue-timeout: 50
+        queues:
+            - portal-staging
+            - airtable_staging
+            - progress_staging
+            - logic_staging
+            - unioncloud_staging
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
             - 'php artisan event:cache'
@@ -26,18 +32,19 @@ environments:
         cli-memory: 512
         runtime: docker
         database: portal
+        database-proxy: true
         storage: bristol-su-portal
         domain: portal.bristolsu.org.uk
         cache: portalproduction
-        timeout: 859
-        queue-concurrency: 30
+        timeout: 100
+        queue-concurrency: 35
         queue-timeout: 900
         queues:
             - portal-production
-            - airtable
-            - progress
-            - logic
-            - unioncloud
+            - airtable_production
+            - progress_production
+            - logic_production
+            - unioncloud_production
         warm: 1
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
