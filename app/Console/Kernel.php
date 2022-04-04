@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
     {
         if(app()->environment('production')) {
             $schedule->command('progress:snapshot -E database')->dailyAt('02:00')->runInBackground();
-            $schedule->command('progress:snapshot 8 -E airtable')->weekly()->runInBackground();
+            // $schedule->command('progress:snapshot 8 -E airtable')->weekly()->runInBackground();
             $schedule->command('progress:snapshot 9 -E airtable2022')->dailyAt('03:00')->runInBackground();
 
             $schedule->command(CreateMissingActivityInstancesForAllActivities::class)->daily()->runInBackground();
