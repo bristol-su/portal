@@ -62,7 +62,7 @@ class DeleteDuplicateRoleRows extends Command
 
             if(!in_array($modelId, $finishedModelIds)) {
                 $finishedModelIds[] = $modelId;
-                $airtable->deleteRows([$airtableId->airtableId()]);
+                $airtable->deleteRows([$airtableIdToRemove->airtableId()]);
                 $airtableIdToRemove->delete();
             }
         }
