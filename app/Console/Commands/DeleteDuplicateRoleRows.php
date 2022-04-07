@@ -54,6 +54,7 @@ class DeleteDuplicateRoleRows extends Command
 
         foreach($airtableIds as $airtableId) {
             $modelId = $airtableId->modelId();
+            dump($modelId);
             $airtableIdToRemove = AirtableId::where('model_id', $modelId)
                 ->where(
                     'model_type',
