@@ -961,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bristol-su/upload-file.git",
-                "reference": "8910b051efdcef9f8837a555dff6b23d7f7d55a1"
+                "reference": "8e60d24825ac31c2d7844dbecf362343f7b89702"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8910b051efdcef9f8837a555dff6b23d7f7d55a1",
-                "reference": "8910b051efdcef9f8837a555dff6b23d7f7d55a1",
+                "url": "https://api.github.com/repos/bristol-su/upload-file/zipball/8e60d24825ac31c2d7844dbecf362343f7b89702",
+                "reference": "8e60d24825ac31c2d7844dbecf362343f7b89702",
                 "shasum": ""
             },
             "require": {
@@ -1005,7 +1005,7 @@
                 "issues": "https://github.com/bristol-su/upload-file/issues",
                 "source": "https://github.com/bristol-su/upload-file/tree/develop"
             },
-            "time": "2022-03-21T15:00:00+00:00"
+            "time": "2022-04-07T12:19:02+00:00"
         },
         {
             "name": "defuse/php-encryption",
