@@ -39,7 +39,7 @@ class CleanUpRolesFromControl extends Command
      */
     public function handle()
     {
-        foreach(AirtableId::where('model_type', 'control_Roles_appTjlOrph4ESz2tw')->get() as $airtableId) {
+        foreach(AirtableId::where('model_type', sprintf('control_%s_%s', config('control.export.bristol-control-roles.tableName'), config('control.export.bristol-control-roles.baseId')))->get() as $airtableId) {
             ClearRoleIfMissing::dispatch($airtableId);
         }
         // Get all the roles as they exist on AirTable from the airtable ID col.

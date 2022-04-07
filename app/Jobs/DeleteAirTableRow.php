@@ -14,7 +14,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class ClearRoleIfMissing implements ShouldQueue
+class DeleteAirTableRow implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -38,13 +38,10 @@ class ClearRoleIfMissing implements ShouldQueue
      */
     public function handle()
     {
-        try {
-            app(Role::class)->getById((int) $this->airtableId->modelId());
-        } catch (ModelNotFoundException $e) {
-            /** @var AirTable $at */
-            DeleteAirTableRow::dispatch($this->airtableId);
-            \Log::info('Airtable ID ' . $this->airtableId->airtableId() . ' should be deleted');
-        }
-        //
+        $at = app(AirTable::class);
+        $at->setApiKey(config('control.export.bristol-control-roles.apiKey'));
+        $at->setBaseId(config('control.export.bristol-control-roles.baseId'));
+        $at->setTableName(config('control.export.bristol-control-roles.tableName'));
+//        $at->deleteRows([$this->airtableId->airtableId()]);
     }
 }
