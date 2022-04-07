@@ -45,7 +45,6 @@ class DeleteDuplicateRoleRows extends Command
         $airtable->setBaseId(config('control.export.bristol-control-roles.baseId'));
         $airtable->setTableName(config('control.export.bristol-control-roles.tableName'));
 
-        $deleted = 0;
         $finishedModelIds = [];
         $airtableIds = AirtableId::where(
             'model_type',
@@ -54,7 +53,6 @@ class DeleteDuplicateRoleRows extends Command
 
         foreach($airtableIds as $airtableId) {
             $modelId = $airtableId->modelId();
-            dump($modelId);
             $airtableIdToRemove = AirtableId::where('model_id', $modelId)
                 ->where(
                     'model_type',
@@ -64,14 +62,10 @@ class DeleteDuplicateRoleRows extends Command
 
             if(!in_array($modelId, $finishedModelIds)) {
                 $finishedModelIds[] = $modelId;
-                $deleted++;
-//                $airtable->deleteRows([$airtableId->airtableId()]);
-//                $airtableIdToRemove->delete();
+                $airtable->deleteRows([$airtableId->airtableId()]);
+                $airtableIdToRemove->delete();
             }
-
         }
-
-        dd($deleted);
 
         return 0;
     }
