@@ -42,7 +42,7 @@ class DeleteDuplicateRoleRows extends Command
         $airtableIds = AirtableId::where(
             'model_type',
             sprintf('control_%s_%s', config('control.export.bristol-control-roles.tableName'), config('control.export.bristol-control-roles.baseId'))
-        )->groupBy(DB::raw('count(model_id)'))->having(DB::raw('count(model_id)'), '>', 1)->get([DB::raw('count(model_id)'), 'model_id']);
+        )->groupBy('model_id')->having(DB::raw('count(model_id)'), '>', 1)->get([DB::raw('count(model_id)'), 'model_id']);
 
         dd($airtableIds);
 
