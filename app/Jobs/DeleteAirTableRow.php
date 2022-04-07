@@ -42,6 +42,6 @@ class DeleteAirTableRow implements ShouldQueue
         $at->setApiKey(config('control.export.bristol-control-roles.apiKey'));
         $at->setBaseId(config('control.export.bristol-control-roles.baseId'));
         $at->setTableName(config('control.export.bristol-control-roles.tableName'));
-//        $at->deleteRows([$this->airtableId->airtableId()]);
+        $at->deleteRows([$this->airtableId->airtableId()]);
     }
 }
