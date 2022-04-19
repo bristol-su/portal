@@ -9,7 +9,9 @@
 
         gtag('js', new Date());
 
-        gtag('config', '{{config('app.analytics.UA')}}');
+        gtag('config', '{{config('app.analytics.UA')}}', {
+            'site_speed_sample_rate': 100
+        });
     </script>
 @endif
 
