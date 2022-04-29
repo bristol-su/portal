@@ -1,4 +1,0 @@
-.Users
-* xref:index.adoc[Introduction]
-* The Basics
-** xref:activities.adoc[Activities]

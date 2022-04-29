@@ -1,7 +1,0 @@
-.Developers
-* xref:introduction.adoc[Introduction]
-* xref:authentication-registration.adoc[Authentication & Registration]
-* xref:homepage.adoc[Homepage]
-* xref:using-activities.adoc[Using Activities]
-* xref:api.adoc[API]
-* xref:management.adoc[Management]

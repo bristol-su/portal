@@ -1,0 +1,17 @@
+site_name: Bristol SU Portal
+site_url: https://bristol-su.github.io/portal
+repo_url: https://github.com/bristol-su/portal
+edit_uri: edit/develop/docs/docs/
+nav:
+  - Introduction: index.md
+theme:
+  name: material
+  features:
+    - search.suggest
+    - search.share
+  icon:
+    repo: fontawesome/brands/github
+plugins:
+  - search
+  - git-authors
+  - git-revision-date

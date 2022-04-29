@@ -1,3 +1,0 @@
-= API
-
-https://bristol-su.github.io/portal-api-docs/[https://bristol-su.github.io/portal-api-docs/#]

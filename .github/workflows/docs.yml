@@ -1,0 +1,27 @@
+name: Publish documentation 📚
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    name: Deploy docs 🚀
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./docs
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build and deploy
+        run: mkdocs gh-deploy --force --remote-branch build/documentation
