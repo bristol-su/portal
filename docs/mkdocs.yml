@@ -4,6 +4,20 @@ repo_url: https://github.com/bristol-su/portal
 edit_uri: edit/develop/docs/docs/
 nav:
   - Introduction: index.md
+  - Build an Activity:
+    - New Activity: 'build/activity.md'
+    - Adding Modules: 'build/module.md'
+    - Logic Groups: 'build/logic.md'
+    - Actions: 'build/actions.md'
+  - Using the activities:
+    - As a student: 'using/student.md'
+    - As an admin: 'using/admin.md'
+  - Modules:
+    - File Upload: 'modules/file-upload.md'
+    - Assign Roles: 'modules/assign-roles.md'
+    - Data Entry: 'modules/data-entry.md'
+    - Static Page: 'modules/static-page.md'
+    - Typeform: 'modules/typeform.md'
 theme:
   name: material
   features:
@@ -11,6 +25,15 @@ theme:
     - search.share
   icon:
     repo: fontawesome/brands/github
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+      separator: "_"
+  - attr_list
+  - md_in_html
 plugins:
   - search
   - git-authors
