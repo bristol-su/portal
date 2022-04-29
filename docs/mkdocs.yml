@@ -38,3 +38,7 @@ plugins:
   - search
   - git-authors
   - git-revision-date
+extra:
+  analytics:
+    provider: google
+    property: G-QYQYW0FYNM
