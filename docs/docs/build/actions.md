@@ -32,4 +32,4 @@ Having created your action, you should press 'Map Fields' to map data across.
 > ![Action Form](./../images/map-fields.png)
 *Above: Map event fields*
 
-The available fields are shown at the top of the dialog. Copy the `{{ }}` for the field you want to map, and paste it into the action settings.
+The available fields are shown at the top of the dialog. Copy the `{{ }}` placeholder for the field you want to map, and paste it into the action settings. These will be replaced when the action is executed.
