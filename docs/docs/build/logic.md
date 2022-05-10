@@ -1,6 +1,6 @@
 # Managing logic groups
 
-Logic groups have already been used extensively to control who can see and do what on the portal.
+Logic groups have already been used extensively to control who can see and do what on the portal. They are dynamically built groups of users based on a set of conditions, such as all users in a committee position of a sports club.
 
 You can build your own logic groups to define custom sets of users.
 
@@ -26,3 +26,6 @@ You should add a name for the filter, and fill in any settings required for the 
 *Above: Adding a new filter*
 
 It may take a few minutes for us to figure out who is in the group, but the group will keep itself up to date going forward.
+
+!!! note
+    If you'd like more examples of logic groups you can create, please contact us.

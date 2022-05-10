@@ -29,6 +29,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
       separator: "_"
@@ -38,3 +40,7 @@ plugins:
   - search
   - git-authors
   - git-revision-date
+extra:
+  analytics:
+    provider: google
+    property: G-QYQYW0FYNM
