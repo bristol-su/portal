@@ -37,7 +37,7 @@ return [
 
         'vapor-slack' => [
             'driver' => 'stack',
-            'channels' => ['stderr', 'larabug'],
+            'channels' => ['stderr', 'larabug', 'discord'],
             'ignore_exceptions' => false,
         ],
 
@@ -45,6 +45,12 @@ return [
             'driver' => 'stack',
             'channels' => ['stderr', 'verbose-slack'],
             'ignore_exceptions' => false,
+        ],
+
+        'discord' => [
+            'driver' => 'custom',
+            'via'    => MarvinLabs\DiscordLogger\Logger::class,
+            'url'    => env('LOG_DISCORD_WEBHOOK_URL'),
         ],
 
         'vapor-stack' => [

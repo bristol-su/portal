@@ -36,7 +36,8 @@
         "laravel/telescope": "^4.6.9",
         "bristol-su/portal-mail": "dev-develop",
         "bristol-su/assign-roles": "^3.0.2",
-        "bristol-su/airtable": "dev-master"
+        "bristol-su/airtable": "dev-master",
+        "marvinlabs/laravel-discord-logger": "^1.2"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.0.3",
