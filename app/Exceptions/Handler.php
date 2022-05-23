@@ -18,6 +18,8 @@ use BristolSU\Support\Authorization\Exception\ModuleInactive;
 use BristolSU\Support\Authorization\Exception\ModuleInstanceDisabled;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -52,6 +54,13 @@ class Handler extends ExceptionHandler
         'password',
         'password_confirmation',
     ];
+
+    public function __construct(Container $container)
+    {
+        unset($this->dontReport[array_search(ModelNotFoundException::class, $this->dontReport)]);
+        
+        parent::__construct($container);
+    }
 
     /**
      * Register the exception handling callbacks for the application.
