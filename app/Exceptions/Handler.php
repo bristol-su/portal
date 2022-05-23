@@ -55,11 +55,13 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
-    public function __construct(Container $container)
+    protected function shouldntReport(Throwable $e)
     {
-        unset($this->internalDontReport[array_search(ModelNotFoundException::class, $this->internalDontReport)]);
+        if($e instanceof ModelNotFoundException) {
+            return false;
+        }
 
-        parent::__construct($container);
+        return parent::shouldntReport($e);
     }
 
     /**
