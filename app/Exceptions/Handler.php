@@ -57,8 +57,8 @@ class Handler extends ExceptionHandler
 
     public function __construct(Container $container)
     {
-        unset($this->dontReport[array_search(ModelNotFoundException::class, $this->dontReport)]);
-        
+        unset($this->internalDontReport[array_search(ModelNotFoundException::class, $this->internalDontReport)]);
+
         parent::__construct($container);
     }
 
