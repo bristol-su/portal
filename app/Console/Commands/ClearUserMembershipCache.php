@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use BristolSU\ControlDB\Contracts\Models\Group;
 use BristolSU\ControlDB\Contracts\Repositories\User;
 use BristolSU\UnionCloud\Events\UsersMembershipsRetrieved;
 use BristolSU\UnionCloud\Implementations\UserGroup;
@@ -59,6 +60,10 @@ class ClearUserMembershipCache extends Command
             $groups = $this->repository->getGroupsThroughUser($controlUser);
             $this->line('Found ' . count($groups) . ' groups.');
             UsersMembershipsRetrieved::dispatch($controlUser, $groups);
+            cache()->forever(
+                sprintf('%s@getGroupsThroughUser:%s', \BristolSU\ControlDB\Cache\Pivots\UserGroup::class, $controlUser->id()),
+                $groups->map(fn(Group $group) => $group->id())->all()
+            );
         } catch (\Exception $e) {
             $this->error('Failed caching memberships for user #' . $controlUserId);
             if($e instanceof ModelNotFoundException) {
