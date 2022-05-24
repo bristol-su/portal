@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use BristolSU\ControlDB\Contracts\Repositories\Pivots\UserGroup;
 use BristolSU\ControlDB\Contracts\Repositories\User;
 use BristolSU\UnionCloud\Events\UsersMembershipsRetrieved;
+use BristolSU\UnionCloud\Implementations\UserGroup;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
