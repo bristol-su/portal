@@ -15,6 +15,8 @@ use App\Rules\CustomValidator;
 use App\Rules\ModuleAlias;
 use BristolSU\Support\Action\Facade\ActionManager;
 use BristolSU\Support\Filters\Contracts\FilterManager as FilterManagerContract;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Validator::extend('modulealias', fn ($attribute, $value, $parameters, $validator) => app(ModuleAlias::class)->passes($attribute, $value), app(ModuleAlias::class)->message());
+
+        RateLimiter::for('airtable', function ($job) {
+            return Limit::perMinute(5);
+        });
 
     }
 
