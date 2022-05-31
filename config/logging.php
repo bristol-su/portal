@@ -37,7 +37,7 @@ return [
 
         'vapor-slack' => [
             'driver' => 'stack',
-            'channels' => ['stderr', 'larabug', 'discord'],
+            'channels' => ['stderr', 'larabug', 'verbose-slack'],
             'ignore_exceptions' => false,
         ],
 
