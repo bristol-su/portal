@@ -51,6 +51,8 @@ class ClearUserMembershipCache extends Command
     public function handle()
     {
 
+
+
         $controlUserId = (int) $this->argument('userId');
 
         $this->line('Caching memberships for user #' . $controlUserId);
@@ -60,8 +62,10 @@ class ClearUserMembershipCache extends Command
             $groups = $this->repository->getGroupsThroughUser($controlUser);
             $this->line('Found ' . count($groups) . ' groups.');
             UsersMembershipsRetrieved::dispatch($controlUser, $groups);
+            $key = sprintf('%s@getGroupsThroughUser:%s', \BristolSU\ControlDB\Cache\Pivots\UserGroup::class, $controlUser->id());
+            cache()->forget($key);
             cache()->forever(
-                sprintf('%s@getGroupsThroughUser:%s', \BristolSU\ControlDB\Cache\Pivots\UserGroup::class, $controlUser->id()),
+                $key,
                 $groups->map(fn(Group $group) => $group->id())->all()
             );
         } catch (\Exception $e) {
