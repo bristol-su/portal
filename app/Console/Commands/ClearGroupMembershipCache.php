@@ -56,6 +56,8 @@ class ClearGroupMembershipCache extends Command
 
         try {
             $controlGroup = app(Group::class)->getById($controlGroupId);
+            $key = sprintf('%s@getUsersThroughGroup:%s', \BristolSU\ControlDB\Cache\Pivots\UserGroup::class, $controlGroup->id());
+            cache()->forget($key);
             $users = $this->repository->getUsersThroughGroup($controlGroup);
             $this->line('Found ' . count($users) . ' users.');
             UsersWithMembershipToGroupRetrieved::dispatch($controlGroup, $users);
